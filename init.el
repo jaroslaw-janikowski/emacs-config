@@ -1,3 +1,61 @@
+(require 'nxml-mode)
+
+(defun my/in-start-tag-p ()
+  (let ((token-end (nxml-token-before))
+	(pod (1+ (point)))
+	(token-start xmltok-start))
+    (or (eq xmltok-type 'partial-start-tag)
+	(and (memq xmltok-type '(start-tag empty-element partial-empty-element))
+	     (>= token-end pos)))))
+
+(defun my/finish-element ()
+  (interactive)
+  (if (my/in-start-tag-p)
+      (nxml-balanced-close-start-tag-inline)
+    (insert ">")))
+
+(defun my/nxml-newline ()
+  "Insert a newline, indenting the current line and the newline appropriately in nxml-mode."
+  (interactive)
+  (if (and (char-before) (char-after)
+	   (char-equal (char-before) ?>)
+	   (char-equal (char-after) ?<))
+      (let ((indentation (current-indentation)))
+	(newline)
+	(indent-line-to (+ indentation 4))
+	(newline)
+	(indent-line-to indentation)
+	(previous-line)
+	(end-of-line))
+    (newline-and-indent)))
+
+(defun my/c-mode-newline-between-braces ()
+  "Wcięcie gdy kursor znajduje się pomiędzy klamrami {|}."
+  (interactive)
+  (if (and (eq major-mode 'c-mode)
+           (eq (char-after) ?})
+           (eq (char-before) ?{))
+      (progn
+        (newline-and-indent)
+        (c-indent-line-or-region)
+        (forward-line -1)
+        (end-of-line)
+        (newline-and-indent)
+        (c-indent-line-or-region))
+    (newline-and-indent)))
+
+(defun my/create-new-file ()
+  "Create a new empty buffer and save it to a file."
+  (interactive)
+  (let ((buffer (generate-new-buffer "untitled")))
+    (switch-to-buffer buffer)
+    (write-file (read-file-name "Save as: "))))
+
+(defun my/create-new-directory ()
+  "Create new empty directory."
+  (interactive)
+  (make-directory (read-directory-name "Save as: ")))
+
 (show-paren-mode t)
 (tool-bar-mode -1)
 (cua-mode t)
@@ -31,7 +89,14 @@
       executable-prefix-env t
       initial-scratch-message nil
       tab-width 4
-      enable-local-variables nil)
+      enable-local-variables nil
+      nxml-slash-autocomplete-flag t
+      nxml-mode-map (make-keymap))
+
+(setq-default dired-kill-when-opening-new-dired-buffer t
+              c-default-style "k&r"
+              c-basic-offset 4
+              c-electric-flag t)
 
 ;; hotkeys
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
@@ -50,3 +115,12 @@
 (global-set-key (kbd "M-x") 'kill-this-buffer)
 (global-set-key (kbd "C-p") 'helm-find-files)
 (global-set-key (kbd "C-f") 'helm-occur)
+(global-set-key (kbd "C-n") 'my/create-new-file)
+(global-set-key (kbd "C-S-n") 'my/create-new-directory)
+(define-key nxml-mode-map (kbd ">") 'my/finish-element)
+(define-key nxml-mode-map (kbd "RET") 'my/nxml-newline)
+
+(add-hook 'c-mode-hook (lambda () (local-set-key (kbd "RET") 'my/c-mode-newline-between-braces)))
+(add-hook 'nxml-mode-hook 'display-line-numbers-mode)
+
+;;; init.el ends here
