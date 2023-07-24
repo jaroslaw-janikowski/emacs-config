@@ -1,5 +1,16 @@
 (require 'nxml-mode)
 
+(defun my/move-line-up ()
+  (interactive)
+  (transpose-lines 1)
+  (previous-logical-line 2))
+
+(defun my/move-line-down ()
+  (interactive)
+  (next-logical-line 1)
+  (transpose-lines 1)
+  (previous-logical-line 1))
+
 (defun my/in-start-tag-p ()
   (let ((token-end (nxml-token-before))
 	(pod (1+ (point)))
@@ -105,6 +116,8 @@
 (global-set-key (kbd "C-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-<down>") 'scroll-up-line)
 (global-set-key (kbd "C-<up>") 'scroll-down-line)
+(global-set-key (kbd "C-S-<up>") 'my/move-line-up)
+(global-set-key (kbd "C-S-<down>") 'my/move-line-down)
 (global-set-key (kbd "C-z") 'undo-only)
 (global-set-key (kbd "C-S-z") 'undo-redo)
 (global-set-key (kbd "C-s") 'save-buffer)
@@ -125,3 +138,4 @@
 (add-hook 'nxml-mode-hook 'display-line-numbers-mode)
 
 ;;; init.el ends here
+
