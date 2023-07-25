@@ -1,0 +1,7 @@
+#!/bin/ash
+
+apk add emacs-x11-nativecomp build-base findutils git
+su box
+git clone --depth 1 https://github.com/jaroslaw-janikowski/emacs-config ~/.emacs.d
+emacs --batch --execute "(package-install 'helm)"
+exit
