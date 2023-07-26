@@ -67,7 +67,7 @@
   (interactive)
   (make-directory (read-directory-name "Save as: ")))
 
-(load-theme 'adwaita)
+(load-theme 'wheatgrass)
 (show-paren-mode t)
 (tool-bar-mode -1)
 (cua-mode t)
