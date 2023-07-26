@@ -73,7 +73,7 @@
 (cua-mode t)
 (menu-bar-mode -1)
 (save-place-mode t)
-(display-line-numbers-mode t)
+(global-display-line-numbers-mode t)
 (global-hl-line-mode t)
 (column-number-mode t)
 (delete-selection-mode t)
