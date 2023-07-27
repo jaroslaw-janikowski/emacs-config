@@ -117,6 +117,8 @@
               c-basic-offset 4
               c-electric-flag t)
 
+(add-to-list 'company-backends '(company-yasnippet))
+
 ;; hotkeys
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-set-key (kbd "S-<delete>") 'kill-whole-line)
