@@ -85,6 +85,7 @@
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (helm-mode 1)
+(global-company-mode)
 
 (setq warning-minimum-level :error
       inhibit-startup-screen t
@@ -103,7 +104,11 @@
       tab-width 4
       enable-local-variables nil
       nxml-slash-autocomplete-flag t
-      nxml-mode-map (make-keymap))
+      nxml-mode-map (make-keymap)
+      company-minimum-prefix-length 2
+      company-idle-delay 0
+      company-selection-wrap-around t
+      company-files-exclusions '(".git/" ".DS_Store" "__pycache__/"))
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
               c-default-style "k&r"
@@ -138,4 +143,3 @@
 (add-hook 'nxml-mode-hook 'display-line-numbers-mode)
 
 ;;; init.el ends here
-
