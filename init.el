@@ -1,4 +1,5 @@
 (require 'nxml-mode)
+(require 'yasnippet)
 
 (defun my/move-line-up ()
   (interactive)
@@ -86,6 +87,7 @@
 (set-keyboard-coding-system 'utf-8)
 (helm-mode 1)
 (global-company-mode)
+(yas-global-mode 1)
 
 (setq warning-minimum-level :error
       inhibit-startup-screen t

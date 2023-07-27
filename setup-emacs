@@ -5,4 +5,4 @@ apk add emacs-x11-nativecomp build-base findutils git
 exit
 emacs --batch --execute "(package-install 'helm)"
 emacs --batch --execute "(package-install 'company)"
-
+emacs --batch --execute "(package-install 'yasnippet)"
