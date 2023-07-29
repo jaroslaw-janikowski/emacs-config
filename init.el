@@ -68,6 +68,10 @@
   (interactive)
   (make-directory (read-directory-name "Save as: ")))
 
+(add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
+(add-hook 'c-mode-hook (lambda () (local-set-key (kbd "RET") 'my/c-mode-newline-between-braces)))
+(add-hook 'nxml-mode-hook 'display-line-numbers-mode)
+
 (load-theme 'wheatgrass)
 (show-paren-mode t)
 (tool-bar-mode -1)
@@ -85,6 +89,7 @@
 (prefer-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
+(global-visual-line-mode +1)
 (helm-mode 1)
 (global-company-mode)
 (yas-global-mode 1)
@@ -115,7 +120,8 @@
 (setq-default dired-kill-when-opening-new-dired-buffer t
               c-default-style "k&r"
               c-basic-offset 4
-              c-electric-flag t)
+              c-electric-flag t
+	      adaptive-wrap-extra-indent 0)
 
 (add-to-list 'company-backends '(company-yasnippet))
 
@@ -142,8 +148,5 @@
 (global-set-key (kbd "C-S-n") 'my/create-new-directory)
 (define-key nxml-mode-map (kbd ">") 'my/finish-element)
 (define-key nxml-mode-map (kbd "RET") 'my/nxml-newline)
-
-(add-hook 'c-mode-hook (lambda () (local-set-key (kbd "RET") 'my/c-mode-newline-between-braces)))
-(add-hook 'nxml-mode-hook 'display-line-numbers-mode)
 
 ;;; init.el ends here
