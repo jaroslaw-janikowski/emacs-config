@@ -1,5 +1,37 @@
 (require 'nxml-mode)
 (require 'yasnippet)
+(require 'helm-find)
+
+(defun helm-find--build-cmd-line ()
+  "Specjalna wersja funkcji zapewniająca wyszukiwanie rekurencyjne dla helm-find."
+  (require 'find-cmd)
+  (let* ((default-directory (or (file-remote-p default-directory 'localname)
+                                default-directory))
+         (patterns+options (split-string helm-pattern "\\(\\`\\| +\\)\\* +"))
+         (fold-case (helm-set-case-fold-search (car patterns+options)))
+         (patterns (split-string (car patterns+options)))
+         (additional-options (and (cdr patterns+options)
+                                  (list (concat (cadr patterns+options) " "))))
+         (ignored-dirs ())
+         (ignored-files (when helm-findutils-skip-boring-files
+                          (cl-loop for f in completion-ignored-extensions
+                                   if (string-match "/$" f)
+                                   do (push (replace-match "" nil t f)
+                                            ignored-dirs)
+                                   else collect (concat "*" f))))
+         (path-or-name (if helm-findutils-search-full-path
+                           '(ipath path) '(iname name)))
+         (name-or-iname (if fold-case
+                            (car path-or-name) (cadr path-or-name))))
+    (find-cmd (and ignored-dirs
+                   `(prune (name ,@ignored-dirs)))
+              (and ignored-files
+                   `(not (name ,@ignored-files)))
+              `(and ,@(mapcar
+                       (lambda (pattern)
+                         `(,name-or-iname ,(concat "**" pattern "*"))) ;;; <- fix
+                       patterns)
+                    ,@additional-options))))
 
 (defun my/move-line-up ()
   (interactive)
