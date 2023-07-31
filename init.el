@@ -5,8 +5,8 @@
 (defun helm-find--build-cmd-line ()
   "Specjalna wersja funkcji zapewniająca wyszukiwanie rekurencyjne dla helm-find."
   (require 'find-cmd)
-  (let* ((default-directory (or (file-remote-p default-directory 'localname)
-                                default-directory))
+  (let* ((command-line-default-directory (or (file-remote-p command-line-default-directory 'localname)
+                                command-line-default-directory))
          (patterns+options (split-string helm-pattern "\\(\\`\\| +\\)\\* +"))
          (fold-case (helm-set-case-fold-search (car patterns+options)))
          (patterns (split-string (car patterns+options)))
@@ -32,6 +32,16 @@
                          `(,name-or-iname ,(concat "**" pattern "*"))) ;;; <- fix
                        patterns)
                     ,@additional-options))))
+
+(defun helm-find (arg)
+  "Patch umożliwiający wysukiwanie plików z poziomu katalogu root projektu."
+  (interactive "P")
+  (let ((directory
+	 (if arg
+	     (file-name-as-directory
+	      (read-directory-name "DefaultDirectory: "))
+	   command-line-default-directory)))  ;;; <- fix
+    (helm-find-1 directory)))
 
 (defun my/move-line-up ()
   (interactive)
