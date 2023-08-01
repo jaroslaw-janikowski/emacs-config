@@ -115,7 +115,7 @@
   (flyspell-mode))
 
 (defun my/setup-prog-mode()
-  (setq company-backends '((company-dabbrev-code company-keyword company-files company-capf)))
+  (setq company-backends '((company-yasnippet company-dabbrev-code company-keyword company-files company-capf)))
   (flyspell-prog-mode))
 
 (load-theme 'wheatgrass)
@@ -202,7 +202,5 @@
 (add-hook 'nxml-mode-hook 'display-line-numbers-mode)
 (add-hook 'text-mode-hook 'my/setup-text-mode)
 (add-hook 'prog-mode-hook 'my/setup-prog-mode)
-
-(add-to-list 'company-backends '(company-yasnippet))
 
 ;;; init.el ends here
