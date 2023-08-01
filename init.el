@@ -111,10 +111,10 @@
   (make-directory (read-directory-name "Save as: ")))
 
 (defun my/setup-text-mode()
-  (setq company-backends '(company-dabbrev company-ispell)))
+  (setq company-backends '((company-ispell company-dabbrev))))
 
 (defun my/setup-prog-mode()
-  (setq company-backends '(company-dabbrev-code company-keyword company-files company-capf)))
+  (setq company-backends '((company-dabbrev-code company-keyword company-files company-capf))))
 
 (load-theme 'wheatgrass)
 (show-paren-mode t)
@@ -189,6 +189,7 @@
 (global-set-key (kbd "M-<right>") 'next-buffer)
 (global-set-key (kbd "C-p") 'helm-find)
 (global-set-key (kbd "C-f") 'helm-occur)
+(global-set-key (kbd "C-<space>") 'company-complete)
 (global-set-key (kbd "C-n") 'my/create-new-file)
 (global-set-key (kbd "C-S-n") 'my/create-new-directory)
 (define-key nxml-mode-map (kbd ">") 'my/finish-element)
@@ -200,6 +201,6 @@
 (add-hook 'text-mode-hook 'my/setup-text-mode)
 (add-hook 'prog-mode-hook 'my/setup-prog-mode)
 
-(add-to-list company-backends '(company-yasnippet))
+(add-to-list 'company-backends '(company-yasnippet))
 
 ;;; init.el ends here
