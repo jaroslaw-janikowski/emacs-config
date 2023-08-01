@@ -139,6 +139,7 @@
 (helm-mode 1)
 (global-company-mode)
 (yas-global-mode 1)
+(org-babel-do-load-languages 'org-babel-load-languages '((python . t) (shell . t)))
 
 (setq warning-minimum-level :error
       inhibit-startup-screen t
@@ -162,7 +163,11 @@
       company-idle-delay 0
       company-selection-wrap-around t
       company-files-exclusions '(".git/" ".DS_Store" "__pycache__/")
-      company-dabbrev-minimum-length 2)
+      company-dabbrev-minimum-length 2
+      python-shell-interpreter "ipython3"
+      python-shell-interpreter-args "-i --simple-prompt"
+      org-confirm-babel-evaluate nil
+      org-babel-python-command "ipython3 -i --simple-prompt")
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
               c-default-style "k&r"
