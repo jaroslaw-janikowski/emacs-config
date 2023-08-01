@@ -110,9 +110,11 @@
   (interactive)
   (make-directory (read-directory-name "Save as: ")))
 
-(add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
-(add-hook 'c-mode-hook (lambda () (local-set-key (kbd "RET") 'my/c-mode-newline-between-braces)))
-(add-hook 'nxml-mode-hook 'display-line-numbers-mode)
+(defun my/setup-text-mode()
+  (setq company-backends '(company-dabbrev company-ispell)))
+
+(defun my/setup-prog-mode()
+  (setq company-backends '(company-dabbrev-code company-keyword company-files company-capf)))
 
 (load-theme 'wheatgrass)
 (show-paren-mode t)
@@ -157,15 +159,14 @@
       company-minimum-prefix-length 2
       company-idle-delay 0
       company-selection-wrap-around t
-      company-files-exclusions '(".git/" ".DS_Store" "__pycache__/"))
+      company-files-exclusions '(".git/" ".DS_Store" "__pycache__/")
+      company-dabbrev-minimum-length 2)
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
               c-default-style "k&r"
               c-basic-offset 4
               c-electric-flag t
 	      adaptive-wrap-extra-indent 0)
-
-(add-to-list 'company-backends '(company-yasnippet))
 
 ;; hotkeys
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
@@ -192,5 +193,13 @@
 (global-set-key (kbd "C-S-n") 'my/create-new-directory)
 (define-key nxml-mode-map (kbd ">") 'my/finish-element)
 (define-key nxml-mode-map (kbd "RET") 'my/nxml-newline)
+
+(add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
+(add-hook 'c-mode-hook (lambda () (local-set-key (kbd "RET") 'my/c-mode-newline-between-braces)))
+(add-hook 'nxml-mode-hook 'display-line-numbers-mode)
+(add-hook 'text-mode-hook 'my/setup-text-mode)
+(add-hook 'prog-mode-hook 'my/setup-prog-mode)
+
+(add-to-list company-backends '(company-yasnippet))
 
 ;;; init.el ends here
