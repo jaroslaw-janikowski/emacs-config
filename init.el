@@ -139,7 +139,7 @@
 (helm-mode 1)
 (global-company-mode)
 (yas-global-mode 1)
-(org-babel-do-load-languages 'org-babel-load-languages '((python . t) (shell . t)))
+(org-babel-do-load-languages 'org-babel-load-languages '((python . t) (shell . t) (scheme . t)))
 
 (setq warning-minimum-level :error
       inhibit-startup-screen t
@@ -167,7 +167,8 @@
       python-shell-interpreter "ipython3"
       python-shell-interpreter-args "-i --simple-prompt"
       org-confirm-babel-evaluate nil
-      org-babel-python-command "ipython3 -i --simple-prompt")
+      org-babel-python-command "ipython3 -i --simple-prompt"
+      geiser-default-implementation 'guile)
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
               c-default-style "k&r"
