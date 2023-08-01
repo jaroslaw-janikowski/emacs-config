@@ -111,10 +111,12 @@
   (make-directory (read-directory-name "Save as: ")))
 
 (defun my/setup-text-mode()
-  (setq company-backends '((company-ispell company-dabbrev))))
+  (setq company-backends '((company-ispell company-dabbrev)))
+  (flyspell-mode))
 
 (defun my/setup-prog-mode()
-  (setq company-backends '((company-dabbrev-code company-keyword company-files company-capf))))
+  (setq company-backends '((company-dabbrev-code company-keyword company-files company-capf)))
+  (flyspell-prog-mode))
 
 (load-theme 'wheatgrass)
 (show-paren-mode t)
