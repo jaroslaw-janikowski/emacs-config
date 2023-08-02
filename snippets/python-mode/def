@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: def
+# key: def
+# --
+def ${1:name}(${2:params})${3: -> ${4:ret-type}}:
+    $0
