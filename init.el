@@ -2,6 +2,11 @@
 (require 'yasnippet)
 (require 'helm-find)
 
+(defun my/on-escape()
+  (interactive)
+  (company-abort)
+  (keyboard-escape-quit))
+
 (defun helm-find--build-cmd-line ()
   "Specjalna wersja funkcji zapewniająca wyszukiwanie rekurencyjne dla helm-find."
   (require 'find-cmd)
@@ -177,7 +182,7 @@
 	      adaptive-wrap-extra-indent 0)
 
 ;; hotkeys
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+(global-set-key (kbd "<escape>") 'my/on-escape)
 (global-set-key (kbd "S-<delete>") 'kill-whole-line)
 (global-set-key (kbd "C-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-<down>") 'scroll-up-line)
