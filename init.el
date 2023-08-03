@@ -1,4 +1,5 @@
 (require 'nxml-mode)
+(require 'hexl)
 (require 'yasnippet)
 (require 'helm-find)
 
@@ -207,6 +208,9 @@
 (global-set-key (kbd "C-S-n") 'my/create-new-directory)
 (define-key nxml-mode-map (kbd ">") 'my/finish-element)
 (define-key nxml-mode-map (kbd "RET") 'my/nxml-newline)
+(define-key hexl-mode-map (kbd "M-<right>") nil)
+(define-key hexl-mode-map (kbd "M-<left>") nil)
+(define-key hexl-mode-map (kbd "C-q") nil)
 
 (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
 (add-hook 'c-mode-hook (lambda () (local-set-key (kbd "RET") 'my/c-mode-newline-between-braces)))
