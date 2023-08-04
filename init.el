@@ -145,6 +145,7 @@
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (global-visual-line-mode +1)
+(electric-pair-mode t)
 (helm-mode 1)
 (global-company-mode)
 (yas-global-mode 1)
