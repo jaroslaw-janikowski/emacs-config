@@ -1,8 +1,5 @@
 #!/bin/ash
 
-su root
-apk add emacs-x11-nativecomp build-base findutils git ispell iamerican ipolish
-exit
 emacs --batch --execute "(package-install 'adaptive-wrap)"
 emacs --batch --execute "(package-install 'helm)"
 emacs --batch --execute "(package-install 'company)"
