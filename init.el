@@ -178,7 +178,8 @@
       python-shell-interpreter-args "-i --simple-prompt"
       org-confirm-babel-evaluate nil
       org-babel-python-command "ipython3 -i --simple-prompt"
-      geiser-default-implementation 'guile)
+      geiser-default-implementation 'guile
+      switch-to-prev-buffer-skip-regexp '("^\*Messages\*" "^\*Async-native-compile-log\*" "^\*Warnings\*" "^\*helm*"))
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
               c-default-style "k&r"
