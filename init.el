@@ -226,4 +226,6 @@
 (add-hook 'prog-mode-hook 'my/setup-prog-mode)
 (add-hook 'python-mode-hook 'my/setup-python-mode)
 
+(add-to-list 'auto-mode-alist '("^.*\.md$" . markdown-mode))
+
 ;;; init.el ends here
