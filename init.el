@@ -127,6 +127,9 @@
 (defun my/setup-python-mode()
   (eglot-ensure))
 
+(defun my/setup-sqli-mode()
+  (toggle-truncate-lines t))
+
 (load-theme 'wheatgrass)
 (show-paren-mode t)
 (tool-bar-mode -1)
@@ -225,6 +228,7 @@
 (add-hook 'text-mode-hook 'my/setup-text-mode)
 (add-hook 'prog-mode-hook 'my/setup-prog-mode)
 (add-hook 'python-mode-hook 'my/setup-python-mode)
+(add-hook 'sql-interactive-mode-hook 'my/setup-sqli-mode)
 
 (add-to-list 'auto-mode-alist '("^.*\.md$" . markdown-mode))
 
