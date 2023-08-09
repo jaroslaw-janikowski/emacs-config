@@ -2,6 +2,7 @@
 (require 'hexl)
 (require 'yasnippet)
 (require 'helm-find)
+(require 'web-mode)
 
 (defun my/on-escape()
   (interactive)
@@ -130,6 +131,9 @@
 (defun my/setup-sqli-mode()
   (toggle-truncate-lines t))
 
+(defun my/on-before-save()
+  (delete-trailing-whitespace))
+
 (load-theme 'wheatgrass)
 (show-paren-mode t)
 (tool-bar-mode -1)
@@ -182,7 +186,15 @@
       org-confirm-babel-evaluate nil
       org-babel-python-command "ipython3 -i --simple-prompt"
       geiser-default-implementation 'guile
-      switch-to-prev-buffer-skip-regexp '("^\*Messages\*" "^\*Async-native-compile-log\*" "^\*Warnings\*" "^\*helm*"))
+      switch-to-prev-buffer-skip-regexp '("^\*Messages\*" "^\*Async-native-compile-log\*" "^\*Warnings\*" "^\*helm*")
+      web-mode-engines-alist '(("php" . "\\.phtml\\'")
+			       ("blade" . "\\.blade\\."))
+      web-mode-markup-indent-offset 4
+      web-mode-css-indent-offset 4
+      web-mode-code-indent-offset 4
+      web-mode-enable-auto-pairing t
+      web-mode-enable-current-element-highlight t
+      web-mode-enable-current-column-highlight t)
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
               c-default-style "k&r"
@@ -229,7 +241,11 @@
 (add-hook 'prog-mode-hook 'my/setup-prog-mode)
 (add-hook 'python-mode-hook 'my/setup-python-mode)
 (add-hook 'sql-interactive-mode-hook 'my/setup-sqli-mode)
+(add-hook 'before-save-hook 'my/on-before-save)
 
 (add-to-list 'auto-mode-alist '("^.*\.md$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
 ;;; init.el ends here
