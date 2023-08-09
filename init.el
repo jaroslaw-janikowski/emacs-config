@@ -3,6 +3,7 @@
 (require 'yasnippet)
 (require 'helm-find)
 (require 'web-mode)
+(require 'magit)
 
 (defun my/on-escape()
   (interactive)
