@@ -126,7 +126,8 @@
 
 (defun my/setup-prog-mode()
   (setq company-backends '((company-yasnippet company-dabbrev-code company-keyword company-files company-capf)))
-  (flyspell-prog-mode))
+  (flyspell-prog-mode)
+  (idle-highlight-mode t))
 
 (defun my/setup-python-mode()
   (eglot-ensure))
