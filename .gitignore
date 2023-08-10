@@ -4,3 +4,4 @@ auto-save-list/
 transient/
 eshell/
 places
+.mc-lists.el

@@ -4,11 +4,13 @@
 (require 'helm-find)
 (require 'web-mode)
 (require 'magit)
+(require 'multiple-cursors)
 
 (defun my/on-escape()
   (interactive)
   (company-abort)
-  (keyboard-escape-quit))
+  (keyboard-escape-quit)
+  (mc/keyboard-quit))
 
 (defun helm-find--build-cmd-line ()
   "Specjalna wersja funkcji zapewniająca wyszukiwanie rekurencyjne dla helm-find."
@@ -228,6 +230,8 @@
 (global-set-key (kbd "C-n") 'my/create-new-file)
 (global-set-key (kbd "C-S-n") 'my/create-new-directory)
 (global-set-key (kbd "C-S-t") 'eshell)
+(global-set-key (kbd "C-d") 'mc/mark-next-like-this)
+(define-key mc/keymap (kbd "<return>") nil)
 (define-key nxml-mode-map (kbd ">") 'my/finish-element)
 (define-key nxml-mode-map (kbd "RET") 'my/nxml-newline)
 (define-key hexl-mode-map (kbd "M-<right>") nil)
