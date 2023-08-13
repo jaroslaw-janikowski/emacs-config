@@ -6,6 +6,12 @@
 (require 'magit)
 (require 'multiple-cursors)
 
+(defun my/grep-under-cursor(arg)
+  (interactive "P")
+  (let ((word (thing-at-point 'word)))
+    (if word
+	(helm-grep-ag (expand-file-name command-line-default-directory) arg))))
+
 (defun my/on-escape()
   (interactive)
   (company-abort)
@@ -227,6 +233,8 @@
 (global-set-key (kbd "M-<right>") 'next-buffer)
 (global-set-key (kbd "C-p") 'helm-find)
 (global-set-key (kbd "C-f") 'helm-occur)
+(global-set-key (kbd "C-S-f") 'helm-do-grep-ag)
+(global-set-key (kbd "<f12>") 'my/grep-under-cursor)
 (global-set-key (kbd "C-<space>") 'company-complete)
 (global-set-key (kbd "C-n") 'my/create-new-file)
 (global-set-key (kbd "C-S-n") 'my/create-new-directory)
