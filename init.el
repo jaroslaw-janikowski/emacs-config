@@ -6,6 +6,11 @@
 (require 'magit)
 (require 'multiple-cursors)
 
+(defun setup-emacs()
+  (interactive)
+  (dolist (package-name '('adaptive-wrap 'helm 'company 'yasnippet 'geiser-guile 'markdown-mode 'web-mode 'magit 'multiple-cursors 'idle-highlight-mode))
+    (package-install package-name)))
+
 (defun my/grep-under-cursor(arg)
   (interactive "P")
   (let ((word (thing-at-point 'word)))
