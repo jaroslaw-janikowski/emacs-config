@@ -227,6 +227,7 @@
 (global-set-key (kbd "C-S-<down>") 'my/move-line-down)
 (global-set-key (kbd "C-z") 'undo-only)
 (global-set-key (kbd "C-S-z") 'undo-redo)
+(global-set-key (kbd "C-g") 'goto-line)
 (global-set-key (kbd "C-s") 'save-buffer)
 (global-set-key (kbd "C-q") 'save-buffers-kill-emacs)
 (global-set-key (kbd "C--") 'text-scale-decrease)
