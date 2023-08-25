@@ -1,0 +1,29 @@
+# -*- mode: snippet -*-
+# name: CRUD-fastapi
+# key: CRUD-fastapi
+# --
+@app.post('${1:/endpoint}', status_code=status.HTTP_201_CREATED)
+def create_${2:name}(${3:item}: ${4:ModelClass}):
+    session.add(${3:item})
+    session.commit()
+    return ${3:item}
+
+
+@app.get('${1:/endpoint}', response_model=list[${4:ModelClass}])
+def get_${2:name}():
+    return session.query(${4:ModelClass}).all()
+
+
+@app.put('${1:/endpoint}/{${3:item}_id}', status_code=status.HTTP_200_OK)
+def update_${2:name}(${3:item}_id: int, ${3:item}: ${4:ModelClass}):
+    ${3:item}_db = session.query(${4:ModelClass}).filter(${4:ModelClass}.id == ${3:item}_id).first()
+    ${3:item}_db.task = ${3:item}.task
+    session.commit()
+    return ${3:item}_db
+
+
+@app.delete('${1:/endpoint}/{${3:item}_id}', status_code=status.HTTP_204_NO_CONTENT)
+def delete_${2:name}(${3:item}_id: int):
+    ${3:item}_db = session.query(${4:ModelClass}).filter(${4:ModelClass}.id == ${3:item}_id)
+    session.delete(${3:item}_db)
+    session.commit()
