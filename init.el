@@ -208,7 +208,8 @@
       web-mode-code-indent-offset 4
       web-mode-enable-auto-pairing t
       web-mode-enable-current-element-highlight t
-      web-mode-enable-current-column-highlight t)
+      web-mode-enable-current-column-highlight t
+      browse-url-browser-function 'eww-browse-url)
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
               c-default-style "k&r"
