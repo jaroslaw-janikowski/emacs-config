@@ -5,3 +5,6 @@ transient/
 eshell/
 places
 .mc-lists.el
+url/
+mastodon.plstore
+private.el

@@ -1,3 +1,4 @@
+(require 'package)
 (require 'nxml-mode)
 (require 'hexl)
 (require 'yasnippet)
@@ -5,6 +6,9 @@
 (require 'web-mode)
 (require 'magit)
 (require 'multiple-cursors)
+
+(add-to-list 'package-archives
+	     '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
 (defun my/grep-under-cursor(arg)
   (interactive "P")
@@ -262,5 +266,7 @@
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+(if (file-exists-p "private.el") (load-file "private.el"))
 
 ;;; init.el ends here
