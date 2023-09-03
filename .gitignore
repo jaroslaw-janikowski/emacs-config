@@ -3,6 +3,7 @@ elpa/
 auto-save-list/
 transient/
 newsticker/
+eww-bookmarks
 eshell/
 places
 .mc-lists.el
