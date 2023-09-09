@@ -253,6 +253,7 @@
 (define-key hexl-mode-map (kbd "M-<left>") nil)
 (define-key hexl-mode-map (kbd "C-q") nil)
 (define-key hexl-mode-map (kbd "M-x") nil)
+(define-key org-mode-map (kbd "C-<left>") nil)
 
 (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
 (add-hook 'c-mode-hook (lambda () (local-set-key (kbd "RET") 'my/c-mode-newline-between-braces)))
