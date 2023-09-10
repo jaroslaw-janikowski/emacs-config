@@ -169,6 +169,7 @@
 (electric-pair-mode t)
 (helm-mode 1)
 (global-company-mode)
+(global-tab-line-mode)
 (yas-global-mode 1)
 (org-babel-do-load-languages 'org-babel-load-languages '((python . t) (shell . t) (scheme . t)))
 
