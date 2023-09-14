@@ -189,6 +189,7 @@
       initial-scratch-message nil
       tab-width 4
       enable-local-variables nil
+      dired-auto-revert-buffer t
       nxml-slash-autocomplete-flag t
       nxml-mode-map (make-keymap)
       company-minimum-prefix-length 2
