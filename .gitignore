@@ -5,6 +5,8 @@ transient/
 newsticker/
 eww-bookmarks
 eshell/
+org-drill/
+org-roam/
 places
 .mc-lists.el
 url/
