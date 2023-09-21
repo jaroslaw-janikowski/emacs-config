@@ -206,6 +206,7 @@
       switch-to-prev-buffer-skip-regexp '("^\*Messages\*"
 					  "^\*Async-native-compile-log\*"
 					  "^\*Warnings\*"
+					  "^\*Messages\*"
 					  "^\*helm*"
 					  "^\*Flymake log\*"
 					  "^\*EGLOT"
