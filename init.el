@@ -135,7 +135,7 @@
   (flyspell-mode))
 
 (defun my/setup-prog-mode()
-  (setq company-backends '((company-yasnippet company-dabbrev-code company-keyword company-files company-capf)))
+  (setq company-backends '((company-yasnippet company-dabbrev-code company-keywords company-files company-capf)))
   (flyspell-prog-mode)
   (idle-highlight-mode t))
 
