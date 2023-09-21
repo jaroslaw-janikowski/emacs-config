@@ -209,6 +209,7 @@
       geiser-default-implementation 'guile
       switch-to-prev-buffer-skip-regexp '("^\*Messages\*"
 					  "^\*Async-native-compile-log\*"
+					  "^\*Compile-Log\*"
 					  "^\*Warnings\*"
 					  "^\*Messages\*"
 					  "^\*helm*"
