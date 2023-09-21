@@ -210,6 +210,7 @@
 					  "^\*Flymake log\*"
 					  "^\*EGLOT"
 					  "^\*Backtrace\*"
+					  "^magit-process:"
 					  )
       web-mode-engines-alist '(("php" . "\\.phtml\\'")
 			       ("blade" . "\\.blade\\."))
