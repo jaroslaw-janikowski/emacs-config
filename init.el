@@ -211,6 +211,8 @@
 					  "^\*EGLOT"
 					  "^\*Backtrace\*"
 					  "^magit-process:"
+					  "^magit-diff:"
+					  "^magit:"
 					  )
       web-mode-engines-alist '(("php" . "\\.phtml\\'")
 			       ("blade" . "\\.blade\\."))
