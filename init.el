@@ -203,7 +203,13 @@
       org-confirm-babel-evaluate nil
       org-babel-python-command "ipython3 -i --simple-prompt"
       geiser-default-implementation 'guile
-      switch-to-prev-buffer-skip-regexp '("^\*Messages\*" "^\*Async-native-compile-log\*" "^\*Warnings\*" "^\*helm*")
+      switch-to-prev-buffer-skip-regexp '("^\*Messages\*"
+					  "^\*Async-native-compile-log\*"
+					  "^\*Warnings\*"
+					  "^\*helm*"
+					  "^\*Flymake log\*"
+					  "^\*EGLOT"
+					  )
       web-mode-engines-alist '(("php" . "\\.phtml\\'")
 			       ("blade" . "\\.blade\\."))
       web-mode-markup-indent-offset 4
