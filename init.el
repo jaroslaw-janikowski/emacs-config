@@ -209,6 +209,7 @@
 					  "^\*helm*"
 					  "^\*Flymake log\*"
 					  "^\*EGLOT"
+					  "^\*Backtrace\*"
 					  )
       web-mode-engines-alist '(("php" . "\\.phtml\\'")
 			       ("blade" . "\\.blade\\."))
