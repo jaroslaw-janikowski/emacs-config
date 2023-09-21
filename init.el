@@ -201,6 +201,8 @@
       python-shell-interpreter "ipython3"
       python-shell-interpreter-args "-i --simple-prompt"
       org-confirm-babel-evaluate nil
+      org-hide-leading-stars t
+      org-hide-emphasis-markers t
       org-babel-python-command "ipython3 -i --simple-prompt"
       geiser-default-implementation 'guile
       switch-to-prev-buffer-skip-regexp '("^\*Messages\*"
