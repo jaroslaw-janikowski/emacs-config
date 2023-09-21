@@ -188,6 +188,8 @@
       executable-prefix-env t
       initial-scratch-message nil
       tab-width 4
+      tab-line-separator ""
+      tab-line-switch-cycling t
       enable-local-variables nil
       dired-auto-revert-buffer t
       initial-major-mode 'org-mode
@@ -213,9 +215,7 @@
 					  "^\*Flymake log\*"
 					  "^\*EGLOT"
 					  "^\*Backtrace\*"
-					  "^magit-process:"
-					  "^magit-diff:"
-					  "^magit:"
+					  "^magit"
 					  )
       web-mode-engines-alist '(("php" . "\\.phtml\\'")
 			       ("blade" . "\\.blade\\."))
@@ -232,6 +232,9 @@
               c-basic-offset 4
               c-electric-flag t
 	      adaptive-wrap-extra-indent 0)
+
+(set-face-attribute 'tab-line-tab-current nil :background "gray80")
+(set-face-attribute 'tab-line-tab-inactive nil :background "gray50")
 
 ;; hotkeys
 (global-set-key (kbd "<escape>") 'my/on-escape)
