@@ -212,6 +212,7 @@
 					  "^\*Compile-Log\*"
 					  "^\*Warnings\*"
 					  "^\*Messages\*"
+					  "^\*html\*"
 					  "^\*helm*"
 					  "^\*Flymake log\*"
 					  "^\*EGLOT"
