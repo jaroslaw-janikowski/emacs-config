@@ -204,6 +204,7 @@
       python-shell-interpreter-args "-i --simple-prompt"
       org-confirm-babel-evaluate nil
       org-hide-leading-stars t
+      org-return-follows-link t
       org-hide-emphasis-markers t
       org-babel-python-command "ipython3 -i --simple-prompt"
       geiser-default-implementation 'guile
