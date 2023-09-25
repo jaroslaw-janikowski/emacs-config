@@ -7,6 +7,8 @@ eww-bookmarks
 eshell/
 org-drill/
 org-roam/
+persist/
+tramp
 places
 .mc-lists.el
 url/
