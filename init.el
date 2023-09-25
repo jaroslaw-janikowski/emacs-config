@@ -279,6 +279,8 @@
 (define-key org-mode-map (kbd "M-<right>") nil)
 (define-key org-mode-map (kbd "C-S-<right>") nil)
 (define-key org-mode-map (kbd "C-S-<left>") nil)
+(define-key org-mode-map (kbd "C-S-<up>") nil)
+(define-key org-mode-map (kbd "C-S-<down>") nil)
 
 (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
 (add-hook 'c-mode-hook (lambda () (local-set-key (kbd "RET") 'my/c-mode-newline-between-braces)))
