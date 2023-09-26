@@ -6,9 +6,24 @@
 (require 'web-mode)
 (require 'magit)
 (require 'multiple-cursors)
+(require 'org-present)
+(require 'visual-fill-column)
 
 (add-to-list 'package-archives
 	     '("melpa-stable" . "https://stable.melpa.org/packages/"))
+
+(defun my/org-present-start()
+  (setq visual-fill-column-width 110
+	visual-fill-column-center-text t)
+  (visual-fill-column-mode 1)
+  (visual-line-mode 1)
+  (display-line-numbers-mode 0)
+  (org-present-big))
+
+(defun my/org-present-end()
+  (visual-fill-column-mode 0)
+  (display-line-numbers-mode t)
+  (org-present-small))
 
 (defun my/grep-under-cursor(arg)
   (interactive "P")
@@ -290,6 +305,8 @@
 (add-hook 'python-mode-hook 'my/setup-python-mode)
 (add-hook 'sql-interactive-mode-hook 'my/setup-sqli-mode)
 (add-hook 'before-save-hook 'my/on-before-save)
+(add-hook 'org-present-mode-hook 'my/org-present-start)
+(add-hook 'org-present-mode-hook 'my/org-present-end)
 
 (add-to-list 'auto-mode-alist '("^.*\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
