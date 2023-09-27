@@ -9,8 +9,11 @@
 (require 'org-present)
 (require 'visual-fill-column)
 
+(load-file (file-name-concat user-emacs-directory "restclient.el"))
+
 (add-to-list 'package-archives
 	     '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(package-initialize)
 
 (defun my/org-present-start()
   (setq visual-fill-column-width 110
@@ -244,7 +247,9 @@
       web-mode-enable-auto-pairing t
       web-mode-enable-current-element-highlight t
       web-mode-enable-current-column-highlight t
-      browse-url-browser-function 'eww-browse-url)
+      browse-url-browser-function 'eww-browse-url
+      restclient-log-request t
+      restclient-same-buffer-response nil)
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
               c-default-style "k&r"

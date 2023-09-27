@@ -12,3 +12,4 @@ emacs --batch --execute "(package-install 'multiple-cursors)"
 emacs --batch --execute "(package-install 'idle-highlight-mode)"
 emacs --batch --execute "(package-install 'docker)"
 emacs --batch --execute "(package-install 'org-present)"
+wget https://raw.githubusercontent.com/pashky/restclient.el/master/restclient.el
