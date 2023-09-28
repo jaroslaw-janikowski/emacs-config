@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Eschell ls
+# key: ls
+# --
+ls -al $0
