@@ -11,10 +11,6 @@
 
 (load-file (file-name-concat user-emacs-directory "restclient.el"))
 
-(add-to-list 'package-archives
-	     '("melpa-stable" . "https://stable.melpa.org/packages/"))
-(package-initialize)
-
 (defun my/org-present-start()
   (setq visual-fill-column-width 110
 	visual-fill-column-center-text t)
@@ -197,14 +193,29 @@
 (setq warning-minimum-level :error
       inhibit-startup-screen t
       byte-compile-warnings nil
-      gc-cons-threshold 5000000
+      gc-cons-threshold 10000000
+      gc-cons-percentage 0.1
+      garbage-collection-messages nil
       make-backup-files nil
       auto-save-default nil
+      load-prefer-newer t
+      read-process-output-max (* 3 1024 1024) ;; 3mb
+      max-lisp-eval-depth 10000
+      max-specpdl-size 10000
+      package--init-file-ensured t
       create-lockfiles nil
       large-file-warning-threshold 100000000
       ring-bell-function 'ignore
       use-short-answers t
       confirm-kill-processes nil
+      package-archives '(("melpa" . "https://melpa.org/packages/")
+			 ("melpa-stable" . "https://stable.melpa.org/packages/")
+			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+			 ("gnu" . "https://elpa.gnu.org/packages/"))
+      package-archive-priorities '(("melpa" . 4)
+				   ("melpa-stable" . 3)
+				   ("nongnu" . 2)
+				   ("gnu" . 1))
       require-final-newline t
       executable-prefix-env t
       initial-scratch-message nil
