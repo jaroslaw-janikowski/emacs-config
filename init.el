@@ -1,6 +1,7 @@
 (add-to-list 'load-path (file-name-concat user-emacs-directory "mods"))
 
 (require 'package)
+(require 'centaur-tabs)
 (require 'nxml-mode)
 (require 'hexl)
 (require 'yasnippet)
@@ -11,6 +12,18 @@
 (require 'org-present)
 (require 'visual-fill-column)
 (require 'restclient)
+
+(defun centaur-tabs-hide-tab(tab)
+  (let ((name (format "%s" tab)))
+    (or
+     (window-dedicated-p (selected-window))
+     (string-prefix-p "*helm find*" name)
+     (string-prefix-p "*helm occur*" name)
+     (string-prefix-p "*Async-native-compile-log*" name)
+     (string-prefix-p "magit:" name)
+     (string-prefix-p "magit-process:" name)
+     (string-prefix-p "magit-diff:" name)
+     )))
 
 (defun my/org-present-start()
   (setq visual-fill-column-width 110
@@ -172,6 +185,7 @@
 (cua-mode t)
 (menu-bar-mode -1)
 (save-place-mode t)
+(centaur-tabs-mode t)
 (global-display-line-numbers-mode t)
 (global-hl-line-mode t)
 (column-number-mode t)
@@ -187,7 +201,6 @@
 (electric-pair-mode t)
 (helm-mode 1)
 (global-company-mode)
-(global-tab-line-mode)
 (yas-global-mode 1)
 (org-babel-do-load-languages 'org-babel-load-languages '((python . t) (shell . t) (scheme . t)))
 
@@ -221,14 +234,17 @@
       executable-prefix-env t
       initial-scratch-message nil
       tab-width 4
-      tab-line-separator ""
-      tab-line-switch-cycling t
       enable-local-variables nil
       dired-auto-revert-buffer t
       initial-major-mode 'org-mode
       nxml-slash-autocomplete-flag t
       nxml-mode-map (make-keymap)
+      centaur-tabs-style "slant"
+      centaur-tabs-set-icons t
+      centaur-tabs-set-bar 'over
+      centaur-tabs-show-navigation-buttons t
       company-minimum-prefix-length 2
+      centaur-tabs-set-modified-marker "*"
       company-idle-delay 0
       company-selection-wrap-around t
       company-files-exclusions '(".git/" ".DS_Store" "__pycache__/" ".venv/")
@@ -273,8 +289,6 @@
 	      adaptive-wrap-extra-indent 0)
 
 (set-face-attribute 'region nil :background "#666")
-(set-face-attribute 'tab-line-tab-current nil :background "gray80")
-(set-face-attribute 'tab-line-tab-inactive nil :background "gray50")
 
 ;; hotkeys
 (global-set-key (kbd "<escape>") 'my/on-escape)
@@ -294,8 +308,8 @@
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 (global-set-key (kbd "C-S-p") 'helm-M-x)
 (global-set-key (kbd "M-x") 'kill-this-buffer)
-(global-set-key (kbd "M-<left>") 'previous-buffer)
-(global-set-key (kbd "M-<right>") 'next-buffer)
+(global-set-key (kbd "M-<left>") 'centaur-tabs-backward)
+(global-set-key (kbd "M-<right>") 'centaur-tabs-forward)
 (global-set-key (kbd "C-p") 'helm-find)
 (global-set-key (kbd "C-f") 'helm-occur)
 (global-set-key (kbd "C-S-f") 'helm-do-grep-ag)
