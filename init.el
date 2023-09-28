@@ -157,6 +157,9 @@
   (flyspell-prog-mode)
   (idle-highlight-mode t))
 
+(defun my/setup-eshell()
+  (setq company-backends '((company-files))))
+
 (defun my/setup-python-mode()
   (eglot-ensure))
 
@@ -315,6 +318,7 @@
 (add-hook 'before-save-hook 'my/on-before-save)
 (add-hook 'org-present-mode-hook 'my/org-present-start)
 (add-hook 'org-present-mode-hook 'my/org-present-end)
+(add-hook 'eshell-mode-hook 'my/setup-eshell)
 
 (add-to-list 'auto-mode-alist '("^.*\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
