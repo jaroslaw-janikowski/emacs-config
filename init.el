@@ -1,3 +1,5 @@
+(add-to-list 'load-path (file-name-concat user-emacs-directory "mods"))
+
 (require 'package)
 (require 'nxml-mode)
 (require 'hexl)
@@ -8,8 +10,7 @@
 (require 'multiple-cursors)
 (require 'org-present)
 (require 'visual-fill-column)
-
-(load-file (file-name-concat user-emacs-directory "restclient.el"))
+(require 'restclient)
 
 (defun my/org-present-start()
   (setq visual-fill-column-width 110

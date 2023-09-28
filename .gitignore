@@ -12,5 +12,6 @@ tramp
 places
 .mc-lists.el
 url/
+mods/
 mastodon.plstore
 private.el
