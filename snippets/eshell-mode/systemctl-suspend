@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Eshell suspend computer
+# key: suspend
+# --
+systemctl suspend $0
