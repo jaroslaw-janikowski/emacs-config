@@ -219,7 +219,7 @@
       company-minimum-prefix-length 2
       company-idle-delay 0
       company-selection-wrap-around t
-      company-files-exclusions '(".git/" ".DS_Store" "__pycache__/")
+      company-files-exclusions '(".git/" ".DS_Store" "__pycache__/" ".venv/")
       company-dabbrev-minimum-length 2
       python-shell-interpreter "ipython3"
       python-shell-interpreter-args "-i --simple-prompt"
