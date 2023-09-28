@@ -272,6 +272,7 @@
               c-electric-flag t
 	      adaptive-wrap-extra-indent 0)
 
+(set-face-attribute 'region nil :background "#666")
 (set-face-attribute 'tab-line-tab-current nil :background "gray80")
 (set-face-attribute 'tab-line-tab-inactive nil :background "gray50")
 
