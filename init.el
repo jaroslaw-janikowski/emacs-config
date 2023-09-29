@@ -291,6 +291,9 @@
 	      adaptive-wrap-extra-indent 0)
 
 (set-face-attribute 'region nil :background "#666")
+(set-face-attribute 'org-block nil :background "#222")
+(set-face-attribute 'org-block-begin-line nil :background "#333")
+(set-face-attribute 'org-block-end-line nil :background "#333")
 
 ;; hotkeys
 (global-set-key (kbd "<escape>") 'my/on-escape)
