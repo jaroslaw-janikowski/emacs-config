@@ -18,6 +18,8 @@
     (or
      (window-dedicated-p (selected-window))
      (string-prefix-p "*helm find*" name)
+     (string-prefix-p "*helm-mode-eww*" name)
+     (string-prefix-p "*helm M-x*" name)
      (string-prefix-p "*helm occur*" name)
      (string-prefix-p "*Async-native-compile-log*" name)
      (string-prefix-p "magit:" name)
