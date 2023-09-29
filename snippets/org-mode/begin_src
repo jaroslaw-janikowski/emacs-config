@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: begin_src
-# key: begin_src
+# key: src
 # --
 #+BEGIN_SRC ${1:python} :results output
 
