@@ -18,6 +18,10 @@
   (list
    (cond
     ((derived-mode-p 'mastodon-mode) "Media")
+    ((derived-mode-p 'eww-mode) "Media")
+    ((derived-mode-p 'elpher-mode) "Media")
+    ((derived-mode-p 'newsticker-mode) "Media")
+
     ((or (string-equal "*" (substring (buffer-name) 0 1))
 	 (memq major-mode '(magit-process-mode
 			    magit-status-mode
@@ -28,6 +32,7 @@
 			    magit-blame-mode
 			    )))
      "Emacs")
+
     ((derived-mode-p 'eshell-mode)
      "EShell")
     ((derived-mode-p 'emacs-lisp-mode)
@@ -307,6 +312,7 @@
       web-mode-enable-current-column-highlight t
       browse-url-browser-function 'eww-browse-url
       restclient-log-request t
+      eww-auto-rename-buffer 'title
       restclient-same-buffer-response nil)
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
