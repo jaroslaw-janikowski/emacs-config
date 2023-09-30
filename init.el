@@ -355,6 +355,7 @@
 (global-set-key (kbd "C-n") 'my/create-new-file)
 (global-set-key (kbd "C-S-n") 'my/create-new-directory)
 (global-set-key (kbd "C-S-t") 'eshell)
+(global-set-key (kbd "C-S-d") 'duplicate-line)
 (global-set-key (kbd "C-d") 'mc/mark-next-like-this)
 (define-key mc/keymap (kbd "<return>") nil)
 (define-key nxml-mode-map (kbd ">") 'my/finish-element)
