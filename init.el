@@ -13,19 +13,31 @@
 (require 'visual-fill-column)
 (require 'restclient)
 
-(defun centaur-tabs-hide-tab(tab)
-  (let ((name (format "%s" tab)))
-    (or
-     (window-dedicated-p (selected-window))
-     (string-prefix-p "*helm find*" name)
-     (string-prefix-p "*helm-mode-eww*" name)
-     (string-prefix-p "*helm M-x*" name)
-     (string-prefix-p "*helm occur*" name)
-     (string-prefix-p "*Async-native-compile-log*" name)
-     (string-prefix-p "magit:" name)
-     (string-prefix-p "magit-process:" name)
-     (string-prefix-p "magit-diff:" name)
-     )))
+(defun my/centaur-tabs-groups ()
+  "Zasady grupowania buforów w centaur-tabs."
+  (list
+   (cond
+    ((derived-mode-p 'mastodon-mode) "Media")
+    ((or (string-equal "*" (substring (buffer-name) 0 1))
+	 (memq major-mode '(magit-process-mode
+			    magit-status-mode
+			    magit-diff-mode
+			    magit-log-mode
+			    magit-file-mode
+			    magit-blob-mode
+			    magit-blame-mode
+			    )))
+     "Emacs")
+    ((derived-mode-p 'eshell-mode)
+     "EShell")
+    ((derived-mode-p 'emacs-lisp-mode)
+     "Elisp")
+    ((derived-mode-p 'dired-mode)
+     "Dired")
+    ((memq major-mode '(org-mode org-agenda-mode diary-mode))
+     "OrgMode")
+    (t
+     (centaur-tabs-get-group-name (current-buffer))))))
 
 (defun my/org-present-start()
   (setq visual-fill-column-width 110
@@ -245,6 +257,7 @@
       centaur-tabs-set-icons t
       centaur-tabs-set-bar 'over
       centaur-tabs-show-navigation-buttons t
+      centaur-tabs-buffer-groups-function 'my/centaur-tabs-groups
       company-minimum-prefix-length 2
       centaur-tabs-set-modified-marker "*"
       company-idle-delay 0
@@ -260,18 +273,30 @@
       org-hide-emphasis-markers t
       org-babel-python-command "ipython3 -i --simple-prompt"
       geiser-default-implementation 'guile
-      switch-to-prev-buffer-skip-regexp '("^\*Messages\*"
-					  "^\*Async-native-compile-log\*"
-					  "^\*Compile-Log\*"
-					  "^\*Warnings\*"
-					  "^\*Messages\*"
-					  "^\*html\*"
-					  "^\*helm*"
-					  "^\*Flymake log\*"
-					  "^\*EGLOT"
-					  "^\*Backtrace\*"
-					  "^magit"
-					  )
+      centaur-tabs-excluded-prefixes '("^\*Messages\*"
+				       "*epc"
+				       "*helm"
+				       "*Helm"
+				       "*help"
+				       "*Help"
+				       "*Compile-Log"
+				       "*lsp"
+				       "*LSP"
+				       "*company"
+				       "*Flycheck"
+				       "*Async-native-compile-log"
+				       "*Warnings"
+				       "*Messages*"
+				       "*html*"
+				       "*Flymake log*"
+				       "*EGLOT"
+				       "*straight"
+				       "*Backtrace*"
+				       "magit"
+				       "*Ediff"
+				       "*ediff"
+				       "*tramp"
+				       )
       web-mode-engines-alist '(("php" . "\\.phtml\\'")
 			       ("blade" . "\\.blade\\."))
       web-mode-markup-indent-offset 4
