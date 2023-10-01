@@ -277,6 +277,7 @@
       org-support-shift-select t
       org-hide-emphasis-markers t
       org-babel-python-command "ipython3 -i --simple-prompt"
+      org-babel-hash-show-time t
       geiser-default-implementation 'guile
       centaur-tabs-excluded-prefixes '("^\*Messages\*"
 				       "*epc"
