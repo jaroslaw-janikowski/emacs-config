@@ -13,6 +13,7 @@
 (require 'visual-fill-column)
 (require 'restclient)
 (require 'which-key)
+(require 'evil-nerd-commenter)
 
 (defun my/centaur-tabs-groups ()
   "Zasady grupowania buforów w centaur-tabs."
@@ -332,7 +333,7 @@
 ;; hotkeys
 (global-set-key (kbd "<escape>") 'my/on-escape)
 (global-set-key (kbd "S-<delete>") 'kill-whole-line)
-(global-set-key (kbd "C-/") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-/") 'evilnc-comment-or-uncomment-lines)
 (global-set-key (kbd "C-<down>") 'scroll-up-line)
 (global-set-key (kbd "C-<up>") 'scroll-down-line)
 (global-set-key (kbd "C-S-<up>") 'my/move-line-up)
