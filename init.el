@@ -12,6 +12,7 @@
 (require 'org-present)
 (require 'visual-fill-column)
 (require 'restclient)
+(require 'which-key)
 
 (defun my/centaur-tabs-groups ()
   "Zasady grupowania buforów w centaur-tabs."
@@ -222,6 +223,7 @@
 (global-company-mode)
 (yas-global-mode 1)
 (org-babel-do-load-languages 'org-babel-load-languages '((python . t) (shell . t) (scheme . t)))
+(which-key-mode)
 
 (setq warning-minimum-level :error
       inhibit-startup-screen t
