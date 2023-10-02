@@ -223,7 +223,10 @@
 (helm-mode 1)
 (global-company-mode)
 (yas-global-mode 1)
-(org-babel-do-load-languages 'org-babel-load-languages '((python . t) (shell . t) (scheme . t)))
+(org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp .t)
+							 (python . t)
+							 (shell . t)
+							 (scheme . t)))
 (which-key-mode)
 
 (setq warning-minimum-level :error
@@ -279,8 +282,13 @@
       org-return-follows-link t
       org-support-shift-select t
       org-hide-emphasis-markers t
-      org-babel-python-command "ipython3 -i --simple-prompt"
+      org-babel-python-command "ipython3 -i --simple-prompt --quiet --pprint --no-banner --no-confirm-exit"
       org-babel-hash-show-time t
+      org-startup-indented t
+      org-startup-with-inline-images t
+      org-startup-with-latex-preview t
+      org-adapt-indentation t
+      org-special-ctrl-o nil
       geiser-default-implementation 'guile
       centaur-tabs-excluded-prefixes '("^\*Messages\*"
 				       "*epc"
