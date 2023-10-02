@@ -218,6 +218,7 @@
 (prefer-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
+(set-buffer-modified-p nil)
 (global-visual-line-mode +1)
 (electric-pair-mode t)
 (helm-mode 1)
@@ -247,6 +248,8 @@
       ring-bell-function 'ignore
       use-short-answers t
       confirm-kill-processes nil
+      confirm-kill-emacs nil
+      confirm-nonexistent-file-or-buffer nil
       package-archives '(("melpa" . "https://melpa.org/packages/")
 			 ("melpa-stable" . "https://stable.melpa.org/packages/")
 			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")
@@ -261,6 +264,12 @@
       tab-width 4
       enable-local-variables nil
       dired-auto-revert-buffer t
+      dired-confirm-shell-command nil
+      dired-clean-confirm-killing-deleted-buffers nil
+      dired-no-confirm t
+      dired-recursive-deletes (quote always)
+      dired-deletion-confirmer '(lambda (x) t)
+      dired-recursive-deletes 'always
       initial-major-mode 'org-mode
       nxml-slash-autocomplete-flag t
       nxml-mode-map (make-keymap)
@@ -332,6 +341,8 @@
               c-basic-offset 4
               c-electric-flag t
 	      adaptive-wrap-extra-indent 0)
+
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 (set-face-attribute 'region nil :background "#666")
 (set-face-attribute 'org-block nil :background "#222")
