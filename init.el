@@ -185,11 +185,13 @@
 
 (defun my/setup-text-mode()
   (setq company-backends '((company-ispell company-dabbrev)))
-  (flyspell-mode))
+  (flyspell-mode)
+  (ispell-change-dictionary "polish"))
 
 (defun my/setup-prog-mode()
   (setq company-backends '((company-yasnippet company-dabbrev-code company-keywords company-files company-capf)))
   (flyspell-prog-mode)
+  (ispell-change-dictionary "british")
   (idle-highlight-mode t))
 
 (defun my/setup-eshell()
