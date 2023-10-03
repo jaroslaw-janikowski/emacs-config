@@ -403,7 +403,6 @@
 (define-key org-mode-map (kbd "C-S-<left>") nil)
 (define-key org-mode-map (kbd "C-S-<up>") nil)
 (define-key org-mode-map (kbd "C-S-<down>") nil)
-(define-key org-mode-map (kbd "M-x") nil)
 
 (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
 (add-hook 'c-mode-hook (lambda () (local-set-key (kbd "RET") 'my/c-mode-newline-between-braces)))
@@ -422,6 +421,7 @@
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
-(if (file-exists-p "private.el") (load-file "private.el"))
+(let ((private-settings (file-name-concat user-emacs-directory "private.el")))
+  (if (file-exists-p private-settings) (load-file private-settings)))
 
 ;;; init.el ends here
