@@ -15,6 +15,10 @@
 (require 'which-key)
 (require 'evil-nerd-commenter)
 
+(defun insert-current-date()
+  (interactive)
+  (insert (format-time-string "%Y-%m-%d")))
+
 (defun my/centaur-tabs-groups ()
   "Zasady grupowania buforów w centaur-tabs."
   (list
@@ -368,6 +372,7 @@
 (global-set-key (kbd "M-g") 'centaur-tabs--groups-menu)
 (global-set-key (kbd "C-S-p") 'helm-M-x)
 (global-set-key (kbd "M-x") 'kill-this-buffer)
+(global-set-key (kbd "M-d") 'insert-current-date)
 (global-set-key (kbd "M-<left>") 'centaur-tabs-backward)
 (global-set-key (kbd "M-<right>") 'centaur-tabs-forward)
 (global-set-key (kbd "C-p") 'helm-find)
@@ -398,6 +403,7 @@
 (define-key org-mode-map (kbd "C-S-<left>") nil)
 (define-key org-mode-map (kbd "C-S-<up>") nil)
 (define-key org-mode-map (kbd "C-S-<down>") nil)
+(define-key org-mode-map (kbd "M-x") nil)
 
 (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
 (add-hook 'c-mode-hook (lambda () (local-set-key (kbd "RET") 'my/c-mode-newline-between-braces)))
