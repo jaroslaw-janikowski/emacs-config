@@ -206,7 +206,7 @@
 (defun my/on-before-save()
   (delete-trailing-whitespace))
 
-(load-theme 'wheatgrass)
+(load-theme 'monokai t)
 (show-paren-mode t)
 (tool-bar-mode -1)
 (cua-mode t)

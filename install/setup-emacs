@@ -16,4 +16,5 @@ emacs --batch --execute "(package-install 'visual-fill-column)"
 emacs --batch --execute "(package-install 'centaur-tabs)"
 emacs --batch --execute "(package-install 'which-key)"
 emacs --batch --execute "(package-install 'evil-nerd-commenter)"
+emacs --batch --execute "(package-install 'monokai-theme)"
 wget -O ./mods/restclient.el https://raw.githubusercontent.com/pashky/restclient.el/master/restclient.el
