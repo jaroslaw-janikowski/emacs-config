@@ -400,7 +400,7 @@
 (define-key org-mode-map (kbd "M-<left>") nil)
 (define-key org-mode-map (kbd "M-<right>") nil)
 (define-key org-mode-map (kbd "C-]") 'org-indent-item-tree)
-(define-key org-mode-map (kbd "C-[") 'org-outdent-item-tree)
+;; (define-key org-mode-map (kbd "C-[") 'org-outdent-item-tree)
 (define-key org-mode-map (kbd "C-S-<right>") nil)
 (define-key org-mode-map (kbd "C-S-<left>") nil)
 (define-key org-mode-map (kbd "C-S-<up>") nil)
