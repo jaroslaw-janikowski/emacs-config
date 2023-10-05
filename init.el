@@ -194,8 +194,13 @@
   (ispell-change-dictionary "polish"))
 
 (defun my/setup-prog-mode()
-  (setq company-backends '((company-yasnippet company-dabbrev-code company-keywords company-files company-capf)))
+  (setq company-backends '((company-yasnippet
+			    company-dabbrev-code
+			    company-keywords
+			    company-files
+			    company-capf)))
   (flyspell-prog-mode)
+  (display-fill-column-indicator-mode)
   (ispell-change-dictionary "british")
   (idle-highlight-mode t))
 
