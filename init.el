@@ -360,7 +360,8 @@
               c-default-style "k&r"
               c-basic-offset 4
               c-electric-flag t
-	      adaptive-wrap-extra-indent 0)
+	      adaptive-wrap-extra-indent 0
+	      display-fill-column-indicator-column 80)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
