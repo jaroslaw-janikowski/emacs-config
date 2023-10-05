@@ -15,6 +15,10 @@
 (require 'which-key)
 (require 'evil-nerd-commenter)
 
+(defun my/create-new-eshell()
+  (interactive)
+  (eshell 'N))
+
 (defun my/duplicate-line()
   (interactive)
   (duplicate-line)
@@ -396,7 +400,7 @@
 (global-set-key (kbd "C-<space>") 'company-complete)
 (global-set-key (kbd "C-n") 'my/create-new-file)
 (global-set-key (kbd "C-S-n") 'my/create-new-directory)
-(global-set-key (kbd "C-S-t") 'eshell)
+(global-set-key (kbd "C-S-t") 'my/create-new-eshell)
 (global-set-key (kbd "C-S-d") 'my/duplicate-line)
 (global-set-key (kbd "C-d") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-k") 'mc/skip-to-next-like-this)
