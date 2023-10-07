@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: hashbang
+# key: #!
+# --
+#!/usr/bin/env python3
+
+$0
