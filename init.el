@@ -25,6 +25,17 @@
 (require 'which-key)
 (require 'evil-nerd-commenter)
 
+(defun my/forward-paragraph()
+  (interactive)
+  (forward-paragraph)
+  (next-line))
+
+(defun my/backward-paragraph()
+  (interactive)
+  (previous-line)
+  (backward-paragraph)
+  (next-line))
+
 (defun my/create-new-eshell()
   (interactive)
   (eshell 'N))
@@ -394,8 +405,8 @@
 (global-set-key (kbd "M-d") 'insert-current-date)
 (global-set-key (kbd "M-<left>") 'centaur-tabs-backward)
 (global-set-key (kbd "M-<right>") 'centaur-tabs-forward)
-(global-set-key (kbd "M-<up>") 'backward-paragraph)
-(global-set-key (kbd "M-<down>") 'forward-paragraph)
+(global-set-key (kbd "M-<up>") 'my/backward-paragraph)
+(global-set-key (kbd "M-<down>") 'my/forward-paragraph)
 (global-set-key (kbd "C-p") 'helm-find)
 (global-set-key (kbd "C-f") 'helm-occur)
 (global-set-key (kbd "C-S-f") 'helm-do-grep-ag)
