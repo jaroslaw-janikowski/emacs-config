@@ -38,7 +38,8 @@
 
 (defun my/create-new-eshell()
   (interactive)
-  (eshell 'N))
+  (let ((default-directory command-line-default-directory))
+    (eshell 'N)))
 
 (defun my/duplicate-line()
   (interactive)
