@@ -18,4 +18,4 @@ emacs --batch --execute "(package-install 'which-key)"
 emacs --batch --execute "(package-install 'evil-nerd-commenter)"
 emacs --batch --execute "(package-install 'monokai-theme)"
 mkdir ~/.emacs.d/mods
-cd ~/.emacs.d/mods && wget -O ./mods/restclient.el https://raw.githubusercontent.com/pashky/restclient.el/master/restclient.el
+cd ~/.emacs.d/mods && wget -O ~/.emacs.d/mods/restclient.el https://raw.githubusercontent.com/pashky/restclient.el/master/restclient.el
