@@ -1,6 +1,16 @@
+(require 'package)
+
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+			 ("melpa-stable" . "https://stable.melpa.org/packages/")
+			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+			 ("gnu" . "https://elpa.gnu.org/packages/"))
+      package-archive-priorities '(("melpa" . 4)
+				   ("melpa-stable" . 3)
+				   ("nongnu" . 2)
+				   ("gnu" . 1)))
+(package-initialize)
 (add-to-list 'load-path (file-name-concat user-emacs-directory "mods"))
 
-(require 'package)
 (require 'centaur-tabs)
 (require 'nxml-mode)
 (require 'hexl)
@@ -270,14 +280,6 @@
       confirm-kill-processes nil
       confirm-kill-emacs nil
       confirm-nonexistent-file-or-buffer nil
-      package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ("melpa-stable" . "https://stable.melpa.org/packages/")
-			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")
-			 ("gnu" . "https://elpa.gnu.org/packages/"))
-      package-archive-priorities '(("melpa" . 4)
-				   ("melpa-stable" . 3)
-				   ("nongnu" . 2)
-				   ("gnu" . 1))
       require-final-newline t
       executable-prefix-env t
       initial-scratch-message nil

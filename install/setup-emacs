@@ -1,5 +1,6 @@
 #!/bin/ash
 
+emacs --batch --execute "(package-refresh-contents)"
 emacs --batch --execute "(package-install 'adaptive-wrap)"
 emacs --batch --execute "(package-install 'helm)"
 emacs --batch --execute "(package-install 'company)"
