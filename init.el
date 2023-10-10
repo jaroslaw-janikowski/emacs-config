@@ -318,6 +318,7 @@
       company-selection-wrap-around t
       company-files-exclusions '(".git/" ".DS_Store" "__pycache__/" ".venv/")
       company-dabbrev-minimum-length 2
+      mc/always-run-for-all t
       python-shell-interpreter "ipython3"
       python-shell-interpreter-args "-i --simple-prompt"
       org-confirm-babel-evaluate nil
