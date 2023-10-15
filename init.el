@@ -24,6 +24,7 @@
 (require 'restclient)
 (require 'which-key)
 (require 'evil-nerd-commenter)
+(require 'popper)
 
 (defun my/forward-paragraph()
   (interactive)
@@ -242,36 +243,6 @@
 (defun my/on-before-save()
   (delete-trailing-whitespace))
 
-(load-theme 'monokai t)
-(show-paren-mode t)
-(tool-bar-mode -1)
-(cua-mode t)
-(menu-bar-mode -1)
-(save-place-mode t)
-(centaur-tabs-mode t)
-(global-display-line-numbers-mode t)
-(global-hl-line-mode t)
-(column-number-mode t)
-(delete-selection-mode t)
-(global-auto-revert-mode 1)
-(toggle-frame-maximized)
-(set-language-environment "UTF-8")
-(set-charset-priority 'unicode)
-(prefer-coding-system 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(set-buffer-modified-p nil)
-(global-visual-line-mode +1)
-(electric-pair-mode t)
-(helm-mode 1)
-(global-company-mode)
-(yas-global-mode 1)
-(org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp .t)
-							 (python . t)
-							 (shell . t)
-							 (scheme . t)))
-(which-key-mode)
-
 (setq warning-minimum-level :error
       inhibit-startup-screen t
       byte-compile-warnings nil
@@ -334,8 +305,9 @@
       org-adapt-indentation t
       org-special-ctrl-o nil
       geiser-default-implementation 'guile
-      centaur-tabs-excluded-prefixes '("^\*Messages\*"
+      centaur-tabs-excluded-prefixes '("*Messages*"
 				       "*epc"
+				       "*helm find*"
 				       "*helm"
 				       "*Helm"
 				       "*help"
@@ -345,7 +317,7 @@
 				       "*LSP"
 				       "*company"
 				       "*Flycheck"
-				       "*Async-native-compile-log"
+				       "*Async-native-compile-log*"
 				       "*Warnings"
 				       "*Messages*"
 				       "*html*"
@@ -358,6 +330,31 @@
 				       "*ediff"
 				       "*tramp"
 				       )
+      popper-reference-buffers '("^\*Messages\*"
+				 "^\*epc"
+				 "^\*helm find\*$"
+				 "^\*helm"
+				 "^\*Helm"
+				 "^\*help"
+				 "^\*Help"
+				 "^\*Compile-Log"
+				 "^\*lsp"
+				 "^\*LSP"
+				 "^\*company"
+				 "^\*Flycheck"
+				 "^\*Async-native-compile-log\*$"
+				 "^\*Warnings"
+				 "^\*Messages\*"
+				 "^\*html\*"
+				 "^\*Flymake log\*"
+				 "^\*EGLOT"
+				 "^\*straight"
+				 "^\*Backtrace\*"
+				 "^magit"
+				 "^\*Ediff"
+				 "^\*ediff"
+				 "^\*tramp"
+				 )
       web-mode-engines-alist '(("php" . "\\.phtml\\'")
 			       ("blade" . "\\.blade\\."))
       web-mode-markup-indent-offset 4
@@ -379,6 +376,36 @@
 	      display-fill-column-indicator-column 80)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
+(load-theme 'monokai t)
+(show-paren-mode t)
+(tool-bar-mode -1)
+(cua-mode t)
+(menu-bar-mode -1)
+(save-place-mode t)
+(centaur-tabs-mode t)
+(global-display-line-numbers-mode t)
+(global-hl-line-mode t)
+(column-number-mode t)
+(delete-selection-mode t)
+(global-auto-revert-mode 1)
+(toggle-frame-maximized)
+(set-language-environment "UTF-8")
+(set-charset-priority 'unicode)
+(prefer-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-buffer-modified-p nil)
+(global-visual-line-mode +1)
+(electric-pair-mode t)
+(helm-mode 1)
+(global-company-mode)
+(yas-global-mode 1)
+(org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp .t)
+							 (python . t)
+							 (shell . t)
+							 (scheme . t)))
+(which-key-mode)
+(popper-mode +1)
 
 (set-face-attribute 'region nil :background "#666")
 (set-face-attribute 'org-block nil :background "#222")
