@@ -325,7 +325,6 @@
 				       "*EGLOT"
 				       "*straight"
 				       "*Backtrace*"
-				       "magit"
 				       "*Ediff"
 				       "*ediff"
 				       "*tramp"
@@ -350,10 +349,11 @@
 				 "^\*EGLOT"
 				 "^\*straight"
 				 "^\*Backtrace\*"
-				 "^magit"
 				 "^\*Ediff"
 				 "^\*ediff"
 				 "^\*tramp"
+				 "^\*helm-mode-switch-to-buffer\*$"
+				 "^magit-process:"
 				 )
       web-mode-engines-alist '(("php" . "\\.phtml\\'")
 			       ("blade" . "\\.blade\\."))
