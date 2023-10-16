@@ -328,6 +328,7 @@
 				       "*Ediff"
 				       "*ediff"
 				       "*tramp"
+				       "plstore "
 				       )
       popper-reference-buffers '("^\*Messages\*"
 				 "^\*epc"
@@ -354,6 +355,7 @@
 				 "^\*tramp"
 				 "^\*helm-mode-switch-to-buffer\*$"
 				 "^magit-process:"
+				 "^plstore"
 				 )
       web-mode-engines-alist '(("php" . "\\.phtml\\'")
 			       ("blade" . "\\.blade\\."))
