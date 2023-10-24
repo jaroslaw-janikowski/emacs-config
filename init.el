@@ -486,6 +486,10 @@
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
+(add-to-list 'display-buffer-alist
+	     '("\\(magit: .+\\|magit-log.+\\|magit-revision.+\\)"
+	       (display-buffer-full-frame)))
+
 (let ((private-settings (file-name-concat user-emacs-directory "private.el")))
   (if (file-exists-p private-settings) (load-file private-settings)))
 
