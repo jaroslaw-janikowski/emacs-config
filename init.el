@@ -266,7 +266,6 @@
       require-final-newline t
       executable-prefix-env t
       initial-scratch-message nil
-      tab-width 4
       enable-local-variables nil
       dired-auto-revert-buffer t
       dired-confirm-shell-command nil
@@ -289,6 +288,7 @@
       company-selection-wrap-around t
       company-files-exclusions '(".git/" ".DS_Store" "__pycache__/" ".venv/")
       company-dabbrev-minimum-length 2
+      company-tooltip-align-annotations t
       mc/always-run-for-all t
       python-shell-interpreter "ipython3"
       python-shell-interpreter-args "-i --simple-prompt"
@@ -374,6 +374,7 @@
               c-default-style "k&r"
               c-basic-offset 4
               c-electric-flag t
+	      tab-width 4
 	      adaptive-wrap-extra-indent 0
 	      display-fill-column-indicator-column 80)
 
@@ -398,6 +399,7 @@
 (set-keyboard-coding-system 'utf-8)
 (set-buffer-modified-p nil)
 (global-visual-line-mode +1)
+(global-so-long-mode 1)
 (electric-pair-mode t)
 (helm-mode 1)
 (global-company-mode)
