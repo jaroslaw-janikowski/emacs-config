@@ -59,6 +59,8 @@
     ((derived-mode-p 'eww-mode) "Media")
     ((derived-mode-p 'elpher-mode) "Media")
     ((derived-mode-p 'newsticker-mode) "Media")
+	((derived-mode-p 'eshell-mode) "Shell")
+	((derived-mode-p 'dired-mode) "Shell")
 
     ((or (string-equal "*" (substring (buffer-name) 0 1))
 	 (memq major-mode '(magit-process-mode
@@ -71,12 +73,8 @@
 			    )))
      "Emacs")
 
-    ((derived-mode-p 'eshell-mode)
-     "EShell")
     ((derived-mode-p 'emacs-lisp-mode)
      "Elisp")
-    ((derived-mode-p 'dired-mode)
-     "Dired")
     ((memq major-mode '(org-mode org-agenda-mode diary-mode))
      "OrgMode")
     (t
