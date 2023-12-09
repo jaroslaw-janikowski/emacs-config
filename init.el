@@ -232,7 +232,7 @@
   (idle-highlight-mode t))
 
 (defun my/setup-eshell()
-  (setq company-backends '((company-files))))
+  (setq company-backends '((company-files company-yasnippet))))
 
 (defun my/setup-python-mode()
   (eglot-ensure))
