@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: robots.txt
+# key: robots.txt
+# --
+User-Agent: *
+Disallow: $0

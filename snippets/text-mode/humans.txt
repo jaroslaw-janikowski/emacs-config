@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: humans.txt
+# key: humans.txt
+# --
+\# TEAM
+${1:email}
+
+\# THANKS
+$2
+
+\# TECHNOLOGY COLOPHON
+$0

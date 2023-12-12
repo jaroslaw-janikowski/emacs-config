@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: security.txt
+# key: security.txt
+# --
+$0
