@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: FUNCTION
+# key: FUNCTION
+# --
+CREATE OR REPLACE FUNCTION ${1:function_name}()
+returns ${2:datatype} AS $$
+	-- ${3:docstring}
+	$0
+$$ LANGUAGE plsql;
