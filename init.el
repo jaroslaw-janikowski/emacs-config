@@ -24,7 +24,6 @@
 (require 'restclient)
 (require 'which-key)
 (require 'evil-nerd-commenter)
-(require 'popper)
 
 (defun my/forward-paragraph()
   (interactive)
@@ -328,33 +327,6 @@
 				       "*tramp"
 				       "plstore "
 				       )
-      popper-reference-buffers '("^\*Messages\*"
-				 "^\*epc"
-				 "^\*helm find\*$"
-				 "^\*helm"
-				 "^\*Helm"
-				 "^\*help"
-				 "^\*Help"
-				 "^\*Compile-Log"
-				 "^\*lsp"
-				 "^\*LSP"
-				 "^\*company"
-				 "^\*Flycheck"
-				 "^\*Async-native-compile-log\*$"
-				 "^\*Warnings"
-				 "^\*Messages\*"
-				 "^\*html\*"
-				 "^\*Flymake log\*"
-				 "^\*EGLOT"
-				 "^\*straight"
-				 "^\*Backtrace\*"
-				 "^\*Ediff"
-				 "^\*ediff"
-				 "^\*tramp"
-				 "^\*helm-mode-switch-to-buffer\*$"
-				 "^magit-process:"
-				 "^plstore"
-				 )
       web-mode-engines-alist '(("php" . "\\.phtml\\'")
 			       ("blade" . "\\.blade\\."))
       web-mode-markup-indent-offset 4
@@ -407,7 +379,6 @@
 							 (shell . t)
 							 (scheme . t)))
 (which-key-mode)
-(popper-mode +1)
 
 (set-face-attribute 'region nil :background "#666")
 (set-face-attribute 'org-block nil :background "#222")
