@@ -3,7 +3,6 @@ elpa/
 auto-save-list/
 transient/
 newsticker/
-eww-bookmarks
 eshell/
 org-drill/
 org-roam/
@@ -13,5 +12,6 @@ places
 .mc-lists.el
 url/
 mods/
+eww-bookmarks
 mastodon.plstore
 private.el
