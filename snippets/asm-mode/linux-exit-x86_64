@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: linux-exit-x86_64
+# key: linux-exit-x86_64
+# --
+exit:
+	mov rax, 60
+	mov rdi, 0
+	syscall
+$0
