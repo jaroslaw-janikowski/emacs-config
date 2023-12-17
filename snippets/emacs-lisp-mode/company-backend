@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: company-backend
+# key: company-backend
+# --
+(require 'cl-lib)
+
+(defun company-simple-backend (command &optional arg &rest ignored)
+  (interactive (list 'interactive))
+  (cl-case command
+	(interactive (company-begin-backend 'company-simple-backend))
+	(prefix (when (looking-back "foo\\>")
+			  (match-string 0)))
+	(candidates (when (equal arg "foo")
+				  (list "foobar" "foobaz" "foobarbaz")))
+	(meta (format "This value is named %s" arg))))
