@@ -1,0 +1,11 @@
+(require 'package)
+
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+			 ("melpa-stable" . "https://stable.melpa.org/packages/")
+			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+			 ("gnu" . "https://elpa.gnu.org/packages/"))
+      package-archive-priorities '(("melpa" . 4)
+				   ("melpa-stable" . 3)
+				   ("nongnu" . 2)
+				   ("gnu" . 1)))
+(package-initialize)
