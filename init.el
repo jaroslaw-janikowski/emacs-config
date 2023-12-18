@@ -360,7 +360,7 @@
 	  message-kill-buffer-on-exit t
 	  message-wide-reply-confirm-recipients t
 	  eww-history-limit 100
-	  eww-browse-url-new-window-is-tab t
+	  eww-browse-url-new-window-is-tab nil
       geiser-default-implementation 'guile
       centaur-tabs-excluded-prefixes '("*Messages*"
 				       "*epc"
