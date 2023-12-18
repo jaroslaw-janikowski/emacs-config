@@ -240,6 +240,9 @@
 (defun my/setup-sqli-mode()
   (toggle-truncate-lines t))
 
+(defun my/setup-sql-mode()
+  (sql-set-dialect 'postgres))
+
 (defun my/on-before-save()
   (delete-trailing-whitespace))
 
@@ -518,6 +521,7 @@
 (add-hook 'prog-mode-hook 'my/setup-prog-mode)
 (add-hook 'python-mode-hook 'my/setup-python-mode)
 (add-hook 'sql-interactive-mode-hook 'my/setup-sqli-mode)
+(add-hook 'sql-mode-hook 'my/setup-sql-mode)
 (add-hook 'before-save-hook 'my/on-before-save)
 (add-hook 'org-present-mode-hook 'my/org-present-start)
 (add-hook 'org-present-mode-hook 'my/org-present-end)
