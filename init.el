@@ -231,6 +231,9 @@
 (defun my/setup-eshell()
   (setq company-backends '((company-files company-yasnippet))))
 
+(defun my/setup-dired()
+  (nerd-icons-dired-mode))
+
 (defun my/setup-python-mode()
   (eglot-ensure))
 
@@ -242,11 +245,13 @@
 
 (setq warning-minimum-level :error
       inhibit-startup-screen t
+	  inhibit-splash-screen t
       byte-compile-warnings nil
       gc-cons-threshold 10000000
       gc-cons-percentage 0.1
       garbage-collection-messages nil
       make-backup-files nil
+	  backup-inhibited nil
       auto-save-default nil
       load-prefer-newer t
       read-process-output-max (* 3 1024 1024) ;; 3mb
@@ -257,23 +262,61 @@
       large-file-warning-threshold 100000000
       ring-bell-function 'ignore
       use-short-answers t
+	  read-answer-short t
+	  kill-ring-max 60
+	  isearch-lazy-count t
+	  shell-command-prompt-show-cwd t
+	  ansi-color-for-comint-mode t
+	  shell-input-autoexpand 'input
+	  shell-highlight-undef-enable t
+	  shell-kill-buffer-on-exit t
+	  comint-prompt-read-only t
+	  comint-buffer-maximum-size 9999
+	  comint-completion-autolist t
+	  comint-input-ignoredups t
       confirm-kill-processes nil
       confirm-kill-emacs nil
       confirm-nonexistent-file-or-buffer nil
+	  completion-ignore-case t
+	  read-buffer-completion-ignore-case t
+	  read-file-name-completion-ignore-case t
+	  enable-recursive-minibuffers t
+	  resize-mini-windows t
       require-final-newline t
       executable-prefix-env t
       initial-scratch-message nil
       enable-local-variables nil
+	  blink-matching-paren t
+	  remote-file-name-inhibit-delete-by-moving-to-trash t
+	  remote-file-name-inhibit-auto-save t
+	  tramp-connection-timeout (* 60 10)
+	  tramp-default-remote-shell "/bin/bash"
+	  kill-do-not-save-duplicates t
+	  comment-empty-lines t
+	  comment-fill-column nil
+	  comment-multi-line t
+	  comment-style 'multi-line
       dired-auto-revert-buffer t
       dired-confirm-shell-command nil
       dired-clean-confirm-killing-deleted-buffers nil
       dired-no-confirm t
-      dired-recursive-deletes (quote always)
-      dired-deletion-confirmer '(lambda (x) t)
+	  dired-recursive-copies 'always
       dired-recursive-deletes 'always
+      dired-deletion-confirmer '(lambda (x) t)
+	  dired-make-directory-clickable t
+	  dired-mouse-drag-files t
+	  dired-clean-up-buffers-too t
+	  dired-clean-confirm-killing-deleted-buffers t
+	  default-input-method "english"
+	  default-transient-input-method "polish"
+	  initial-buffer-choice t  ;; always start with *scratch*
+	  frame-resize-pixelwise t
+	  frame-inhibit-implied-resize t
+	  frame-title-format '("%b")
       initial-major-mode 'org-mode
       nxml-slash-autocomplete-flag t
       nxml-mode-map (make-keymap)
+	  custom-file (make-temp-file "emacs-custom-")  ;; brak dopisywania customize
       centaur-tabs-style "slant"
       centaur-tabs-set-icons t
       centaur-tabs-set-bar 'over
@@ -290,10 +333,12 @@
       python-shell-interpreter "ipython3"
       python-shell-interpreter-args "-i --simple-prompt"
       org-confirm-babel-evaluate nil
+	  org-src-window-setup 'current-window
+	  org-edit-src-persistent-message nil
       org-hide-leading-stars t
       org-return-follows-link t
       org-support-shift-select t
-      org-hide-emphasis-markers t
+      org-hide-emphasis-markers nil
       org-babel-python-command "ipython3 -i --simple-prompt --quiet --pprint --no-banner --no-confirm-exit"
       org-babel-hash-show-time t
       org-startup-indented t
@@ -301,6 +346,21 @@
       org-startup-with-latex-preview t
       org-adapt-indentation t
       org-special-ctrl-o nil
+	  org-special-ctrl-a/e nil
+	  org-special-ctrl-k nil
+	  org-adapt-indentation nil
+	  org-M-RET-may-split-line '((default . nil))
+	  diff-default-read-only t
+	  diff-advance-after-apply-hunk t
+	  diff-update-on-the-fly t
+	  diff-font-lock-prettify nil
+	  vc-follow-symlinks t
+	  ispell-choices-buffer "*ispell-top-choices*"
+	  message-confirm-send nil
+	  message-kill-buffer-on-exit t
+	  message-wide-reply-confirm-recipients t
+	  eww-history-limit 100
+	  eww-browse-url-new-window-is-tab t
       geiser-default-implementation 'guile
       centaur-tabs-excluded-prefixes '("*Messages*"
 				       "*epc"
@@ -327,6 +387,14 @@
 				       "*tramp"
 				       "plstore "
 				       )
+	  display-buffer-alist '(
+							 ("\\'\\*Async Shell Command\\*\\'"
+							  (display-buffer-no-window))
+							 ("\\*ispell-top-choices\\*.*"
+							  (display-buffer-reuse-mode-window display-buffer-below-selected)
+							  (window-height . fit-window-to-buffer))
+							 ("\\(magit: .+\\|magit-log.+\\|magit-revision.+\\)"
+							  (display-buffer-full-frame)))
       web-mode-engines-alist '(("php" . "\\.phtml\\'")
 			       ("blade" . "\\.blade\\."))
       web-mode-markup-indent-offset 4
@@ -344,9 +412,12 @@
               c-default-style "k&r"
               c-basic-offset 4
               c-electric-flag t
-	      tab-width 4
-	      adaptive-wrap-extra-indent 0
-	      display-fill-column-indicator-column 80)
+			  comment-column 0
+			  tab-width 4
+			  adaptive-wrap-extra-indent 0
+			  display-fill-column-indicator-column 80
+			  comint-scroll-to-bottom-on-input t
+			  comint-scroll-to-bottom-on-output nil)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 (load-theme 'monokai t)
@@ -451,15 +522,16 @@
 (add-hook 'org-present-mode-hook 'my/org-present-start)
 (add-hook 'org-present-mode-hook 'my/org-present-end)
 (add-hook 'eshell-mode-hook 'my/setup-eshell)
+(add-hook 'dired-mode-hook 'my/setup-dired)
 
 (add-to-list 'auto-mode-alist '("^.*\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-
-(add-to-list 'display-buffer-alist
-	     '("\\(magit: .+\\|magit-log.+\\|magit-revision.+\\)"
-	       (display-buffer-full-frame)))
+(add-to-list 'auto-mode-alist '("\\.service" . conf-mode))
+(add-to-list 'auto-mode-alist '("README" . text-mode))
+(add-to-list 'auto-mode-alist '("LICENSE" . text-mode))
+(add-to-list 'auto-mode-alist '("CHANGELOG" . text-mode))
 
 (let ((private-settings (file-name-concat user-emacs-directory "private.el")))
   (if (file-exists-p private-settings) (load-file private-settings)))
