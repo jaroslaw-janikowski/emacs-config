@@ -392,6 +392,7 @@
 				       "*Ediff"
 				       "*ediff"
 				       "*tramp"
+					   "*which-key*"
 				       "plstore "
 				       )
 	  display-buffer-alist '(
