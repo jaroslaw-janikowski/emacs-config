@@ -514,6 +514,8 @@
 (define-key org-mode-map (kbd "M-<down>") nil)
 (define-key org-mode-map (kbd "C-]") 'org-indent-item-tree)
 ;; (define-key org-mode-map (kbd "C-[") 'org-outdent-item-tree)
+(define-key python-mode-map (kbd "C-]") 'python-indent-shift-right)
+;; (define-key python-mode-map (kbd "C-[") 'python-indent-shift-left)
 (define-key org-mode-map (kbd "C-S-<right>") nil)
 (define-key org-mode-map (kbd "C-S-<left>") nil)
 (define-key org-mode-map (kbd "C-S-<up>") nil)
