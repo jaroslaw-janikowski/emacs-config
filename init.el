@@ -11,6 +11,7 @@
 (package-initialize)
 (add-to-list 'load-path (file-name-concat user-emacs-directory "mods"))
 
+(require 'crux)
 (require 'centaur-tabs)
 (require 'nxml-mode)
 (require 'hexl)
@@ -40,11 +41,6 @@
   (interactive)
   (let ((default-directory command-line-default-directory))
     (eshell 'N)))
-
-(defun my/duplicate-line()
-  (interactive)
-  (duplicate-line)
-  (next-line))
 
 (defun insert-current-date()
   (interactive)
@@ -499,7 +495,7 @@
 (global-set-key (kbd "C-n") 'my/create-new-file)
 (global-set-key (kbd "C-S-n") 'my/create-new-directory)
 (global-set-key (kbd "C-S-t") 'my/create-new-eshell)
-(global-set-key (kbd "C-S-d") 'my/duplicate-line)
+(global-set-key (kbd "C-S-d") 'crux-duplicate-current-line-or-region)
 (global-set-key (kbd "C-d") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-k") 'mc/skip-to-next-like-this)
 (define-key mc/keymap (kbd "<return>") nil)

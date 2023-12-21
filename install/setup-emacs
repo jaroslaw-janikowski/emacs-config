@@ -17,6 +17,7 @@ emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'vis
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'centaur-tabs)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'which-key)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'evil-nerd-commenter)"
+emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'crux)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'monokai-theme)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'nerd-icons)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'nerd-icons-dired)"
