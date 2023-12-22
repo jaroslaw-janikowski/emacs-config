@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: dataclass
+# key: dataclass
+# --
+@dataclass(frozen=True, order=True)
+class ${1:class-name}:
+    ${0:id: int}
