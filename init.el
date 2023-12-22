@@ -536,6 +536,7 @@
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode))
 (add-to-list 'auto-mode-alist '("\\.service" . conf-mode))
 (add-to-list 'auto-mode-alist '("README" . text-mode))
 (add-to-list 'auto-mode-alist '("LICENSE" . text-mode))
