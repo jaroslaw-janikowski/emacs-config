@@ -225,7 +225,7 @@
   (idle-highlight-mode t))
 
 (defun my/setup-eshell()
-  (setq company-backends '((company-files company-yasnippet))))
+  (setq company-backends '((company-files company-yasnippet company-shell))))
 
 (defun my/setup-dired()
   (nerd-icons-dired-mode))
