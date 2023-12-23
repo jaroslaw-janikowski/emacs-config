@@ -223,6 +223,7 @@
   (flyspell-prog-mode)
   (display-fill-column-indicator-mode)
   (ispell-change-dictionary "british")
+  (diff-hl-mode)
   (idle-highlight-mode t))
 
 (defun my/setup-restclient-mode()
@@ -536,6 +537,8 @@
 (add-hook 'nginx-mode-hook 'my/setup-nginx-mode)
 (add-hook 'dired-mode-hook 'my/setup-dired)
 (add-hook 'restclient-mode-hook 'my/setup-restclient-mode)
+(add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
+(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
 
 (add-to-list 'auto-mode-alist '("^.*\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))

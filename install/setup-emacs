@@ -24,6 +24,7 @@ emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'ngi
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'company-nginx)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'restclient)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'company-restclient)"
+emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'diff-hl)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'monokai-theme)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'nerd-icons)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'nerd-icons-dired)"
