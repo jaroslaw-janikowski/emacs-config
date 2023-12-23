@@ -498,6 +498,7 @@
 (global-set-key (kbd "C-n") 'my/create-new-file)
 (global-set-key (kbd "C-S-n") 'my/create-new-directory)
 (global-set-key (kbd "C-S-t") 'my/create-new-eshell)
+(global-set-key (kbd "C-t") 'term)
 (global-set-key (kbd "C-S-d") 'crux-duplicate-current-line-or-region)
 (global-set-key (kbd "C-d") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-k") 'mc/skip-to-next-like-this)
