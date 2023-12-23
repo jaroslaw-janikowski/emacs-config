@@ -25,6 +25,7 @@
 (require 'restclient)
 (require 'which-key)
 (require 'evil-nerd-commenter)
+(require 'nginx-mode)
 
 (defun my/forward-paragraph()
   (interactive)
@@ -223,6 +224,9 @@
   (display-fill-column-indicator-mode)
   (ispell-change-dictionary "british")
   (idle-highlight-mode t))
+
+(defun my/setup-nginx-mode()
+  (setq company-backends '((company-files company-yasnippet company-nginx))))
 
 (defun my/setup-eshell()
   (setq company-backends '((company-files company-yasnippet company-shell))))
@@ -524,6 +528,7 @@
 (add-hook 'org-present-mode-hook 'my/org-present-start)
 (add-hook 'org-present-mode-hook 'my/org-present-end)
 (add-hook 'eshell-mode-hook 'my/setup-eshell)
+(add-hook 'nginx-mode-hook 'my/setup-nginx-mode)
 (add-hook 'dired-mode-hook 'my/setup-dired)
 
 (add-to-list 'auto-mode-alist '("^.*\.md$" . markdown-mode))

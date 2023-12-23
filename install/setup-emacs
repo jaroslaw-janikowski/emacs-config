@@ -20,6 +20,8 @@ emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'evi
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'crux)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'dotenv-mode)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'company-shell)"
+emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'nginx-mode)"
+emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'company-nginx)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'monokai-theme)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'nerd-icons)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'nerd-icons-dired)"
