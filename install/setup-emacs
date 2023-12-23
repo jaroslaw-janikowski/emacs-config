@@ -22,9 +22,9 @@ emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'dot
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'company-shell)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'nginx-mode)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'company-nginx)"
+emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'restclient)"
+emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'company-restclient)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'monokai-theme)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'nerd-icons)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'nerd-icons-dired)"
 emacs -q --load ./install/setup-init.el --batch --execute "(nerd-icons-install-fonts)"
-mkdir ~/.emacs.d/mods
-cd ~/.emacs.d/mods && wget -O ~/.emacs.d/mods/restclient.el https://raw.githubusercontent.com/pashky/restclient.el/master/restclient.el

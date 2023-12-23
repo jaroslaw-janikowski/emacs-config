@@ -225,6 +225,9 @@
   (ispell-change-dictionary "british")
   (idle-highlight-mode t))
 
+(defun my/setup-restclient-mode()
+  (setq company-backends '((company-restclient company-yasnippet))))
+
 (defun my/setup-nginx-mode()
   (setq company-backends '((company-files company-yasnippet company-nginx))))
 
@@ -530,6 +533,7 @@
 (add-hook 'eshell-mode-hook 'my/setup-eshell)
 (add-hook 'nginx-mode-hook 'my/setup-nginx-mode)
 (add-hook 'dired-mode-hook 'my/setup-dired)
+(add-hook 'restclient-mode-hook 'my/setup-restclient-mode)
 
 (add-to-list 'auto-mode-alist '("^.*\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
