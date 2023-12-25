@@ -225,6 +225,7 @@
   (display-fill-column-indicator-mode)
   (ispell-change-dictionary "british")
   (diff-hl-mode)
+  (rainbow-mode)
   (idle-highlight-mode t))
 
 (defun my/setup-restclient-mode()
