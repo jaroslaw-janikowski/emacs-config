@@ -363,6 +363,8 @@
 	  diff-update-on-the-fly t
 	  diff-font-lock-prettify nil
 	  vc-follow-symlinks t
+	  calendar-christian-all-holidays-flag t
+	  calendar-mark-holidays-flag t
 	  ispell-choices-buffer "*ispell-top-choices*"
 	  message-confirm-send nil
 	  message-kill-buffer-on-exit t
@@ -393,6 +395,8 @@
 				       "*Ediff" "*ediff"
 				       "*tramp"
 					   "*which-key*"
+					   "*Calendar*"
+					   "*Holidays*"
 				       "plstore "
 				       )
 	  display-buffer-alist '(
