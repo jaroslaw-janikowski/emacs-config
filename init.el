@@ -211,6 +211,7 @@
 
 (defun my/setup-text-mode()
   (setq company-backends '((company-ispell company-dabbrev)))
+  (hl-line-mode)
   (flyspell-mode)
   (ispell-change-dictionary "polish"))
 
@@ -220,6 +221,7 @@
 			    company-keywords
 			    company-files
 			    company-capf)))
+  (hl-line-mode)
   (flyspell-prog-mode)
   (display-line-numbers-mode 1)
   (display-fill-column-indicator-mode)
@@ -237,11 +239,14 @@
 (defun my/setup-eshell()
   (setq company-backends '((company-files company-yasnippet company-shell))))
 
+(defun my/setup-term-mode())
+
 (defun my/dired-new()
   (interactive)
   (dired command-line-default-directory))
 
 (defun my/setup-dired()
+  (hl-line-mode)
   (nerd-icons-dired-mode))
 
 (defun my/setup-python-mode()
@@ -445,7 +450,7 @@
 (save-place-mode t)
 (centaur-tabs-mode t)
 ;; (global-display-line-numbers-mode t)
-(global-hl-line-mode t)
+;; (global-hl-line-mode t)
 (column-number-mode t)
 (delete-selection-mode t)
 (global-auto-revert-mode 1)
@@ -552,6 +557,7 @@
 (add-hook 'restclient-mode-hook 'my/setup-restclient-mode)
 (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+(add-hook 'term-mode-hook 'my/setup-term-mode)
 
 (add-to-list 'auto-mode-alist '("^.*\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
