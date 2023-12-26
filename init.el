@@ -258,6 +258,9 @@
 (defun my/setup-sql-mode()
   (sql-set-dialect 'postgres))
 
+(defun my/setup-eww-mode()
+  (hl-line-mode))
+
 (defun my/on-before-save()
   (delete-trailing-whitespace))
 
@@ -558,6 +561,7 @@
 (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
 (add-hook 'term-mode-hook 'my/setup-term-mode)
+(add-hook 'eww-mode-hook 'my/setup-eww-mode)
 
 (add-to-list 'auto-mode-alist '("^.*\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
