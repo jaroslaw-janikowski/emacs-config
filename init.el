@@ -384,7 +384,7 @@
 	  message-wide-reply-confirm-recipients t
 	  eww-history-limit 100
 	  eww-browse-url-new-window-is-tab nil
-	  eww-search-prefix "https://html.duckduckgo.com/html/"
+	  eww-search-prefix "https://html.duckduckgo.com/html/?q="
       geiser-default-implementation 'guile
       centaur-tabs-excluded-prefixes '("*Messages*"
 				       "*epc"
