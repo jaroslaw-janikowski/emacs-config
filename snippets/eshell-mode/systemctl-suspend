@@ -2,4 +2,4 @@
 # name: Eshell suspend computer
 # key: sus
 # --
-systemctl suspend $0
+systemctl suspend$0
