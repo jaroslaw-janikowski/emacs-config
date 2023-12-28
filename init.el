@@ -423,7 +423,7 @@
 					   "*Holidays*"
 				       "plstore "
 				       )
-	  display-buffer-alist '(
+	  display-buffer-alist '(("\\*helm.+" (display-buffer-at-bottom))
 							 ("\\'\\*Async Shell Command\\*\\'"
 							  (display-buffer-no-window))
 							 ("\\*ispell-top-choices\\*.*"
