@@ -221,7 +221,8 @@
 			    company-dabbrev-code
 			    company-keywords
 			    company-files
-			    company-capf)))
+			    company-capf))
+		show-trailing-whitespace t)
   (hl-line-mode)
   (flyspell-prog-mode)
   (display-line-numbers-mode 1)
@@ -454,7 +455,6 @@
 			  tab-width 4
 			  adaptive-wrap-extra-indent 0
 			  display-fill-column-indicator-column 80
-			  show-trailing-whitespace t
 			  comint-scroll-to-bottom-on-input t
 			  comint-scroll-to-bottom-on-output nil)
 
