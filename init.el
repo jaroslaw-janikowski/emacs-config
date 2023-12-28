@@ -446,6 +446,9 @@
 	  treemacs-recenter-after-file-follow 'always
 	  treemacs-no-delete-other-windows t
 	  treemacs-tag-follow-delay 0.1
+	  proced-auto-update-flag t
+	  proced-tree-flag t
+	  proced-enable-color-flag t
       restclient-same-buffer-response nil)
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
