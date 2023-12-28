@@ -231,6 +231,9 @@
   (rainbow-mode)
   (idle-highlight-mode t))
 
+(defun my/setup-elisp-mode()
+  (setq company-backends '((company-elisp company-files company-yasnippet company-dabbrev-code))))
+
 (defun my/setup-restclient-mode()
   (setq company-backends '((company-restclient company-yasnippet))))
 
@@ -561,6 +564,7 @@
 (add-hook 'text-mode-hook 'my/setup-text-mode)
 (add-hook 'prog-mode-hook 'my/setup-prog-mode)
 (add-hook 'python-mode-hook 'my/setup-python-mode)
+(add-hook 'emacs-lisp-mode-hook 'my/setup-elisp-mode)
 (add-hook 'sql-interactive-mode-hook 'my/setup-sqli-mode)
 (add-hook 'sql-mode-hook 'my/setup-sql-mode)
 (add-hook 'before-save-hook 'my/on-before-save)
