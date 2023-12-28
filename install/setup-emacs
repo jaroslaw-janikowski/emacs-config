@@ -28,6 +28,7 @@ emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'dif
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'csv-mode)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'rainbow-mode)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'embark)"
+emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'treemacs)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'monokai-theme)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'nerd-icons)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'nerd-icons-dired)"

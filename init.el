@@ -26,6 +26,7 @@
 (require 'which-key)
 (require 'evil-nerd-commenter)
 (require 'nginx-mode)
+(require 'treemacs)
 
 (defun my/forward-paragraph()
   (interactive)
@@ -435,6 +436,10 @@
       browse-url-browser-function 'eww-browse-url
       restclient-log-request t
       eww-auto-rename-buffer 'title
+	  treemacs-recenter-after-project-jump 'always
+	  treemacs-recenter-after-file-follow 'always
+	  treemacs-no-delete-other-windows t
+	  treemacs-tag-follow-delay 0.1
       restclient-same-buffer-response nil)
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
@@ -479,6 +484,8 @@
 							 (shell . t)
 							 (scheme . t)))
 (which-key-mode)
+(treemacs-project-follow-mode 1)
+(treemacs-follow-mode 1)
 
 (set-face-attribute 'region nil :background "#666")
 (set-face-attribute 'org-block nil :background "#222")
@@ -524,6 +531,7 @@
 (global-set-key (kbd "C-d") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-k") 'mc/skip-to-next-like-this)
 (global-set-key (kbd "<f1>") 'embark-act)
+(global-set-key (kbd "<f8>") 'treemacs)
 (global-set-key (kbd "C-x d") 'my/dired-new)
 (define-key mc/keymap (kbd "<return>") nil)
 (define-key nxml-mode-map (kbd ">") 'my/finish-element)
