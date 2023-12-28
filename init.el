@@ -299,6 +299,7 @@
 	  shell-input-autoexpand 'input
 	  shell-highlight-undef-enable t
 	  shell-kill-buffer-on-exit t
+	  explicit-shell-file-name "/bin/bash"
 	  comint-prompt-read-only t
 	  comint-buffer-maximum-size 9999
 	  comint-completion-autolist t
