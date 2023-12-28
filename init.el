@@ -351,7 +351,7 @@
       centaur-tabs-set-bar 'over
       centaur-tabs-show-navigation-buttons t
       centaur-tabs-buffer-groups-function 'my/centaur-tabs-groups
-      company-minimum-prefix-length 2
+      company-minimum-prefix-length 1
       centaur-tabs-set-modified-marker "*"
       company-idle-delay 0
       company-selection-wrap-around t
