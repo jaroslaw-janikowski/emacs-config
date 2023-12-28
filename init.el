@@ -357,7 +357,8 @@
       centaur-tabs-set-modified-marker "*"
       company-idle-delay 0
       company-selection-wrap-around t
-      company-files-exclusions '(".git/" ".DS_Store" "__pycache__/" ".venv/")
+      company-files-exclusions '(".git/" ".DS_Store" "__pycache__/" ".venv/"
+								 ".mypy_cache/")
       company-dabbrev-minimum-length 2
       company-tooltip-align-annotations t
       mc/always-run-for-all t
