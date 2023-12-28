@@ -536,6 +536,7 @@
 (global-set-key (kbd "C-d") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-k") 'mc/skip-to-next-like-this)
 (global-set-key (kbd "<f1>") 'embark-act)
+(global-set-key (kbd "<f6>") 'eglot-format)
 (global-set-key (kbd "<f8>") 'treemacs)
 (global-set-key (kbd "C-x d") 'my/dired-new)
 (define-key mc/keymap (kbd "<return>") nil)
