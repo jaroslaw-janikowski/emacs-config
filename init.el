@@ -519,6 +519,7 @@
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 (global-set-key (kbd "M-g") 'centaur-tabs--groups-menu)
 (global-set-key (kbd "C-S-p") 'helm-M-x)
+(global-set-key (kbd "C-o") 'imenu)
 (global-set-key (kbd "M-x") 'kill-this-buffer)
 (global-set-key (kbd "M-d") 'insert-current-date)
 (global-set-key (kbd "M-<left>") 'centaur-tabs-backward)
