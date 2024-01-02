@@ -234,7 +234,7 @@
   (idle-highlight-mode t))
 
 (defun my/setup-elisp-mode()
-  (setq company-backends '((company-elisp company-files company-yasnippet company-dabbrev-code))))
+  (setq company-backends '((company-capf company-elisp company-files company-yasnippet company-dabbrev-code))))
 
 (defun my/setup-docker-compose-mode()
   (setq company-backends '(company-capf
