@@ -329,6 +329,7 @@
 	  remote-file-name-inhibit-auto-save t
 	  tramp-connection-timeout (* 60 10)
 	  tramp-default-remote-shell "/bin/bash"
+	  tramp-verbose 7
 	  kill-do-not-save-duplicates t
 	  comment-empty-lines t
 	  comment-fill-column nil
