@@ -32,4 +32,5 @@ emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'tre
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'monokai-theme)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'nerd-icons)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'nerd-icons-dired)"
+emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'php-mode)"
 emacs -q --load ./install/setup-init.el --batch --execute "(nerd-icons-install-fonts)"
