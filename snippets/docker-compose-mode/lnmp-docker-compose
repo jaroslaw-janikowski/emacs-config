@@ -1,0 +1,38 @@
+# -*- mode: snippet -*-
+# name: LNMP-docker-compose
+# key: LNMP-docker-compose
+# --
+version: '3'
+services:
+	web:
+		image: nginx
+		container_name: webserver
+		depends_on:
+			- docker-mysql
+			- php
+		links:
+			- docker-mysql
+			- php
+		volumes:
+			- ./src:/var/www/html
+			- ./servers-config/nginx:/etc/nginx/conf.d/
+		ports:
+			- "8080:80"
+	php:
+		image: php:fpm
+		volumes:
+			- ./src:/var/www/html
+			- ./servers-config/php:/usr/local/etc/php/php.ini
+	docker-mysql:
+		image: mysql:5.7
+		container_name: docker-mysql-demo
+		restart: always
+		environment:
+			- MYSQL_DATABASE=docker_demo
+			- MYSQL_ROOT_PASSWORD=root123
+			- MYSQL_USER=root
+			- MYSQL_PASSWORD=root123
+		ports:
+			- "3306:3306"
+		volumes:
+			- ./servers-config/mysql-data:/var/lib/mysql
