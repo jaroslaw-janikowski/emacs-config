@@ -236,6 +236,12 @@
 (defun my/setup-elisp-mode()
   (setq company-backends '((company-elisp company-files company-yasnippet company-dabbrev-code))))
 
+(defun my/setup-docker-compose-mode()
+  (setq company-backends '(company-capf
+						   company-dabbrev-code
+						   company-files
+						   company-yasnippet)))
+
 (defun my/setup-restclient-mode()
   (setq company-backends '((company-restclient company-yasnippet))))
 
@@ -587,6 +593,7 @@
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
 (add-hook 'term-mode-hook 'my/setup-term-mode)
 (add-hook 'eww-mode-hook 'my/setup-eww-mode)
+(add-hook 'docker-compose-mode-hook 'my/setup-docker-compose-mode)
 
 (add-to-list 'auto-mode-alist '("^.*\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
