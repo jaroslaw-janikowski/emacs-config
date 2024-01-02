@@ -27,6 +27,7 @@
 (require 'evil-nerd-commenter)
 (require 'nginx-mode)
 (require 'treemacs)
+(require 'docker-compose-mode)
 
 (defun my/forward-paragraph()
   (interactive)

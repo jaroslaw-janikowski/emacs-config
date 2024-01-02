@@ -33,4 +33,5 @@ emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'mon
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'nerd-icons)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'nerd-icons-dired)"
 emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'php-mode)"
+emacs -q --load ./install/setup-init.el --batch --execute "(package-install 'docker-compose-mode)"
 emacs -q --load ./install/setup-init.el --batch --execute "(nerd-icons-install-fonts)"
