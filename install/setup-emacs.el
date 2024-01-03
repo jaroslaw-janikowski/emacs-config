@@ -44,4 +44,5 @@
 (package-install 'nerd-icons-dired)
 (package-install 'php-mode)
 (package-install 'docker-compose-mode)
+(package-install 'winum)
 (nerd-icons-install-fonts)
