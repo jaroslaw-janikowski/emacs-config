@@ -605,6 +605,7 @@
 (add-to-list 'auto-mode-alist '("\\.service" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.csv" . csv-mode))
 (add-to-list 'auto-mode-alist '("\\.php" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.eln" . hexl-mode))
 (add-to-list 'auto-mode-alist '("README" . text-mode))
 (add-to-list 'auto-mode-alist '("LICENSE" . text-mode))
 (add-to-list 'auto-mode-alist '("CHANGELOG" . text-mode))
