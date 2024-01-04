@@ -419,7 +419,7 @@
 				       "*Warnings"
 				       "*Messages*"
 				       "*html*"
-					   "magit-process: " "magit-diff: " "magit: "
+					   "magit-process: " "magit-diff: " "magit: " "magit-log: "
 					   "COMMIT_EDITMSG"
 				       "*Flymake log*"
 				       "*EGLOT"
