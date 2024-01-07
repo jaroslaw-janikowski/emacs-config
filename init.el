@@ -33,11 +33,7 @@
 (defun my/project-pre-hook()
   (setq default-directory my/project-current-root))
 
-(defun my/project-post-hook()
-  (setq default-directory my/project-current-root))
-
 (add-hook 'pre-command-hook 'my/project-pre-hook)
-(add-hook 'pre-command-hook 'my/project-post-hook)
 
 (defun my/project-root (project-path)
   (interactive "DKatalog root: ")
