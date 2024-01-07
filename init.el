@@ -4,10 +4,10 @@
 			 ("melpa-stable" . "https://stable.melpa.org/packages/")
 			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")
 			 ("gnu" . "https://elpa.gnu.org/packages/"))
-      package-archive-priorities '(("melpa" . 4)
-				   ("melpa-stable" . 3)
-				   ("nongnu" . 2)
-				   ("gnu" . 1)))
+      package-archive-priorities '(("melpa" . 1)
+				   ("melpa-stable" . 2)
+				   ("nongnu" . 3)
+				   ("gnu" . 4)))
 (package-initialize)
 (add-to-list 'load-path (file-name-concat user-emacs-directory "mods"))
 
@@ -443,9 +443,8 @@
 							 ("\\*ispell-top-choices\\*.*"
 							  (display-buffer-reuse-mode-window display-buffer-below-selected)
 							  (window-height . fit-window-to-buffer))
-							 ;; ("\\(magit: .+\\|magit-log.+\\|magit-revision.+\\)"
-							 ;;  (display-buffer-full-frame))
-							 )
+							 ("\\(magit: .+\\|magit-log.+\\|magit-revision.+\\)"
+							  (display-buffer-full-frame)))
       web-mode-engines-alist '(("php" . "\\.phtml\\'")
 			       ("blade" . "\\.blade\\."))
       web-mode-markup-indent-offset 4
