@@ -222,7 +222,7 @@
 
 (defun my/dired-new()
   (interactive)
-  (dired command-line-default-directory))
+  (dired (cdr (project-current))))
 
 (defun my/setup-dired()
   (hl-line-mode)
@@ -303,7 +303,6 @@
       dired-clean-confirm-killing-deleted-buffers nil
 	  dired-recursive-copies 'always
       dired-recursive-deletes 'always
-;;      dired-deletion-confirmer '(lambda (x) t)
       dired-no-confirm t
 	  dired-make-directory-clickable t
 	  dired-mouse-drag-files t
@@ -442,8 +441,6 @@
 (menu-bar-mode -1)
 (save-place-mode t)
 (centaur-tabs-mode t)
-;; (global-display-line-numbers-mode t)
-;; (global-hl-line-mode t)
 (column-number-mode t)
 (delete-selection-mode t)
 (global-auto-revert-mode 1)
