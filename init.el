@@ -41,7 +41,7 @@
 
 (defun my/create-new-eshell()
   (interactive)
-  (let ((default-directory command-line-default-directory))
+  (let ((default-directory (cdr (project-current))))
     (eshell 'N)))
 
 (defun insert-current-date()
