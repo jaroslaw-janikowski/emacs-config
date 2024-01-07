@@ -343,10 +343,10 @@
       dired-auto-revert-buffer t
       dired-confirm-shell-command nil
       dired-clean-confirm-killing-deleted-buffers nil
-      dired-no-confirm t
 	  dired-recursive-copies 'always
       dired-recursive-deletes 'always
-      dired-deletion-confirmer '(lambda (x) t)
+;;      dired-deletion-confirmer '(lambda (x) t)
+      dired-no-confirm t
 	  dired-make-directory-clickable t
 	  dired-mouse-drag-files t
 	  dired-clean-up-buffers-too t
