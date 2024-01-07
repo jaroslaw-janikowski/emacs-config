@@ -11,6 +11,7 @@ tramp
 places
 .mc-lists.el
 url/
+projects/
 eww-bookmarks
 mastodon.plstore
 private.el
