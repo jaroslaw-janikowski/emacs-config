@@ -233,6 +233,11 @@
   (rainbow-mode)
   (idle-highlight-mode t))
 
+(defun my/setup-makefile-mode()
+  (setq company-backends '(company-files
+						   company-dabbrev-code
+						   company-yasnippet)))
+
 (defun my/setup-elisp-mode()
   (setq company-backends '((company-capf company-elisp company-files company-yasnippet company-dabbrev-code))))
 
@@ -438,8 +443,9 @@
 							 ("\\*ispell-top-choices\\*.*"
 							  (display-buffer-reuse-mode-window display-buffer-below-selected)
 							  (window-height . fit-window-to-buffer))
-							 ("\\(magit: .+\\|magit-log.+\\|magit-revision.+\\)"
-							  (display-buffer-full-frame)))
+							 ;; ("\\(magit: .+\\|magit-log.+\\|magit-revision.+\\)"
+							 ;;  (display-buffer-full-frame))
+							 )
       web-mode-engines-alist '(("php" . "\\.phtml\\'")
 			       ("blade" . "\\.blade\\."))
       web-mode-markup-indent-offset 4
@@ -594,6 +600,7 @@
 (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
 (add-hook 'term-mode-hook 'my/setup-term-mode)
+(add-hook 'makefile-mode-hook 'my/setup-makefile-mode)
 (add-hook 'eww-mode-hook 'my/setup-eww-mode)
 (add-hook 'docker-compose-mode-hook 'my/setup-docker-compose-mode)
 
