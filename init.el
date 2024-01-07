@@ -9,7 +9,6 @@
 				   ("nongnu" . 3)
 				   ("gnu" . 4)))
 (package-initialize)
-(add-to-list 'load-path (file-name-concat user-emacs-directory "mods"))
 
 (require 'crux)
 (require 'centaur-tabs)
@@ -102,47 +101,6 @@
   (company-abort)
   (keyboard-escape-quit)
   (mc/keyboard-quit))
-
-(defun helm-find--build-cmd-line ()
-  "Specjalna wersja funkcji zapewniająca wyszukiwanie rekurencyjne dla helm-find."
-  (require 'find-cmd)
-  (let* ((command-line-default-directory (or (file-remote-p command-line-default-directory 'localname)
-                                command-line-default-directory))
-         (patterns+options (split-string helm-pattern "\\(\\`\\| +\\)\\* +"))
-         (fold-case (helm-set-case-fold-search (car patterns+options)))
-         (patterns (split-string (car patterns+options)))
-         (additional-options (and (cdr patterns+options)
-                                  (list (concat (cadr patterns+options) " "))))
-         (ignored-dirs ())
-         (ignored-files (when helm-findutils-skip-boring-files
-                          (cl-loop for f in completion-ignored-extensions
-                                   if (string-match "/$" f)
-                                   do (push (replace-match "" nil t f)
-                                            ignored-dirs)
-                                   else collect (concat "*" f))))
-         (path-or-name (if helm-findutils-search-full-path
-                           '(ipath path) '(iname name)))
-         (name-or-iname (if fold-case
-                            (car path-or-name) (cadr path-or-name))))
-    (find-cmd (and ignored-dirs
-                   `(prune (name ,@ignored-dirs)))
-              (and ignored-files
-                   `(not (name ,@ignored-files)))
-              `(and ,@(mapcar
-                       (lambda (pattern)
-                         `(,name-or-iname ,(concat "**" pattern "*"))) ;;; <- fix
-                       patterns)
-                    ,@additional-options))))
-
-(defun helm-find (arg)
-  "Patch umożliwiający wysukiwanie plików z poziomu katalogu root projektu."
-  (interactive "P")
-  (let ((directory
-	 (if arg
-	     (file-name-as-directory
-	      (read-directory-name "DefaultDirectory: "))
-	   command-line-default-directory)))  ;;; <- fix
-    (helm-find-1 directory)))
 
 (defun my/move-line-up ()
   (interactive)
@@ -444,7 +402,7 @@
 							  (display-buffer-reuse-mode-window display-buffer-below-selected)
 							  (window-height . fit-window-to-buffer))
 							 ("\\(magit: .+\\|magit-log.+\\|magit-revision.+\\)"
-							  (display-buffer-full-frame)))
+							  (display-buffer-same-window)))
       web-mode-engines-alist '(("php" . "\\.phtml\\'")
 			       ("blade" . "\\.blade\\."))
       web-mode-markup-indent-offset 4
