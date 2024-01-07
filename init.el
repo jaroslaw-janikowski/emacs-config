@@ -11,7 +11,6 @@
 (package-initialize)
 
 (require 'crux)
-(require 'centaur-tabs)
 (require 'nxml-mode)
 (require 'hexl)
 (require 'yasnippet)
@@ -29,20 +28,22 @@
 (require 'docker-compose-mode)
 
 ;; Custom project management
-(setq project-current-root default-directory)
+(setq my/project-current-root "~/.emacs.d/")
 
-(defun project-pre-hook()
-  (setq default-directory project-current-root))
+(defun my/project-pre-hook()
+  (setq default-directory my/project-current-root))
 
-(defun project-post-hook()
-  (setq default-directory project-current-root))
+(defun my/project-post-hook()
+  (setq default-directory my/project-current-root))
 
-(add-hook 'pre-command-hook 'project-pre-hook)
-(add-hook 'pre-command-hook 'project-post-hook)
+(add-hook 'pre-command-hook 'my/project-pre-hook)
+(add-hook 'pre-command-hook 'my/project-post-hook)
 
-(defun project-root (project-path)
+(defun my/project-root (project-path)
   (interactive "DKatalog root: ")
-  (setq project-current-root project-path))
+  (setq my/project-current-root project-path))
+
+(global-set-key (kbd "C-x p p") 'my/project-root)
 ;; end of custom project management
 
 (defun my/forward-paragraph()
@@ -63,35 +64,6 @@
 (defun insert-current-date()
   (interactive)
   (insert (format-time-string "%Y-%m-%d")))
-
-(defun my/centaur-tabs-groups ()
-  "Zasady grupowania buforów w centaur-tabs."
-  (list
-   (cond
-    ((derived-mode-p 'mastodon-mode) "Media")
-    ((derived-mode-p 'eww-mode) "Media")
-    ((derived-mode-p 'elpher-mode) "Media")
-    ((derived-mode-p 'newsticker-mode) "Media")
-	((derived-mode-p 'eshell-mode) "Shell")
-	((derived-mode-p 'dired-mode) "Shell")
-
-    ((or (string-equal "*" (substring (buffer-name) 0 1))
-	 (memq major-mode '(magit-process-mode
-			    magit-status-mode
-			    magit-diff-mode
-			    magit-log-mode
-			    magit-file-mode
-			    magit-blob-mode
-			    magit-blame-mode
-			    )))
-     "Emacs")
-
-    ((derived-mode-p 'emacs-lisp-mode)
-     "Elisp")
-    ((memq major-mode '(org-mode org-agenda-mode diary-mode))
-     "OrgMode")
-    (t
-     (centaur-tabs-get-group-name (current-buffer))))))
 
 (defun my/org-present-start()
   (setq visual-fill-column-width 110
@@ -334,13 +306,7 @@
       nxml-slash-autocomplete-flag t
       nxml-mode-map (make-keymap)
 	  custom-file (make-temp-file "emacs-custom-")  ;; brak dopisywania customize
-      centaur-tabs-style "bar"
-      centaur-tabs-set-icons t
-      centaur-tabs-set-bar 'over
-      centaur-tabs-show-navigation-buttons t
-      centaur-tabs-buffer-groups-function 'my/centaur-tabs-groups
       company-minimum-prefix-length 1
-      centaur-tabs-set-modified-marker "*"
       company-idle-delay 0
       company-selection-wrap-around t
       company-files-exclusions '(".git/" ".DS_Store" "__pycache__/" ".venv/"
@@ -384,32 +350,6 @@
 	  eww-browse-url-new-window-is-tab nil
 	  eww-search-prefix "https://html.duckduckgo.com/html/?q="
       geiser-default-implementation 'guile
-      centaur-tabs-excluded-prefixes '("*Messages*"
-				       "*epc"
-				       "*helm find*" "*helm" "*Helm"
-				       "*help" "*Help"
-					   "*Buffer List*"
-				       "*Compile-Log"
-				       "*lsp" "*LSP"
-				       "*company"
-				       "*Flycheck"
-				       "*Async-native-compile-log*"
-				       "*Warnings"
-				       "*Messages*"
-				       "*html*"
-					   "magit-process: " "magit-diff: " "magit: " "magit-log: "
-					   "COMMIT_EDITMSG"
-				       "*Flymake log*"
-				       "*EGLOT"
-				       "*straight"
-				       "*Backtrace*"
-				       "*Ediff" "*ediff"
-				       "*tramp"
-					   "*which-key*"
-					   "*Calendar*"
-					   "*Holidays*"
-				       "plstore "
-				       )
 	  display-buffer-alist '(("\\*helm.+" (display-buffer-at-bottom))
 							 ("\\'\\*Async Shell Command\\*\\'"
 							  (display-buffer-no-window))
@@ -456,7 +396,6 @@
 (cua-mode t)
 (menu-bar-mode -1)
 (save-place-mode t)
-(centaur-tabs-mode t)
 (column-number-mode t)
 (delete-selection-mode t)
 (global-auto-revert-mode 1)
@@ -502,13 +441,10 @@
 (global-set-key (kbd "C--") 'text-scale-decrease)
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
-(global-set-key (kbd "M-g") 'centaur-tabs--groups-menu)
 (global-set-key (kbd "C-S-p") 'helm-M-x)
 (global-set-key (kbd "C-o") 'imenu)
 (global-set-key (kbd "M-x") 'kill-this-buffer)
 (global-set-key (kbd "M-d") 'insert-current-date)
-(global-set-key (kbd "M-<left>") 'centaur-tabs-backward)
-(global-set-key (kbd "M-<right>") 'centaur-tabs-forward)
 (global-set-key (kbd "M-<up>") 'my/backward-paragraph)
 (global-set-key (kbd "M-<down>") 'my/forward-paragraph)
 (global-set-key (kbd "C-p") 'helm-find)
