@@ -319,7 +319,7 @@
       nxml-slash-autocomplete-flag t
       nxml-mode-map (make-keymap)
 	  custom-file (make-temp-file "emacs-custom-")  ;; brak dopisywania customize
-      centaur-tabs-style "slant"
+      centaur-tabs-style "bar"
       centaur-tabs-set-icons t
       centaur-tabs-set-bar 'over
       centaur-tabs-show-navigation-buttons t
