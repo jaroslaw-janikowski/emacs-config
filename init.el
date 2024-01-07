@@ -28,6 +28,23 @@
 (require 'treemacs)
 (require 'docker-compose-mode)
 
+;; Custom project management
+(setq project-current-root default-directory)
+
+(defun project-pre-hook()
+  (setq default-directory project-current-root))
+
+(defun project-post-hook()
+  (setq default-directory project-current-root))
+
+(add-hook 'pre-command-hook 'project-pre-hook)
+(add-hook 'pre-command-hook 'project-post-hook)
+
+(defun project-root (project-path)
+  (interactive "DKatalog root: ")
+  (setq project-current-root project-path))
+;; end of custom project management
+
 (defun my/forward-paragraph()
   (interactive)
   (forward-paragraph)
@@ -41,8 +58,7 @@
 
 (defun my/create-new-eshell()
   (interactive)
-  (let ((default-directory (cdr (project-current))))
-    (eshell 'N)))
+  (eshell 'N))
 
 (defun insert-current-date()
   (interactive)
@@ -222,7 +238,7 @@
 
 (defun my/dired-new()
   (interactive)
-  (dired (cdr (project-current))))
+  (dired default-directory))
 
 (defun my/setup-dired()
   (hl-line-mode)
@@ -495,7 +511,7 @@
 (global-set-key (kbd "M-<right>") 'centaur-tabs-forward)
 (global-set-key (kbd "M-<up>") 'my/backward-paragraph)
 (global-set-key (kbd "M-<down>") 'my/forward-paragraph)
-(global-set-key (kbd "C-p") 'project-find-file)
+(global-set-key (kbd "C-p") 'helm-find)
 (global-set-key (kbd "C-f") 'helm-occur)
 (global-set-key (kbd "C-S-f") 'helm-do-grep-ag)
 (global-set-key (kbd "<f12>") 'my/grep-under-cursor)
