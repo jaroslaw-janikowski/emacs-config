@@ -474,6 +474,7 @@
 (global-set-key (kbd "C-x d") 'my/dired-new)
 (global-set-key (kbd "<f12>") 'denote-open-or-create)
 (global-set-key (kbd "C-l") 'denote-link-or-create)
+(global-set-key (kbd "<Scroll_Lock>") 'scroll-lock-mode)
 (define-key mc/keymap (kbd "<return>") nil)
 (define-key nxml-mode-map (kbd ">") 'my/finish-element)
 (define-key nxml-mode-map (kbd "RET") 'my/nxml-newline)
