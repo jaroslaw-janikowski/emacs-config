@@ -26,6 +26,7 @@
 (require 'nginx-mode)
 (require 'treemacs)
 (require 'docker-compose-mode)
+(require 'denote)
 
 ;; Custom project management
 (setq my/project-current-root "~/.emacs.d/")
@@ -372,6 +373,13 @@
 	  proced-auto-update-flag t
 	  proced-tree-flag t
 	  proced-enable-color-flag t
+	  denote-directory "/denote"
+	  denote-known-keywords '("emacs" "programowanie"
+							  "technika", "informatyka"
+							  "elektronika")
+	  denote-sort-keywords t
+	  denote-prompts '(title keywords)
+	  denote-date-prompt-use-org-read-date t
       restclient-same-buffer-response nil)
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
@@ -464,6 +472,8 @@
 (global-set-key (kbd "<f6>") 'eglot-format)
 (global-set-key (kbd "<f8>") 'treemacs)
 (global-set-key (kbd "C-x d") 'my/dired-new)
+(global-set-key (kbd "<f12>") 'denote-open-or-create)
+(global-set-key (kbd "C-l") 'denote-link-or-create)
 (define-key mc/keymap (kbd "<return>") nil)
 (define-key nxml-mode-map (kbd ">") 'my/finish-element)
 (define-key nxml-mode-map (kbd "RET") 'my/nxml-newline)
