@@ -370,6 +370,8 @@
 	  treemacs-recenter-after-file-follow 'always
 	  treemacs-no-delete-other-windows t
 	  treemacs-tag-follow-delay 0.1
+	  docker-command "podman"
+	  docker-compose-command "podman-compose"
 	  proced-auto-update-flag t
 	  proced-tree-flag t
 	  proced-enable-color-flag t
