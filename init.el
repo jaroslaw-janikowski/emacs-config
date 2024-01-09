@@ -339,6 +339,19 @@
 	  vc-follow-symlinks t
 	  calendar-christian-all-holidays-flag t
 	  calendar-mark-holidays-flag t
+	  calendar-holidays '((holiday-fixed 1 1 "Nowy Rok")
+						  (holiday-easter-etc 0 "Pierwszy dzień Wielkanocy")
+						  (holiday-easter-etc 1 "Drugi dzień Wielkanocy")
+						  (holiday-fixed 1 6 "Trzech Króli")
+						  (holiday-fixed 5 1 "Święto Pracy")
+						  (holiday-fixed 5 3 "Trzeciego Maja")
+						  (holiday-easter-etc 50 "Zielone Świątki")
+						  (holiday-easter-etc 60 "Boże Ciało")
+						  (holiday-fixed 8 15 "Wniebowzięcie Najświętszej Maryi Panny")
+						  (holiday-fixed 11 1 "Wszystkich Świętych")
+						  (holiday-fixed 11 11 "Święto Niepodległości")
+						  (holiday-fixed 12 25 "Wigilia Bożego Narodzenia")
+						  (holiday-fixed 12 26 "Boże Narodzenie"))
 	  ispell-choices-buffer "*ispell-top-choices*"
 	  message-confirm-send nil
 	  message-kill-buffer-on-exit t
