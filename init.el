@@ -496,8 +496,8 @@
 ;; (define-key python-mode-map (kbd "C-[") 'python-indent-shift-left)
 (define-key org-mode-map (kbd "C-S-<right>") nil)
 (define-key org-mode-map (kbd "C-S-<left>") nil)
-(define-key org-mode-map (kbd "C-S-<up>") nil)
-(define-key org-mode-map (kbd "C-S-<down>") nil)
+(define-key org-mode-map (kbd "C-S-<up>") 'org-move-subtree-up)
+(define-key org-mode-map (kbd "C-S-<down>") 'org-move-subtree-down)
 (define-key package-menu-mode-map (kbd "M-<left>") nil)
 (define-key package-menu-mode-map (kbd "M-<right>") nil)
 
