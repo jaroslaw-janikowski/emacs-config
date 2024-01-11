@@ -388,7 +388,7 @@
 	  proced-auto-update-flag t
 	  proced-tree-flag t
 	  proced-enable-color-flag t
-	  denote-directory "/denote"
+	  denote-directory "~/denote"
 	  denote-known-keywords '("emacs" "programowanie"
 							  "technika", "informatyka"
 							  "elektronika")
