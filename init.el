@@ -38,7 +38,9 @@
 
 (defun my/project-root (project-path)
   (interactive "DKatalog root: ")
-  (setq my/project-current-root project-path))
+  (if (file-directory-p project-path)
+	  (setq my/project-current-root project-path)
+	(message "Nie udało się zmienić katalogu projektu. Typuj ścieżki dokładniej!")))
 
 (global-set-key (kbd "C-x p p") 'my/project-root)
 ;; end of custom project management
