@@ -378,6 +378,7 @@
       web-mode-enable-auto-pairing t
       web-mode-enable-current-element-highlight t
       web-mode-enable-current-column-highlight t
+	  browse-url-new-window-flag t
       browse-url-browser-function 'eww-browse-url
       restclient-log-request t
       eww-auto-rename-buffer 'title
