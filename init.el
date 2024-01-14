@@ -157,7 +157,7 @@
   (make-directory (read-directory-name "Save as: ")))
 
 (defun my/setup-text-mode()
-  (setq company-backends '((company-ispell company-dabbrev)))
+  (setq company-backends '((company-dabbrev)))
   (hl-line-mode)
   (flyspell-mode)
   (ispell-change-dictionary "polish"))
@@ -548,9 +548,10 @@
 (add-to-list 'auto-mode-alist '("\\.csv" . csv-mode))
 (add-to-list 'auto-mode-alist '("\\.php" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.eln" . hexl-mode))
-(add-to-list 'auto-mode-alist '("README" . text-mode))
-(add-to-list 'auto-mode-alist '("LICENSE" . text-mode))
-(add-to-list 'auto-mode-alist '("CHANGELOG" . text-mode))
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(add-to-list 'auto-mode-alist '("README$" . text-mode))
+(add-to-list 'auto-mode-alist '("LICENSE$" . text-mode))
+(add-to-list 'auto-mode-alist '("CHANGELOG$" . text-mode))
 
 (let ((private-settings (file-name-concat user-emacs-directory "private.el")))
   (if (file-exists-p private-settings) (load-file private-settings)))
