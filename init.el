@@ -86,7 +86,6 @@
 (defun my/on-escape()
   (interactive)
   (company-abort)
-  (keyboard-escape-quit)
   (mc/keyboard-quit))
 
 (defun my/move-line-up ()
