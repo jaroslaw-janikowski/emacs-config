@@ -367,6 +367,7 @@
 							 ("\\*ispell-top-choices\\*.*"
 							  (display-buffer-reuse-mode-window display-buffer-below-selected)
 							  (window-height . fit-window-to-buffer))
+							 ("^\\*eshell\\*$" (display-buffer-same-window))
 							 ("\\(magit: .+\\|magit-log.+\\|magit-revision.+\\)"
 							  (display-buffer-same-window)))
       web-mode-engines-alist '(("php" . "\\.phtml\\'")
