@@ -1,3 +1,0 @@
-#!/bin/ash
-
-emacs -Q --script /home/bps/.emacs.d/install/setup-emacs.el
