@@ -429,7 +429,6 @@
 (column-number-mode t)
 (delete-selection-mode t)
 (global-auto-revert-mode 1)
-(global-tab-line-mode)
 (toggle-frame-maximized)
 (set-language-environment "UTF-8")
 (set-charset-priority 'unicode)
