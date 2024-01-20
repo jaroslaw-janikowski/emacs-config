@@ -191,6 +191,14 @@
 						   company-files
 						   company-yasnippet)))
 
+(defun my/setup-gnus-article-mode()
+  (text-scale-decrease 1)
+  (hl-line-mode))
+
+(defun my/setup-gnus-summary-mode()
+  (text-scale-decrease 2)
+  (hl-line-mode))
+
 (defun my/setup-restclient-mode()
   (setq company-backends '((company-restclient company-yasnippet))))
 
@@ -539,6 +547,8 @@
 (add-hook 'makefile-mode-hook 'my/setup-makefile-mode)
 (add-hook 'eww-mode-hook 'my/setup-eww-mode)
 (add-hook 'docker-compose-mode-hook 'my/setup-docker-compose-mode)
+(add-hook 'gnus-article-mode-hook 'my/setup-gnus-article-mode)
+(add-hook 'gnus-summary-mode-hook 'my/setup-gnus-summary-mode)
 
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
