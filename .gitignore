@@ -17,3 +17,4 @@ mastodon.plstore
 private.el
 install/setup-private.el
 .mypy_cache/
+gnus/
