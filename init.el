@@ -199,6 +199,10 @@
   (text-scale-decrease 2)
   (hl-line-mode))
 
+(defun my/setup-gnus-group-mode()
+  (text-scale-decrease 1)
+  (hl-line-mode))
+
 (defun my/setup-restclient-mode()
   (setq company-backends '((company-restclient company-yasnippet))))
 
@@ -548,6 +552,7 @@
 (add-hook 'docker-compose-mode-hook 'my/setup-docker-compose-mode)
 (add-hook 'gnus-article-mode-hook 'my/setup-gnus-article-mode)
 (add-hook 'gnus-summary-mode-hook 'my/setup-gnus-summary-mode)
+(add-hook 'gnus-group-mode-hook 'my/setup-gnus-group-mode)
 
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
