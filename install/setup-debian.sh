@@ -1,4 +1,4 @@
-apt install -y emacs build-essential findutils git ispell iamerican ipolish silversearcher-ag curl sway make xwayland pavucontrol brightnessctl git git-gui swayidle swaylock qemu-system-x86 podman podman-compose zeal grimshot wdisplay p7zip-full
+apt install -y emacs build-essential findutils git ispell iamerican ipolish silversearcher-ag curl sway make xwayland pavucontrol brightnessctl git git-gui swayidle swaylock qemu-system-x86 podman podman-compose zeal grimshot wdisplays p7zip-full
 exit
 
 # sway setup
