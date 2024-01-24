@@ -45,6 +45,11 @@
 (global-set-key (kbd "C-x p p") 'my/project-root)
 ;; end of custom project management
 
+(defun my/tab-bar-groups()
+ (list (cond ((string-prefix-p "*" (buffer-name))) "emacs")
+		((eq major-mode 'dired-mode) "shell")
+		(t "user")))
+
 (defun my/forward-paragraph()
   (interactive)
   (forward-paragraph)
@@ -390,6 +395,8 @@
       web-mode-enable-auto-pairing t
       web-mode-enable-current-element-highlight t
       web-mode-enable-current-column-highlight t
+	  tab-line-tabs-function 'tab-line-tabs-mode-buffers
+	  tabbar-buffer-groups-function 'my/tab-bar-groups
 	  browse-url-new-window-flag t
       browse-url-browser-function 'eww-browse-url
       restclient-log-request t
