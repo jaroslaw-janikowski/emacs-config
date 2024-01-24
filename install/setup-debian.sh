@@ -24,6 +24,16 @@ workspace_layout tabbed
 
 EOF
 
+cat <<EOF>> ~/.profile
+
+# set only for first logged user
+if [[ "$(tty)" == "/dev/tty1" ]] ; then
+	export PATH="$PATH:~/.local/bin"
+	sway &
+fi
+
+EOF
+
 # emacs setup
 emacs -Q --script ~/.emacs.d/install/setup-emacs.el
 
