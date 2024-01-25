@@ -46,9 +46,10 @@
 ;; end of custom project management
 
 (defun my/tab-bar-groups()
- (list (cond ((string-prefix-p "*" (buffer-name))) "emacs")
-		((eq major-mode 'dired-mode) "shell")
-		(t "user")))
+  (list (cond ((eq major-mode 'dired-mode) "shell")
+			  ((eq major-mode 'eshell-mode) "shell")
+			  ((string-prefix-p "*" (buffer-name)) "emacs")
+			  ((t "user")))))
 
 (defun my/forward-paragraph()
   (interactive)
@@ -389,8 +390,10 @@
 							  (display-buffer-same-window)))
 	  switch-to-prev-buffer-skip-regexp '("^\\*helm"
 										  "^magit:"
+										  "^\\*scratch\\*$"
 										  "^\\*Warnings\\*$"
-										  "^\\*Messages\\*$")
+										  "^\\*Messages\\*$"
+										  "^\\*Async-native-compile-log\\*$")
       web-mode-engines-alist '(("php" . "\\.phtml\\'")
 			       ("blade" . "\\.blade\\."))
       web-mode-markup-indent-offset 4
@@ -435,7 +438,7 @@
 			  comint-scroll-to-bottom-on-output nil)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
-(load-theme 'monokai t)
+;;(load-theme 'monokai t)
 (show-paren-mode t)
 (tool-bar-mode -1)
 (cua-mode t)
