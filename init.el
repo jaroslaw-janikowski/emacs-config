@@ -391,6 +391,7 @@
 	  switch-to-prev-buffer-skip-regexp '("^\\*helm"
 										  "^magit:"
 										  "^magit-process:"
+										  "^magit-diff:"
 										  "^\\*scratch\\*$"
 										  "^\\*Warnings\\*$"
 										  "^\\*Messages\\*$"
