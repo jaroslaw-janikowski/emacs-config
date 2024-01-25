@@ -1,5 +1,5 @@
-apt install -y emacs build-essential findutils git ispell iamerican ipolish silversearcher-ag curl sway make xwayland pavucontrol brightnessctl git git-gui swayidle swaylock qemu-system-x86 podman podman-compose zeal grimshot wdisplays p7zip-full
-exit
+apt install -y build-essential findutils git ispell iamerican ipolish silversearcher-ag curl sway make xwayland pavucontrol brightnessctl git-gui swayidle swaylock qemu-system-x86 podman podman-compose zeal grimshot wdisplays p7zip-full autoconf libgtk-3-dev libgnutls28-dev libtiff5-dev libgif-dev libjpeg-dev libpng-dev libxpm-dev libncurses-dev texinfo libjansson-dev libwebp-dev librsvg2-dev libgccjit-12-dev libxml2-dev libwebkit2gtk-4.0-dev ripgrep
+su bps
 
 # sway setup
 mkdir ~/.config/sway
@@ -33,6 +33,16 @@ if [[ "$(tty)" == "/dev/tty1" ]] ; then
 fi
 
 EOF
+
+# emacs build
+git clone --depth 1 https://git.savannah.gnu.org/git/emacs.git /tmp/emacs
+cd /tmp/emacs
+./autogen.sh
+./configure --with-xwidgets --with-json --with-pgtk --with-native-compilation
+make
+exit
+make install
+su bps
 
 # emacs setup
 emacs -Q --script ~/.emacs.d/install/setup-emacs.el
