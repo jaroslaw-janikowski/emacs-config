@@ -390,6 +390,7 @@
 							  (display-buffer-same-window)))
 	  switch-to-prev-buffer-skip-regexp '("^\\*helm"
 										  "^magit:"
+										  "^magit-process:"
 										  "^\\*scratch\\*$"
 										  "^\\*Warnings\\*$"
 										  "^\\*Messages\\*$"
