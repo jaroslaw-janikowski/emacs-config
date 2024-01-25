@@ -403,7 +403,6 @@
       web-mode-enable-auto-pairing t
       web-mode-enable-current-element-highlight t
       web-mode-enable-current-column-highlight t
-	  tab-line-tabs-function 'tab-line-tabs-mode-buffers
 	  tabbar-buffer-groups-function 'my/tab-bar-groups
 	  browse-url-new-window-flag t
       browse-url-browser-function 'eww-browse-url
