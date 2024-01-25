@@ -439,6 +439,7 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 ;;(load-theme 'monokai t)
+(load-theme 'modus-vivendi t)
 (show-paren-mode t)
 (tool-bar-mode -1)
 (cua-mode t)
