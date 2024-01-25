@@ -134,21 +134,6 @@
 	(end-of-line))
     (newline-and-indent)))
 
-(defun my/c-mode-newline-between-braces ()
-  "Wcięcie gdy kursor znajduje się pomiędzy klamrami {|}."
-  (interactive)
-  (if (and (eq major-mode 'c-mode)
-           (eq (char-after) ?})
-           (eq (char-before) ?{))
-      (progn
-        (newline-and-indent)
-        (c-indent-line-or-region)
-        (forward-line -1)
-        (end-of-line)
-        (newline-and-indent)
-        (c-indent-line-or-region))
-    (newline-and-indent)))
-
 (defun my/create-new-file ()
   "Create a new empty buffer and save it to a file."
   (interactive)
@@ -546,7 +531,6 @@
 (define-key package-menu-mode-map (kbd "M-<right>") nil)
 
 (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
-(add-hook 'c-mode-hook (lambda () (local-set-key (kbd "RET") 'my/c-mode-newline-between-braces)))
 (add-hook 'nxml-mode-hook 'display-line-numbers-mode)
 (add-hook 'text-mode-hook 'my/setup-text-mode)
 (add-hook 'prog-mode-hook 'my/setup-prog-mode)
