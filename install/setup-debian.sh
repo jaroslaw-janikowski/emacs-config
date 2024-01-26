@@ -1,4 +1,4 @@
-apt install -y build-essential findutils git ispell iamerican ipolish silversearcher-ag curl sway make xwayland pavucontrol brightnessctl git-gui swayidle swaylock qemu-system-x86 podman podman-compose zeal grimshot wdisplays p7zip-full autoconf libgtk-3-dev libgnutls28-dev libtiff5-dev libgif-dev libotf-dev libjpeg-dev libpng-dev libxpm-dev libsqlite3-dev libncurses-dev texinfo libjansson-dev libtree-sitter-dev libwebp-dev librsvg2-dev libgccjit-12-dev libxml2-dev libwebkit2gtk-4.0-dev ripgrep imagemagick unifont xterm
+apt install -y build-essential findutils git ispell iamerican ipolish silversearcher-ag curl sway make xwayland pavucontrol brightnessctl git-gui swayidle swaylock qemu-system-x86 podman podman-compose zeal grimshot wdisplays p7zip-full autoconf libgtk-3-dev libgnutls28-dev libtiff5-dev libgif-dev libotf-dev libjpeg-dev libpng-dev libxpm-dev libsqlite3-dev libncurses-dev texinfo libjansson-dev libtree-sitter-dev libwebp-dev librsvg2-dev libgccjit-12-dev libxml2-dev libwebkit2gtk-4.0-dev ripgrep imagemagick unifont xterm fasm
 su bps
 
 # sway setup
