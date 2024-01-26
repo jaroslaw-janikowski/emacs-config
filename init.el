@@ -49,6 +49,7 @@
   (list (cond ((eq major-mode 'dired-mode) "shell")
 			  ((eq major-mode 'eshell-mode) "shell")
 			  ((string-prefix-p "*" (buffer-name)) "emacs")
+			  ((string-match-p ".newsrc-dribble" (buffer-name)) "emacs")
 			  ((t "user")))))
 
 (defun my/forward-paragraph()
@@ -380,6 +381,7 @@
 										  "^\\*scratch\\*$"
 										  "^\\*Warnings\\*$"
 										  "^\\*Messages\\*$"
+										  "^\\.newsrc-dribble$"
 										  "^\\*Async-native-compile-log\\*$")
       web-mode-engines-alist '(("php" . "\\.phtml\\'")
 			       ("blade" . "\\.blade\\."))
