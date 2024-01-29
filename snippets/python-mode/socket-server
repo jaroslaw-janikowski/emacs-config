@@ -1,0 +1,24 @@
+# -*- mode: snippet -*-
+# name: socket-server
+# key: socket-server
+# --
+#!/usr/bin/env python3
+
+import socket
+
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+server.bind(('0.0.0.0', 7000))
+server.listen(5)
+
+while True:
+    connection, client_address = server.accept()
+    print(client_address)
+    b = connection.recv(1024)
+    print('Read: ', b)
+	$0
+    connection.sendall(b'dziala')
+    connection.close()
+
+server.close()
+server.shutdown(socket.SHUT_RDWR)
