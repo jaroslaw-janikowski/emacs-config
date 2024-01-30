@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: tar-unpack
+# key: tar-unpack
+# --
+tar xvf ${0:archive-name}
