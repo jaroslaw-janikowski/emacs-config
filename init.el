@@ -315,6 +315,7 @@
 								 ".mypy_cache/")
       company-dabbrev-minimum-length 2
       company-tooltip-align-annotations t
+	  eglot-autoshutdown t
       mc/always-run-for-all t
       python-shell-interpreter "ipython3"
       python-shell-interpreter-args "-i --simple-prompt"
