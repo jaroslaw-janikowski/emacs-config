@@ -414,6 +414,8 @@
 	  denote-sort-keywords t
 	  denote-prompts '(title keywords)
 	  denote-date-prompt-use-org-read-date t
+	  yas-indent-line 'auto
+	  yas-also-auto-indent-first-line t
       restclient-same-buffer-response nil)
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
@@ -564,6 +566,7 @@
 (add-to-list 'auto-mode-alist '("\\.tpl'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode))
+(add-to-list 'auto-mode-alist '("docker-compose\\.y.?ml$" . docker-compose-mode))
 (add-to-list 'auto-mode-alist '("\\.service$" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.csv$" . csv-mode))
 (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
