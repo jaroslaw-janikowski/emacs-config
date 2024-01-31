@@ -22,6 +22,7 @@
 (package-install 'multiple-cursors)
 (package-install 'idle-highlight-mode)
 (package-install 'docker)
+(package-install 'dockerfile-mode)
 (package-install 'org-present)
 (package-install 'visual-fill-column)
 (package-install 'centaur-tabs)
