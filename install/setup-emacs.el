@@ -46,4 +46,5 @@
 (package-install 'php-mode)
 (package-install 'docker-compose-mode)
 (package-install 'denote)
+(package-install 'beframe)
 (nerd-icons-install-fonts)
