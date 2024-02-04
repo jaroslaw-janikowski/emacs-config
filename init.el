@@ -195,6 +195,7 @@
 
 (defun my/setup-gnus-group-mode()
   (text-scale-decrease 1)
+  (gnus-topic-mode)
   (hl-line-mode))
 
 (defun my/setup-restclient-mode()
