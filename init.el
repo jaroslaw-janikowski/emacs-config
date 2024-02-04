@@ -418,6 +418,15 @@
 	  beframe-global-buffers '("*scratch*" "*Messages*" "*Backtrace*")
 	  yas-indent-line 'auto
 	  yas-also-auto-indent-first-line t
+	  smtpmail-debug-info t
+	  smtpmail-debug-verb t
+	  read-mail-command 'gnus
+	  mail-user-agent 'gnus-user-agent
+	  message-send-mail-function 'smtpmail-send-it
+	  send-mail-function 'smtpmail-send-it
+	  nntp-maximum-request 4  ;; max dla eternal-september
+	  gnus-always-read-dribble-file nil
+	  gnus-use-dribble-file nil
       restclient-same-buffer-response nil)
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
