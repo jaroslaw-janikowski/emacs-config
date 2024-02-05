@@ -1,4 +1,4 @@
-apt install -y sway make xwayland pavucontrol brightnessctl git-gui swayidle swaylock qemu-system-x86 podman podman-compose zeal grimshot wdisplays p7zip-full xterm fasm python3-venv
+apt install -y sway make xwayland pavucontrol brightnessctl git-gui swayidle swaylock qemu-system-x86 podman podman-compose zeal grimshot wdisplays p7zip-full xterm fasm
 su bps
 
 # sway setup
@@ -33,6 +33,10 @@ if [[ "$(tty)" == "/dev/tty1" ]] ; then
 fi
 
 EOF
+exit
+
+# python setup
+apt install -y python3-venv python3-pip
 
 # emacs build
 apt install -y build-essential findutils git ispell iamerican ipolish silversearcher-ag curl autoconf libgtk-3-dev libgnutls28-dev libtiff5-dev libgif-dev libotf-dev libjpeg-dev libpng-dev libxpm-dev libsqlite3-dev libncurses-dev texinfo libjansson-dev libtree-sitter-dev libwebp-dev librsvg2-dev libgccjit-12-dev libxml2-dev libwebkit2gtk-4.0-dev ripgrep imagemagick unifont

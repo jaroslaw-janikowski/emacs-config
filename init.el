@@ -47,6 +47,10 @@
 (global-set-key (kbd "C-x p p") 'my/project-root)
 ;; end of custom project management
 
+(defun my/helm-find()
+  (interactive)
+  (helm-find-1 my/project-current-root))
+
 (defun my/tab-bar-groups()
   (list (cond ((eq major-mode 'dired-mode) "shell")
 			  ((eq major-mode 'eshell-mode) "shell")
@@ -502,7 +506,7 @@
 (global-set-key (kbd "M-d") 'insert-current-date)
 (global-set-key (kbd "M-<up>") 'my/backward-paragraph)
 (global-set-key (kbd "M-<down>") 'my/forward-paragraph)
-(global-set-key (kbd "C-p") 'helm-find)
+(global-set-key (kbd "C-p") 'my/helm-find)
 (global-set-key (kbd "C-f") 'helm-occur)
 (global-set-key (kbd "C-S-f") 'helm-do-grep-ag)
 (global-set-key (kbd "<f11>") 'my/grep-under-cursor)
