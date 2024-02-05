@@ -1,4 +1,4 @@
-apt install -y build-essential findutils git ispell iamerican ipolish silversearcher-ag curl sway make xwayland pavucontrol brightnessctl git-gui swayidle swaylock qemu-system-x86 podman podman-compose zeal grimshot wdisplays p7zip-full autoconf libgtk-3-dev libgnutls28-dev libtiff5-dev libgif-dev libotf-dev libjpeg-dev libpng-dev libxpm-dev libsqlite3-dev libncurses-dev texinfo libjansson-dev libtree-sitter-dev libwebp-dev librsvg2-dev libgccjit-12-dev libxml2-dev libwebkit2gtk-4.0-dev ripgrep imagemagick unifont xterm fasm python3-venv
+apt install -y sway make xwayland pavucontrol brightnessctl git-gui swayidle swaylock qemu-system-x86 podman podman-compose zeal grimshot wdisplays p7zip-full xterm fasm python3-venv
 su bps
 
 # sway setup
@@ -35,6 +35,8 @@ fi
 EOF
 
 # emacs build
+apt install -y build-essential findutils git ispell iamerican ipolish silversearcher-ag curl autoconf libgtk-3-dev libgnutls28-dev libtiff5-dev libgif-dev libotf-dev libjpeg-dev libpng-dev libxpm-dev libsqlite3-dev libncurses-dev texinfo libjansson-dev libtree-sitter-dev libwebp-dev librsvg2-dev libgccjit-12-dev libxml2-dev libwebkit2gtk-4.0-dev ripgrep imagemagick unifont
+su jj
 git clone --depth 1 https://git.savannah.gnu.org/git/emacs.git /tmp/emacs
 cd /tmp/emacs
 ./autogen.sh
