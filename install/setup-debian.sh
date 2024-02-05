@@ -40,9 +40,10 @@ su jj
 git clone --depth 1 https://git.savannah.gnu.org/git/emacs.git /tmp/emacs
 cd /tmp/emacs
 ./autogen.sh
-./configure --with-xwidgets --with-json --with-pgtk --with-native-compilation
+./configure --with-xwidgets --with-json --with-pgtk --with-native-compilation --with-mailutils --with-pop
 make
 exit
+cd /tmp/emacs
 make install
 su bps
 
