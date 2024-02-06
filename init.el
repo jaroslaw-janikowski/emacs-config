@@ -324,7 +324,7 @@
       company-tooltip-align-annotations t
 	  eglot-autoshutdown t
       mc/always-run-for-all t
-      python-shell-interpreter "ipython3"
+      python-shell-interpreter "python3"
       python-shell-interpreter-args "-i --simple-prompt"
       org-confirm-babel-evaluate nil
 	  org-src-window-setup 'current-window
@@ -334,7 +334,7 @@
       org-return-follows-link t
       org-support-shift-select t
       org-hide-emphasis-markers nil
-      org-babel-python-command "ipython3 -i --simple-prompt --quiet --pprint --no-banner --no-confirm-exit"
+      org-babel-python-command "python3 -i --simple-prompt --quiet --pprint --no-banner --no-confirm-exit"
       org-babel-hash-show-time t
       org-startup-indented t
       org-startup-with-inline-images t
@@ -443,7 +443,8 @@
 			  adaptive-wrap-extra-indent 0
 			  display-fill-column-indicator-column 80
 			  comint-scroll-to-bottom-on-input t
-			  comint-scroll-to-bottom-on-output nil)
+			  comint-scroll-to-bottom-on-output nil
+			  eglot-workspace-configuration '(:pylsp (:plugins (:jedi_completion (:fuzzy t) :jedi (:environment ".venv")))))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 ;;(load-theme 'monokai t)
