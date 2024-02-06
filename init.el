@@ -432,6 +432,10 @@
 	  nntp-maximum-request 4  ;; max dla eternal-september
 	  gnus-always-read-dribble-file nil
 	  gnus-use-dribble-file nil
+	  gnus-save-newsrc-file nil
+	  gnus-read-newsrc-file nil
+	  compilation-ask-about-save nil
+	  compilation-scroll-output t
       restclient-same-buffer-response nil)
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
