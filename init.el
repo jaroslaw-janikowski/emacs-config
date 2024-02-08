@@ -373,15 +373,23 @@
 	  eww-browse-url-new-window-is-tab nil
 	  eww-search-prefix "https://html.duckduckgo.com/html/?q="
       geiser-default-implementation 'guile
-	  display-buffer-alist '(("\\*helm.+" (display-buffer-at-bottom))
+	  display-buffer-alist '(("(\\*Occur\\*|\\*helm.+)"
+							  (display-buffer-reuse-mode-window display-buffer-below-selected)
+							  (window-height . fit-window-to-buffer)
+							  (dedicated . t))
+
 							 ("\\'\\*Async Shell Command\\*\\'"
 							  (display-buffer-no-window))
+
 							 ("\\*ispell-top-choices\\*.*"
-							  (display-buffer-reuse-mode-window display-buffer-below-selected)
-							  (window-height . fit-window-to-buffer))
-							 ("^\\*eshell\\*$" (display-buffer-same-window))
+							  (display-buffer-reuse-mode-window display-buffer-below-selected) (window-height . fit-window-to-buffer))
+
+							 ("^\\*eshell\\*$"
+							  (display-buffer-same-window))
+
 							 ("\\(magit: .+\\|magit-log.+\\|magit-revision.+\\)"
 							  (display-buffer-same-window)))
+
 	  switch-to-prev-buffer-skip-regexp '("^\\*helm"
 										  "^magit:"
 										  "^magit-process:"
