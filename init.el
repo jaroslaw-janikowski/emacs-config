@@ -241,6 +241,7 @@
   (delete-trailing-whitespace))
 
 (setq warning-minimum-level :error
+	  debug-on-error t
       inhibit-startup-screen t
 	  inhibit-splash-screen t
       byte-compile-warnings nil
@@ -442,6 +443,7 @@
 	  gnus-use-dribble-file nil
 	  gnus-save-newsrc-file nil
 	  gnus-read-newsrc-file nil
+	  gnus-inhibit-demon t
 	  compilation-ask-about-save nil
 	  compilation-scroll-output t
       restclient-same-buffer-response nil)
