@@ -240,6 +240,15 @@
 (defun my/on-before-save()
   (delete-trailing-whitespace))
 
+(defun midnight-commander()
+  (interactive)
+  (delete-other-windows)
+  (dired nil)
+  (split-window-horizontally)
+  (other-window 1)
+  (dired nil)
+  (other-window 1))
+
 (setq warning-minimum-level :error
 	  debug-on-error t
       inhibit-startup-screen t
@@ -524,6 +533,7 @@
 (global-set-key (kbd "C-p") 'my/helm-find)
 (global-set-key (kbd "C-f") 'helm-occur)
 (global-set-key (kbd "C-S-f") 'helm-do-grep-ag)
+(global-set-key (kbd "<f10>") 'midnight-commander)
 (global-set-key (kbd "<f11>") 'my/grep-under-cursor)
 (global-set-key (kbd "C-r") 'query-replace)
 (global-set-key (kbd "C-S-r") 'query-replace-regexp)
