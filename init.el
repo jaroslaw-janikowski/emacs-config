@@ -330,7 +330,7 @@
       company-selection-wrap-around t
       company-files-exclusions '(".git/" ".DS_Store" "__pycache__/" ".venv/"
 								 ".mypy_cache/")
-      company-dabbrev-minimum-length 2
+      company-dabbrev-minimum-length 3
       company-tooltip-align-annotations t
 	  eglot-autoshutdown t
       mc/always-run-for-all t
