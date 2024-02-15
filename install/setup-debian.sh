@@ -35,6 +35,13 @@ fi
 EOF
 exit
 
+# ufw setup
+apt install -y ufw
+systemctl enable ufw
+ufw deny ssh
+ufw deny telnet
+ufw deny vnc
+
 # python setup
 apt install -y python3-venv python3-pip
 
