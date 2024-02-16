@@ -349,11 +349,10 @@
       org-startup-indented t
       org-startup-with-inline-images t
       org-startup-with-latex-preview t
-      org-adapt-indentation t
       org-special-ctrl-o nil
 	  org-special-ctrl-a/e nil
 	  org-special-ctrl-k nil
-	  org-adapt-indentation nil
+      org-adapt-indentation t
 	  org-M-RET-may-split-line '((default . nil))
 	  diff-default-read-only t
 	  diff-advance-after-apply-hunk t
