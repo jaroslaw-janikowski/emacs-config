@@ -552,6 +552,7 @@
 (global-set-key (kbd "C-x d") 'my/dired-new)
 (global-set-key (kbd "C-x b") 'beframe-switch-buffer)
 (global-set-key (kbd "<f12>") 'denote-open-or-create)
+(global-set-key (kbd "C-<f12>") 'denote-create-note)
 (global-set-key (kbd "C-l") 'denote-link-or-create)
 (global-set-key (kbd "<Scroll_Lock>") 'scroll-lock-mode)
 (define-key mc/keymap (kbd "<return>") nil)
