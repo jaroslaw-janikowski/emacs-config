@@ -48,4 +48,5 @@
 (package-install 'denote)
 (package-install 'beframe)
 (package-install 'dape)
+(package-install 'pyvenv)
 (nerd-icons-install-fonts)
