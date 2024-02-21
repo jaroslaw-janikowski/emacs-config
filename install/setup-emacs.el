@@ -47,4 +47,5 @@
 (package-install 'docker-compose-mode)
 (package-install 'denote)
 (package-install 'beframe)
+(package-install 'dape)
 (nerd-icons-install-fonts)

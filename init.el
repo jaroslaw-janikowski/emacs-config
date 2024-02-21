@@ -250,7 +250,7 @@
   (other-window 1))
 
 (setq warning-minimum-level :error
-	  debug-on-error t
+	  ;; debug-on-error t
       inhibit-startup-screen t
 	  inhibit-splash-screen t
       byte-compile-warnings nil
@@ -335,7 +335,7 @@
 	  eglot-autoshutdown t
       mc/always-run-for-all t
       python-shell-interpreter "python3"
-      python-shell-interpreter-args "-i --simple-prompt"
+	  dape-buffer-window-arrangement 'right
       org-confirm-babel-evaluate nil
 	  org-src-window-setup 'current-window
 	  org-edit-src-persistent-message nil
@@ -603,6 +603,10 @@
 (add-hook 'gnus-article-mode-hook 'my/setup-gnus-article-mode)
 (add-hook 'gnus-summary-mode-hook 'my/setup-gnus-summary-mode)
 (add-hook 'gnus-group-mode-hook 'my/setup-gnus-group-mode)
+(add-hook 'dape-on-stopped-hooks 'dape-info)
+(add-hook 'dape-on-stopped-hooks 'dape-repl)
+(add-hook 'dape-on-start-hooks (defun dape--save-on-start ()
+								 (save-some-buffers t t)))
 
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
