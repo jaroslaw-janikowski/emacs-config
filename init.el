@@ -349,7 +349,7 @@
       org-return-follows-link t
       org-support-shift-select t
       org-hide-emphasis-markers nil
-      org-babel-python-command "python3 -i --simple-prompt --quiet --pprint --no-banner --no-confirm-exit"
+      org-babel-python-command "python3 -i"
       org-babel-hash-show-time t
       org-startup-indented t
       org-startup-with-inline-images t
