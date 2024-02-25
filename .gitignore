@@ -11,10 +11,14 @@ tramp
 places
 .mc-lists.el
 url/
-projects/
+projects
 eww-bookmarks
+bookmarks
 mastodon.plstore
 private.el
 install/setup-private.el
+network-security.data
 .mypy_cache/
+.cache/
 gnus/
+var/
