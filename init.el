@@ -174,7 +174,7 @@
   (hl-line-mode)
   (flyspell-prog-mode)
   (display-line-numbers-mode 1)
-  (display-fill-column-indicator-mode)
+  (display-fill-column-indicator-mode 1)
   (ispell-change-dictionary "british")
   (diff-hl-mode)
   (rainbow-mode)
@@ -231,6 +231,14 @@
   (nerd-icons-dired-mode))
 
 (defun my/setup-python-mode()
+  (eglot-ensure))
+
+(defun my/setup-c-mode()
+  (setq company-backends '(company-files
+						   company-yasnippet
+						   company-capf
+						   company-dabbrev-code
+						   company-keywords))
   (eglot-ensure))
 
 (defun my/setup-sqli-mode()
@@ -474,8 +482,6 @@
 			  eglot-workspace-configuration '(:pylsp (:plugins (:jedi_completion (:include_params t :fuzzy t) :flake8 (:enabled t) :black (:enabled t)))))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
-;;(load-theme 'monokai t)
-(load-theme 'modus-vivendi t)
 (show-paren-mode t)
 (tool-bar-mode -1)
 (cua-mode t)
@@ -495,6 +501,7 @@
 (global-visual-line-mode +1)
 (global-so-long-mode 1)
 (electric-pair-mode t)
+(transient-mark-mode 1)
 (helm-mode 1)
 (global-company-mode)
 (yas-global-mode 1)
@@ -589,6 +596,8 @@
 (add-hook 'text-mode-hook 'my/setup-text-mode)
 (add-hook 'prog-mode-hook 'my/setup-prog-mode)
 (add-hook 'python-mode-hook 'my/setup-python-mode)
+(add-hook 'c-mode-hook 'my/setup-c-mode)
+(add-hook 'c-ts-mode-hook 'my/setup-c-mode)
 (add-hook 'emacs-lisp-mode-hook 'my/setup-elisp-mode)
 (add-hook 'sql-interactive-mode-hook 'my/setup-sqli-mode)
 (add-hook 'sql-mode-hook 'my/setup-sql-mode)
@@ -613,6 +622,7 @@
 (add-hook 'dape-on-start-hooks (defun dape--save-on-start ()
 								 (save-some-buffers t t)))
 
+;; file extensions
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl'" . web-mode))
@@ -627,6 +637,12 @@
 (add-to-list 'auto-mode-alist '("README$" . text-mode))
 (add-to-list 'auto-mode-alist '("LICENSE$" . text-mode))
 (add-to-list 'auto-mode-alist '("CHANGELOG$" . text-mode))
+
+;; choose theme based on time of the day
+(let ((current-hour (nth 2 (decode-time (current-time)))))
+  (if (and (> current-hour 6) (< current-hour 18))
+	  (load-theme 'modus-operandi)
+	(load-theme 'modus-vivendi)))
 
 (let ((private-settings (file-name-concat user-emacs-directory "private.el")))
   (if (file-exists-p private-settings) (load-file private-settings)))
