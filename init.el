@@ -488,8 +488,9 @@
 			  display-fill-column-indicator-column 80
 			  comint-scroll-to-bottom-on-input t
 			  comint-scroll-to-bottom-on-output nil
-			  eglot-workspace-configuration '(:pylsp (:plugins (:jedi_completion (:include_params t :fuzzy t) :flake8 (:enabled t) :black (:enabled t))))
-			  eglot-server-programs '((c-mode . ("clangd" "--completion-style=detailed" "--malloc-trim" "--fallback-style=llvm"))))
+			  eglot-workspace-configuration '(:pylsp (:plugins (:jedi_completion (:enabled t :include_params t :fuzzy t :include_class_objects t :include_function_objects t :eager t) :flake8 (:enabled t) :black (:enabled t))))
+			  eglot-server-programs '((c-mode . ("clangd" "--completion-style=detailed" "--malloc-trim" "--fallback-style=llvm"))
+									  (python-mode . ("pylsp"))))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 (show-paren-mode t)
