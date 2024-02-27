@@ -646,10 +646,11 @@
 ;; choose theme based on time of the day
 (defun my-rotate-theme()
   (let ((current-hour (nth 2 (decode-time (current-time)))))
-	(if (and (> current-hour 6) (< current-hour 18))
+	(if (and (> current-hour 6) (< current-hour 17))
 		(load-theme 'modus-operandi)
 	  (load-theme 'modus-vivendi))))
 
+(my-rotate-theme)
 (run-at-time "1 hour" t 'my-rotate-theme)
 
 (let ((private-settings (file-name-concat user-emacs-directory "private.el")))
