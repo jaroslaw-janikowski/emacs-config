@@ -52,6 +52,11 @@
 (global-set-key (kbd "C-x p p") 'my/project-root)
 ;; end of custom project management
 
+(defun my-grep-project(arg)
+  (interactive "P")
+  (let ((default-directory my/project-current-root))
+	(helm-do-grep-ag arg)))
+
 (defun my/helm-find()
   (interactive)
   (helm-find-1 my/project-current-root))
@@ -548,7 +553,7 @@
 (global-set-key (kbd "M-<down>") 'my/forward-paragraph)
 (global-set-key (kbd "C-p") 'my/helm-find)
 (global-set-key (kbd "C-f") 'helm-occur)
-(global-set-key (kbd "C-S-f") 'helm-do-grep-ag)
+(global-set-key (kbd "C-S-f") 'my-grep-project)
 (global-set-key (kbd "<f10>") 'midnight-commander)
 (global-set-key (kbd "<f11>") 'my/grep-under-cursor)
 (global-set-key (kbd "C-r") 'query-replace)
