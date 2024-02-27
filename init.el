@@ -640,10 +640,13 @@
 (add-to-list 'auto-mode-alist '("CHANGELOG$" . text-mode))
 
 ;; choose theme based on time of the day
-(let ((current-hour (nth 2 (decode-time (current-time)))))
-  (if (and (> current-hour 6) (< current-hour 18))
-	  (load-theme 'modus-operandi)
-	(load-theme 'modus-vivendi)))
+(defun my-rotate-theme()
+  (let ((current-hour (nth 2 (decode-time (current-time)))))
+	(if (and (> current-hour 6) (< current-hour 18))
+		(load-theme 'modus-operandi)
+	  (load-theme 'modus-vivendi))))
+
+(run-at-time "1 hour" t 'my-rotate-theme)
 
 (let ((private-settings (file-name-concat user-emacs-directory "private.el")))
   (if (file-exists-p private-settings) (load-file private-settings)))
