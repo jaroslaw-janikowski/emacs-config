@@ -318,6 +318,10 @@
 	  comment-fill-column nil
 	  comment-multi-line t
 	  comment-style 'multi-line
+	  gdb-many-windows t
+	  gdb-use-separate-io-buffer t
+	  gud-pdb-command-name "python3 -m pdb "
+	  gud-highlight-current-line t
       dired-auto-revert-buffer t
       dired-confirm-shell-command nil
       dired-clean-confirm-killing-deleted-buffers nil
