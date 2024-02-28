@@ -166,8 +166,7 @@
 (defun my/setup-text-mode()
   (setq company-backends '((company-dabbrev)))
   (hl-line-mode)
-  (flyspell-mode)
-  (ispell-change-dictionary "polish"))
+  (flyspell-mode))
 
 (defun my/setup-prog-mode()
   (setq company-backends '((company-yasnippet
@@ -180,7 +179,6 @@
   (flyspell-prog-mode)
   (display-line-numbers-mode 1)
   (display-fill-column-indicator-mode 1)
-  (ispell-change-dictionary "british")
   (diff-hl-mode)
   (rainbow-mode)
   (idle-highlight-mode t))
