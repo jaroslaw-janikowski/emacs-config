@@ -650,7 +650,7 @@
 ;; choose theme based on time of the day
 (defun my-rotate-theme()
   (let ((current-hour (nth 2 (decode-time (current-time)))))
-	(if (and (> current-hour 6) (< current-hour 17))
+	(if (and (> current-hour 6) (< current-hour 16))
 		(load-theme 'modus-operandi)
 	  (load-theme 'modus-vivendi))))
 
