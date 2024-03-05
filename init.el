@@ -1,3 +1,5 @@
+(load-theme 'modus-vivendi)
+
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
@@ -646,16 +648,6 @@
 (add-to-list 'auto-mode-alist '("README$" . text-mode))
 (add-to-list 'auto-mode-alist '("LICENSE$" . text-mode))
 (add-to-list 'auto-mode-alist '("CHANGELOG$" . text-mode))
-
-;; choose theme based on time of the day
-(defun my-rotate-theme()
-  (let ((current-hour (nth 2 (decode-time (current-time)))))
-	(if (and (> current-hour 6) (< current-hour 16))
-		(load-theme 'modus-operandi)
-	  (load-theme 'modus-vivendi))))
-
-(my-rotate-theme)
-(run-at-time "1 hour" t 'my-rotate-theme)
 
 (let ((private-settings (file-name-concat user-emacs-directory "private.el")))
   (if (file-exists-p private-settings) (load-file private-settings)))
