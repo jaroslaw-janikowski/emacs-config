@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: unit
+# key: unit
+# --
+unit ${1:name};
+
+interface
+
+uses
+
+type
+
+implementation
+
+end.

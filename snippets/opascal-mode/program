@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: program
+# key: program
+# --
+program ${1:name};
+begin
+  $0
+end.
