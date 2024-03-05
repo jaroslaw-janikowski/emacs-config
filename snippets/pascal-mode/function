@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: function
+# key: function
+# --
+function ${1:name}: ${2:return-type};
+begin
+  result := $0;
+end;
