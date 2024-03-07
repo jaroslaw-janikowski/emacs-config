@@ -54,6 +54,9 @@
 (global-set-key (kbd "C-x p p") 'my/project-root)
 ;; end of custom project management
 
+(defun my-setup-minibuffer()
+  (electric-pair-mode -1))
+
 (defun my-grep-project(arg)
   (interactive "P")
   (let ((default-directory my/project-current-root))
@@ -632,6 +635,7 @@
 (add-hook 'dape-on-stopped-hooks 'dape-repl)
 (add-hook 'dape-on-start-hooks (defun dape--save-on-start ()
 								 (save-some-buffers t t)))
+(add-hook 'minibuffer-setup-hook 'my-setup-minibuffer)
 
 ;; file extensions
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
