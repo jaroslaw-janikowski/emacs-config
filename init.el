@@ -30,6 +30,7 @@
 (require 'docker-compose-mode)
 (require 'denote)
 (require 'beframe)
+(require 'php-mode)
 (require 'company-php)
 
 ;; Custom project management
