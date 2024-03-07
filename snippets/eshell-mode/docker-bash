@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: docker-bash
+# key: docker-bash
+# --
+docker exec -it ${1:container-name} bash $0
