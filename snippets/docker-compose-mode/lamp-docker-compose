@@ -7,11 +7,14 @@ version: '3.6'
 services:
   db:
     image: mysql:latest
-    command: --default-authentication-plugin=mysql_native_password
+	restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: e9w86036f78sd9
-      volumes:
-        - "./server/database:/var/lib/mysql"
+      - MYSQL_DATABASE=docker_demo
+	  - MYSQL_RANDOM_ROOT_PASSWORD=yes
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./server/database:/var/lib/mysql"
   db_pma:
     image: phpmyadmin/phpmyadmin:latest
     depends_on:
@@ -27,11 +30,11 @@ services:
     ports:
       - 8081:8025
   www:
+    image: php:apache
     depends_on:
       - db
       - mail
-    image: php:apache
     volumes:
-      - "./src:/var/www/html"
+      - ".${0:/src}:/var/www/html"
     ports:
       - 8080:80

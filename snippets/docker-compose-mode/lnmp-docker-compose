@@ -1,13 +1,12 @@
 # -*- mode: snippet -*-
 # name: lnmp-docker-compose
-# key: lnmp-docker-compose
+# key: lnmp
 # expand-env: ((yas-indent-line 'fixed))
 # --
 version: '3'
 services:
   web:
     image: nginx
-    container_name: webserver
     depends_on:
       - docker-mysql
       - php
@@ -15,7 +14,7 @@ services:
       - docker-mysql
       - php
     volumes:
-      - ./src:/var/www/html
+      - .${0:/src}:/var/www/html
       - ./servers-config/nginx:/etc/nginx/conf.d/
     ports:
       - "8080:80"
@@ -25,14 +24,11 @@ services:
       - ./src:/var/www/html
       - ./servers-config/php:/usr/local/etc/php/php.ini
   docker-mysql:
-    image: mysql:5.7
-    container_name: docker-mysql-demo
+    image: mysql
     restart: always
     environment:
       - MYSQL_DATABASE=docker_demo
-      - MYSQL_ROOT_PASSWORD=root123
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=root123
+	  - MYSQL_RANDOM_ROOT_PASSWORD=yes
     ports:
       - "3306:3306"
     volumes:
