@@ -49,4 +49,6 @@
 (package-install 'beframe)
 (package-install 'dape)
 (package-install 'pyvenv)
+(package-install 'company-php)
+(package-install 'ac-php)
 (nerd-icons-install-fonts)

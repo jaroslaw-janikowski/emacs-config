@@ -30,6 +30,7 @@
 (require 'docker-compose-mode)
 (require 'denote)
 (require 'beframe)
+(require 'company-php)
 
 ;; Custom project management
 (setq my/project-current-root "~/.emacs.d/")
@@ -55,7 +56,7 @@
 ;; end of custom project management
 
 (defun my-setup-minibuffer()
-  (electric-pair-mode -1))
+  (electric-pair-local-mode -1))
 
 (defun my-grep-project(arg)
   (interactive "P")
@@ -201,6 +202,14 @@
 						   company-dabbrev-code
 						   company-files
 						   company-yasnippet)))
+
+(defun my-setup-php()
+  (setq company-backends '(company-ac-php-backend
+						   company-capf
+						   company-dabbrev-code
+						   company-files
+						   company-yasnippet))
+  (ac-php-core-eldoc-setup))
 
 (defun my/setup-gnus-article-mode()
   (text-scale-decrease 1)
@@ -479,6 +488,7 @@
 	  gnus-inhibit-demon t
 	  compilation-ask-about-save nil
 	  compilation-scroll-output t
+	  ac-php-tags-path "~/.config/ac-php"
       restclient-same-buffer-response nil)
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
@@ -604,6 +614,8 @@
 (define-key org-mode-map (kbd "C-S-<down>") 'org-move-subtree-down)
 (define-key package-menu-mode-map (kbd "M-<left>") nil)
 (define-key package-menu-mode-map (kbd "M-<right>") nil)
+(define-key php-mode-map (kbd "M-]") 'ac-php-symbol-at-point)
+(define-key php-mode-map (kbd "M-[") 'ac-php-location-stack-back)
 
 (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
 (add-hook 'nxml-mode-hook 'display-line-numbers-mode)
@@ -636,17 +648,19 @@
 (add-hook 'dape-on-start-hooks (defun dape--save-on-start ()
 								 (save-some-buffers t t)))
 (add-hook 'minibuffer-setup-hook 'my-setup-minibuffer)
+(add-hook 'php-mode-hook 'my-setup-php)
 
 ;; file extensions
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode))
 (add-to-list 'auto-mode-alist '("docker-compose\\.y.?ml$" . docker-compose-mode))
 (add-to-list 'auto-mode-alist '("\\.service$" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.csv$" . csv-mode))
 (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html\\.twig'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.eln$" . hexl-mode))
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (add-to-list 'auto-mode-alist '("README$" . text-mode))
