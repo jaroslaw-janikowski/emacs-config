@@ -28,7 +28,7 @@ services:
     restart: always
     environment:
       - MYSQL_DATABASE=docker_demo
-	  - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
     ports:
       - "3306:3306"
     volumes:
