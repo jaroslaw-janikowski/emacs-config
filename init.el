@@ -487,6 +487,8 @@
 	  gnus-save-newsrc-file nil
 	  gnus-read-newsrc-file nil
 	  gnus-inhibit-demon t
+	  gnus-summary-to-prefix ""
+	  gnus-summary-newsgroup-prefix ""
 	  compilation-ask-about-save nil
 	  compilation-scroll-output t
 	  ac-php-tags-path "~/.config/ac-php"
