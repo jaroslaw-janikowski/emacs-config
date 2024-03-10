@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: library
+# key: library
+# --
+library ${:LibraryName};
+uses SysUtils, Classes;
+
+procedure Test(); export;
+begin
+  ShowMessage('Hello world');
+end;
+
+exports Test;
+
+end.
