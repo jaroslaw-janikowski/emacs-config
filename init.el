@@ -360,6 +360,8 @@
       nxml-slash-autocomplete-flag t
       nxml-mode-map (make-keymap)
 	  custom-file (make-temp-file "emacs-custom-")  ;; brak dopisywania customize
+	  opascal-indent-level 2
+	  opascal-case-label-indent 2
       company-minimum-prefix-length 1
       company-idle-delay 0
       company-selection-wrap-around t
@@ -669,6 +671,7 @@
 (add-to-list 'auto-mode-alist '("README$" . text-mode))
 (add-to-list 'auto-mode-alist '("LICENSE$" . text-mode))
 (add-to-list 'auto-mode-alist '("CHANGELOG$" . text-mode))
+(add-to-list 'auto-mode-alist '("\\.\\(pas\\|pp\\|lpr\\|dpr\\)\\'" . opascal-mode))
 
 (let ((private-settings (file-name-concat user-emacs-directory "private.el")))
   (if (file-exists-p private-settings) (load-file private-settings)))
