@@ -491,6 +491,8 @@
 	  gnus-inhibit-demon t
 	  gnus-summary-to-prefix ""
 	  gnus-summary-newsgroup-prefix ""
+	  gnus-large-newsgroup 200
+	  gnus-interactive-exit nil
 	  compilation-ask-about-save nil
 	  compilation-scroll-output t
 	  ac-php-tags-path "~/.config/ac-php"
