@@ -33,6 +33,7 @@
 (require 'beframe)
 (require 'php-mode)
 (require 'company-php)
+(require 'mpv)
 
 ;; Custom project management
 (setq my/project-current-root "~/.emacs.d/")
@@ -56,6 +57,11 @@
 
 (global-set-key (kbd "C-x p p") 'my/project-root)
 ;; end of custom project management
+
+(defun my-eww-browse-url (url &optional new-window)
+  (if (string-prefix-p "https://www.youtube.com/watch?v=" url)
+	  (mpv-start url)
+	(eww-browse-url url new-window)))
 
 (defun my-setup-minibuffer()
   (electric-pair-local-mode -1))
@@ -460,7 +466,7 @@
       web-mode-enable-current-column-highlight t
 	  tabbar-buffer-groups-function 'my/tab-bar-groups
 	  browse-url-new-window-flag t
-      browse-url-browser-function 'eww-browse-url
+      browse-url-browser-function 'my-eww-browse-url
       restclient-log-request t
       eww-auto-rename-buffer 'title
 	  treemacs-recenter-after-project-jump 'always
@@ -498,6 +504,7 @@
 	  gnus-summary-newsgroup-prefix ""
 	  gnus-large-newsgroup 200
 	  gnus-interactive-exit nil
+	  mpv-default-options '("--pause" "--ytdl-format=18")
 	  compilation-ask-about-save nil
 	  compilation-scroll-output t
 	  ac-php-tags-path "~/.config/ac-php"
