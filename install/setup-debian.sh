@@ -35,6 +35,15 @@ fi
 EOF
 exit
 
+# mpv
+apt install -y mpv
+su bps
+cat <<EOF>> ~/.config/mpv/mpv.conf
+pause
+ytdl-format=18
+EOF
+exit
+
 # ufw setup
 apt install -y ufw
 systemctl enable ufw
