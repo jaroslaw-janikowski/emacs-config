@@ -108,6 +108,10 @@
   (display-line-numbers-mode t)
   (org-present-small))
 
+(defun my/setup-message-mode()
+  (setq fill-column 72)
+  (turn-on-auto-fill))
+
 (defun my/grep-under-cursor(arg)
   (interactive "P")
   (let ((word (thing-at-point 'word)))
@@ -658,6 +662,7 @@
 								 (save-some-buffers t t)))
 (add-hook 'minibuffer-setup-hook 'my-setup-minibuffer)
 (add-hook 'php-mode-hook 'my-setup-php)
+(add-hook 'message-mode-hook 'my/setup-message-mode)
 
 ;; file extensions
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
