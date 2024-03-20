@@ -623,6 +623,7 @@
 (define-key package-menu-mode-map (kbd "M-<right>") nil)
 (define-key php-mode-map (kbd "M-]") 'ac-php-symbol-at-point)
 (define-key php-mode-map (kbd "M-[") 'ac-php-location-stack-back)
+(define-key eww-mode-map (kbd "c") 'shr-copy-url)
 
 (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
 (add-hook 'nxml-mode-hook 'display-line-numbers-mode)
