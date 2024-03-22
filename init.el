@@ -12,6 +12,7 @@
 				   ("gnu" . 4)))
 (package-initialize)
 
+(require 'bookmark)
 (require 'eww)
 (require 'crux)
 (require 'nxml-mode)
