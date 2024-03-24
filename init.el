@@ -60,7 +60,7 @@
 ;; end of custom project management
 
 (defun my-eww-browse-url (url &optional new-window)
-  (if (string-prefix-p "https://www.youtube.com/watch?v=" url)
+  (if (or (string-prefix-p "https://www.youtube.com/watch?v=" url) (string-prefix-p "https://youtu.be/" url))
 	  (mpv-start url)
 	(eww-browse-url url new-window)))
 
