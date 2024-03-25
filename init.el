@@ -20,6 +20,7 @@
 (require 'yasnippet)
 (require 'helm-find)
 (require 'web-mode)
+(require 'diff-hl)
 (require 'magit)
 (require 'multiple-cursors)
 (require 'org-present)
