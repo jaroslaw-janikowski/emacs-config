@@ -203,25 +203,25 @@
   (idle-highlight-mode t))
 
 (defun my/setup-makefile-mode()
-  (setq company-backends '(company-files
+  (setq company-backends '((company-files
 						   company-dabbrev-code
-						   company-yasnippet)))
+						   company-yasnippet))))
 
 (defun my/setup-elisp-mode()
   (setq company-backends '((company-capf company-elisp company-files company-yasnippet company-dabbrev-code))))
 
 (defun my/setup-docker-compose-mode()
-  (setq company-backends '(company-capf
+  (setq company-backends '((company-capf
 						   company-dabbrev-code
 						   company-files
-						   company-yasnippet)))
+						   company-yasnippet))))
 
 (defun my-setup-php()
-  (setq company-backends '(company-ac-php-backend
+  (setq company-backends '((company-ac-php-backend
 						   company-capf
 						   company-dabbrev-code
 						   company-files
-						   company-yasnippet))
+						   company-yasnippet)))
   (ac-php-core-eldoc-setup))
 
 (defun my/setup-gnus-article-mode()
@@ -264,11 +264,11 @@
   (eglot-ensure))
 
 (defun my/setup-c-mode()
-  (setq company-backends '(company-files
+  (setq company-backends '((company-files
 						   company-yasnippet
 						   company-capf
 						   company-dabbrev-code
-						   company-keywords))
+						   company-keywords)))
   (eglot-ensure))
 
 (defun my/setup-sqli-mode()
