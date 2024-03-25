@@ -200,6 +200,7 @@
   (display-fill-column-indicator-mode 1)
   (diff-hl-mode)
   (rainbow-mode)
+  (subword-mode 1)
   (idle-highlight-mode t))
 
 (defun my/setup-makefile-mode()
@@ -508,6 +509,7 @@
 	  mpv-default-options '("--pause" "--ytdl-format=18")
 	  compilation-ask-about-save nil
 	  compilation-scroll-output t
+	  php-mode-coding-style 'psr2
 	  ac-php-tags-path "~/.config/ac-php"
       restclient-same-buffer-response nil)
 
