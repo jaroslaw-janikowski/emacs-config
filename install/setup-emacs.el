@@ -51,4 +51,5 @@
 (package-install 'pyvenv)
 (package-install 'company-php)
 (package-install 'ac-php)
+(package-install 'mpv)
 (nerd-icons-install-fonts)
