@@ -67,7 +67,8 @@
    (t (eww-browse-url url new-window))))
 
 (defun my-setup-minibuffer()
-  (electric-pair-local-mode -1))
+  (electric-pair-local-mode -1)
+  (yas-minor-mode t))
 
 (defun my-grep-project(arg)
   (interactive "P")

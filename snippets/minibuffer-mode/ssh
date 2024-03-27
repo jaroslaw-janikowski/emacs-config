@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ssh
+# key: ssh
+# --
+/ssh:${1:user}@${2:host}#${3:port}:$0
