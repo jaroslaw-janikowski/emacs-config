@@ -644,6 +644,8 @@
 (define-key eww-mode-map (kbd "c") 'shr-copy-url)
 (define-key bookmark-bmenu-mode-map (kbd "M-<right>") nil)
 (define-key bookmark-bmenu-mode-map (kbd "M-<left>") nil)
+(define-key dired-mode-map (kbd "C-n") #'dired-create-empty-file)
+(define-key dired-mode-map (kbd "C-S-n") #'dired-create-directory)
 
 (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
 (add-hook 'nxml-mode-hook 'display-line-numbers-mode)
