@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: try
+# key: try
+# --
+if (!${1:code}) goto ${2:error_name};
+
+${2:error_name}:
+$0
