@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: systemd-service
+# key: systemd
+# --
+[Unit]
+Description=$1
+
+[Service]
+ExecStart=$2
+Restart=always
+RestartSec=3
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=$0
+
+[Install]
+WantedBy=multi-user.target
