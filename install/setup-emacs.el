@@ -52,4 +52,6 @@
 (package-install 'company-php)
 (package-install 'ac-php)
 (package-install 'mpv)
+(package-install 'editorconfig)
+(package-install 'editorconfig-generate)
 (nerd-icons-install-fonts)
