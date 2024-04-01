@@ -296,6 +296,19 @@
   (dired nil)
   (other-window 1))
 
+(defun my-tab-line-sorting()
+  "Sortowanie kolejności zakładek edytorów z użyciem nazwy pliku i rozszerzenia."
+  (seq-sort-by #'buffer-name (lambda (a b)
+							   (cond
+								((equal (file-name-sans-extension a)
+										(file-name-sans-extension b))
+								 (string> (file-name-extension a) (file-name-extension b)))
+								(t
+								 (string< a b))))
+			   (seq-filter (lambda (b) (and (buffer-live-p b)
+											(/= (aref (buffer-name b) 0) ?\s)))
+						   (buffer-list))))
+
 (setq warning-minimum-level :error
 	  ;; debug-on-error t
       inhibit-startup-screen t
@@ -461,6 +474,7 @@
 										  "^\\*Messages\\*$"
 										  "^\\.newsrc-dribble$"
 										  "^\\*Async-native-compile-log\\*$")
+	  tab-line-tabs-function 'my-tab-line-sorting
       web-mode-engines-alist '(("php" . "\\.phtml\\'")
 			       ("blade" . "\\.blade\\."))
       web-mode-markup-indent-offset 4
