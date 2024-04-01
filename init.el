@@ -296,7 +296,7 @@
   (other-window 1))
 
 (defun my-tab-line-sorting()
-  "Sortowanie kolejności zakładek edytorów z użyciem nazwy pliku i rozszerzenia."
+  "Sortowanie i filtrowanie zakładek edytorów z użyciem nazwy pliku i rozszerzenia."
   (seq-sort-by #'buffer-name (lambda (a b)
 							   (cond
 								((equal (file-name-sans-extension a)
@@ -304,8 +304,22 @@
 								 (string> (file-name-extension a) (file-name-extension b)))
 								(t
 								 (string< a b))))
-			   (seq-filter (lambda (b) (and (buffer-live-p b)
-											(/= (aref (buffer-name b) 0) ?\s)))
+			   (seq-filter (lambda (b)
+							 (let ((name (buffer-name b)))
+							   (and (buffer-live-p b)
+								  (/= (aref name 0) ?\s)
+								  (not (string-prefix-p "*helm" name))
+								  (not (string-prefix-p "*EGLOT" name))
+								  (not (string-prefix-p "*Async-native-compile-log" name))
+								  (not (string= ".newsrc-dribble" name))
+								  (not (string= "*Backtrace*" name))
+								  (not (string= "*Warnings*" name))
+								  (not (string= "*Messages*" name))
+								  ;; (not (string= "*scratch*" name))
+								  (not (string-prefix-p "magit: " name))
+								  (not (string-prefix-p "magit-process: " name))
+								  (not (string-prefix-p "magit-log: " name))
+								  (not (string-prefix-p "magit-diff: " name)))))
 						   (buffer-list))))
 
 (setq warning-minimum-level :error
@@ -468,10 +482,12 @@
 										  "^magit:"
 										  "^magit-process:"
 										  "^magit-diff:"
-										  "^\\*scratch\\*$"
+										  ;; "^\\*scratch\\*$"
 										  "^\\*Warnings\\*$"
 										  "^\\*Messages\\*$"
+										  "^\\*Backtrace\\*$"
 										  "^\\.newsrc-dribble$"
+										  "^\\*EGLOT"
 										  "^\\*Async-native-compile-log\\*$")
 	  tab-line-tabs-function 'my-tab-line-sorting
       web-mode-engines-alist '(("php" . "\\.phtml\\'")
