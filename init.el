@@ -32,7 +32,6 @@
 (require 'treemacs)
 (require 'docker-compose-mode)
 (require 'denote)
-(require 'beframe)
 (require 'php-mode)
 (require 'company-php)
 (require 'mpv)
@@ -504,7 +503,6 @@
 	  denote-sort-keywords t
 	  denote-prompts '(title keywords)
 	  denote-date-prompt-use-org-read-date t
-	  beframe-global-buffers '("*scratch*" "*Messages*" "*Backtrace*")
 	  yas-indent-line 'auto
 	  yas-also-auto-indent-first-line t
 	  smtpmail-debug-info t
@@ -568,7 +566,6 @@
 (helm-mode 1)
 (global-company-mode)
 (yas-global-mode 1)
-(beframe-mode 1)
 (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp .t)
 							 (python . t)
 							 (shell . t)
@@ -625,7 +622,7 @@
 (global-set-key (kbd "<f6>") 'eglot-format)
 (global-set-key (kbd "<f8>") 'treemacs)
 (global-set-key (kbd "C-x d") 'my/dired-new)
-(global-set-key (kbd "C-x b") 'beframe-switch-buffer)
+(global-set-key (kbd "C-x b") 'switch-to-buffer)
 (global-set-key (kbd "<f12>") 'denote-open-or-create)
 (global-set-key (kbd "C-<f12>") 'denote-create-note)
 (global-set-key (kbd "C-l") 'denote-link-or-create)
