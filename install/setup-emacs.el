@@ -47,6 +47,7 @@
 (package-install 'docker-compose-mode)
 (package-install 'denote)
 (package-install 'dape)
+(package-install 'beframe)
 (package-install 'pyvenv)
 (package-install 'company-php)
 (package-install 'ac-php)

@@ -35,6 +35,7 @@
 (require 'php-mode)
 (require 'company-php)
 (require 'mpv)
+(require 'beframe)
 
 ;; Custom project management
 (setq my/project-current-root "~/.emacs.d/")
@@ -589,6 +590,7 @@
 (which-key-mode)
 (treemacs-project-follow-mode 1)
 (treemacs-follow-mode 1)
+(beframe-mode t)
 
 (set-face-attribute 'region nil :background "#666")
 (set-face-attribute 'org-block nil :background "#222")
@@ -638,7 +640,7 @@
 (global-set-key (kbd "<f6>") 'eglot-format)
 (global-set-key (kbd "<f8>") 'treemacs)
 (global-set-key (kbd "C-x d") 'my/dired-new)
-(global-set-key (kbd "C-x b") 'switch-to-buffer)
+(global-set-key (kbd "C-x b") 'beframe-switch-buffer)
 (global-set-key (kbd "<f12>") 'denote-open-or-create)
 (global-set-key (kbd "C-<f12>") 'denote-create-note)
 (global-set-key (kbd "C-l") 'denote-link-or-create)
