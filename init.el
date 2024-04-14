@@ -36,6 +36,7 @@
 (require 'company-php)
 (require 'mpv)
 (require 'beframe)
+(require 'nsis-mode)
 
 ;; Custom project management
 (setq my/project-current-root "~/.emacs.d/")
@@ -723,6 +724,7 @@
 (add-to-list 'auto-mode-alist '("\\.html\\.twig'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.eln$" . hexl-mode))
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(add-to-list 'auto-mode-alist '("\\.nsi$" . nsis-mode))
 (add-to-list 'auto-mode-alist '("README$" . text-mode))
 (add-to-list 'auto-mode-alist '("LICENSE$" . text-mode))
 (add-to-list 'auto-mode-alist '("CHANGELOG$" . text-mode))

@@ -51,4 +51,5 @@
 (package-install 'mpv)
 (package-install 'editorconfig)
 (package-install 'editorconfig-generate)
+(package-install 'nsis-mode)
 (nerd-icons-install-fonts)
