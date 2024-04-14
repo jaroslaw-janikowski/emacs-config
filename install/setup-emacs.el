@@ -12,7 +12,6 @@
 
 (package-refresh-contents)
 (package-install 'adaptive-wrap)
-(package-install 'helm)
 (package-install 'company)
 (package-install 'yasnippet)
 (package-install 'geiser-guile)
@@ -25,7 +24,6 @@
 (package-install 'dockerfile-mode)
 (package-install 'org-present)
 (package-install 'visual-fill-column)
-(package-install 'centaur-tabs)
 (package-install 'which-key)
 (package-install 'evil-nerd-commenter)
 (package-install 'crux)
@@ -40,7 +38,6 @@
 (package-install 'rainbow-mode)
 (package-install 'embark)
 (package-install 'treemacs)
-(package-install 'monokai-theme)
 (package-install 'nerd-icons)
 (package-install 'nerd-icons-dired)
 (package-install 'php-mode)
