@@ -159,6 +159,36 @@
       (nxml-balanced-close-start-tag-inline)
     (insert ">")))
 
+(defun string-before(char-count)
+  (let ((prev-word-start (- (point) char-count))
+		(prev-word-end (point)))
+	(let ((prev-word-start-abs (if (>= prev-word-start 0) prev-word-start (point-min))))
+	  (buffer-substring prev-word-start-abs prev-word-end))))
+
+(defun string-after(char-count)
+  (let ((next-word-start (point))
+		(next-word-end (+ (point) char-count)))
+	(let ((next-word-end-abs (if (> next-word-end (point-max)) (point-max) next-word-end)))
+	  (buffer-substring next-word-start next-word-end-abs))))
+
+(defun my-php-mode-newline()
+  "Enter czasami formatuje bieżącą linię tekstu."
+  (interactive)
+  ; wyodrębnij słowo przed i po kursorze
+  (let ((prev-word (string-before 6))
+		(next-word (string-after 3)))
+	; Jeśli kursor jest w znacznikach <?php | ?> to enter powinien zrobić z tego ładny blok kodu
+	(if (and (string= prev-word "<?php ")
+			 (string= next-word " ?>"))
+		(progn
+		  (kill-backward-chars 1)
+		  (kill-forward-chars 1)
+		  (newline)
+		  (newline)
+		  (previous-line))
+	  ; jeśli nie to normalnie wstaw znak nowej linii
+	  (newline))))
+
 (defun my/nxml-newline ()
   "Insert a newline, indenting the current line and the newline appropriately in nxml-mode."
   (interactive)
@@ -649,6 +679,7 @@
 (define-key mc/keymap (kbd "<return>") nil)
 (define-key nxml-mode-map (kbd ">") 'my/finish-element)
 (define-key nxml-mode-map (kbd "RET") 'my/nxml-newline)
+(define-key php-mode-map (kbd "RET") 'my-php-mode-newline)
 (define-key hexl-mode-map (kbd "M-<right>") nil)
 (define-key hexl-mode-map (kbd "M-<left>") nil)
 (define-key hexl-mode-map (kbd "C-q") nil)
