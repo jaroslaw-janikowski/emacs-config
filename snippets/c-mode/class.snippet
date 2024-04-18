@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: class
+# key: class
+# --
+#ifndef ${1:$$(upcase yas-text)}_H
+#define $1_H
+
+typedef struct {
+$0
+} ${2:$$(yas-auto-next (capitalize (downcase (yas-field-value 1))))};
+
+void ${3:$$(yas-auto-next (downcase (yas-field-value 1)))}_create($2* obj);
+void $3_destroy($2* obj);
+
+#endif /* $1_H */
