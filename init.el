@@ -600,6 +600,7 @@
 (delete-selection-mode t)
 (global-auto-revert-mode 1)
 (global-tab-line-mode)
+(set-window-scroll-bars (minibuffer-window) nil nil)
 (toggle-frame-maximized)
 (set-language-environment "UTF-8")
 (set-charset-priority 'unicode)
