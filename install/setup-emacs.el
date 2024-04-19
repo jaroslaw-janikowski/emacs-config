@@ -43,7 +43,8 @@
 (package-install 'php-mode)
 (package-install 'docker-compose-mode)
 (package-install 'denote)
-(package-install 'dape)
+;(package-install 'helm-find)  ;; o co z tym chodzi? Nie ma na liście ale da się zainstalować przez package-install
+;(package-install 'dape) ;; nie działa w emacs 28
 (package-install 'beframe)
 (package-install 'pyvenv)
 (package-install 'company-php)

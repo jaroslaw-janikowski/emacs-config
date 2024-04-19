@@ -54,20 +54,9 @@ ufw deny vnc
 # python setup
 apt install -y python3-venv python3-pip
 
-# emacs build
-apt install -y build-essential findutils git ispell iamerican ipolish silversearcher-ag curl autoconf libgtk-3-dev libgnutls28-dev libtiff5-dev libgif-dev libotf-dev libjpeg-dev libpng-dev libxpm-dev libsqlite3-dev libncurses-dev texinfo libjansson-dev libtree-sitter-dev libwebp-dev librsvg2-dev libgccjit-12-dev libxml2-dev libwebkit2gtk-4.0-dev ripgrep imagemagick unifont
-su jj
-git clone --depth 1 https://git.savannah.gnu.org/git/emacs.git /tmp/emacs
-cd /tmp/emacs
-./autogen.sh
-./configure --with-json --with-pgtk --with-native-compilation --with-mailutils --with-pop
-make
+# emacs
+apt install -y emacs
 exit
-cd /tmp/emacs
-make install
-su bps
-
-# emacs setup
 emacs -Q --script ~/.emacs.d/install/setup-emacs.el
 
 # podman setup
