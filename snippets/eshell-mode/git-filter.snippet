@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: git-filter
+# key: git
+# --
+git filter-branch --force --index-filter "git rm --cached --ignore-unmatch ${1:<PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA>}" --prune-empty --tag-name-filter cat -- --all$0
