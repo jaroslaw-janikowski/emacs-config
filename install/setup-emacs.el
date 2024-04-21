@@ -53,5 +53,6 @@
 (package-install 'editorconfig)
 (package-install 'editorconfig-generate)
 (package-install 'nsis-mode)
+(package-install 'apache-mode)
 (nerd-icons-install-fonts)
 (package-install 'helm-find)  ;; czasami jest a czasami nie ma

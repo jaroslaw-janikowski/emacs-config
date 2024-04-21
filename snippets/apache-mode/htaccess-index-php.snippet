@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: htaccess-index-php
+# key: htaccess
+# --
+Options -Indexes
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)\$ ${1:/index.php?path=\$1} [NC,L,QSA]
+$0

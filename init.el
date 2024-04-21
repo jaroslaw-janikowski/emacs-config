@@ -38,6 +38,7 @@
 (require 'mpv)
 (require 'beframe)
 (require 'nsis-mode)
+(require 'apache-mode)
 
 ;; Custom project management
 (setq my/project-current-root "~/.emacs.d/")
