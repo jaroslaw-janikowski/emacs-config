@@ -18,6 +18,7 @@
 (package-install 'markdown-mode)
 (package-install 'web-mode)
 (package-install 'magit)
+(package-install 'git-modes)
 (package-install 'multiple-cursors)
 (package-install 'idle-highlight-mode)
 (package-install 'docker)
