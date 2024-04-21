@@ -599,7 +599,7 @@
 (show-paren-mode t)
 (tool-bar-mode -1)
 (cua-mode t)
-(menu-bar-mode -1)
+;; (menu-bar-mode -1)
 (save-place-mode t)
 (column-number-mode t)
 (delete-selection-mode t)
