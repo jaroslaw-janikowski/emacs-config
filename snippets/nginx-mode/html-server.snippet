@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: html-server
+# key: html
+# --
+server {
+    listen 80;
+    server_name ${1:your-domain};
+    root /var/www/${2:your-repo-name}/public;
+
+    location / {
+        try_files /index.html;
+    }
+
+    error_page 404 /404.html;
+}$0
