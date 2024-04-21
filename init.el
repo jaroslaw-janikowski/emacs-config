@@ -60,6 +60,10 @@
 			(pyvenv-activate venv-dir)))
 	(message "Nie udało się zmienić katalogu projektu. Typuj ścieżki dokładniej!")))
 
+(defun my-helm-find()
+  (interactive)
+  (helm-find-1 my/project-current-root))
+
 (global-set-key (kbd "C-x p p") 'my/project-root)
 ;; end of custom project management
 
@@ -652,7 +656,7 @@
 (global-set-key (kbd "M-d") 'insert-current-date)
 (global-set-key (kbd "M-<up>") 'my/backward-paragraph)
 (global-set-key (kbd "M-<down>") 'my/forward-paragraph)
-(global-set-key (kbd "C-p") 'helm-find)
+(global-set-key (kbd "C-p") 'my-helm-find)
 (global-set-key (kbd "C-f") 'helm-occur)
 (global-set-key (kbd "C-S-f") 'my-grep-project)
 (global-set-key (kbd "<f10>") 'midnight-commander)
