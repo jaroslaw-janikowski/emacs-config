@@ -40,6 +40,10 @@
 (require 'nsis-mode)
 (require 'apache-mode)
 
+;; Custom mods
+(load-file "/home/bps/.emacs.d/mods/company-git.el")
+(require 'company-git)
+
 ;; Custom project management
 (setq my/project-current-root "~/.emacs.d/")
 
@@ -284,7 +288,11 @@
   (setq company-backends '((company-files company-yasnippet company-nginx))))
 
 (defun my/setup-eshell()
-  (setq company-backends '((company-files company-yasnippet company-shell))))
+  (setq company-backends '((company-files
+							company-git
+							company-yasnippet
+							company-shell
+							company-shell-env))))
 
 (defun my/setup-term-mode())
 
