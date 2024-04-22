@@ -2,16 +2,36 @@
 # name: company-backend
 # key: company
 # --
+(require 'company)
 (require 'cl-lib)
 
-(defun ${1:company-simple-backend} (command &optional arg &rest ignored)
+(defconst completions
+  '(#("foo bar" 0 1
+	  (:annotation
+	   "sdfgsdg"
+	   :help
+	   "help str"))
+	#("foo baz" 0 1
+	  (:annotation
+	   "sfdfs"
+	   :help
+	   "sdfds"))))
+
+(defun ${1:backend-name}-annotation (s)
+  (format " %s" (get-text-property 0 :annotation s)))
+
+(defun $1-meta (s)
+  (get-text-property 0 :help s))
+
+(defun $1 (command &optional arg &rest ignored)
   (interactive (list 'interactive))
   (cl-case command
 	(interactive (company-begin-backend '$1))
-	(prefix (when (looking-back "foo\\>")
-			  (match-string 0)))
-	(candidates (when (equal arg "foo")
-				  (list "foobar" "foobaz" "foobarbaz")))
-	(meta (format "This value is named %s" arg))))
+	(prefix (company-grab-line "foo .*"))
+	(candidates (cl-remove-if-not
+				 (lambda (c) (string-prefix-p arg c))
+				 completions))
+	(meta ($1-meta arg))
+	(annotation ($1-annotation arg))))
 
 (provide '$1)
