@@ -1,0 +1,53 @@
+# -*- mode: snippet -*-
+# name: symfony-controller-crud
+# key: symfony
+# --
+<?php
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\\${1:$$(capitalize yas-text)};
+
+class $1Controller extends AbstractController
+{
+/**
+ * @Route("/${2:$$(yas-auto-next (downcase (yas-field-value 1)))}", name="$2_index")
+ */
+public function index(Request $request): Response
+{
+$0
+return $this->render('$2/index.html.twig', [
+'$2s' => \$$2s,
+]);
+}
+
+/**
+ * @Route("/$2", name="$2_create")
+ */
+public function create(Request $request): Response
+{
+
+}
+
+/**
+ * @Route("/$2", name="$2_update")
+ */
+public function update(Request $request): Response
+{
+
+}
+
+/**
+ * @Route("/$2", name="$2_delete")
+ */
+public function delete(Request $request): Response
+{
+
+}
+}
+
+?>
