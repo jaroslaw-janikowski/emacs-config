@@ -477,6 +477,7 @@
 	  org-special-ctrl-a/e nil
 	  org-special-ctrl-k nil
       org-adapt-indentation t
+	  org-link-frame-setup '((file . find-file))
 	  org-M-RET-may-split-line '((default . nil))
 	  diff-default-read-only t
 	  diff-advance-after-apply-hunk t
