@@ -34,7 +34,6 @@
 (require 'docker-compose-mode)
 (require 'denote)
 (require 'php-mode)
-(require 'company-php)
 (require 'mpv)
 (require 'beframe)
 (require 'nsis-mode)
@@ -261,12 +260,10 @@
 						   company-yasnippet))))
 
 (defun my-setup-php()
-  (setq company-backends '((company-ac-php-backend
-						   company-capf
-						   company-dabbrev-code
-						   company-files
-						   company-yasnippet)))
-  (ac-php-core-eldoc-setup))
+  (setq company-backends '((company-capf
+							company-dabbrev-code
+							company-files
+							company-yasnippet))))
 
 (defun my/setup-gnus-article-mode()
   (text-scale-decrease 1)
@@ -587,7 +584,6 @@
 	  compilation-ask-about-save nil
 	  compilation-scroll-output t
 	  php-mode-coding-style 'psr2
-	  ac-php-tags-path "~/.config/ac-php"
       restclient-same-buffer-response nil)
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
@@ -716,8 +712,6 @@
 (define-key org-mode-map (kbd "C-S-<down>") 'org-move-subtree-down)
 (define-key package-menu-mode-map (kbd "M-<left>") nil)
 (define-key package-menu-mode-map (kbd "M-<right>") nil)
-(define-key php-mode-map (kbd "M-]") 'ac-php-symbol-at-point)
-(define-key php-mode-map (kbd "M-[") 'ac-php-location-stack-back)
 (define-key eww-mode-map (kbd "c") 'shr-copy-url)
 (define-key bookmark-bmenu-mode-map (kbd "M-<right>") nil)
 (define-key bookmark-bmenu-mode-map (kbd "M-<left>") nil)

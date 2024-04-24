@@ -47,8 +47,6 @@
 (package-install 'dape) ;; nie działa w emacs 28
 (package-install 'beframe)
 (package-install 'pyvenv)
-(package-install 'company-php)
-(package-install 'ac-php)
 (package-install 'mpv)
 (package-install 'editorconfig)
 (package-install 'editorconfig-generate)
