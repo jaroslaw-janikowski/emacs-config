@@ -40,7 +40,7 @@
 (require 'apache-mode)
 
 ;; Custom mods
-(load-file "/home/bps/.emacs.d/mods/company-git.el")
+(load-file (file-name-concat user-emacs-directory "mods/company-git.el"))
 (require 'company-git)
 
 ;; Custom project management
