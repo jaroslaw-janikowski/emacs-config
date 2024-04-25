@@ -4,47 +4,47 @@
 (defconst completions
   '(#("git status" 0 1
 	  (:annotation
-	   "sdfgsdg"
+	   "company-git"
 	   :help
 	   "help str"))
 	#("git reset" 0 1
 	  (:annotation
-	   "sdfdsfs"
+	   "company-git"
 	   :help
 	   "sdf dsfds"))
 	#("git reset --hard" 0 1
 	  (:annotation
-	  "sdfsdf"
+	  "company-git"
 	  :help
 	  "sdfsd"))
 	#("git reset --soft" 0 1
 	  (:annotation
-	   "dsfdf"
+	   "company-git"
 	   :help
 	   "sdfsdf"))
 	#("git pull" 0 1
 	  (:annotation
-	   "sdfsdf"
+	   "company-git"
 	   :help
 	   "dfsd fds"))
 	#("git push" 0 1
 	  (:annotation
-	   "sfsdfds"
+	   "company-git"
 	   :help
 	   "sfsdfsd"))
 	#("git clean" 0 1
 	  (:annotation
-	   "sdfsdf"
+	   "company-git"
 	   :help
 	   "sdfdsf"))
 	#("git clean -df" 0 1
 	  (:annotation
-	   "sdfsdfdsf"
+	   "company-git"
 	   :help
 	   "sdfdsgd"))
 	#("git remote" 0 1
 	  (:annotation
-	   "sfdfs"
+	   "company-git"
 	   :help
 	   "sdfds"))))
 
