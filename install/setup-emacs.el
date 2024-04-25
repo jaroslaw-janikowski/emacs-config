@@ -54,4 +54,4 @@
 (package-install 'apache-mode)
 (package-install 'uuidgen)
 (nerd-icons-install-fonts)
-(package-install 'helm-find)  ;; czasami jest a czasami nie ma
+(package-install 'helm-fuzzy-find)
