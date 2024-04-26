@@ -13,6 +13,7 @@
 (package-refresh-contents)
 (package-install 'adaptive-wrap)
 (package-install 'company)
+(package-install 'company-quickhelp)
 (package-install 'yasnippet)
 (package-install 'geiser-guile)
 (package-install 'markdown-mode)

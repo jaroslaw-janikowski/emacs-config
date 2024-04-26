@@ -235,6 +235,7 @@
 			    company-keywords
 			    company-files
 			    company-capf))
+		company-quickhelp-delay 1
 		show-trailing-whitespace t)
   (hl-line-mode)
   (flyspell-prog-mode)
@@ -243,6 +244,7 @@
   (diff-hl-mode)
   (rainbow-mode)
   (subword-mode 1)
+  (company-quickhelp-mode)
   (idle-highlight-mode t))
 
 (defun my/setup-makefile-mode()
