@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: capf-backend
+# key: capf
+# --
+(defun ${1:my-backend} (prefix)
+(let* ((point (point))
+(buffer (current-buffer)))
+(symbol-completion (symbol-start (point)) (symbol-end (point))
+buffer)))$0
