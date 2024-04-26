@@ -281,7 +281,11 @@
   (hl-line-mode))
 
 (defun my/setup-restclient-mode()
-  (setq company-backends '((company-restclient company-yasnippet))))
+  (setq company-backends '((company-restclient
+							company-yasnippet)))
+  (display-line-numbers-mode 1)
+  (idle-highlight-mode t)
+  (hl-line-mode))
 
 (defun my/setup-nginx-mode()
   (setq company-backends '((company-files company-yasnippet company-nginx))))
@@ -775,6 +779,7 @@
 (add-to-list 'auto-mode-alist '("LICENSE$" . text-mode))
 (add-to-list 'auto-mode-alist '("CHANGELOG$" . text-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(pas\\|pp\\|lpr\\|dpr\\)\\'" . opascal-mode))
+(add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
 
 (let ((private-settings (file-name-concat user-emacs-directory "private.el")))
   (if (file-exists-p private-settings) (load-file private-settings)))
