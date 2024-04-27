@@ -80,6 +80,9 @@
    ((string-match "https://archive.org/download/.*/format=MPEG4" url) (mpv-start url))
    (t (eww-browse-url url new-window))))
 
+(defun eww-reddit-redirect (url)
+  (replace-regexp-in-string "reddit.com" "old.reddit.com" url))
+
 (defun my-setup-minibuffer()
   (electric-pair-local-mode -1)
   (yas-minor-mode t))
@@ -390,11 +393,15 @@
       create-lockfiles nil
       large-file-warning-threshold 100000000
       ring-bell-function 'ignore
+	  visible-bell t
       use-short-answers t
 	  read-answer-short t
 	  kill-ring-max 60
 	  isearch-lazy-count t
+	  search-highlight t
+	  query-replace-highlight t
 	  shell-command-prompt-show-cwd t
+	  uniquify-buffer-name-style 'post-forward-angle-brackets
 	  ansi-color-for-comint-mode t
 	  shell-input-autoexpand 'input
 	  shell-highlight-undef-enable t
@@ -421,6 +428,7 @@
 	  remote-file-name-inhibit-auto-save t
 	  tramp-connection-timeout (* 60 10)
 	  tramp-default-remote-shell "/bin/bash"
+	  tramp-default-method "ssh"
 	  tramp-verbose 7
 	  kill-do-not-save-duplicates t
 	  comment-empty-lines t
@@ -441,6 +449,8 @@
 	  dired-mouse-drag-files t
 	  dired-clean-up-buffers-too t
 	  dired-clean-confirm-killing-deleted-buffers t
+	  dired-guess-shell-alist-user '(("\\.\\(mp4\\|mkv\\|avi\\|mov\\|wmv\\|flv\\|mpg\\)$" "mpv")
+									 ("\\.\\(mp3\\|wav\\|ogg\\|\\)$" "mpv"))
 	  default-input-method "english"
 	  default-transient-input-method "polish"
 	  initial-buffer-choice t  ;; always start with *scratch*
@@ -488,6 +498,7 @@
 	  diff-update-on-the-fly t
 	  diff-font-lock-prettify nil
 	  vc-follow-symlinks t
+	  use-dialog-box nil
 	  calendar-christian-all-holidays-flag t
 	  calendar-mark-holidays-flag t
 	  calendar-holidays '((holiday-fixed 1 1 "Nowy Rok")
@@ -510,18 +521,25 @@
 	  eww-history-limit 100
 	  eww-browse-url-new-window-is-tab nil
 	  eww-search-prefix "https://html.duckduckgo.com/html/?q="
+	  eww-url-transformers '(eww-reddit-redirect)
       geiser-default-implementation 'guile
 	  display-buffer-alist '(("(\\*Occur\\*|\\*helm.+)"
 							  (display-buffer-reuse-mode-window display-buffer-below-selected)
 							  (window-height . fit-window-to-buffer)
 							  (dedicated . t))
-
+							 ("\\*Messages" display-buffer-same-window)
 							 ("\\'\\*Async Shell Command\\*\\'"
 							  (display-buffer-no-window))
-
+							 ("\\*Compilation"
+							  (display-buffer-reuse-window display-buffer-in-direction)
+							  (direction . leftmost)
+							  (dedicated . t)
+							  (window-width . 0.3)
+							  (inhibit-same-window . t))
 							 ("\\*ispell-top-choices\\*.*"
 							  (display-buffer-reuse-mode-window display-buffer-below-selected) (window-height . fit-window-to-buffer))
-
+							 ("\\*Help\\*"
+							  (display-buffer-reuse-window display-buffer-same-window))
 							 ("^\\*eshell\\*$"
 							  (display-buffer-same-window))
 
@@ -590,6 +608,7 @@
 	  mpv-default-options '("--pause" "--ytdl-format=18")
 	  compilation-ask-about-save nil
 	  compilation-scroll-output t
+	  compilation-always-kill t
 	  php-mode-coding-style 'psr2
       restclient-same-buffer-response nil)
 
@@ -626,6 +645,7 @@
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-buffer-modified-p nil)
+(tooltip-mode -1)
 (global-visual-line-mode +1)
 (global-so-long-mode 1)
 (electric-pair-mode t)
