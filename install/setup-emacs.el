@@ -54,5 +54,6 @@
 (package-install 'nsis-mode)
 (package-install 'apache-mode)
 (package-install 'uuidgen)
-(nerd-icons-install-fonts)
 (package-install 'helm-fuzzy-find)
+(package-install 'lorem-ipsum)
+(nerd-icons-install-fonts)

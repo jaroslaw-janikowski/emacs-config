@@ -38,6 +38,7 @@
 (require 'beframe)
 (require 'nsis-mode)
 (require 'apache-mode)
+(require 'lorem-ipsum)
 
 ;; Custom mods
 (load-file (file-name-concat user-emacs-directory "mods/company-git.el"))
