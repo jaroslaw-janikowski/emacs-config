@@ -42,7 +42,6 @@
 (package-install 'treemacs)
 (package-install 'nerd-icons)
 (package-install 'nerd-icons-dired)
-(package-install 'php-mode)
 (package-install 'docker-compose-mode)
 (package-install 'denote)
 (package-install 'dape) ;; nie działa w emacs 28

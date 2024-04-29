@@ -33,7 +33,6 @@
 (require 'treemacs)
 (require 'docker-compose-mode)
 (require 'denote)
-(require 'php-mode)
 (require 'mpv)
 (require 'beframe)
 (require 'nsis-mode)
@@ -183,24 +182,6 @@
 	(let ((next-word-end-abs (if (> next-word-end (point-max)) (point-max) next-word-end)))
 	  (buffer-substring next-word-start next-word-end-abs))))
 
-(defun my-php-mode-newline()
-  "Enter czasami formatuje bieżącą linię tekstu."
-  (interactive)
-  ; wyodrębnij słowo przed i po kursorze
-  (let ((prev-word (string-before 6))
-		(next-word (string-after 3)))
-	; Jeśli kursor jest w znacznikach <?php | ?> to enter powinien zrobić z tego ładny blok kodu
-	(if (and (string= prev-word "<?php ")
-			 (string= next-word " ?>"))
-		(progn
-		  (kill-backward-chars 1)
-		  (kill-forward-chars 1)
-		  (newline)
-		  (newline)
-		  (previous-line))
-	  ; jeśli nie to normalnie wstaw znak nowej linii
-	  (newline))))
-
 (defun my/nxml-newline ()
   "Insert a newline, indenting the current line and the newline appropriately in nxml-mode."
   (interactive)
@@ -264,12 +245,6 @@
 						   company-dabbrev-code
 						   company-files
 						   company-yasnippet))))
-
-(defun my-setup-php()
-  (setq company-backends '((company-capf
-							company-dabbrev-code
-							company-files
-							company-yasnippet))))
 
 (defun my/setup-gnus-article-mode()
   (text-scale-decrease 1)
@@ -558,8 +533,6 @@
 										  "^\\*EGLOT"
 										  "^\\*Async-native-compile-log\\*$")
 	  tab-line-tabs-function 'my-tab-line-sorting
-      web-mode-engines-alist '(("php" . "\\.phtml\\'")
-			       ("blade" . "\\.blade\\."))
       web-mode-markup-indent-offset 4
       web-mode-css-indent-offset 4
       web-mode-code-indent-offset 4
@@ -716,7 +689,6 @@
 (define-key mc/keymap (kbd "<return>") nil)
 (define-key nxml-mode-map (kbd ">") 'my/finish-element)
 (define-key nxml-mode-map (kbd "RET") 'my/nxml-newline)
-(define-key php-mode-map (kbd "RET") 'my-php-mode-newline)
 (define-key hexl-mode-map (kbd "M-<right>") nil)
 (define-key hexl-mode-map (kbd "M-<left>") nil)
 (define-key hexl-mode-map (kbd "C-q") nil)
@@ -774,7 +746,6 @@
 (add-hook 'dape-on-start-hooks (defun dape--save-on-start ()
 								 (save-some-buffers t t)))
 (add-hook 'minibuffer-setup-hook 'my-setup-minibuffer)
-(add-hook 'php-mode-hook 'my-setup-php)
 (add-hook 'message-mode-hook 'my/setup-message-mode)
 
 ;; file extensions
@@ -784,7 +755,6 @@
 (add-to-list 'auto-mode-alist '("docker-compose\\.y.?ml$" . docker-compose-mode))
 (add-to-list 'auto-mode-alist '("\\.service$" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.csv$" . csv-mode))
-(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html\\.twig'" . web-mode))
