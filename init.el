@@ -39,6 +39,8 @@
 (require 'apache-mode)
 (require 'lorem-ipsum)
 (require 'gptel)
+(require 'emmet-mode)
+(require 'css-eldoc)
 
 ;; Custom mods
 (load-file (file-name-concat user-emacs-directory "mods/company-git.el"))
@@ -210,6 +212,10 @@
   (interactive)
   (make-directory (read-directory-name "Save as: ")))
 
+(defun my-setup-nxml-mode ()
+  (setq company-backends '((company-nxml)))
+  (display-line-numbers-mode))
+
 (defun my/setup-text-mode()
   (setq company-backends '((company-dabbrev)))
   (hl-line-mode)
@@ -232,6 +238,36 @@
   (subword-mode 1)
   (company-quickhelp-mode)
   (idle-highlight-mode t))
+
+(defun my-setup-web-mode ()
+  (css-eldoc-enable)
+  (emmet-mode)
+  (let ((file-ext (file-name-extension buffer-file-name)))
+	(cond
+	 ((string= "jsx" file-ext) (js2-mode))
+	 ((string= "tsx" file-ext) (setup-tide-mode))
+	 (t nil))))
+
+(defun my-setup-js2-mode ()
+  (lsp))
+
+(defun my-setup-typescript-mode ()
+  (lsp))
+
+(defun my-setup-css-mode ()
+  (css-eldoc-enable)
+  (emmet-mode))
+
+(defun my-setup-php-mode ()
+  (ac-php-core-eldoc-setup)
+  (add-to-list 'company-backends 'company-ac-php-backend))
+
+(defun my-setup-lsp-mode ()
+  (setq company-backends '((company-capf))))
+
+(defun my-setup-lsp-ui-mode ()
+  (lsp-ui-doc-mode 1)
+  (lsp-ui-sideline-mode 1))
 
 (defun my/setup-makefile-mode()
   (setq company-backends '((company-files
@@ -447,6 +483,20 @@
       company-dabbrev-minimum-length 3
       company-tooltip-align-annotations t
 	  eglot-autoshutdown t
+	  lsp-prefer-flymake nil
+	  lsp-enable-symbol-highlighting nil
+	  lsp-references-exclude-definition t
+	  lsp-signature-doc-lines 10
+	  lsp-headline-breadcrumb-segments '(file symbols)
+	  lsp-headerline-breadcrumb-enable nil
+	  lsp-log-io nil
+	  lsp-use-plists t
+	  lsp-ui-doc-delay 1
+	  lsp-ui-doc-max-height 50
+	  lsp-ui-doc-alignment 'frame
+	  lsp-ui-doc-show-with-cursor nil
+	  lsp-ui-doc-position 'bottom
+	  lsp-ui-sideline-diagnostics-max-lines 4
       mc/always-run-for-all t
       python-shell-interpreter "python3"
 	  dape-buffer-window-arrangement 'right
@@ -537,6 +587,8 @@
       web-mode-markup-indent-offset 4
       web-mode-css-indent-offset 4
       web-mode-code-indent-offset 4
+      web-mode-attr-indent-offset 4
+      web-mode-attr-value-offset 4
       web-mode-enable-auto-pairing t
       web-mode-enable-current-element-highlight t
       web-mode-enable-current-column-highlight t
@@ -717,7 +769,7 @@
 (define-key dired-mode-map (kbd "C-S-n") #'dired-create-directory)
 
 (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
-(add-hook 'nxml-mode-hook 'display-line-numbers-mode)
+(add-hook 'nxml-mode-hook 'my-setup-nxml-mode)
 (add-hook 'text-mode-hook 'my/setup-text-mode)
 (add-hook 'prog-mode-hook 'my/setup-prog-mode)
 (add-hook 'python-mode-hook 'my/setup-python-mode)
@@ -748,14 +800,25 @@
 								 (save-some-buffers t t)))
 (add-hook 'minibuffer-setup-hook 'my-setup-minibuffer)
 (add-hook 'message-mode-hook 'my/setup-message-mode)
+(add-hook 'web-mode-hook 'my-setup-web-mode)
+(add-hook 'js2-mode-hook 'my-setup-js2-mode)
+(add-hook 'typescript-ts-mode-hook 'my-setup-typescript-mode)
+(add-hook 'css-mode-hook 'my-setup-css-mode)
+(add-hook 'php-mode-hook 'my-setup-php-mode)
+(add-hook 'lsp-mode-hook 'my-setup-lsp-mode)
+(add-hook 'lsp-ui-mode-hook 'my-setup-lsp-ui-mode)
 
 ;; file extensions
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode))
 (add-to-list 'auto-mode-alist '("docker-compose\\.y.?ml$" . docker-compose-mode))
 (add-to-list 'auto-mode-alist '("\\.service$" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.csv$" . csv-mode))
+(add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.htm$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html\\.twig'" . web-mode))
