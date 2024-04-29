@@ -40,6 +40,7 @@
 (package-install 'rainbow-mode)
 (package-install 'embark)
 (package-install 'treemacs)
+(package-install 'dired-subtree)
 (package-install 'nerd-icons)
 (package-install 'nerd-icons-dired)
 (package-install 'docker-compose-mode)
