@@ -55,4 +55,5 @@
 (package-install 'uuidgen)
 (package-install 'helm-fuzzy-find)
 (package-install 'lorem-ipsum)
+(package-install 'gptel)
 (nerd-icons-install-fonts)
