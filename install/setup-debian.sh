@@ -1,4 +1,4 @@
-apt install -y sway make xwayland pavucontrol brightnessctl git-gui swayidle swaylock qemu-system-x86 podman podman-compose zeal grimshot wdisplays p7zip-full xterm fasm clangd nsis gnupg2
+apt install -y sway make xwayland pavucontrol brightnessctl git-gui swayidle swaylock qemu-system-x86 podman podman-compose zeal grimshot wdisplays p7zip-full xterm fasm clangd nsis gnupg2 gnuplot
 su bps
 
 # sway setup
