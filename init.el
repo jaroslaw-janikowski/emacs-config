@@ -384,6 +384,8 @@
 								  (not (string-prefix-p "magit: " name))
 								  (not (string-prefix-p "magit-process: " name))
 								  (not (string-prefix-p "magit-log: " name))
+								  (not (string-prefix-p "magit-cherry: " name))
+								  (not (string-prefix-p "magit-revision: " name))
 								  (not (string-prefix-p "magit-diff: " name)))))
 						   (buffer-list))))
 
