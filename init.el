@@ -77,6 +77,7 @@
   (cond
    ((or (string-prefix-p "https://www.youtube.com/watch?v=" url)
 		(string-prefix-p "https://m.youtube.com/watch?v=" url)
+		(string-prefix-p "https://youtube.com/watch?v=" url)
 		(string-prefix-p "https://youtu.be/" url))
 	(mpv-start url))
    ((string-match "https://archive.org/download/.*/format=MPEG4" url) (mpv-start url))
