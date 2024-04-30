@@ -42,6 +42,8 @@
 	   "company-git"
 	   :help
 	   "sdfdsgd"))
+	#("git clone --depth=1" 0 1
+	  (:annotation "company-git" :help "Clone repository."))
 	#("git remote" 0 1
 	  (:annotation
 	   "company-git"
