@@ -376,6 +376,7 @@
 								  (not (string-prefix-p "*helm" name))
 								  (not (string-prefix-p "*EGLOT" name))
 								  (not (string-prefix-p "*Async-native-compile-log" name))
+								  (not (string-prefix-p "*Native-compile-log" name))
 								  (not (string= ".newsrc-dribble" name))
 								  (not (string= "*Backtrace*" name))
 								  (not (string= "*Warnings*" name))
@@ -571,7 +572,8 @@
 							  (display-buffer-reuse-window display-buffer-same-window))
 							 ("^\\*eshell\\*$"
 							  (display-buffer-same-window))
-
+							 ("^\\*Native-compile-Log\\*$"
+							  (display-buffer-same-window))
 							 ("\\(magit: .+\\|magit-log.+\\|magit-revision.+\\)"
 							  (display-buffer-same-window)))
 
@@ -585,6 +587,7 @@
 										  "^\\*Backtrace\\*$"
 										  "^\\.newsrc-dribble$"
 										  "^\\*EGLOT"
+										  "^\\*Native-compile-log\\*$"
 										  "^\\*Async-native-compile-log\\*$")
 	  tab-line-tabs-function 'my-tab-line-sorting
       web-mode-markup-indent-offset 4
