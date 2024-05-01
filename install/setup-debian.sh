@@ -56,12 +56,18 @@ apt install -y python3-venv python3-pip
 
 # emacs
 apt install -y emacs
-exit
+su bps
 emacs -Q --script ~/.emacs.d/install/setup-emacs.el
+exit
+
+# php
+apt -y install php phpunit
 
 # podman setup
+su bps
 podman pull docker.io/php
 podman pull docker.io/mysql
 podman pull docker.io/wordpress
 podman pull docker.io/python
 podman pull docker.io/postgres
+exit
