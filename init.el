@@ -378,6 +378,7 @@
 								  (not (string= "*Messages*" name))
 								  (not (string= "*Company-documentation*" name))
 								  (not (string= "*company-documentation*" name))
+								  (not (string= "*Disabled Command*" name))
 								  (not (string= "*AC-PHPTAGS*" name))
 								  ;; (not (string= "*scratch*" name))
 								  (not (string-prefix-p "magit: " name))
@@ -585,6 +586,7 @@
 										  "^\\*Backtrace\\*$"
 										  "^\\*Company-documentation\\*$"
 										  "^\\*company-documentation\\*$"
+										  "^\\*Disabled Command\\*$"
 										  "^\\*AC-PHPTAGS\\*$"
 										  "^\\.newsrc-dribble$"
 										  "^\\*EGLOT"
