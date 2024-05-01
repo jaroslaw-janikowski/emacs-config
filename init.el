@@ -260,8 +260,12 @@
   (emmet-mode))
 
 (defun my-setup-php-mode ()
-  (ac-php-core-eldoc-setup)
-  (add-to-list 'company-backends 'company-ac-php-backend))
+  (setq company-backends '((company-ac-php-backend
+							company-dabbrev-code
+							company-yasnippet
+							company-files
+							company-capf)))
+  (ac-php-core-eldoc-setup))
 
 (defun my-setup-lsp-mode ()
   (setq company-backends '((company-capf))))
