@@ -386,6 +386,8 @@
 								  (not (string= "*Warnings*" name))
 								  (not (string= "*Messages*" name))
 								  (not (string= "*Company-documentation*" name))
+								  (not (string= "*company-documentation*" name))
+								  (not (string= "*AC-PHPTAGS*" name))
 								  ;; (not (string= "*scratch*" name))
 								  (not (string-prefix-p "magit: " name))
 								  (not (string-prefix-p "magit-process: " name))
@@ -591,6 +593,8 @@
 										  "^\\*Messages\\*$"
 										  "^\\*Backtrace\\*$"
 										  "^\\*Company-documentation\\*$"
+										  "^\\*company-documentation\\*$"
+										  "^\\*AC-PHPTAGS\\*$"
 										  "^\\.newsrc-dribble$"
 										  "^\\*EGLOT"
 										  "^\\*Native-compile-log\\*$"
