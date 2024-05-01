@@ -12,6 +12,7 @@
 				   ("gnu" . 4)))
 (package-initialize)
 
+(require 'drag-stuff)
 (require 'bookmark)
 (require 'eww)
 (require 'crux)
@@ -148,17 +149,6 @@
   (interactive)
   (company-abort)
   (mc/keyboard-quit))
-
-(defun my/move-line-up ()
-  (interactive)
-  (transpose-lines 1)
-  (previous-logical-line 2))
-
-(defun my/move-line-down ()
-  (interactive)
-  (next-logical-line 1)
-  (transpose-lines 1)
-  (previous-logical-line 1))
 
 (defun my/in-start-tag-p ()
   (let ((token-end (nxml-token-before))
@@ -667,6 +657,7 @@
 			  eglot-workspace-configuration '(:pylsp (:plugins (:jedi_completion (:enabled t :include_params t :fuzzy t :include_class_objects t :include_function_objects t :eager t) :flake8 (:enabled t) :black (:enabled t)))))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
+(drag-stuff-global-mode 1)
 (show-paren-mode t)
 (tool-bar-mode -1)
 (cua-mode t)
@@ -712,8 +703,8 @@
 (global-set-key (kbd "C-/") 'evilnc-comment-or-uncomment-lines)
 (global-set-key (kbd "C-<down>") 'scroll-up-line)
 (global-set-key (kbd "C-<up>") 'scroll-down-line)
-(global-set-key (kbd "C-S-<up>") 'my/move-line-up)
-(global-set-key (kbd "C-S-<down>") 'my/move-line-down)
+(global-set-key (kbd "C-S-<up>") 'drag-stuff-up)
+(global-set-key (kbd "C-S-<down>") 'drag-stuff-down)
 (global-set-key (kbd "C-z") 'undo-only)
 (global-set-key (kbd "C-S-z") 'undo-redo)
 (global-set-key (kbd "S-g") 'goto-line)

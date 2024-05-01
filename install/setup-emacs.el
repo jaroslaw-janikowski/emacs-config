@@ -12,6 +12,7 @@
 
 (package-refresh-contents)
 (package-install 'adaptive-wrap)
+(package-install 'drag-stuff)
 (package-install 'company)
 (package-install 'company-quickhelp)
 (package-install 'yasnippet)
