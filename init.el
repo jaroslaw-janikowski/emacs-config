@@ -369,6 +369,7 @@
 								  (/= (aref name 0) ?\s)
 								  (not (string-prefix-p "*helm" name))
 								  (not (string-prefix-p "*EGLOT" name))
+								  (not (string-prefix-p "*Compile-Log" name))
 								  (not (string-prefix-p "*Async-native-compile-log" name))
 								  (not (string-prefix-p "*Native-compile-log" name))
 								  (not (string= ".newsrc-dribble" name))
@@ -587,6 +588,7 @@
 										  "^\\*AC-PHPTAGS\\*$"
 										  "^\\.newsrc-dribble$"
 										  "^\\*EGLOT"
+										  "^\\*Compile-Log\\*$"
 										  "^\\*Native-compile-log\\*$"
 										  "^\\*Async-native-compile-log\\*$")
 	  tab-line-tabs-function 'my-tab-line-sorting
