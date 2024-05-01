@@ -204,16 +204,16 @@
   (make-directory (read-directory-name "Save as: ")))
 
 (defun my-setup-nxml-mode ()
-  (setq company-backends '((company-nxml)))
+  (setq-local company-backends '((company-nxml)))
   (display-line-numbers-mode))
 
 (defun my/setup-text-mode()
-  (setq company-backends '((company-dabbrev)))
+  (setq-local company-backends '((company-dabbrev)))
   (hl-line-mode)
   (flyspell-mode))
 
 (defun my/setup-prog-mode()
-  (setq company-backends '((company-yasnippet
+  (setq-local company-backends '((company-yasnippet
 			    company-dabbrev-code
 			    company-keywords
 			    company-files
@@ -250,7 +250,7 @@
   (emmet-mode))
 
 (defun my-setup-php-mode ()
-  (setq company-backends '((company-ac-php-backend
+  (setq-local company-backends '((company-ac-php-backend
 							company-dabbrev-code
 							company-yasnippet
 							company-files
@@ -258,22 +258,22 @@
   (ac-php-core-eldoc-setup))
 
 (defun my-setup-lsp-mode ()
-  (setq company-backends '((company-capf))))
+  (setq-local company-backends '((company-capf))))
 
 (defun my-setup-lsp-ui-mode ()
   (lsp-ui-doc-mode 1)
   (lsp-ui-sideline-mode 1))
 
 (defun my/setup-makefile-mode()
-  (setq company-backends '((company-files
+  (setq-local company-backends '((company-files
 						   company-dabbrev-code
 						   company-yasnippet))))
 
 (defun my/setup-elisp-mode()
-  (setq company-backends '((company-capf company-elisp company-files company-yasnippet company-dabbrev-code))))
+  (setq-local company-backends '((company-capf company-elisp company-files company-yasnippet company-dabbrev-code))))
 
 (defun my/setup-docker-compose-mode()
-  (setq company-backends '((company-capf
+  (setq-local company-backends '((company-capf
 						   company-dabbrev-code
 						   company-files
 						   company-yasnippet))))
@@ -292,17 +292,17 @@
   (hl-line-mode))
 
 (defun my/setup-restclient-mode()
-  (setq company-backends '((company-restclient
+  (setq-local company-backends '((company-restclient
 							company-yasnippet)))
   (display-line-numbers-mode 1)
   (idle-highlight-mode t)
   (hl-line-mode))
 
 (defun my/setup-nginx-mode()
-  (setq company-backends '((company-files company-yasnippet company-nginx))))
+  (setq-local company-backends '((company-files company-yasnippet company-nginx))))
 
 (defun my/setup-eshell()
-  (setq company-backends '((company-files
+  (setq-local company-backends '((company-files
 							company-git
 							company-yasnippet
 							company-shell
@@ -326,7 +326,7 @@
   (eglot-ensure))
 
 (defun my/setup-c-mode()
-  (setq company-backends '((company-files
+  (setq-local company-backends '((company-files
 						   company-yasnippet
 						   company-capf
 						   company-dabbrev-code
