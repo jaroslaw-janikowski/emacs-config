@@ -231,6 +231,9 @@
   (idle-highlight-mode t))
 
 (defun my-setup-web-mode ()
+  (setq-local company-backends '(company-web-html
+								 company-yasnippet
+								 company-dabbrev-code))
   (css-eldoc-enable)
   (emmet-mode)
   (let ((file-ext (file-name-extension buffer-file-name)))
@@ -378,6 +381,7 @@
 								  (not (string= "*Messages*" name))
 								  (not (string= "*Company-documentation*" name))
 								  (not (string= "*company-documentation*" name))
+								  (not (string= "*html-documentation*" name))
 								  (not (string= "*Disabled Command*" name))
 								  (not (string= "*AC-PHPTAGS*" name))
 								  ;; (not (string= "*scratch*" name))
@@ -586,6 +590,7 @@
 										  "^\\*Backtrace\\*$"
 										  "^\\*Company-documentation\\*$"
 										  "^\\*company-documentation\\*$"
+										  "^\\*html-documentation\\*$"
 										  "^\\*Disabled Command\\*$"
 										  "^\\*AC-PHPTAGS\\*$"
 										  "^\\.newsrc-dribble$"
@@ -602,6 +607,14 @@
       web-mode-enable-auto-pairing t
       web-mode-enable-current-element-highlight t
       web-mode-enable-current-column-highlight t
+	  web-mode-enable-css-colorization t
+	  web-mode-enable-comment-interpolation t
+	  web-mode-enable-auto-closing t
+	  web-mode-enable-auto-expanding nil
+	  web-mode-auto-close-style 2
+	  web-mode-enable-auto-opening t
+	  web-mode-enable-auto-indentation t
+	  web-mode-enable-auto-quoting t
 	  tabbar-buffer-groups-function 'my/tab-bar-groups
 	  browse-url-new-window-flag t
       browse-url-browser-function 'my-eww-browse-url
