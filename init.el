@@ -218,7 +218,6 @@
 			    company-keywords
 			    company-files
 			    company-capf))
-		company-quickhelp-delay 1
 		show-trailing-whitespace t)
   (hl-line-mode)
   (flyspell-prog-mode)
@@ -645,6 +644,7 @@
 	  compilation-ask-about-save nil
 	  compilation-scroll-output t
 	  compilation-always-kill t
+	  company-quickhelp-delay 3
 	  php-mode-coding-style 'psr2
       restclient-same-buffer-response nil)
 
