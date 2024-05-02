@@ -67,4 +67,5 @@
 (package-install 'company-php)
 (package-install 'lsp-mode)
 (package-install 'lsp-ui)
+(package-install 'consult)
 (nerd-icons-install-fonts)
