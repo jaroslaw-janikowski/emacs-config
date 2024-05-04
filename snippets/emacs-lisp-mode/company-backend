@@ -27,7 +27,7 @@
   (interactive (list 'interactive))
   (cl-case command
 	(interactive (company-begin-backend '$1))
-	(prefix (company-grab-line "foo .*"))
+	(prefix (company-grab-line "some context \\(.*\\)"))
 	(candidates (cl-remove-if-not
 				 (lambda (c) (string-prefix-p arg c))
 				 completions))
