@@ -43,6 +43,7 @@
 (require 'gptel)
 (require 'emmet-mode)
 (require 'css-eldoc)
+(require 'php-mode)
 
 ;; Custom mods
 (load-file (file-name-concat user-emacs-directory "mods/company-git.el"))
@@ -753,6 +754,7 @@
 (global-set-key (kbd "C-t") 'my/create-new-term)
 (global-set-key (kbd "C-S-d") 'crux-duplicate-current-line-or-region)
 (global-set-key (kbd "C-d") 'mc/mark-next-like-this)
+(define-key php-mode-map (kbd "C-d") nil)
 (global-set-key (kbd "C-k") 'mc/skip-to-next-like-this)
 (global-set-key (kbd "<f1>") 'embark-act)
 (global-set-key (kbd "<f5>") 'eval-buffer)
