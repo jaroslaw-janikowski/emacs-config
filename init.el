@@ -616,6 +616,7 @@
 	  web-mode-enable-auto-opening t
 	  web-mode-enable-auto-indentation t
 	  web-mode-enable-auto-quoting t
+	  term-scroll-to-bottom-on-output t
 	  tabbar-buffer-groups-function 'my/tab-bar-groups
 	  browse-url-new-window-flag t
       browse-url-browser-function 'my-eww-browse-url
