@@ -1,54 +1,26 @@
 (require 'company)
 (require 'cl-lib)
 
-(defconst completions
-  '(#("status" 0 1
-	  (:annotation
-	   "company-git"
-	   :help
-	   "help str"))
-	#("reset" 0 1
-	  (:annotation
-	   "company-git"
-	   :help
-	   "sdf dsfds"))
-	#("reset --hard" 0 1
-	  (:annotation
-	  "company-git"
-	  :help
-	  "sdfsd"))
-	#("reset --soft" 0 1
-	  (:annotation
-	   "company-git"
-	   :help
-	   "sdfsdf"))
-	#("pull" 0 1
-	  (:annotation
-	   "company-git"
-	   :help
-	   "dfsd fds"))
-	#("push" 0 1
-	  (:annotation
-	   "company-git"
-	   :help
-	   "sfsdfsd"))
-	#("clean" 0 1
-	  (:annotation
-	   "company-git"
-	   :help
-	   "sdfdsf"))
-	#("clean -df" 0 1
-	  (:annotation
-	   "company-git"
-	   :help
-	   "sdfdsgd"))
-	#("clone --depth=1" 0 1
-	  (:annotation "company-git" :help "Clone repository with minimal depth."))
-	#("remote" 0 1
-	  (:annotation
-	   "company-git"
-	   :help
-	   "sdfds"))))
+(defvar company-git--context "")
+
+(defun company-git--completions ()
+  (cond
+   ((string= company-git--context "git")
+	'(#("status" 0 1 (:annotation "company-git" :help "sdfdsf"))
+	  #("reset" 0 1 (:annotation "company-git" :help "sdfsdf"))
+	  #("pull" 0 1 (:annotation "company-git" :help "sdfsdf"))
+	  #("push" 0 1 (:annotation "company-git" :help "sdfsdf"))
+	  #("clean" 0 1 (:annotation "company-git" :help "sdfsdf"))
+	  #("clone" 0 1 (:annotation "company-git" :help "sdfsdf"))
+	  #("remote" 0 1 (:annotation "company-git" :help "sdfsdf"))))
+	((string= company-git--context "reset")
+	 '(#("--hard" 0 1 (:annotation "company-git" :help "sdfsdf"))
+	   #("--soft" 0 1 (:annotation "company-git" :help "sdfsdf"))))
+	((string= company-git--context "clean")
+	 '(#("-df" 0 1 (:annotation "company-git" :help "sdfds"))))
+	((string= company-git--context "clone")
+	 '(#("--depth=1" 0 1 (:annotation "company-git" :help "sdfds"))))
+   (t nil)))
 
 (defun company-git-annotation (s)
   (format " %s" (get-text-property 0 :annotation s)))
@@ -60,10 +32,14 @@
   (interactive (list 'interactive))
   (cl-case command
 	(interactive (company-begin-backend 'company-git))
-	(prefix (company-grab-line "git \\(.*\\)" 1))
+	(prefix (when (looking-back "\\([a-zA-Z0-9]+\\) \\(.*\\)" 10 t)
+			  (progn
+				(setq company-git--context (match-string 1))
+				;; (message "%s %s" company-git--context (match-string 2))
+				(match-string 2))))
 	(candidates (cl-remove-if-not
 				 (lambda (c) (string-prefix-p arg c))
-				 completions))
+				 (company-git--completions)))
 	(meta (company-git-meta arg))
 	(annotation (company-git-annotation arg))))
 
