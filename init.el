@@ -48,6 +48,8 @@
 ;; Custom mods
 (load-file (file-name-concat user-emacs-directory "mods/company-git.el"))
 (require 'company-git)
+(load-file (file-name-concat user-emacs-directory "mods/company-html.el"))
+(require 'company-html)
 
 ;; Custom project management
 (setq my/project-current-root "~/.emacs.d/")
@@ -255,7 +257,8 @@
   (emmet-mode))
 
 (defun my-setup-mhtml-mode ()
-  (setq-local company-backends '(company-dabbrev-code
+  (setq-local company-backends '(company-html
+								 company-dabbrev-code
 								 company-yasnippet)
 			  electric-pair-inhibit-predicate (lambda (c) (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c)))))
 

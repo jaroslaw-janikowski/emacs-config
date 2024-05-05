@@ -1,3 +1,4 @@
 *
 !.gitignore
 !company-git.el
+!company-html.el
