@@ -383,6 +383,7 @@
 								  (not (string= "*Company-documentation*" name))
 								  (not (string= "*company-documentation*" name))
 								  (not (string= "*html-documentation*" name))
+								  (not (string= "*Occur*" name))
 								  (not (string= "*Disabled Command*" name))
 								  (not (string= "*AC-PHPTAGS*" name))
 								  ;; (not (string= "*scratch*" name))
@@ -592,6 +593,7 @@
 										  "^\\*Company-documentation\\*$"
 										  "^\\*company-documentation\\*$"
 										  "^\\*html-documentation\\*$"
+										  "^\\*Occur\\*$"
 										  "^\\*Disabled Command\\*$"
 										  "^\\*AC-PHPTAGS\\*$"
 										  "^\\.newsrc-dribble$"
