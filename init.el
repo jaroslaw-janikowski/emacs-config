@@ -249,7 +249,8 @@
 
 (defun my-setup-mhtml-mode ()
   (setq-local company-backends '(company-dabbrev-code
-								 company-yasnippet)))
+								 company-yasnippet))
+  (electric-pair-mode -1))
 
 (defun my-setup-php-mode ()
   (setq-local company-backends '((company-ac-php-backend
@@ -646,6 +647,7 @@
 	  compilation-scroll-output t
 	  compilation-always-kill t
 	  company-quickhelp-delay 3
+	  sgml-quick-keys 'close
 	  php-mode-coding-style 'psr2
       restclient-same-buffer-response nil)
 
