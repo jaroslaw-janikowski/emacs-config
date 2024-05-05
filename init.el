@@ -172,6 +172,13 @@
       (nxml-balanced-close-start-tag-inline)
     (insert ">")))
 
+(defun my-finish-html-element ()
+  (interactive)
+  (insert ">")
+  (let ((cur-pos (point)))
+	(sgml-close-tag)
+	(goto-char cur-pos)))
+
 (defun string-before(char-count)
   (let ((prev-word-start (- (point) char-count))
 		(prev-word-end (point)))
@@ -249,8 +256,8 @@
 
 (defun my-setup-mhtml-mode ()
   (setq-local company-backends '(company-dabbrev-code
-								 company-yasnippet))
-  (electric-pair-mode -1))
+								 company-yasnippet)
+			  electric-pair-inhibit-predicate (lambda (c) (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c)))))
 
 (defun my-setup-php-mode ()
   (setq-local company-backends '((company-ac-php-backend
@@ -757,6 +764,8 @@
 (define-key mc/keymap (kbd "<return>") nil)
 (define-key nxml-mode-map (kbd ">") 'my/finish-element)
 (define-key nxml-mode-map (kbd "RET") 'my/nxml-newline)
+(define-key html-mode-map (kbd ">") 'my-finish-html-element)
+(define-key html-mode-map (kbd "RET") 'my/nxml-newline)
 (define-key hexl-mode-map (kbd "M-<right>") nil)
 (define-key hexl-mode-map (kbd "M-<left>") nil)
 (define-key hexl-mode-map (kbd "C-q") nil)
