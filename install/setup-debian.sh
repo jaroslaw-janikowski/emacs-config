@@ -52,7 +52,7 @@ ufw deny telnet
 ufw deny vnc
 
 # python setup
-apt install -y python3-venv python3-pip
+apt install -y python3-venv python3-pip python3-debugpy
 
 # emacs
 apt install -y emacs

@@ -44,6 +44,7 @@
 (require 'emmet-mode)
 (require 'css-eldoc)
 (require 'php-mode)
+(require 'dape)
 
 ;; Custom mods
 (load-file (file-name-concat user-emacs-directory "mods/company-git.el"))
@@ -88,6 +89,12 @@
 
 (defun eww-reddit-redirect (url)
   (replace-regexp-in-string "reddit.com" "old.reddit.com" url))
+
+(defun my-after-init ()
+  (dape-breakpoint-load))
+
+(defun my-kill-emacs ()
+  (dape-breakpoint-save))
 
 (defun my-setup-minibuffer()
   (electric-pair-local-mode -1)
@@ -509,6 +516,7 @@
       mc/always-run-for-all t
       python-shell-interpreter "python3"
 	  dape-buffer-window-arrangement 'right
+	  dape-cwd-fn (lambda () my/project-current-root)
       org-confirm-babel-evaluate nil
 	  org-src-window-setup 'current-window
 	  org-edit-src-persistent-message nil
@@ -798,6 +806,10 @@
 (define-key dired-mode-map (kbd "C-n") #'dired-create-empty-file)
 (define-key dired-mode-map (kbd "C-S-n") #'dired-create-directory)
 
+;; do not uncomment - weird, silent error
+;; (add-hook 'after-init-hook 'my-setup-after-init)
+;; (add-hook 'kill-emacs-hook 'my-kill-emacs)
+
 (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
 (add-hook 'nxml-mode-hook 'my-setup-nxml-mode)
 (add-hook 'text-mode-hook 'my/setup-text-mode)
@@ -826,8 +838,8 @@
 (add-hook 'gnus-group-mode-hook 'my/setup-gnus-group-mode)
 (add-hook 'dape-on-stopped-hooks 'dape-info)
 (add-hook 'dape-on-stopped-hooks 'dape-repl)
-(add-hook 'dape-on-start-hooks (defun dape--save-on-start ()
-								 (save-some-buffers t t)))
+(add-hook 'dape-on-start-hooks (lambda () (save-some-buffers t t)))
+(add-hook 'dape-compile-compile-hooks 'kill-buffer)
 (add-hook 'minibuffer-setup-hook 'my-setup-minibuffer)
 (add-hook 'message-mode-hook 'my/setup-message-mode)
 (add-hook 'web-mode-hook 'my-setup-web-mode)
@@ -862,6 +874,15 @@
 (add-to-list 'auto-mode-alist '("CHANGELOG$" . text-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(pas\\|pp\\|lpr\\|dpr\\)\\'" . opascal-mode))
 (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
+
+(add-to-list 'dape-configs `(debugpy
+							 modes (python-ts-mode python-mode)
+							 command "python3"
+							 command-args ("-m" "debugpy.adapter")
+							 :type "executable"
+							 :request "launch"
+							 :cwd dape-cwd-fn
+							 :program (lambda () (file-name-nondirectory (buffer-file-name (current-buffer))))))
 
 (let ((private-settings (file-name-concat user-emacs-directory "private.el")))
   (if (file-exists-p private-settings) (load-file private-settings)))
