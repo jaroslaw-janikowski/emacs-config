@@ -307,10 +307,10 @@
 
 (defun my/setup-eshell()
   (setq-local company-backends '((company-files
-							company-git
-							company-yasnippet
-							company-shell
-							company-shell-env))))
+								  company-yasnippet
+								  company-shell
+								  company-shell-env
+								  company-git))))
 
 (defun my/setup-term-mode())
 
