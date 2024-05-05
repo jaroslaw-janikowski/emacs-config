@@ -260,12 +260,10 @@
 			  electric-pair-inhibit-predicate (lambda (c) (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c)))))
 
 (defun my-setup-php-mode ()
-  (setq-local company-backends '((company-ac-php-backend
-							company-dabbrev-code
-							company-yasnippet
-							company-files
-							company-capf)))
-  (ac-php-core-eldoc-setup))
+  (setq-local company-backends '((company-dabbrev-code
+								  company-yasnippet
+								  company-files
+								  company-capf))))
 
 (defun my-setup-lsp-mode ()
   (setq-local company-backends '((company-capf))))
@@ -391,7 +389,6 @@
 								  (not (string= "*html-documentation*" name))
 								  (not (string= "*Occur*" name))
 								  (not (string= "*Disabled Command*" name))
-								  (not (string= "*AC-PHPTAGS*" name))
 								  ;; (not (string= "*scratch*" name))
 								  (not (string-prefix-p "magit: " name))
 								  (not (string-prefix-p "magit-process: " name))
@@ -602,7 +599,6 @@
 										  "^\\*html-documentation\\*$"
 										  "^\\*Occur\\*$"
 										  "^\\*Disabled Command\\*$"
-										  "^\\*AC-PHPTAGS\\*$"
 										  "^\\.newsrc-dribble$"
 										  "^\\*EGLOT"
 										  "^\\*Compile-Log\\*$"

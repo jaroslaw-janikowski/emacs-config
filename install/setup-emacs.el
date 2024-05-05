@@ -62,8 +62,6 @@
 (package-install 'js-doc)
 (package-install 'js2-mode)
 (package-install 'tide)
-(package-install 'ac-php)
-(package-install 'company-php)
 (package-install 'lsp-mode)
 (package-install 'lsp-ui)
 (package-install 'consult)
