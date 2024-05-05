@@ -18,8 +18,6 @@
 (package-install 'yasnippet)
 (package-install 'geiser-guile)
 (package-install 'markdown-mode)
-(package-install 'web-mode)
-(package-install 'company-web)
 (package-install 'magit)
 (package-install 'git-modes)
 (package-install 'multiple-cursors)

@@ -21,7 +21,6 @@
 (require 'hexl)
 (require 'yasnippet)
 (require 'helm-find)
-(require 'web-mode)
 (require 'diff-hl)
 (require 'magit)
 (require 'git-modes)
@@ -237,18 +236,6 @@
   (subword-mode 1)
   (company-quickhelp-mode)
   (idle-highlight-mode t))
-
-(defun my-setup-web-mode ()
-  (setq-local company-backends '(company-web-html
-								 company-yasnippet
-								 company-dabbrev-code))
-  (css-eldoc-enable)
-  (emmet-mode)
-  (let ((file-ext (file-name-extension buffer-file-name)))
-	(cond
-	 ((string= "jsx" file-ext) (js2-mode))
-	 ((string= "tsx" file-ext) (setup-tide-mode))
-	 (t nil))))
 
 (defun my-setup-js2-mode ()
   (lsp))
@@ -610,22 +597,6 @@
 										  "^\\*Native-compile-log\\*$"
 										  "^\\*Async-native-compile-log\\*$")
 	  tab-line-tabs-function 'my-tab-line-sorting
-      web-mode-markup-indent-offset 4
-      web-mode-css-indent-offset 4
-      web-mode-code-indent-offset 4
-      web-mode-attr-indent-offset 4
-      web-mode-attr-value-offset 4
-      web-mode-enable-auto-pairing t
-      web-mode-enable-current-element-highlight t
-      web-mode-enable-current-column-highlight t
-	  web-mode-enable-css-colorization t
-	  web-mode-enable-comment-interpolation t
-	  web-mode-enable-auto-closing t
-	  web-mode-enable-auto-expanding nil
-	  web-mode-auto-close-style 2
-	  web-mode-enable-auto-opening t
-	  web-mode-enable-auto-indentation t
-	  web-mode-enable-auto-quoting t
 	  term-scroll-to-bottom-on-output t
 	  tabbar-buffer-groups-function 'my/tab-bar-groups
 	  browse-url-new-window-flag t
@@ -842,7 +813,6 @@
 (add-hook 'dape-compile-compile-hooks 'kill-buffer)
 (add-hook 'minibuffer-setup-hook 'my-setup-minibuffer)
 (add-hook 'message-mode-hook 'my/setup-message-mode)
-(add-hook 'web-mode-hook 'my-setup-web-mode)
 (add-hook 'js2-mode-hook 'my-setup-js2-mode)
 (add-hook 'typescript-ts-mode-hook 'my-setup-typescript-mode)
 (add-hook 'css-mode-hook 'my-setup-css-mode)
@@ -856,14 +826,7 @@
 (add-to-list 'auto-mode-alist '("docker-compose\\.y.?ml$" . docker-compose-mode))
 (add-to-list 'auto-mode-alist '("\\.service$" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.csv$" . csv-mode))
-(add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.htm$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.tsx$" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.html\\.twig'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.eln$" . hexl-mode))
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (add-to-list 'auto-mode-alist '("\\.nsi$" . nsis-mode))
