@@ -247,6 +247,10 @@
   (css-eldoc-enable)
   (emmet-mode))
 
+(defun my-setup-mhtml-mode ()
+  (setq-local company-backends '(company-dabbrev-code
+								 company-yasnippet)))
+
 (defun my-setup-php-mode ()
   (setq-local company-backends '((company-ac-php-backend
 							company-dabbrev-code
@@ -795,6 +799,7 @@
 (add-hook 'org-present-mode-hook 'my/org-present-start)
 (add-hook 'org-present-mode-hook 'my/org-present-end)
 (add-hook 'eshell-mode-hook 'my/setup-eshell)
+(add-hook 'mhtml-mode-hook 'my-setup-mhtml-mode)
 (add-hook 'nginx-mode-hook 'my/setup-nginx-mode)
 (add-hook 'dired-mode-hook 'my/setup-dired)
 (add-hook 'restclient-mode-hook 'my/setup-restclient-mode)
