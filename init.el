@@ -229,6 +229,12 @@
   (hl-line-mode)
   (flyspell-mode))
 
+(defun my-setup-shell-script-mode ()
+  (setq-local company-backends '((company-shell
+								  company-shell-env
+								  company-files
+								  company-yasnippet))))
+
 (defun my/setup-prog-mode()
   (setq-local company-backends '((company-yasnippet
 			    company-dabbrev-code
@@ -803,6 +809,7 @@
 (add-hook 'c-mode-hook 'my/setup-c-mode)
 (add-hook 'c-ts-mode-hook 'my/setup-c-mode)
 (add-hook 'emacs-lisp-mode-hook 'my/setup-elisp-mode)
+(add-hook 'shell-script-mode 'my-setup-shell-script-mode)
 (add-hook 'sql-interactive-mode-hook 'my/setup-sqli-mode)
 (add-hook 'sql-mode-hook 'my/setup-sql-mode)
 (add-hook 'before-save-hook 'my/on-before-save)
