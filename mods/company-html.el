@@ -509,12 +509,16 @@
   (cl-case command
 	(interactive (company-begin-backend 'company-html))
 	(prefix (when (looking-back "\\([<]*?[^</>]*?\\)\\([a-zA-Z1-6!&]+\\)" 50 t)
-			  (progn
-				(setq company-html--current-context (match-string 1))
-				;; (message ":%s:%s:" company-html--current-context (match-string 2))
-				(match-string 2))))
+			  (setq company-html--current-context (match-string 1))
+			  ;; (message ":%s:%s:" company-html--current-context (match-string 2))
+			  (match-string 2)))
 	(candidates (get-completions company-html--current-context arg))
 	(meta (company-html-meta arg))
-	(annotation (company-html-annotation arg))))
+	(annotation (company-html-annotation arg))
+	(post-completion (when (string= (company-html-annotation arg) " Attr")
+					   ;; (message "post-completion:%s" arg)
+					   (insert "=\"\"")
+					   (backward-char 1)))
+	(kind t)))
 
 (provide 'company-html)
