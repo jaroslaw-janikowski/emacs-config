@@ -2,3 +2,4 @@
 !.gitignore
 !company-git.el
 !company-html.el
+!company-htmx.el
