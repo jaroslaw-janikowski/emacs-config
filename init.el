@@ -46,9 +46,8 @@
 (require 'dape)
 
 ;; Custom mods
-(load-file (file-name-concat user-emacs-directory "mods/company-git.el"))
+(add-to-list 'load-path (file-name-concat user-emacs-directory "mods"))
 (require 'company-git)
-(load-file (file-name-concat user-emacs-directory "mods/company-html.el"))
 (require 'company-html)
 
 ;; Custom project management
