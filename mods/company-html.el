@@ -508,7 +508,7 @@
   (interactive (list 'interactive))
   (cl-case command
 	(interactive (company-begin-backend 'company-html))
-	(prefix (when (looking-back "\\([<]*?[^</>]*?\\)\\([a-zA-Z1-6!&]+\\)" 50 t)
+	(prefix (when (looking-back "\\([<]*?[^</>]*?\\)\\([!&]?[a-zA-Z1-6]+\\)" 50 t)
 			  (setq company-html--current-context (match-string 1))
 			  ;; (message ":%s:%s:" company-html--current-context (match-string 2))
 			  (match-string 2)))
