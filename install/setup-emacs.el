@@ -16,7 +16,6 @@
 (package-install 'company)
 (package-install 'company-quickhelp)
 (package-install 'yasnippet)
-(package-install 'geiser-guile)
 (package-install 'markdown-mode)
 (package-install 'magit)
 (package-install 'git-modes)

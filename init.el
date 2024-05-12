@@ -569,7 +569,6 @@
 	  eww-browse-url-new-window-is-tab nil
 	  eww-search-prefix "https://html.duckduckgo.com/html/?q="
 	  eww-url-transformers '(eww-reddit-redirect)
-      geiser-default-implementation 'guile
 	  display-buffer-alist '(("(\\*Occur\\*|\\*helm.+)"
 							  (display-buffer-reuse-mode-window display-buffer-below-selected)
 							  (window-height . fit-window-to-buffer)
