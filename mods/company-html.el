@@ -311,7 +311,7 @@
 	#("&diams;" 0 1 (:annotation "Entity" :help "Diamond ♦"))
 	))
 
-(defvar attr-completions
+(defconst attr-completions
   '(
 	#("accept" 0 1 (:annotation "Attr" :help "Specifies the types of files that the server accepts (only for  type=\"file\")"))
 	#("accept-charset" 0 1 (:annotation "Attr" :help "Specifies the character encodings that are to be used for the form submission"))
