@@ -524,7 +524,7 @@
 	  eww-history-limit 100
 	  eww-browse-url-new-window-is-tab nil
 	  eww-search-prefix "https://html.duckduckgo.com/html/?q="
-	  eww-url-transformers '(eww-rewrite-url)
+	  eww-url-transformers '(eww-remove-tracking eww-rewrite-url)
 	  display-buffer-alist '(("(\\*Occur\\*|\\*helm.+)"
 							  (display-buffer-reuse-mode-window display-buffer-below-selected)
 							  (window-height . fit-window-to-buffer)
