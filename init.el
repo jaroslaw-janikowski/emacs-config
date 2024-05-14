@@ -85,8 +85,11 @@
    ((string-match "https://archive.org/download/.*/format=MPEG4" url) (mpv-start url))
    (t (eww-browse-url url new-window))))
 
-(defun eww-reddit-redirect (url)
-  (replace-regexp-in-string "reddit.com" "old.reddit.com" url))
+(defun eww-rewrite-url (url)
+  (cond
+   ((string-prefix-p "https://www.reddit.com" url)
+	(replace-regexp-in-string "www\\.reddit\\.com" "www.old.reddit.com" url))
+   (t url)))
 
 (defun my-after-init ()
   (dape-breakpoint-load))
@@ -521,7 +524,7 @@
 	  eww-history-limit 100
 	  eww-browse-url-new-window-is-tab nil
 	  eww-search-prefix "https://html.duckduckgo.com/html/?q="
-	  eww-url-transformers '(eww-reddit-redirect)
+	  eww-url-transformers '(eww-rewrite-url)
 	  display-buffer-alist '(("(\\*Occur\\*|\\*helm.+)"
 							  (display-buffer-reuse-mode-window display-buffer-below-selected)
 							  (window-height . fit-window-to-buffer)
