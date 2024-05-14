@@ -31,8 +31,6 @@
 (require 'which-key)
 (require 'evil-nerd-commenter)
 (require 'nginx-mode)
-(require 'treemacs)
-(require 'docker-compose-mode)
 (require 'denote)
 (require 'mpv)
 (require 'beframe)
@@ -42,7 +40,6 @@
 (require 'gptel)
 (require 'emmet-mode)
 (require 'css-eldoc)
-(require 'php-mode)
 (require 'dape)
 
 ;; Custom mods
@@ -251,34 +248,11 @@
   (company-quickhelp-mode)
   (idle-highlight-mode t))
 
-(defun my-setup-js2-mode ()
-  (lsp))
-
-(defun my-setup-typescript-mode ()
-  (lsp))
-
-(defun my-setup-css-mode ()
-  (css-eldoc-enable)
-  (emmet-mode))
-
 (defun my-setup-mhtml-mode ()
   (setq-local company-backends '(company-html
 								 company-dabbrev-code
 								 company-yasnippet)
 			  electric-pair-inhibit-predicate (lambda (c) (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c)))))
-
-(defun my-setup-php-mode ()
-  (setq-local company-backends '((company-dabbrev-code
-								  company-yasnippet
-								  company-files
-								  company-capf))))
-
-(defun my-setup-lsp-mode ()
-  (setq-local company-backends '((company-capf))))
-
-(defun my-setup-lsp-ui-mode ()
-  (lsp-ui-doc-mode 1)
-  (lsp-ui-sideline-mode 1))
 
 (defun my/setup-makefile-mode()
   (setq-local company-backends '((company-files
@@ -287,12 +261,6 @@
 
 (defun my/setup-elisp-mode()
   (setq-local company-backends '((company-capf company-elisp company-files company-yasnippet company-dabbrev-code))))
-
-(defun my/setup-docker-compose-mode()
-  (setq-local company-backends '((company-capf
-						   company-dabbrev-code
-						   company-files
-						   company-yasnippet))))
 
 (defun my/setup-gnus-article-mode()
   (text-scale-decrease 1)
@@ -493,8 +461,6 @@
       nxml-slash-autocomplete-flag t
       nxml-mode-map (make-keymap)
 	  custom-file (make-temp-file "emacs-custom-")  ;; brak dopisywania customize
-	  opascal-indent-level 2
-	  opascal-case-label-indent 2
       company-minimum-prefix-length 1
       company-idle-delay 0
       company-selection-wrap-around t
@@ -503,20 +469,6 @@
       company-dabbrev-minimum-length 3
       company-tooltip-align-annotations t
 	  eglot-autoshutdown t
-	  lsp-prefer-flymake nil
-	  lsp-enable-symbol-highlighting nil
-	  lsp-references-exclude-definition t
-	  lsp-signature-doc-lines 10
-	  lsp-headline-breadcrumb-segments '(file symbols)
-	  lsp-headerline-breadcrumb-enable nil
-	  lsp-log-io nil
-	  lsp-use-plists t
-	  lsp-ui-doc-delay 1
-	  lsp-ui-doc-max-height 50
-	  lsp-ui-doc-alignment 'frame
-	  lsp-ui-doc-show-with-cursor nil
-	  lsp-ui-doc-position 'bottom
-	  lsp-ui-sideline-diagnostics-max-lines 4
       mc/always-run-for-all t
       python-shell-interpreter "python3"
 	  dape-buffer-window-arrangement 'right
@@ -618,12 +570,6 @@
       browse-url-browser-function 'my-eww-browse-url
       restclient-log-request t
       eww-auto-rename-buffer 'title
-	  treemacs-recenter-after-project-jump 'always
-	  treemacs-recenter-after-file-follow 'always
-	  treemacs-no-delete-other-windows t
-	  treemacs-tag-follow-delay 0.1
-	  docker-command "podman"
-	  docker-compose-command "podman-compose"
 	  proced-auto-update-flag t
 	  proced-tree-flag t
 	  proced-enable-color-flag t
@@ -658,7 +604,6 @@
 	  compilation-always-kill t
 	  company-quickhelp-delay 3
 	  sgml-quick-keys 'close
-	  php-mode-coding-style 'psr2
       restclient-same-buffer-response nil)
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
@@ -705,8 +650,6 @@
 							 (shell . t)
 							 (scheme . t)))
 (which-key-mode)
-(treemacs-project-follow-mode 1)
-(treemacs-follow-mode 1)
 (beframe-mode t)
 
 (set-face-attribute 'region nil :background "#666")
@@ -752,12 +695,10 @@
 (global-set-key (kbd "C-t") 'my/create-new-term)
 (global-set-key (kbd "C-S-d") 'crux-duplicate-current-line-or-region)
 (global-set-key (kbd "C-d") 'mc/mark-next-like-this)
-(define-key php-mode-map (kbd "C-d") nil)
 (global-set-key (kbd "C-k") 'mc/skip-to-next-like-this)
 (global-set-key (kbd "<f1>") 'embark-act)
 (global-set-key (kbd "<f5>") 'eval-buffer)
 (global-set-key (kbd "<f6>") 'eglot-format)
-(global-set-key (kbd "<f8>") 'treemacs)
 (global-set-key (kbd "C-x d") 'my/dired-new)
 (global-set-key (kbd "C-x b") 'beframe-switch-buffer)
 (global-set-key (kbd "<f12>") 'denote-open-or-create)
@@ -823,7 +764,6 @@
 (add-hook 'term-mode-hook 'my/setup-term-mode)
 (add-hook 'makefile-mode-hook 'my/setup-makefile-mode)
 (add-hook 'eww-mode-hook 'my/setup-eww-mode)
-(add-hook 'docker-compose-mode-hook 'my/setup-docker-compose-mode)
 (add-hook 'gnus-article-mode-hook 'my/setup-gnus-article-mode)
 (add-hook 'gnus-summary-mode-hook 'my/setup-gnus-summary-mode)
 (add-hook 'gnus-group-mode-hook 'my/setup-gnus-group-mode)
@@ -833,31 +773,20 @@
 (add-hook 'dape-compile-compile-hooks 'kill-buffer)
 (add-hook 'minibuffer-setup-hook 'my-setup-minibuffer)
 (add-hook 'message-mode-hook 'my/setup-message-mode)
-(add-hook 'js2-mode-hook 'my-setup-js2-mode)
-(add-hook 'typescript-ts-mode-hook 'my-setup-typescript-mode)
-(add-hook 'css-mode-hook 'my-setup-css-mode)
-(add-hook 'php-mode-hook 'my-setup-php-mode)
-(add-hook 'lsp-mode-hook 'my-setup-lsp-mode)
-(add-hook 'lsp-ui-mode-hook 'my-setup-lsp-ui-mode)
 
 ;; file extensions
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode))
-(add-to-list 'auto-mode-alist '("docker-compose\\.y.?ml$" . docker-compose-mode))
 (add-to-list 'auto-mode-alist '("\\.service$" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.csv$" . csv-mode))
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.eln$" . hexl-mode))
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (add-to-list 'auto-mode-alist '("\\.nsi$" . nsis-mode))
 (add-to-list 'auto-mode-alist '("\\.gitignore$" . gitignore-mode))
-(add-to-list 'auto-mode-alist '("\\.dockerignore$" . gitignore-mode))
 (add-to-list 'auto-mode-alist '("README$" . text-mode))
 (add-to-list 'auto-mode-alist '("LICENSE$" . text-mode))
 (add-to-list 'auto-mode-alist '("CHANGELOG$" . text-mode))
-(add-to-list 'auto-mode-alist '("\\.\\(pas\\|pp\\|lpr\\|dpr\\)\\'" . opascal-mode))
 (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
-(add-to-list 'auto-mode-alist '("composer\\.lock" . js-json-mode))
 
 (add-to-list 'dape-configs `(debugpy
 							 modes (python-ts-mode python-mode)
@@ -868,7 +797,11 @@
 							 :cwd dape-cwd-fn
 							 :program (lambda () (file-name-nondirectory (buffer-file-name (current-buffer))))))
 
-(let ((private-settings (file-name-concat user-emacs-directory "private.el")))
-  (if (file-exists-p private-settings) (load-file private-settings)))
+(let ((private-settings (file-name-concat user-emacs-directory "private.el"))
+	  (work-settings (file-name-concat user-emacs-directory "work.el")))
+  (cond
+   ((file-exists-p private-settings) (load-file private-settings))
+   ((file-exists-p work-settings) (load-file work-settings))
+   (t )))
 
 ;;; init.el ends here
