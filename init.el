@@ -39,7 +39,6 @@
 (require 'lorem-ipsum)
 (require 'gptel)
 (require 'emmet-mode)
-(require 'css-eldoc)
 (require 'dape)
 
 ;; Custom mods
