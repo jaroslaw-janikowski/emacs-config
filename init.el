@@ -341,42 +341,6 @@
   (dired nil)
   (other-window 1))
 
-(defun my-tab-line-sorting()
-  "Sortowanie i filtrowanie zakładek edytorów z użyciem nazwy pliku i rozszerzenia."
-  (seq-sort-by #'buffer-name (lambda (a b)
-							   (cond
-								((equal (file-name-sans-extension a)
-										(file-name-sans-extension b))
-								 (string> (file-name-extension a) (file-name-extension b)))
-								(t
-								 (string< a b))))
-			   (seq-filter (lambda (b)
-							 (let ((name (buffer-name b)))
-							   (and (buffer-live-p b)
-								  (/= (aref name 0) ?\s)
-								  (not (string-prefix-p "*helm" name))
-								  (not (string-prefix-p "*EGLOT" name))
-								  (not (string-prefix-p "*Compile-Log" name))
-								  (not (string-prefix-p "*Async-native-compile-log" name))
-								  (not (string-prefix-p "*Native-compile-log" name))
-								  (not (string= ".newsrc-dribble" name))
-								  (not (string= "*Backtrace*" name))
-								  (not (string= "*Warnings*" name))
-								  (not (string= "*Messages*" name))
-								  (not (string= "*Company-documentation*" name))
-								  (not (string= "*company-documentation*" name))
-								  (not (string= "*html-documentation*" name))
-								  (not (string= "*Occur*" name))
-								  (not (string= "*Disabled Command*" name))
-								  ;; (not (string= "*scratch*" name))
-								  (not (string-prefix-p "magit: " name))
-								  (not (string-prefix-p "magit-process: " name))
-								  (not (string-prefix-p "magit-log: " name))
-								  (not (string-prefix-p "magit-cherry: " name))
-								  (not (string-prefix-p "magit-revision: " name))
-								  (not (string-prefix-p "magit-diff: " name)))))
-						   (buffer-list))))
-
 (setq warning-minimum-level :error
 	  ;; debug-on-error t
       inhibit-startup-screen t
@@ -548,25 +512,6 @@
 							 ("\\(magit: .+\\|magit-log.+\\|magit-revision.+\\)"
 							  (display-buffer-same-window)))
 
-	  switch-to-prev-buffer-skip-regexp '("^\\*helm"
-										  "^magit:"
-										  "^magit-process:"
-										  "^magit-diff:"
-										  ;; "^\\*scratch\\*$"
-										  "^\\*Warnings\\*$"
-										  "^\\*Messages\\*$"
-										  "^\\*Backtrace\\*$"
-										  "^\\*Company-documentation\\*$"
-										  "^\\*company-documentation\\*$"
-										  "^\\*html-documentation\\*$"
-										  "^\\*Occur\\*$"
-										  "^\\*Disabled Command\\*$"
-										  "^\\.newsrc-dribble$"
-										  "^\\*EGLOT"
-										  "^\\*Compile-Log\\*$"
-										  "^\\*Native-compile-log\\*$"
-										  "^\\*Async-native-compile-log\\*$")
-	  tab-line-tabs-function 'my-tab-line-sorting
 	  term-scroll-to-bottom-on-output t
 	  tabbar-buffer-groups-function 'my/tab-bar-groups
 	  browse-url-new-window-flag t
@@ -693,8 +638,8 @@
 (global-set-key (kbd "C-n") 'my/create-new-file)
 (global-set-key (kbd "C-S-n") 'my/create-new-directory)
 (global-set-key (kbd "C-S-t") 'my/create-new-eshell)
-(global-set-key (kbd "M-<right>") 'switch-to-next-buffer)
-(global-set-key (kbd "M-<left>") 'switch-to-prev-buffer)
+(global-set-key (kbd "M-<right>") 'tab-line-switch-to-next-tab)
+(global-set-key (kbd "M-<left>") 'tab-line-switch-to-prev-tab)
 (global-set-key (kbd "C-t") 'my/create-new-term)
 (global-set-key (kbd "C-S-d") 'crux-duplicate-current-line-or-region)
 (global-set-key (kbd "C-d") 'mc/mark-next-like-this)
