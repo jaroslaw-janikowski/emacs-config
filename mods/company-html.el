@@ -513,6 +513,7 @@
 					(cond
 					 ((string= context "<") tag-completions)
 					 ((string-prefix-p "&" prefix) entity-completions)
+					 ((string-suffix-p "\"" context) nil)
 					 ((and (> (length context) 1) (string-prefix-p "<" context)) (append attr-completions company-html--global-attr-completions))
 					 (t nil))))
 
