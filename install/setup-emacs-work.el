@@ -7,5 +7,6 @@
 (package-install 'js2-mode)
 (package-install 'tide)
 (package-install 'php-mode)
+(package-install 'lsp-pascal)
 (package-install 'lsp-mode)
 (package-install 'lsp-ui)

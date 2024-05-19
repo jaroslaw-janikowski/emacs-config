@@ -1,6 +1,7 @@
 (require 'treemacs)
 (require 'docker-compose-mode)
 (require 'php-mode)
+(require 'lsp-pascal)
 
 (defun my-setup-js2-mode ()
   (lsp))
@@ -18,6 +19,9 @@
 								  company-files
 								  company-capf))))
 
+(defun my-setup-opascal-mode ()
+  (lsp))
+
 (defun my-setup-lsp-mode ()
   (setq-local company-backends '((company-capf))))
 
@@ -33,6 +37,7 @@
 
 (setq opascal-indent-level 2
 	  opascal-case-label-indent 2
+	  lsp-pascal-fpcdir "/usr/share/fpcsrc/3.2.2"
 	  lsp-prefer-flymake nil
 	  lsp-enable-symbol-highlighting nil
 	  lsp-references-exclude-definition t
@@ -67,6 +72,7 @@
 (add-hook 'typescript-ts-mode-hook 'my-setup-typescript-mode)
 (add-hook 'css-mode-hook 'my-setup-css-mode)
 (add-hook 'php-mode-hook 'my-setup-php-mode)
+(add-hook 'opascal-mode-hook 'my-setup-opascal-mode)
 (add-hook 'lsp-mode-hook 'my-setup-lsp-mode)
 (add-hook 'lsp-ui-mode-hook 'my-setup-lsp-ui-mode)
 

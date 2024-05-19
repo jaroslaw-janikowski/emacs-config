@@ -67,6 +67,9 @@ exit
 # php
 apt -y install php phpunit
 
+# lazarus-ide
+apt -y install lazarus-ide lazarus-doc
+
 # podman setup
 su bps
 podman pull docker.io/php
