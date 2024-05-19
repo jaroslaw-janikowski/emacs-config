@@ -749,7 +749,7 @@
 	  (work-settings (file-name-concat user-emacs-directory "work.el")))
   (cond
    ((file-exists-p private-settings) (load-file private-settings))
-   ((file-exists-p work-settings) (load-file work-settings))
+   ;; ((file-exists-p work-settings) (load-file work-settings))
    (t )))
 
 ;;; init.el ends here
