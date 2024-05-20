@@ -17,7 +17,8 @@
   (setq-local company-backends '((company-dabbrev-code
 								  company-yasnippet
 								  company-files
-								  company-capf))))
+								  company-capf)))
+  (eglot-ensure))
 
 (defun my-setup-opascal-mode ()
   (lsp))
