@@ -1,2 +1,6 @@
 winget install emacs
 winget install php
+winget git
+
+% faster menu start without web search
+reg add  HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search /v BingSearchEnabled /d 0 /t REG_DWORD
