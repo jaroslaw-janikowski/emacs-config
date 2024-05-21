@@ -611,6 +611,7 @@
 														 (scheme . t)))
 (which-key-mode)
 (beframe-mode t)
+(repeat-mode)
 
 (add-to-list 'eglot-server-programs '(sql-mode . ("sqls")))
 (add-to-list 'eglot-server-programs '(mhtml-mode . ("vscode-html-language-server" "--stdio")))
