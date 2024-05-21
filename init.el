@@ -40,6 +40,7 @@
 (require 'gptel)
 (require 'emmet-mode)
 (require 'dape)
+(require 'ediff)
 
 ;; Custom mods
 (add-to-list 'load-path (file-name-concat user-emacs-directory "mods"))
@@ -552,6 +553,8 @@
 	  compilation-always-kill t
 	  company-quickhelp-delay 3
 	  sgml-quick-keys 'close
+	  ediff-window-setup-function 'ediff-setup-windows-plain
+	  ediff-split-window-function 'split-window-horizontally
       restclient-same-buffer-response nil)
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
@@ -599,6 +602,9 @@
 							 (scheme . t)))
 (which-key-mode)
 (beframe-mode t)
+
+(add-to-list 'eglot-server-programs '(sql-mode . ("sqls")))
+(add-to-list 'eglot-server-programs '(mhtml-mode . ("vscode-html-language-server" "--stdio")))
 
 (set-face-attribute 'region nil :background "#666")
 (set-face-attribute 'org-block nil :background "#222")
@@ -683,6 +689,11 @@
 (define-key bookmark-bmenu-mode-map (kbd "M-<left>") nil)
 (define-key dired-mode-map (kbd "C-n") #'dired-create-empty-file)
 (define-key dired-mode-map (kbd "C-S-n") #'dired-create-directory)
+(keymap-set eglot-mode-map "C-c e a" #'eglot-code-actions)
+(keymap-set eglot-mode-map "C-c e r" #'eglot-reconnect)
+(keymap-set eglot-mode-map "C-c e f" #'eglot-code-action-quickfix)
+(keymap-set eglot-mode-map "C-c e n" #'eglot-rename)
+(keymap-set eglot-mode-map "C-c e h" #'eglot-inlay-hints-mode)
 
 ;; do not uncomment - weird, silent error
 ;; (add-hook 'after-init-hook 'my-setup-after-init)
