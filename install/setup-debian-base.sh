@@ -1,4 +1,4 @@
-apt install -y sway make xwayland pavucontrol brightnessctl swayidle swaylock qemu-system-x86 podman podman-compose zeal grimshot wdisplays p7zip-full xterm fasm clangd nsis gnupg2 gnuplot
+apt install -y sway make xwayland pavucontrol brightnessctl swayidle swaylock qemu-system-x86 grimshot wdisplays p7zip-full xterm clangd nsis gnupg2 gnuplot
 
 # git setup
 apt install -y git git-gui
@@ -62,19 +62,4 @@ apt install -y python3-venv python3-pip python3-debugpy python3-pylsp
 apt install -y emacs
 su bps
 emacs -Q --script ~/.emacs.d/install/setup-emacs.el
-exit
-
-# php
-apt -y install php phpunit
-
-# lazarus-ide
-apt -y install lazarus-ide lazarus-doc
-
-# podman setup
-su bps
-podman pull docker.io/php
-podman pull docker.io/mysql
-podman pull docker.io/wordpress
-podman pull docker.io/python
-podman pull docker.io/postgres
 exit
