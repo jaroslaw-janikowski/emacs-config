@@ -26,6 +26,7 @@
 (require 'git-modes)
 (require 'multiple-cursors)
 (require 'org-present)
+(require 'markdown-mode)
 (require 'visual-fill-column)
 (require 'restclient)
 (require 'which-key)
@@ -263,6 +264,9 @@
   (setq-local company-backends '((company-files
 						   company-dabbrev-code
 						   company-yasnippet))))
+
+(defun my-setup-markdown-mode ()
+  (markdown-toggle-inline-images))
 
 (defun my/setup-elisp-mode()
   (setq-local company-backends '((company-capf company-elisp company-files company-yasnippet company-dabbrev-code))))
@@ -556,6 +560,8 @@
 	  sgml-quick-keys 'close
 	  ediff-window-setup-function 'ediff-setup-windows-plain
 	  ediff-split-window-function 'split-window-horizontally
+	  markdown-header-scaling t
+	  markdown-display-remote-images t
       restclient-same-buffer-response nil)
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
@@ -725,6 +731,7 @@
 (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
 (add-hook 'term-mode-hook 'my/setup-term-mode)
 (add-hook 'makefile-mode-hook 'my/setup-makefile-mode)
+(add-hook 'markdown-mode-hook 'my-setup-markdown-mode)
 (add-hook 'eww-mode-hook 'my/setup-eww-mode)
 (add-hook 'gnus-article-mode-hook 'my/setup-gnus-article-mode)
 (add-hook 'gnus-summary-mode-hook 'my/setup-gnus-summary-mode)
