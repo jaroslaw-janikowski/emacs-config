@@ -4,3 +4,25 @@ winget git
 
 % faster menu start without web search
 reg add  HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search /v BingSearchEnabled /d 0 /t REG_DWORD
+
+% disable needless services
+net stop "wlidsvc"
+sc config "wlidsvc" start=disabled  % log in through Microsoft account
+
+net stop "Themes"
+sc config "Themes" start=disabled
+
+net stop "SEMgrSvc"
+sc config "SEMgrSvc" start=disabled  % NFC payments
+
+net stop "DiagTrack"
+sc config "DiagTrack" start=disabled  % telemetry
+
+net stop "lfsvc"
+sc config "lfsvc" start=disabled  % geolocation
+
+net stop "InstallService"
+sc config "InstallService" start=disabled  % Microsoft Store
+
+net stop "WSearch"
+sc config "WSearch" start=disabled  % files indexing
