@@ -20,7 +20,6 @@
 (require 'nxml-mode)
 (require 'hexl)
 (require 'yasnippet)
-(require 'helm-find)
 (require 'diff-hl)
 (require 'magit)
 (require 'git-modes)
@@ -62,15 +61,12 @@
   (if (file-directory-p project-path)
 	  (progn
 		(setq my/project-current-root project-path)
+		(project-current nil project-path)
 		(setq-local venv-dir (file-name-concat my/project-current-root ".venv"))
 		(pyvenv-deactivate)
 		(if (file-directory-p venv-dir)
 			(pyvenv-activate venv-dir)))
 	(message "Nie udało się zmienić katalogu projektu. Typuj ścieżki dokładniej!")))
-
-(defun my-helm-find()
-  (interactive)
-  (helm-find-1 my/project-current-root))
 
 (global-set-key (kbd "C-x p p") 'my/project-root)
 ;; end of custom project management
@@ -125,10 +121,6 @@
   (previous-line)
   (backward-paragraph)
   (next-line))
-
-(defun my/create-new-eshell()
-  (interactive)
-  (eshell 'N))
 
 (defun insert-current-date()
   (interactive)
@@ -306,10 +298,6 @@
 (defun my/create-new-term()
   (interactive)
   (term "/bin/bash"))
-
-(defun my/dired-new()
-  (interactive)
-  (dired default-directory))
 
 (defun my/setup-dired()
   (hl-line-mode)
@@ -643,7 +631,7 @@
 (global-set-key (kbd "M-d") 'insert-current-date)
 (global-set-key (kbd "M-<up>") 'my/backward-paragraph)
 (global-set-key (kbd "M-<down>") 'my/forward-paragraph)
-(global-set-key (kbd "C-p") 'my-helm-find)
+(global-set-key (kbd "C-p") 'project-find-file)
 (global-set-key (kbd "C-f") 'helm-occur)
 (global-set-key (kbd "C-S-f") 'my-grep-project)
 (global-set-key (kbd "<f10>") 'midnight-commander)
@@ -653,7 +641,7 @@
 (global-set-key (kbd "C-<space>") 'company-complete)
 (global-set-key (kbd "C-n") 'my/create-new-file)
 (global-set-key (kbd "C-S-n") 'my/create-new-directory)
-(global-set-key (kbd "C-S-t") 'my/create-new-eshell)
+(global-set-key (kbd "C-S-t") 'project-eshell)
 (global-set-key (kbd "M-<right>") 'tab-line-switch-to-next-tab)
 (global-set-key (kbd "M-<left>") 'tab-line-switch-to-prev-tab)
 (global-set-key (kbd "C-t") 'my/create-new-term)
@@ -663,7 +651,7 @@
 (global-set-key (kbd "<f1>") 'embark-act)
 (global-set-key (kbd "<f5>") 'eval-buffer)
 (global-set-key (kbd "<f6>") 'eglot-format)
-(global-set-key (kbd "C-x d") 'my/dired-new)
+(global-set-key (kbd "C-x d") 'project-dired)
 (global-set-key (kbd "C-x b") 'beframe-switch-buffer)
 (global-set-key (kbd "<f12>") 'denote-open-or-create)
 (global-set-key (kbd "C-<f12>") 'denote-create-note)
