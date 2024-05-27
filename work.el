@@ -14,11 +14,7 @@
   (emmet-mode))
 
 (defun my-setup-php-mode ()
-  (setq-local company-backends '((company-dabbrev-code
-								  company-yasnippet
-								  company-files
-								  company-capf)))
-  (eglot-ensure))
+  (lsp))
 
 (defun my-setup-opascal-mode ()
   (lsp))
