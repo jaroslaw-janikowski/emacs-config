@@ -60,8 +60,9 @@
   (interactive "DKatalog root: ")
   (if (file-directory-p project-path)
 	  (progn
-		(setq my/project-current-root project-path)
-		(project-current nil project-path)
+		(setq my/project-current-root project-path
+			  project-current-directory-override project-path)
+		(project-current)
 		(setq-local venv-dir (file-name-concat my/project-current-root ".venv"))
 		(pyvenv-deactivate)
 		(if (file-directory-p venv-dir)
@@ -599,7 +600,6 @@
 														 (scheme . t)))
 (which-key-mode)
 (beframe-mode t)
-(repeat-mode)
 
 (add-to-list 'eglot-server-programs '(sql-mode . ("sqls")))
 (add-to-list 'eglot-server-programs '(mhtml-mode . ("vscode-html-language-server" "--stdio")))
