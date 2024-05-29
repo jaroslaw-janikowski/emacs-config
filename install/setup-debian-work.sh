@@ -4,10 +4,13 @@ source ./setup-debian-base.sh
 apt install -y zeal
 
 # lazarus-ide
-apt -y install lazarus-ide lazarus-doc
+apt install -y lazarus-ide lazarus-doc
 
 # php
-apt -y install php phpunit
+apt install -y php phpunit
+
+# node.js
+apt install -y node npm
 
 # podman setup
 apt install -y podman podman-compose
