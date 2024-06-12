@@ -597,6 +597,8 @@
 														 (dot . t)
 														 (shell . t)
 														 (sql . t)
+														 (C . t)
+														 (gnuplot . t)
 														 (scheme . t)))
 (which-key-mode)
 (beframe-mode t)
