@@ -522,6 +522,7 @@
 							  "elektronika")
 	  denote-sort-keywords t
 	  denote-prompts '(title keywords)
+	  denote-file-name-components-order '(title keywords)
 	  denote-date-prompt-use-org-read-date t
 	  yas-indent-line 'auto
 	  yas-also-auto-indent-first-line t
@@ -551,6 +552,11 @@
 	  ediff-split-window-function 'split-window-horizontally
 	  markdown-header-scaling t
 	  markdown-display-remote-images t
+	  geiser-default-implementation 'guile
+	  geiser-scheme-implementation 'guile
+	  geiser-active-implementations '(guile)
+	  geiser-repl-skip-version-check-p t
+	  geiser-debug-show-debug-p t
       restclient-same-buffer-response nil)
 
 (setq-default dired-kill-when-opening-new-dired-buffer t

@@ -54,4 +54,5 @@
 (package-install 'gptel)
 (package-install 'emmet-mode)
 (package-install 'consult)
+(package-install 'geiser-guile)
 (nerd-icons-install-fonts)
