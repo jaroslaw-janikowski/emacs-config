@@ -55,4 +55,5 @@
 (package-install 'emmet-mode)
 (package-install 'consult)
 (package-install 'geiser-guile)
+(package-install 'gnuplot)
 (nerd-icons-install-fonts)
