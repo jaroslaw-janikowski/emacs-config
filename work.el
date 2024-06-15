@@ -1,6 +1,5 @@
 (require 'treemacs)
 (require 'docker-compose-mode)
-(require 'php-mode)
 (require 'lsp-pascal)
 
 (defun my-setup-js2-mode ()
@@ -55,20 +54,18 @@
 	  treemacs-tag-follow-delay 0.1
 	  docker-command "podman"
 	  docker-compose-command "podman-compose"
-	  php-mode-coding-style 'psr2
 	  )
 
 (treemacs-project-follow-mode 1)
 (treemacs-follow-mode 1)
 
-(define-key php-mode-map (kbd "C-d") nil)
 (global-set-key (kbd "<f8>") 'treemacs)
 
 (add-hook 'docker-compose-mode-hook 'my/setup-docker-compose-mode)
 (add-hook 'js2-mode-hook 'my-setup-js2-mode)
 (add-hook 'typescript-ts-mode-hook 'my-setup-typescript-mode)
 (add-hook 'css-mode-hook 'my-setup-css-mode)
-(add-hook 'php-mode-hook 'my-setup-php-mode)
+(add-hook 'php-ts-mode-hook 'my-setup-php-mode)
 (add-hook 'opascal-mode-hook 'my-setup-opascal-mode)
 (add-hook 'lsp-mode-hook 'my-setup-lsp-mode)
 (add-hook 'lsp-ui-mode-hook 'my-setup-lsp-ui-mode)
