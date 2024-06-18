@@ -304,6 +304,10 @@
   (hl-line-mode)
   (nerd-icons-dired-mode))
 
+(defun my-dired-view-file ()
+  (interactive)
+  (view-file (dired-file-name-at-point)))
+
 (defun my/setup-python-mode()
   (eglot-ensure))
 
@@ -695,6 +699,7 @@
 (define-key bookmark-bmenu-mode-map (kbd "M-<left>") nil)
 (define-key dired-mode-map (kbd "C-n") #'dired-create-empty-file)
 (define-key dired-mode-map (kbd "C-S-n") #'dired-create-directory)
+(define-key dired-mode-map (kbd "<f3>") 'my-dired-view-file)
 (keymap-set eglot-mode-map "C-c e a" #'eglot-code-actions)
 (keymap-set eglot-mode-map "C-c e r" #'eglot-reconnect)
 (keymap-set eglot-mode-map "C-c e f" #'eglot-code-action-quickfix)
