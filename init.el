@@ -442,7 +442,7 @@
       org-confirm-babel-evaluate nil
 	  org-src-window-setup 'current-window
 	  org-edit-src-persistent-message nil
-	  org-edit-src-content-indentation 4
+	  org-edit-src-content-indentation 0
       org-hide-leading-stars t
       org-return-follows-link t
       org-support-shift-select t
