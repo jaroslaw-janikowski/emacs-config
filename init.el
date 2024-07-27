@@ -329,7 +329,8 @@
   (hl-line-mode))
 
 (defun my/on-before-save()
-  (delete-trailing-whitespace))
+  (delete-trailing-whitespace)
+  (indent-according-to-mode))
 
 (defun midnight-commander()
   (interactive)
@@ -750,6 +751,7 @@
 (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode))
 (add-to-list 'auto-mode-alist '("\\.service$" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.csv$" . csv-mode))
+(add-to-list 'auto-mode-alist '("\\.php$" . php-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.eln$" . hexl-mode))
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (add-to-list 'auto-mode-alist '("\\.nsi$" . nsis-mode))
