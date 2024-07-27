@@ -750,6 +750,7 @@
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode))
 (add-to-list 'auto-mode-alist '("\\.service$" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.html$" . mhtml-mode))
 (add-to-list 'auto-mode-alist '("\\.csv$" . csv-mode))
 (add-to-list 'auto-mode-alist '("\\.php$" . php-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.eln$" . hexl-mode))
