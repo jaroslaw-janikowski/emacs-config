@@ -28,7 +28,6 @@
 (require 'markdown-mode)
 (require 'visual-fill-column)
 (require 'restclient)
-(require 'which-key)
 (require 'evil-nerd-commenter)
 (require 'nginx-mode)
 (require 'denote)
