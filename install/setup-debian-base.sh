@@ -10,13 +10,24 @@ mkdir ~/.config/sway
 cp /etc/sway/config ~/.config/sway/config
 cat <<EOF>> ~/.config/sway/config
 
-exec brightnessctl set 9%
+exec brightnessctl set 6%
 
 input * {
 	  xkb_layout "pl"
 }
 
+input "2:8:AlpsPS/2_ALPS_GlidePoint" {
+	  dwt enabled
+	  tap enabled
+	  middle_emulation enabled
+}
+
+output eDP-1 resolution 1366x768
+output DP-2 resolution 1366x768
 output DP-2 disable
+output DP-3 resolution 1366x768
+output DP-3 disable
+
 xwayland enable
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
