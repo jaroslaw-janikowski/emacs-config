@@ -328,8 +328,8 @@
   (hl-line-mode))
 
 (defun my/on-before-save()
-  (delete-trailing-whitespace)
-  (indent-according-to-mode))
+  (indent-according-to-mode)
+  (delete-trailing-whitespace))
 
 (defun midnight-commander()
   (interactive)
