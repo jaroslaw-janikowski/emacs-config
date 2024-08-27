@@ -445,6 +445,8 @@
 	  org-edit-src-content-indentation 0
       org-hide-leading-stars t
       org-return-follows-link t
+	  org-mouse-1-follows-link t
+	  org-link-descriptive t
       org-support-shift-select t
       org-hide-emphasis-markers nil
       org-babel-python-command "python3 -i"
