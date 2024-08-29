@@ -2,4 +2,4 @@
 # name: Eschell ls
 # key: ls
 # --
-ls -al --block-size=M $0
+ls -alh $0
