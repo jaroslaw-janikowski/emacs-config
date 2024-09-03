@@ -577,6 +577,10 @@
 			  comint-scroll-to-bottom-on-output nil
 			  eglot-workspace-configuration '(:pylsp (:plugins (:jedi_completion (:enabled t :include_params t :fuzzy t :include_class_objects t :include_function_objects t :eager t) :flake8 (:enabled t) :black (:enabled t)))))
 
+(use-package password-generator
+  :defer t
+  :custom (password-generaor-simple-length 8))
+
 (defalias 'yes-or-no-p 'y-or-n-p)
 (drag-stuff-global-mode 1)
 (show-paren-mode t)

@@ -56,4 +56,5 @@
 (package-install 'consult)
 (package-install 'geiser-guile)
 (package-install 'gnuplot)
+(package-install 'password-generator)
 (nerd-icons-install-fonts)
