@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: pagination
+# key: pagination
+# --
+SELECT * FROM ${1:table_name} WHERE ${2:id} > ? ORDER BY ${2} LIMIT ${3:page_size}, (${4:page_num} * ${3})$0
