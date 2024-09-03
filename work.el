@@ -13,7 +13,7 @@
   (emmet-mode))
 
 (defun my-setup-php-mode ()
-  (lsp))
+  (eglot-ensure))
 
 (defun my-setup-opascal-mode ()
   (lsp))
