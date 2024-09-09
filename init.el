@@ -766,6 +766,7 @@
 (add-to-list 'auto-mode-alist '("LICENSE$" . text-mode))
 (add-to-list 'auto-mode-alist '("CHANGELOG$" . text-mode))
 (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
+(add-to-list 'auto-mode-alist '("\\.svg$" . nxml-mode))
 
 (add-to-list 'dape-configs `(debugpy
 							 modes (python-ts-mode python-mode)
