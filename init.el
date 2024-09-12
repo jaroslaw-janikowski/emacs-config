@@ -73,14 +73,23 @@
 
 (defun my-eww-browse-url (url &optional new-window)
   (cond
+   ;; youtube
    ((or (string-prefix-p "https://www.youtube.com/watch?v=" url)
 		(string-prefix-p "https://m.youtube.com/watch?v=" url)
 		(string-prefix-p "https://youtube.com/watch?v=" url)
 		(string-prefix-p "https://www.youtube.com/shorts/" url)
 		(string-prefix-p "https://youtu.be/" url))
 	(mpv-start url))
-   ((string-match "https://archive.org/download/.*/format=MPEG4" url) (mpv-start url))
+
+   ;; archive.org
+   ((string-match-p "https://archive.org/download/.*/format=MPEG4" url) (mpv-start url))
+
+   ;; peertube
+   ((string-match-p "https://.*/videos/watch/[[:alnum:]]\\{8\\}-[[:alnum:]]\\{4\\}-[[:alnum:]]\\{4\\}-[[:alnum:]]\\{4\\}-[[:alnum:]]\\{12\\}$" url) (mpv-start url "--ytdl-format=best"))
+
+   ;; any other
    ((string-suffix-p ".mp4" url) (mpv-start url))
+
    (t (eww-browse-url url new-window))))
 
 (defun eww-rewrite-url (url)
