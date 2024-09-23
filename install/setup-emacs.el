@@ -57,4 +57,5 @@
 (package-install 'geiser-guile)
 (package-install 'gnuplot)
 (package-install 'password-generator)
+(package-install 'indent-bars)
 (nerd-icons-install-fonts)

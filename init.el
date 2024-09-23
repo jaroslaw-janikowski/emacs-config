@@ -40,6 +40,7 @@
 (require 'emmet-mode)
 (require 'dape)
 (require 'ediff)
+(require 'indent-bars)
 
 ;; Custom mods
 (add-to-list 'load-path (file-name-concat user-emacs-directory "mods"))
@@ -253,7 +254,8 @@
   (rainbow-mode)
   (subword-mode 1)
   (company-quickhelp-mode)
-  (idle-highlight-mode t))
+  (idle-highlight-mode t)
+  (indent-bars-mode))
 
 (defun my-setup-mhtml-mode ()
   (setq-local company-backends '(company-html
