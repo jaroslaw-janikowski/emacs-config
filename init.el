@@ -272,7 +272,7 @@
   (markdown-toggle-inline-images))
 
 (defun my/setup-elisp-mode()
-  (setq-local company-backends '((company-capf company-elisp company-files company-yasnippet company-dabbrev-code))))
+  (setq-local company-backends '((company-capf company-files company-yasnippet company-dabbrev-code))))
 
 (defun my/setup-gnus-article-mode()
   (text-scale-decrease 1)
