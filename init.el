@@ -722,6 +722,7 @@
 (keymap-set eglot-mode-map "C-c e f" #'eglot-code-action-quickfix)
 (keymap-set eglot-mode-map "C-c e n" #'eglot-rename)
 (keymap-set eglot-mode-map "C-c e h" #'eglot-inlay-hints-mode)
+(keymap-set gnus-mode-map "<space>" #'gnus-summary-clear-mark-forward)
 
 ;; do not uncomment - weird, silent error
 ;; (add-hook 'after-init-hook 'my-setup-after-init)
