@@ -86,7 +86,7 @@
    ((string-match-p "https://archive.org/download/.*/format=MPEG4" url) (mpv-start url))
 
    ;; peertube
-   ((string-match-p "https://.*/videos/watch/[[:alnum:]]\\{8\\}-[[:alnum:]]\\{4\\}-[[:alnum:]]\\{4\\}-[[:alnum:]]\\{4\\}-[[:alnum:]]\\{12\\}$" url) (mpv-start url "--ytdl-format=best"))
+   ((string-match-p "https://.*/videos/watch/[[:alnum:]]\\{8\\}-[[:alnum:]]\\{4\\}-[[:alnum:]]\\{4\\}-[[:alnum:]]\\{4\\}-[[:alnum:]]\\{12\\}$" url) (mpv-start url))
 
    ;; any other
    ((string-suffix-p ".mp4" url) (mpv-start url))
@@ -559,7 +559,7 @@
 	  gnus-summary-newsgroup-prefix ""
 	  gnus-large-newsgroup 200
 	  gnus-interactive-exit nil
-	  mpv-default-options '("--pause" "--ytdl-format=18")
+	  mpv-default-options '("--ytdl-format=bestvideo[height<=?480]+bestaudio[height<=?480] / worst" "--script-opts=ytdl_hook-ytdl_path=/home/nntpsurfer/.local/bin/yt-dlp" "--pause")
 	  compilation-ask-about-save nil
 	  compilation-scroll-output t
 	  compilation-always-kill t
