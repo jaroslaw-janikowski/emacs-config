@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: git-patch
+# key: git
+# --
+git format-patch ${1:startcommit}^..${2:endcommit} --stdout > ${path}$0
