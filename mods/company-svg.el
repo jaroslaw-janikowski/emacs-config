@@ -81,7 +81,7 @@
 	#("vkern" 0 1 (:annotation "Deprecated - Tag" :help ""))
 	))
 
-  (defconst attr-completions
+(defconst attr-completions
   '(
 	#("accent-height" 0 1 (:annotation "Deprecated - Attr" :help ""))
 	#("accumulate" 0 1 (:annotation "Attr" :help ""))

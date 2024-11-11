@@ -3,13 +3,13 @@
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ("melpa-stable" . "https://stable.melpa.org/packages/")
-			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")
-			 ("gnu" . "https://elpa.gnu.org/packages/"))
+						 ("melpa-stable" . "https://stable.melpa.org/packages/")
+						 ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+						 ("gnu" . "https://elpa.gnu.org/packages/"))
       package-archive-priorities '(("melpa" . 1)
-				   ("melpa-stable" . 2)
-				   ("nongnu" . 3)
-				   ("gnu" . 4)))
+								   ("melpa-stable" . 2)
+								   ("nongnu" . 3)
+								   ("gnu" . 4)))
 (package-initialize)
 
 (require 'consult)
@@ -138,7 +138,7 @@
 
 (defun my/org-present-start()
   (setq visual-fill-column-width 110
-	visual-fill-column-center-text t)
+		visual-fill-column-center-text t)
   (visual-fill-column-mode 1)
   (visual-line-mode 1)
   (display-line-numbers-mode 0)
@@ -157,7 +157,7 @@
   (interactive "P")
   (let ((word (thing-at-point 'word)))
     (if word
-	(helm-grep-ag (expand-file-name command-line-default-directory) arg))))
+		(helm-grep-ag (expand-file-name command-line-default-directory) arg))))
 
 (defun my/on-escape()
   (interactive)
@@ -166,11 +166,11 @@
 
 (defun my/in-start-tag-p ()
   (let ((token-end (nxml-token-before))
-	(pod (1+ (point)))
-	(token-start xmltok-start))
+		(pod (1+ (point)))
+		(token-start xmltok-start))
     (or (eq xmltok-type 'partial-start-tag)
-	(and (memq xmltok-type '(start-tag empty-element partial-empty-element))
-	     (>= token-end pos)))))
+		(and (memq xmltok-type '(start-tag empty-element partial-empty-element))
+			 (>= token-end pos)))))
 
 (defun my/finish-element ()
   (interactive)
@@ -201,15 +201,15 @@
   "Insert a newline, indenting the current line and the newline appropriately in nxml-mode."
   (interactive)
   (if (and (char-before) (char-after)
-	   (char-equal (char-before) ?>)
-	   (char-equal (char-after) ?<))
+		   (char-equal (char-before) ?>)
+		   (char-equal (char-after) ?<))
       (let ((indentation (current-indentation)))
-	(newline)
-	(indent-line-to (+ indentation 4))
-	(newline)
-	(indent-line-to indentation)
-	(previous-line)
-	(end-of-line))
+		(newline)
+		(indent-line-to (+ indentation 4))
+		(newline)
+		(indent-line-to indentation)
+		(previous-line)
+		(end-of-line))
     (newline-and-indent)))
 
 (defun my/create-new-file ()
@@ -241,11 +241,11 @@
 
 (defun my/setup-prog-mode()
   (setq-local company-backends '((company-yasnippet
-			    company-dabbrev-code
-			    company-keywords
-			    company-files
-			    company-capf))
-		show-trailing-whitespace t)
+								  company-dabbrev-code
+								  company-keywords
+								  company-files
+								  company-capf))
+			  show-trailing-whitespace t)
   (hl-line-mode)
   (flyspell-prog-mode)
   (display-line-numbers-mode 1)
@@ -265,8 +265,8 @@
 
 (defun my/setup-makefile-mode()
   (setq-local company-backends '((company-files
-						   company-dabbrev-code
-						   company-yasnippet))))
+								  company-dabbrev-code
+								  company-yasnippet))))
 
 (defun my-setup-markdown-mode ()
   (markdown-toggle-inline-images))
@@ -289,7 +289,7 @@
 
 (defun my/setup-restclient-mode()
   (setq-local company-backends '((company-restclient
-							company-yasnippet)))
+								  company-yasnippet)))
   (display-line-numbers-mode 1)
   (idle-highlight-mode t)
   (hl-line-mode))
@@ -323,10 +323,10 @@
 
 (defun my/setup-c-mode()
   (setq-local company-backends '((company-files
-						   company-yasnippet
-						   company-capf
-						   company-dabbrev-code
-						   company-keywords)))
+								  company-yasnippet
+								  company-capf
+								  company-dabbrev-code
+								  company-keywords)))
   (eglot-ensure))
 
 (defun my/setup-sqli-mode()

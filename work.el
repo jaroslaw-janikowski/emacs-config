@@ -27,9 +27,9 @@
 
 (defun my/setup-docker-compose-mode()
   (setq-local company-backends '((company-capf
-						   company-dabbrev-code
-						   company-files
-						   company-yasnippet))))
+								  company-dabbrev-code
+								  company-files
+								  company-yasnippet))))
 
 (setq opascal-indent-level 2
 	  opascal-case-label-indent 2
