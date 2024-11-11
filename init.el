@@ -248,6 +248,7 @@
 			  show-trailing-whitespace t)
   (hl-line-mode)
   (flyspell-prog-mode)
+  (flymake-mode)
   (display-line-numbers-mode 1)
   (display-fill-column-indicator-mode 1)
   (diff-hl-mode)
