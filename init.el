@@ -339,7 +339,8 @@
   (hl-line-mode))
 
 (defun my/on-before-save()
-  (indent-according-to-mode)
+  (save-excursion
+	(indent-region (point-min) (point-max) nil))
   (delete-trailing-whitespace))
 
 (defun midnight-commander()
