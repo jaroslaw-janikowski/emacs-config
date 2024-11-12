@@ -1,5 +1,10 @@
 (load-theme 'modus-vivendi)
 
+;; EXWM
+;; (require 'exwm)
+;; (exwm-enable)
+;; (exwm-randr-mode)
+
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
