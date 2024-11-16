@@ -2,6 +2,7 @@
 
 ;; EXWM
 ;; (require 'exwm)
+;; (add-hook 'exwm-randr-screen-change-hook #'exwm-randr-refresh)
 ;; (exwm-enable)
 ;; (exwm-randr-mode)
 
