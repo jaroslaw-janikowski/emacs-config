@@ -515,12 +515,7 @@
 							 ("\\*Messages" display-buffer-same-window)
 							 ("\\'\\*Async Shell Command\\*\\'"
 							  (display-buffer-no-window))
-							 ("\\*Compilation"
-							  (display-buffer-reuse-window display-buffer-in-direction)
-							  (direction . leftmost)
-							  (dedicated . t)
-							  (window-width . 0.3)
-							  (inhibit-same-window . t))
+							 ("\\*Compilation" (display-buffer-same-window))
 							 ("\\*ispell-top-choices\\*.*"
 							  (display-buffer-reuse-mode-window display-buffer-below-selected) (window-height . fit-window-to-buffer))
 							 ("\\*Help\\*"
@@ -686,7 +681,7 @@
 (global-set-key (kbd "C-d") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-k") 'mc/skip-to-next-like-this)
 (global-set-key (kbd "<f1>") 'embark-act)
-(global-set-key (kbd "<f5>") 'eval-buffer)
+(global-set-key (kbd "<f5>") #'compile)
 (global-set-key (kbd "<f6>") 'eglot-format)
 (global-set-key (kbd "C-x d") 'project-dired)
 (global-set-key (kbd "C-x b") 'beframe-switch-buffer)
