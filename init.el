@@ -346,8 +346,9 @@
   (hl-line-mode))
 
 (defun my/on-before-save()
-  (save-excursion
-	(indent-region (point-min) (point-max) nil))
+  (when (not (equal major-mode 'makefile-gmake-mode)) ;; makefile has issues with indent-region
+	(save-excursion
+	  (indent-region (point-min) (point-max) nil)))
   (delete-trailing-whitespace))
 
 (defun midnight-commander()
