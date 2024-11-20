@@ -48,6 +48,9 @@
 (require 'ediff)
 (require 'indent-bars)
 
+(defun my-company-sort-completions (candidates)
+  (sort candidates (lambda (a b) (< (length a) (length b)))))
+
 ;; Custom mods
 (add-to-list 'load-path (file-name-concat user-emacs-directory "mods"))
 (require 'company-git)
@@ -568,6 +571,7 @@
 	  compilation-scroll-output t
 	  compilation-always-kill t
 	  company-quickhelp-delay 3
+	  company-transformers '(my-company-sort-completions)
 	  sgml-quick-keys 'close
 	  ediff-window-setup-function 'ediff-setup-windows-plain
 	  ediff-split-window-function 'split-window-horizontally
