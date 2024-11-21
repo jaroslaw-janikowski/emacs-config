@@ -2,7 +2,11 @@
 
 ;; EXWM
 ;; (require 'exwm)
-;; (add-hook 'exwm-randr-screen-change-hook #'exwm-randr-refresh)
+;; (add-hook 'exwm-randr-screen-change-hook
+;; 		  (lambda ()
+;; 			(message "Resizing screen...")  ;; Do not remove. Resize does not work without this line :P
+;; 			(exwm-randr-refresh)
+;; 			(message "Done.")))
 ;; (exwm-enable)
 ;; (exwm-randr-mode)
 
