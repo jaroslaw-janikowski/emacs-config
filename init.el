@@ -446,7 +446,6 @@
 									 ("\\.\\(mp3\\|wav\\|ogg\\|\\)$" "mpv"))
 	  default-input-method "english"
 	  default-transient-input-method "polish"
-	  initial-buffer-choice t  ;; always start with *scratch*
 	  frame-resize-pixelwise t
 	  frame-inhibit-implied-resize t
 	  frame-title-format '("%b")
@@ -533,7 +532,9 @@
 							 ("^\\*Native-compile-Log\\*$"
 							  (display-buffer-same-window))
 							 ("\\(magit: .+\\|magit-log.+\\|magit-revision.+\\)"
-							  (display-buffer-same-window)))
+							  (display-buffer-same-window))
+							 ("\\*Org Agenda\\*"
+							  (display-buffer-reuse-window display-buffer-same-window)))
 
 	  term-scroll-to-bottom-on-output t
 	  tabbar-buffer-groups-function 'my/tab-bar-groups
