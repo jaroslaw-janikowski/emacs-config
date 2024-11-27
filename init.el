@@ -741,6 +741,7 @@
 ;; (add-hook 'after-init-hook 'my-setup-after-init)
 ;; (add-hook 'kill-emacs-hook 'my-kill-emacs)
 
+(add-hook 'org-agenda-finalize-hook #'hl-line-mode)
 (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
 (add-hook 'nxml-mode-hook 'my-setup-nxml-mode)
 (add-hook 'text-mode-hook 'my/setup-text-mode)
