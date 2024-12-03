@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: pdo-select
+# key: pdo
+# --
+try {
+$conn = new PDO(${1:connection_string}, ${2:username}, ${3:password});
+$arr = $conn->query("${4:select * from mytable}")->fetchAll(PDO::FETCH_ASSOC);
+$0
+} catch (PDOException $e) {
+$4
+} finally {
+$conn->close();
+}

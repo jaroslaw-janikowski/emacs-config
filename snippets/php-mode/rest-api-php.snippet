@@ -1,0 +1,32 @@
+# -*- mode: snippet -*-
+# name: rest-api-php
+# key: rest-api
+# --
+<?php
+
+header("Content-Type: application/json; charset=UTF-8");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST);
+
+$requestMethod = $_SERVER["REQUEST_METHOD"];
+$endpoint = $_GET["endpoint"];
+
+function respond(int $statusCode, array $data): void {
+http_response_code($statusCode);
+echo json_encode($data);
+exit;
+}
+
+switch ($requestMethod) {
+case "GET":
+// get data from database
+respond(200, ["data" => "It works"]);
+break;
+case "POST":
+$input = json_decode(file_get_contents('php://input'), true);
+if ($endpoint === '' && isset($input[''])){
+respond(201, ['message' => 'OK']);
+}
+respond(400, ["error" => "Invalid input"]);
+break;
+}

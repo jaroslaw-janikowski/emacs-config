@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: mysqli-select
+# key: mysqli
+# --
+$conn = mysqli_connect(${1:connection_string}, ${2:username}, ${3:password});
+if (!$conn){
+die("Connection failed: " . mysqli_connect_error());
+}
+$result = mysqli_query($conn, ${4:sql});
+while ($row = mysqli_fetch_assoc($result)){
+$0
+}
