@@ -551,7 +551,6 @@
 							  "elektronika")
 	  denote-sort-keywords t
 	  denote-prompts '(title keywords)
-	  denote-file-name-components-order '(title keywords)
 	  denote-date-prompt-use-org-read-date t
 	  yas-indent-line 'auto
 	  yas-also-auto-indent-first-line t
