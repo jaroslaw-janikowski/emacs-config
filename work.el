@@ -1,3 +1,6 @@
+;; -*- lexical-binding: t -*-
+;;; package --- Summary
+
 (require 'treemacs)
 (require 'docker-compose-mode)
 (require 'lsp-pascal)
@@ -76,3 +79,7 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(pas\\|pp\\|dpr\\)\\'" . opascal-mode))
 (add-to-list 'auto-mode-alist '("\\.lpr$" . opascal-mode)) ;; Lazarus program
+
+(provide 'work)
+
+;;; work.el ends here

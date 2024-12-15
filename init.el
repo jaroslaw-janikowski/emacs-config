@@ -1,15 +1,5 @@
 (load-theme 'modus-vivendi)
 
-;; EXWM
-;; (require 'exwm)
-;; (add-hook 'exwm-randr-screen-change-hook
-;; 		  (lambda ()
-;; 			(message "Resizing screen...")  ;; Do not remove. Resize does not work without this line :P
-;; 			(exwm-randr-refresh)
-;; 			(message "Done.")))
-;; (exwm-enable)
-;; (exwm-randr-mode)
-
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
@@ -803,11 +793,8 @@
 							 :cwd dape-cwd-fn
 							 :program (lambda () (file-name-nondirectory (buffer-file-name (current-buffer))))))
 
-(let ((private-settings (file-name-concat user-emacs-directory "private.el"))
-	  (work-settings (file-name-concat user-emacs-directory "work.el")))
-  (cond
-   ((file-exists-p private-settings) (load-file private-settings))
-   ;; ((file-exists-p work-settings) (load-file work-settings))
-   (t )))
+;; (require 'private)
+;; (require 'work)
+;; (require 'exwmcfg)
 
 ;;; init.el ends here
