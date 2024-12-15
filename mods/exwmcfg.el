@@ -1,11 +1,10 @@
+;; -*- lexical-binding: t -*-
+
 (require 'exwm)
 
 (defun my-exwm-update-title ()
   (pcase exwm-class-name
 	("Firefox" (exwm-workspace-rename-buffer (format "Firefox: %s" exwm-title)))))
-
-(exwm-enable)
-(exwm-randr-mode)
 
 (add-hook 'exwm-randr-screen-change-hook
 		  (lambda ()
@@ -14,5 +13,10 @@
 			(message "Done.")))
 
 (add-hook 'exwm-update-title-hook #'my-exwm-update-title)
+
+(exwm-enable)
+(exwm-randr-mode)
+
+(provide 'exwmcfg)
 
 ;;; exwmcfg.el ends here

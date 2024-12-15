@@ -45,11 +45,6 @@
 (defun my-company-sort-completions (candidates)
   (sort candidates (lambda (a b) (< (length a) (length b)))))
 
-;; Custom mods
-(add-to-list 'load-path (file-name-concat user-emacs-directory "mods"))
-(require 'company-git)
-(require 'company-html)
-
 ;; Custom project management
 (setq my/project-current-root "~/.emacs.d/")
 
@@ -793,8 +788,12 @@
 							 :cwd dape-cwd-fn
 							 :program (lambda () (file-name-nondirectory (buffer-file-name (current-buffer))))))
 
-;; (require 'private)
+;; Custom mods
+(add-to-list 'load-path (file-name-concat user-emacs-directory "mods"))
+(require 'company-git)
+(require 'company-html)
 ;; (require 'work)
 ;; (require 'exwmcfg)
+;; (require 'private)
 
 ;;; init.el ends here
