@@ -1,4 +1,4 @@
-apt install -y sway make xwayland pavucontrol brightnessctl swayidle swaylock qemu-system-x86 grimshot wdisplays p7zip-full xterm clangd nsis gnupg2 gnuplot gnuplot-doc graphviz graphviz-doc unifont silversearcher-ag
+apt install -y sway make xwayland pavucontrol brightnessctl swayidle swaylock qemu-system-x86 grimshot wdisplays p7zip-full xterm clangd nsis gnupg2 gnuplot gnuplot-doc graphviz graphviz-doc unifont silversearcher-ag libtree-sitter-dev
 
 # spelling tools
 apt install -y ispell ipolish ibritish iamerican
@@ -73,7 +73,7 @@ ufw deny vnc
 apt install -y python3-venv python3-pip python3-debugpy python3-pylsp
 
 # emacs
-apt install -y emacs
+apt build-dep emacs
 su bps
 emacs -Q --script ~/.emacs.d/install/setup-emacs.el
 exit
