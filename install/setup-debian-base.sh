@@ -1,4 +1,4 @@
-apt install -y sway make xwayland pavucontrol brightnessctl swayidle swaylock qemu-system-x86 grimshot wdisplays p7zip-full xterm clangd nsis gnupg2 gnuplot gnuplot-doc graphviz graphviz-doc unifont silversearcher-ag libtree-sitter-dev
+apt install -y sway make xwayland pavucontrol brightnessctl swayidle swaylock qemu-system-x86 grimshot wdisplays p7zip-full xterm clangd nsis gnupg2 gnuplot gnuplot-doc graphviz graphviz-doc unifont silversearcher-ag libtree-sitter-dev gdb
 
 # spelling tools
 apt install -y ispell ipolish ibritish iamerican
