@@ -472,6 +472,10 @@
       org-adapt-indentation t
 	  org-link-frame-setup '((file . find-file))
 	  org-M-RET-may-split-line '((default . nil))
+	  org-agenda-prefix-format '((agenda . " %i %?-12t% s")
+								 (todo . " %i %-12:c")
+								 (tags . " %i %-12:c")
+								 (search . " %i %-12:c"))
 	  diff-default-read-only t
 	  diff-advance-after-apply-hunk t
 	  diff-update-on-the-fly t
