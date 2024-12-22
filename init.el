@@ -580,10 +580,8 @@
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
               c-default-style "k&r"
-              c-basic-offset 4
               c-electric-flag t
 			  comment-column 0
-			  tab-width 4
 			  adaptive-wrap-extra-indent 0
 			  display-fill-column-indicator-column 80
 			  comint-scroll-to-bottom-on-input t
