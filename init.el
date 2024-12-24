@@ -3,13 +3,13 @@
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			  ("melpa-stable" . "https://stable.melpa.org/packages/")
-			  ("nongnu" . "https://elpa.nongnu.org/nongnu/")
-			  ("gnu" . "https://elpa.gnu.org/packages/"))
+			   ("melpa-stable" . "https://stable.melpa.org/packages/")
+			   ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+			   ("gnu" . "https://elpa.gnu.org/packages/"))
       package-archive-priorities '(("melpa" . 1)
-				      ("melpa-stable" . 2)
-				      ("nongnu" . 3)
-				      ("gnu" . 4)))
+				         ("melpa-stable" . 2)
+				         ("nongnu" . 3)
+				         ("gnu" . 4)))
 (package-initialize)
 
 (require 'consult)
@@ -89,6 +89,10 @@
 
    ;; any other
    ((string-suffix-p ".mp4" url) (mpv-start url))
+
+   ;; mastodon.el
+   ((string-match-p "https://.*/@.*/[0-9]+" url)
+    (mastodon-url-lookup url))
 
    (t (eww-browse-url url new-window))))
 
@@ -519,12 +523,12 @@
 			      (display-buffer-reuse-window display-buffer-same-window))
 			     ("^\\*eshell\\*$"
 			      (display-buffer-same-window))
-			          ("^\\*Native-compile-Log\\*$"
-			  (display-buffer-same-window))
-			          ("\\(magit: .+\\|magit-log.+\\|magit-revision.+\\)"
-			  (display-buffer-same-window))
-			          ("\\*Org Agenda\\*"
-			  (display-buffer-reuse-window display-buffer-same-window)))
+			               ("^\\*Native-compile-Log\\*$"
+			   (display-buffer-same-window))
+			               ("\\(magit: .+\\|magit-log.+\\|magit-revision.+\\)"
+			   (display-buffer-same-window))
+			               ("\\*Org Agenda\\*"
+			   (display-buffer-reuse-window display-buffer-same-window)))
 
       term-scroll-to-bottom-on-output t
       tabbar-buffer-groups-function 'my/tab-bar-groups
@@ -537,8 +541,8 @@
       proced-enable-color-flag t
       denote-directory "~/denote"
       denote-known-keywords '("emacs" "programowanie"
-			            "technika", "informatyka"
-			            "elektronika")
+			                  "technika", "informatyka"
+			                  "elektronika")
       denote-sort-keywords t
       denote-prompts '(title keywords)
       denote-date-prompt-use-org-read-date t
@@ -581,12 +585,12 @@
 (setq-default dired-kill-when-opening-new-dired-buffer t
               c-default-style "k&r"
               c-electric-flag t
-	            comment-column 0
-	            adaptive-wrap-extra-indent 0
-	            display-fill-column-indicator-column 80
-	            comint-scroll-to-bottom-on-input t
-	            comint-scroll-to-bottom-on-output nil
-	            eglot-workspace-configuration '(:pylsp (:plugins (:jedi_completion (:enabled t :include_params t :fuzzy t :include_class_objects t :include_function_objects t :eager t) :flake8 (:enabled t) :black (:enabled t)))))
+	                  comment-column 0
+	                  adaptive-wrap-extra-indent 0
+	                  display-fill-column-indicator-column 80
+	                  comint-scroll-to-bottom-on-input t
+	                  comint-scroll-to-bottom-on-output nil
+	                  eglot-workspace-configuration '(:pylsp (:plugins (:jedi_completion (:enabled t :include_params t :fuzzy t :include_class_objects t :include_function_objects t :eager t) :flake8 (:enabled t) :black (:enabled t)))))
 
 (use-package password-generator
   :defer t
@@ -620,13 +624,13 @@
 (global-company-mode)
 (yas-global-mode 1)
 (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t)
-							  (python . t)
-							  (dot . t)
-							  (shell . t)
-							  (sql . t)
-							  (C . t)
-							  (gnuplot . t)
-							  (scheme . t)))
+							   (python . t)
+							   (dot . t)
+							   (shell . t)
+							   (sql . t)
+							   (C . t)
+							   (gnuplot . t)
+							   (scheme . t)))
 (which-key-mode)
 (beframe-mode t)
 
