@@ -3,13 +3,13 @@
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-						 ("melpa-stable" . "https://stable.melpa.org/packages/")
-						 ("nongnu" . "https://elpa.nongnu.org/nongnu/")
-						 ("gnu" . "https://elpa.gnu.org/packages/"))
+			  ("melpa-stable" . "https://stable.melpa.org/packages/")
+			  ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+			  ("gnu" . "https://elpa.gnu.org/packages/"))
       package-archive-priorities '(("melpa" . 1)
-								   ("melpa-stable" . 2)
-								   ("nongnu" . 3)
-								   ("gnu" . 4)))
+				      ("melpa-stable" . 2)
+				      ("nongnu" . 3)
+				      ("gnu" . 4)))
 (package-initialize)
 
 (require 'consult)
@@ -50,22 +50,22 @@
 
 (defun my/project-pre-hook()
   (if (not (string-prefix-p my/project-current-root default-directory))
-	  (setq default-directory my/project-current-root)))
+      (setq default-directory my/project-current-root)))
 
 (add-hook 'pre-command-hook 'my/project-pre-hook)
 
 (defun my/project-root (project-path)
   (interactive "DKatalog root: ")
   (if (file-directory-p project-path)
-	  (progn
-		(setq my/project-current-root project-path
-			  project-current-directory-override project-path)
-		(project-current)
-		(setq-local venv-dir (file-name-concat my/project-current-root ".venv"))
-		(pyvenv-deactivate)
-		(if (file-directory-p venv-dir)
-			(pyvenv-activate venv-dir)))
-	(message "Nie udało się zmienić katalogu projektu. Typuj ścieżki dokładniej!")))
+      (progn
+	(setq my/project-current-root project-path
+	      project-current-directory-override project-path)
+	(project-current)
+	(setq-local venv-dir (file-name-concat my/project-current-root ".venv"))
+	(pyvenv-deactivate)
+	(if (file-directory-p venv-dir)
+	    (pyvenv-activate venv-dir)))
+    (message "Nie udało się zmienić katalogu projektu. Typuj ścieżki dokładniej!")))
 
 (global-set-key (kbd "C-x p p") 'my/project-root)
 ;; end of custom project management
@@ -74,12 +74,12 @@
   (cond
    ;; youtube
    ((or (string-prefix-p "https://www.youtube.com/watch?v=" url)
-		(string-prefix-p "https://m.youtube.com/watch?v=" url)
-		(string-prefix-p "https://youtube.com/watch?v=" url)
-		(string-prefix-p "https://www.youtube.com/shorts/" url)
-		(string-prefix-p "https://www.youtube.com/embed/" url)
-		(string-prefix-p "https://youtu.be/" url))
-	(mpv-start url))
+	(string-prefix-p "https://m.youtube.com/watch?v=" url)
+	(string-prefix-p "https://youtube.com/watch?v=" url)
+	(string-prefix-p "https://www.youtube.com/shorts/" url)
+	(string-prefix-p "https://www.youtube.com/embed/" url)
+	(string-prefix-p "https://youtu.be/" url))
+    (mpv-start url))
 
    ;; archive.org
    ((string-match-p "https://archive.org/download/.*/format=MPEG4" url) (mpv-start url))
@@ -95,7 +95,7 @@
 (defun eww-rewrite-url (url)
   (cond
    ((string-prefix-p "https://www.reddit.com" url)
-	(replace-regexp-in-string "www\\.reddit\\.com" "incogsnoo.com" url))
+    (replace-regexp-in-string "www\\.reddit\\.com" "incogsnoo.com" url))
    (t url)))
 
 (defun my-after-init ()
@@ -111,14 +111,14 @@
 (defun my-grep-project(arg)
   (interactive "P")
   (let ((default-directory my/project-current-root))
-	(helm-do-grep-ag arg)))
+    (helm-do-grep-ag arg)))
 
 (defun my/tab-bar-groups()
   (list (cond ((eq major-mode 'dired-mode) "shell")
-			  ((eq major-mode 'eshell-mode) "shell")
-			  ((string-prefix-p "*" (buffer-name)) "emacs")
-			  ((string-match-p ".newsrc-dribble" (buffer-name)) "emacs")
-			  ((t "user")))))
+	      ((eq major-mode 'eshell-mode) "shell")
+	      ((string-prefix-p "*" (buffer-name)) "emacs")
+	      ((string-match-p ".newsrc-dribble" (buffer-name)) "emacs")
+	      ((t "user")))))
 
 (defun my/forward-paragraph()
   (interactive)
@@ -137,7 +137,7 @@
 
 (defun my/org-present-start()
   (setq visual-fill-column-width 110
-		visual-fill-column-center-text t)
+	visual-fill-column-center-text t)
   (visual-fill-column-mode 1)
   (visual-line-mode 1)
   (display-line-numbers-mode 0)
@@ -156,7 +156,7 @@
   (interactive "P")
   (let ((word (thing-at-point 'word)))
     (if word
-		(helm-grep-ag (expand-file-name command-line-default-directory) arg))))
+	(helm-grep-ag (expand-file-name command-line-default-directory) arg))))
 
 (defun my/on-escape()
   (interactive)
@@ -165,11 +165,11 @@
 
 (defun my/in-start-tag-p ()
   (let ((token-end (nxml-token-before))
-		(pod (1+ (point)))
-		(token-start xmltok-start))
+	(pod (1+ (point)))
+	(token-start xmltok-start))
     (or (eq xmltok-type 'partial-start-tag)
-		(and (memq xmltok-type '(start-tag empty-element partial-empty-element))
-			 (>= token-end pos)))))
+	(and (memq xmltok-type '(start-tag empty-element partial-empty-element))
+	     (>= token-end pos)))))
 
 (defun my/finish-element ()
   (interactive)
@@ -181,34 +181,34 @@
   (interactive)
   (insert ">")
   (let ((cur-pos (point)))
-	(sgml-close-tag)
-	(goto-char cur-pos)))
+    (sgml-close-tag)
+    (goto-char cur-pos)))
 
 (defun string-before(char-count)
   (let ((prev-word-start (- (point) char-count))
-		(prev-word-end (point)))
-	(let ((prev-word-start-abs (if (>= prev-word-start 0) prev-word-start (point-min))))
-	  (buffer-substring prev-word-start-abs prev-word-end))))
+	(prev-word-end (point)))
+    (let ((prev-word-start-abs (if (>= prev-word-start 0) prev-word-start (point-min))))
+      (buffer-substring prev-word-start-abs prev-word-end))))
 
 (defun string-after(char-count)
   (let ((next-word-start (point))
-		(next-word-end (+ (point) char-count)))
-	(let ((next-word-end-abs (if (> next-word-end (point-max)) (point-max) next-word-end)))
-	  (buffer-substring next-word-start next-word-end-abs))))
+	(next-word-end (+ (point) char-count)))
+    (let ((next-word-end-abs (if (> next-word-end (point-max)) (point-max) next-word-end)))
+      (buffer-substring next-word-start next-word-end-abs))))
 
 (defun my/nxml-newline ()
   "Insert a newline, indenting the current line and the newline appropriately in nxml-mode."
   (interactive)
   (if (and (char-before) (char-after)
-		   (char-equal (char-before) ?>)
-		   (char-equal (char-after) ?<))
+	   (char-equal (char-before) ?>)
+	   (char-equal (char-after) ?<))
       (let ((indentation (current-indentation)))
-		(newline)
-		(indent-line-to (+ indentation 4))
-		(newline)
-		(indent-line-to indentation)
-		(previous-line)
-		(end-of-line))
+	(newline)
+	(indent-line-to (+ indentation 4))
+	(newline)
+	(indent-line-to indentation)
+	(previous-line)
+	(end-of-line))
     (newline-and-indent)))
 
 (defun my/create-new-file ()
@@ -234,17 +234,17 @@
 
 (defun my-setup-shell-script-mode ()
   (setq-local company-backends '((company-shell
-								  company-shell-env
-								  company-files
-								  company-yasnippet))))
+				  company-shell-env
+				  company-files
+				  company-yasnippet))))
 
 (defun my/setup-prog-mode()
   (setq-local company-backends '((company-yasnippet
-								  company-dabbrev-code
-								  company-keywords
-								  company-files
-								  company-capf))
-			  show-trailing-whitespace t)
+				  company-dabbrev-code
+				  company-keywords
+				  company-files
+				  company-capf))
+	      show-trailing-whitespace t)
   (hl-line-mode)
   (flyspell-prog-mode)
   (flymake-mode)
@@ -259,14 +259,14 @@
 
 (defun my-setup-mhtml-mode ()
   (setq-local company-backends '(company-html
-								 company-dabbrev-code
-								 company-yasnippet)
-			  electric-pair-inhibit-predicate (lambda (c) (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c)))))
+				 company-dabbrev-code
+				 company-yasnippet)
+	      electric-pair-inhibit-predicate (lambda (c) (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c)))))
 
 (defun my/setup-makefile-mode()
   (setq-local company-backends '((company-files
-								  company-dabbrev-code
-								  company-yasnippet))))
+				  company-dabbrev-code
+				  company-yasnippet))))
 
 (defun my-setup-markdown-mode ()
   (markdown-toggle-inline-images))
@@ -289,7 +289,7 @@
 
 (defun my/setup-restclient-mode()
   (setq-local company-backends '((company-restclient
-								  company-yasnippet)))
+				  company-yasnippet)))
   (display-line-numbers-mode 1)
   (idle-highlight-mode t)
   (hl-line-mode))
@@ -299,10 +299,10 @@
 
 (defun my/setup-eshell()
   (setq-local company-backends '((company-files
-								  company-yasnippet
-								  company-shell
-								  company-shell-env
-								  company-git))))
+				  company-yasnippet
+				  company-shell
+				  company-shell-env
+				  company-git))))
 
 (defun my/setup-term-mode())
 
@@ -323,10 +323,10 @@
 
 (defun my/setup-c-mode()
   (setq-local company-backends '((company-files
-								  company-yasnippet
-								  company-capf
-								  company-dabbrev-code
-								  company-keywords)))
+				  company-yasnippet
+				  company-capf
+				  company-dabbrev-code
+				  company-keywords)))
   (eglot-ensure))
 
 (defun my/setup-sqli-mode()
@@ -340,8 +340,8 @@
 
 (defun my/on-before-save()
   (when (not (equal major-mode 'makefile-gmake-mode)) ;; makefile has issues with indent-region
-	(save-excursion
-	  (indent-region (point-min) (point-max) nil)))
+    (save-excursion
+      (indent-region (point-min) (point-max) nil)))
   (delete-trailing-whitespace))
 
 (defun midnight-commander()
@@ -354,15 +354,15 @@
   (other-window 1))
 
 (setq warning-minimum-level :error
-	  ;; debug-on-error t
+      ;; debug-on-error t
       inhibit-startup-screen t
-	  inhibit-splash-screen t
+      inhibit-splash-screen t
       byte-compile-warnings nil
       gc-cons-threshold 10000000
       gc-cons-percentage 0.1
       garbage-collection-messages nil
       make-backup-files nil
-	  backup-inhibited nil
+      backup-inhibited nil
       auto-save-default nil
       load-prefer-newer t
       read-process-output-max (* 3 1024 1024) ;; 3mb
@@ -372,93 +372,93 @@
       create-lockfiles nil
       large-file-warning-threshold 100000000
       ring-bell-function 'ignore
-	  visible-bell t
+      visible-bell t
       use-short-answers t
-	  read-answer-short t
-	  kill-ring-max 60
-	  isearch-lazy-count t
-	  search-highlight t
-	  query-replace-highlight t
-	  shell-command-prompt-show-cwd t
-	  uniquify-buffer-name-style 'post-forward-angle-brackets
-	  ansi-color-for-comint-mode t
-	  shell-input-autoexpand 'input
-	  shell-highlight-undef-enable t
-	  shell-kill-buffer-on-exit t
-	  explicit-shell-file-name "/bin/bash"
-	  comint-prompt-read-only t
-	  comint-buffer-maximum-size 9999
-	  comint-completion-autolist t
-	  comint-input-ignoredups t
+      read-answer-short t
+      kill-ring-max 60
+      isearch-lazy-count t
+      search-highlight t
+      query-replace-highlight t
+      shell-command-prompt-show-cwd t
+      uniquify-buffer-name-style 'post-forward-angle-brackets
+      ansi-color-for-comint-mode t
+      shell-input-autoexpand 'input
+      shell-highlight-undef-enable t
+      shell-kill-buffer-on-exit t
+      explicit-shell-file-name "/bin/bash"
+      comint-prompt-read-only t
+      comint-buffer-maximum-size 9999
+      comint-completion-autolist t
+      comint-input-ignoredups t
       confirm-kill-processes nil
       confirm-kill-emacs nil
       confirm-nonexistent-file-or-buffer nil
-	  completion-ignore-case t
-	  read-buffer-completion-ignore-case t
-	  read-file-name-completion-ignore-case t
-	  enable-recursive-minibuffers t
-	  resize-mini-windows t
+      completion-ignore-case t
+      read-buffer-completion-ignore-case t
+      read-file-name-completion-ignore-case t
+      enable-recursive-minibuffers t
+      resize-mini-windows t
       require-final-newline t
       executable-prefix-env t
       initial-scratch-message nil
       enable-local-variables nil
-	  blink-matching-paren t
-	  remote-file-name-inhibit-delete-by-moving-to-trash t
-	  remote-file-name-inhibit-auto-save t
-	  tramp-connection-timeout (* 60 10)
-	  tramp-default-remote-shell "/bin/bash"
-	  tramp-default-method "ssh"
-	  tramp-verbose 7
-	  kill-do-not-save-duplicates t
-	  comment-empty-lines t
-	  comment-fill-column nil
-	  comment-multi-line t
-	  comment-style 'multi-line
-	  gdb-many-windows t
-	  gdb-use-separate-io-buffer t
-	  gud-pdb-command-name "python3 -m pdb "
-	  gud-highlight-current-line t
+      blink-matching-paren t
+      remote-file-name-inhibit-delete-by-moving-to-trash t
+      remote-file-name-inhibit-auto-save t
+      tramp-connection-timeout (* 60 10)
+      tramp-default-remote-shell "/bin/bash"
+      tramp-default-method "ssh"
+      tramp-verbose 7
+      kill-do-not-save-duplicates t
+      comment-empty-lines t
+      comment-fill-column nil
+      comment-multi-line t
+      comment-style 'multi-line
+      gdb-many-windows t
+      gdb-use-separate-io-buffer t
+      gud-pdb-command-name "python3 -m pdb "
+      gud-highlight-current-line t
       dired-auto-revert-buffer t
       dired-confirm-shell-command nil
       dired-clean-confirm-killing-deleted-buffers nil
-	  dired-recursive-copies 'always
+      dired-recursive-copies 'always
       dired-recursive-deletes 'always
       dired-no-confirm t
-	  dired-make-directory-clickable t
-	  dired-mouse-drag-files t
-	  dired-clean-up-buffers-too t
-	  dired-clean-confirm-killing-deleted-buffers t
-	  dired-guess-shell-alist-user '(("\\.\\(mp4\\|mkv\\|avi\\|mov\\|wmv\\|flv\\|mpg\\)$" "mpv")
-									 ("\\.\\(mp3\\|wav\\|ogg\\|\\)$" "mpv"))
-	  default-input-method "english"
-	  default-transient-input-method "polish"
-	  frame-resize-pixelwise t
-	  frame-inhibit-implied-resize t
-	  frame-title-format '("%b")
+      dired-make-directory-clickable t
+      dired-mouse-drag-files t
+      dired-clean-up-buffers-too t
+      dired-clean-confirm-killing-deleted-buffers t
+      dired-guess-shell-alist-user '(("\\.\\(mp4\\|mkv\\|avi\\|mov\\|wmv\\|flv\\|mpg\\)$" "mpv")
+				     ("\\.\\(mp3\\|wav\\|ogg\\|\\)$" "mpv"))
+      default-input-method "english"
+      default-transient-input-method "polish"
+      frame-resize-pixelwise t
+      frame-inhibit-implied-resize t
+      frame-title-format '("%b")
       initial-major-mode 'org-mode
       nxml-slash-autocomplete-flag t
       nxml-mode-map (make-keymap)
-	  custom-file (make-temp-file "emacs-custom-")  ;; brak dopisywania customize
+      custom-file (make-temp-file "emacs-custom-")  ;; brak dopisywania customize
       company-minimum-prefix-length 1
       company-idle-delay 0
       company-selection-wrap-around t
       company-files-exclusions '(".git/" ".DS_Store" "__pycache__/" ".venv/"
-								 ".mypy_cache/")
+				 ".mypy_cache/")
       company-dabbrev-minimum-length 3
       company-tooltip-align-annotations t
-	  eglot-autoshutdown t
+      eglot-autoshutdown t
       mc/always-run-for-all t
       python-shell-interpreter "python3"
-	  dape-buffer-window-arrangement 'right
-	  dape-cwd-fn (lambda () my/project-current-root)
+      dape-buffer-window-arrangement 'right
+      dape-cwd-fn (lambda () my/project-current-root)
       org-confirm-babel-evaluate nil
-	  org-src-window-setup 'current-window
-	  org-edit-src-persistent-message nil
-	  org-edit-src-content-indentation 0
+      org-src-window-setup 'current-window
+      org-edit-src-persistent-message nil
+      org-edit-src-content-indentation 0
       org-hide-leading-stars t
       org-return-follows-link t
-	  org-mouse-1-follows-link t
-	  org-link-descriptive t
+      org-mouse-1-follows-link t
+      org-link-descriptive t
       org-support-shift-select t
       org-hide-emphasis-markers nil
       org-babel-python-command "python3 -i"
@@ -467,126 +467,126 @@
       org-startup-with-inline-images t
       org-startup-with-latex-preview t
       org-special-ctrl-o nil
-	  org-special-ctrl-a/e nil
-	  org-special-ctrl-k nil
+      org-special-ctrl-a/e nil
+      org-special-ctrl-k nil
       org-adapt-indentation t
-	  org-link-frame-setup '((file . find-file))
-	  org-M-RET-may-split-line '((default . nil))
-	  org-agenda-prefix-format '((agenda . " %i %?-12t% s")
-								 (todo . " %i %-12:c")
-								 (tags . " %i %-12:c")
-								 (search . " %i %-12:c"))
-	  diff-default-read-only t
-	  diff-advance-after-apply-hunk t
-	  diff-update-on-the-fly t
-	  diff-font-lock-prettify nil
-	  vc-follow-symlinks t
-	  use-dialog-box nil
-	  calendar-christian-all-holidays-flag t
-	  calendar-mark-holidays-flag t
-	  calendar-holidays '((holiday-fixed 1 1 "Nowy Rok")
-						  (holiday-easter-etc 0 "Pierwszy dzień Wielkanocy")
-						  (holiday-easter-etc 1 "Drugi dzień Wielkanocy")
-						  (holiday-fixed 1 6 "Trzech Króli")
-						  (holiday-fixed 5 1 "Święto Pracy")
-						  (holiday-fixed 5 3 "Trzeciego Maja")
-						  (holiday-easter-etc 50 "Zielone Świątki")
-						  (holiday-easter-etc 60 "Boże Ciało")
-						  (holiday-fixed 8 15 "Wniebowzięcie Najświętszej Maryi Panny")
-						  (holiday-fixed 11 1 "Wszystkich Świętych")
-						  (holiday-fixed 11 11 "Święto Niepodległości")
-						  (holiday-fixed 12 25 "Wigilia Bożego Narodzenia")
-						  (holiday-fixed 12 26 "Boże Narodzenie"))
-	  ispell-choices-buffer "*ispell-top-choices*"
-	  message-confirm-send nil
-	  message-kill-buffer-on-exit t
-	  message-wide-reply-confirm-recipients t
-	  eww-history-limit 100
-	  eww-browse-url-new-window-is-tab nil
-	  eww-search-prefix "https://html.duckduckgo.com/html/?q="
-	  eww-url-transformers '(eww-remove-tracking eww-rewrite-url)
-	  display-buffer-alist '(("(\\*Occur\\*|\\*helm.+)"
-							  (display-buffer-reuse-mode-window display-buffer-below-selected)
-							  (window-height . fit-window-to-buffer)
-							  (dedicated . t))
-							 ("\\*Messages" display-buffer-same-window)
-							 ("\\'\\*Async Shell Command\\*\\'"
-							  (display-buffer-no-window))
-							 ("\\*Compilation" (display-buffer-same-window))
-							 ("\\*ispell-top-choices\\*.*"
-							  (display-buffer-reuse-mode-window display-buffer-below-selected) (window-height . fit-window-to-buffer))
-							 ("\\*Help\\*"
-							  (display-buffer-reuse-window display-buffer-same-window))
-							 ("^\\*eshell\\*$"
-							  (display-buffer-same-window))
-							 ("^\\*Native-compile-Log\\*$"
-							  (display-buffer-same-window))
-							 ("\\(magit: .+\\|magit-log.+\\|magit-revision.+\\)"
-							  (display-buffer-same-window))
-							 ("\\*Org Agenda\\*"
-							  (display-buffer-reuse-window display-buffer-same-window)))
+      org-link-frame-setup '((file . find-file))
+      org-M-RET-may-split-line '((default . nil))
+      org-agenda-prefix-format '((agenda . " %i %?-12t% s")
+				 (todo . " %i %-12:c")
+				 (tags . " %i %-12:c")
+				 (search . " %i %-12:c"))
+      diff-default-read-only t
+      diff-advance-after-apply-hunk t
+      diff-update-on-the-fly t
+      diff-font-lock-prettify nil
+      vc-follow-symlinks t
+      use-dialog-box nil
+      calendar-christian-all-holidays-flag t
+      calendar-mark-holidays-flag t
+      calendar-holidays '((holiday-fixed 1 1 "Nowy Rok")
+			  (holiday-easter-etc 0 "Pierwszy dzień Wielkanocy")
+			  (holiday-easter-etc 1 "Drugi dzień Wielkanocy")
+			  (holiday-fixed 1 6 "Trzech Króli")
+			  (holiday-fixed 5 1 "Święto Pracy")
+			  (holiday-fixed 5 3 "Trzeciego Maja")
+			  (holiday-easter-etc 50 "Zielone Świątki")
+			  (holiday-easter-etc 60 "Boże Ciało")
+			  (holiday-fixed 8 15 "Wniebowzięcie Najświętszej Maryi Panny")
+			  (holiday-fixed 11 1 "Wszystkich Świętych")
+			  (holiday-fixed 11 11 "Święto Niepodległości")
+			  (holiday-fixed 12 25 "Wigilia Bożego Narodzenia")
+			  (holiday-fixed 12 26 "Boże Narodzenie"))
+      ispell-choices-buffer "*ispell-top-choices*"
+      message-confirm-send nil
+      message-kill-buffer-on-exit t
+      message-wide-reply-confirm-recipients t
+      eww-history-limit 100
+      eww-browse-url-new-window-is-tab nil
+      eww-search-prefix "https://html.duckduckgo.com/html/?q="
+      eww-url-transformers '(eww-remove-tracking eww-rewrite-url)
+      display-buffer-alist '(("(\\*Occur\\*|\\*helm.+)"
+			      (display-buffer-reuse-mode-window display-buffer-below-selected)
+			      (window-height . fit-window-to-buffer)
+			      (dedicated . t))
+			     ("\\*Messages" display-buffer-same-window)
+			     ("\\'\\*Async Shell Command\\*\\'"
+			      (display-buffer-no-window))
+			     ("\\*Compilation" (display-buffer-same-window))
+			     ("\\*ispell-top-choices\\*.*"
+			      (display-buffer-reuse-mode-window display-buffer-below-selected) (window-height . fit-window-to-buffer))
+			     ("\\*Help\\*"
+			      (display-buffer-reuse-window display-buffer-same-window))
+			     ("^\\*eshell\\*$"
+			      (display-buffer-same-window))
+			          ("^\\*Native-compile-Log\\*$"
+			  (display-buffer-same-window))
+			          ("\\(magit: .+\\|magit-log.+\\|magit-revision.+\\)"
+			  (display-buffer-same-window))
+			          ("\\*Org Agenda\\*"
+			  (display-buffer-reuse-window display-buffer-same-window)))
 
-	  term-scroll-to-bottom-on-output t
-	  tabbar-buffer-groups-function 'my/tab-bar-groups
-	  browse-url-new-window-flag t
+      term-scroll-to-bottom-on-output t
+      tabbar-buffer-groups-function 'my/tab-bar-groups
+      browse-url-new-window-flag t
       browse-url-browser-function 'my-eww-browse-url
       restclient-log-request t
       eww-auto-rename-buffer 'title
-	  proced-auto-update-flag t
-	  proced-tree-flag t
-	  proced-enable-color-flag t
-	  denote-directory "~/denote"
-	  denote-known-keywords '("emacs" "programowanie"
-							  "technika", "informatyka"
-							  "elektronika")
-	  denote-sort-keywords t
-	  denote-prompts '(title keywords)
-	  denote-date-prompt-use-org-read-date t
-	  yas-indent-line 'auto
-	  yas-also-auto-indent-first-line t
-	  smtpmail-debug-info t
-	  smtpmail-debug-verb t
-	  read-mail-command 'gnus
-	  mail-user-agent 'gnus-user-agent
-	  message-send-mail-function 'smtpmail-send-it
-	  send-mail-function 'smtpmail-send-it
-	  nntp-maximum-request 4  ;; max dla eternal-september
-	  gnus-always-read-dribble-file nil
-	  gnus-use-dribble-file nil
-	  gnus-save-newsrc-file nil
-	  gnus-read-newsrc-file nil
-	  gnus-inhibit-demon t
-	  gnus-summary-to-prefix ""
-	  gnus-summary-newsgroup-prefix ""
-	  gnus-large-newsgroup 200
-	  gnus-interactive-exit nil
-	  mpv-default-options '("--ytdl-format=bestvideo[height<=?480]+bestaudio[height<=?480] / worst" "--script-opts=ytdl_hook-ytdl_path=/home/nntpsurfer/.local/bin/yt-dlp" "--pause")
-	  compilation-ask-about-save nil
-	  compilation-scroll-output t
-	  compilation-always-kill t
-	  company-quickhelp-delay 3
-	  company-transformers '(my-company-sort-completions)
-	  sgml-quick-keys 'close
-	  ediff-window-setup-function 'ediff-setup-windows-plain
-	  ediff-split-window-function 'split-window-horizontally
-	  markdown-header-scaling t
-	  markdown-display-remote-images t
-	  geiser-default-implementation 'guile
-	  geiser-scheme-implementation 'guile
-	  geiser-active-implementations '(guile)
-	  geiser-repl-skip-version-check-p t
-	  geiser-debug-show-debug-p t
+      proced-auto-update-flag t
+      proced-tree-flag t
+      proced-enable-color-flag t
+      denote-directory "~/denote"
+      denote-known-keywords '("emacs" "programowanie"
+			            "technika", "informatyka"
+			            "elektronika")
+      denote-sort-keywords t
+      denote-prompts '(title keywords)
+      denote-date-prompt-use-org-read-date t
+      yas-indent-line 'auto
+      yas-also-auto-indent-first-line t
+      smtpmail-debug-info t
+      smtpmail-debug-verb t
+      read-mail-command 'gnus
+      mail-user-agent 'gnus-user-agent
+      message-send-mail-function 'smtpmail-send-it
+      send-mail-function 'smtpmail-send-it
+      nntp-maximum-request 4  ;; max dla eternal-september
+      gnus-always-read-dribble-file nil
+      gnus-use-dribble-file nil
+      gnus-save-newsrc-file nil
+      gnus-read-newsrc-file nil
+      gnus-inhibit-demon t
+      gnus-summary-to-prefix ""
+      gnus-summary-newsgroup-prefix ""
+      gnus-large-newsgroup 200
+      gnus-interactive-exit nil
+      mpv-default-options '("--ytdl-format=bestvideo[height<=?480]+bestaudio[height<=?480] / worst" "--script-opts=ytdl_hook-ytdl_path=/home/nntpsurfer/.local/bin/yt-dlp" "--pause")
+      compilation-ask-about-save nil
+      compilation-scroll-output t
+      compilation-always-kill t
+      company-quickhelp-delay 3
+      company-transformers '(my-company-sort-completions)
+      sgml-quick-keys 'close
+      ediff-window-setup-function 'ediff-setup-windows-plain
+      ediff-split-window-function 'split-window-horizontally
+      markdown-header-scaling t
+      markdown-display-remote-images t
+      geiser-default-implementation 'guile
+      geiser-scheme-implementation 'guile
+      geiser-active-implementations '(guile)
+      geiser-repl-skip-version-check-p t
+      geiser-debug-show-debug-p t
       restclient-same-buffer-response nil)
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
               c-default-style "k&r"
               c-electric-flag t
-			  comment-column 0
-			  adaptive-wrap-extra-indent 0
-			  display-fill-column-indicator-column 80
-			  comint-scroll-to-bottom-on-input t
-			  comint-scroll-to-bottom-on-output nil
-			  eglot-workspace-configuration '(:pylsp (:plugins (:jedi_completion (:enabled t :include_params t :fuzzy t :include_class_objects t :include_function_objects t :eager t) :flake8 (:enabled t) :black (:enabled t)))))
+	            comment-column 0
+	            adaptive-wrap-extra-indent 0
+	            display-fill-column-indicator-column 80
+	            comint-scroll-to-bottom-on-input t
+	            comint-scroll-to-bottom-on-output nil
+	            eglot-workspace-configuration '(:pylsp (:plugins (:jedi_completion (:enabled t :include_params t :fuzzy t :include_class_objects t :include_function_objects t :eager t) :flake8 (:enabled t) :black (:enabled t)))))
 
 (use-package password-generator
   :defer t
@@ -620,13 +620,13 @@
 (global-company-mode)
 (yas-global-mode 1)
 (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t)
-														 (python . t)
-														 (dot . t)
-														 (shell . t)
-														 (sql . t)
-														 (C . t)
-														 (gnuplot . t)
-														 (scheme . t)))
+							  (python . t)
+							  (dot . t)
+							  (shell . t)
+							  (sql . t)
+							  (C . t)
+							  (gnuplot . t)
+							  (scheme . t)))
 (which-key-mode)
 (beframe-mode t)
 
@@ -782,13 +782,13 @@
 (add-to-list 'auto-mode-alist '("\\.svg$" . nxml-mode))
 
 (add-to-list 'dape-configs `(debugpy
-							 modes (python-ts-mode python-mode)
-							 command "python3"
-							 command-args ("-m" "debugpy.adapter")
-							 :type "executable"
-							 :request "launch"
-							 :cwd dape-cwd-fn
-							 :program (lambda () (file-name-nondirectory (buffer-file-name (current-buffer))))))
+			     modes (python-ts-mode python-mode)
+			     command "python3"
+			     command-args ("-m" "debugpy.adapter")
+			     :type "executable"
+			     :request "launch"
+			     :cwd dape-cwd-fn
+			     :program (lambda () (file-name-nondirectory (buffer-file-name (current-buffer))))))
 
 ;; Custom mods
 (add-to-list 'load-path (file-name-concat user-emacs-directory "mods"))
