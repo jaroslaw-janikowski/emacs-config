@@ -83,6 +83,7 @@
 	(string-prefix-p "https://youtube.com/watch?v=" url)
 	(string-prefix-p "https://www.youtube.com/shorts/" url)
 	(string-prefix-p "https://www.youtube.com/embed/" url)
+	(string-prefix-p "https://www.youtube.com/live/" url)
 	(string-prefix-p "https://youtu.be/" url))
     (mpv-start url))
 
