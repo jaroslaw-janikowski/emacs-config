@@ -41,6 +41,17 @@
 (require 'dape)
 (require 'ediff)
 (require 'indent-bars)
+(require 'lingva)
+
+(defun translate-to-pl ()
+  (interactive)
+  (let ((lingva-target "pl"))
+    (lingva-translate)))
+
+(defun translate-to-en ()
+  (interactive)
+  (let ((lingva-target "en"))
+    (lingva-translate)))
 
 (defun my-company-sort-completions (candidates)
   (sort candidates (lambda (a b) (< (length a) (length b)))))

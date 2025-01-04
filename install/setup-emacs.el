@@ -58,4 +58,5 @@
 (package-install 'gnuplot)
 (package-install 'password-generator)
 (package-install 'indent-bars)
+(package-install 'lingva)
 (nerd-icons-install-fonts)
