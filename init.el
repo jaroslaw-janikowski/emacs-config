@@ -283,7 +283,8 @@
   (setq-local company-backends '(company-html
 				 company-dabbrev-code
 				 company-yasnippet)
-	      electric-pair-inhibit-predicate (lambda (c) (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c)))))
+	      electric-pair-inhibit-predicate (lambda (c) (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c))))
+  (emmet-mode))
 
 (defun my/setup-makefile-mode()
   (setq-local company-backends '((company-files
