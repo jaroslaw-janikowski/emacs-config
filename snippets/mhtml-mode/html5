@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html lang="${1:pl}">
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
 <title>${2:document title}</title>
 </head>
