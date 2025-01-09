@@ -42,6 +42,7 @@
 (require 'ediff)
 (require 'indent-bars)
 (require 'lingva)
+(require 'eglot)
 
 (defun translate-to-pl ()
   (interactive)
