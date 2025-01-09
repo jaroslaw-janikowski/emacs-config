@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: case
+# key: case
+# --
+case ${1:expr}
+when ${2:values}
+$0
+exit
+else ${3:values}
+$4
+end
