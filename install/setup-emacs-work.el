@@ -1,3 +1,15 @@
+(require 'package)
+
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+			 ("melpa-stable" . "https://stable.melpa.org/packages/")
+			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+			 ("gnu" . "https://elpa.gnu.org/packages/"))
+      package-archive-priorities '(("melpa" . 1)
+				   ("melpa-stable" . 2)
+				   ("nongnu" . 3)
+				   ("gnu" . 4)))
+(package-initialize)
+
 (package-install 'docker)
 (package-install 'dockerfile-mode)
 (package-install 'treemacs)
