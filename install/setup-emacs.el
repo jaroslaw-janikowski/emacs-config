@@ -14,7 +14,7 @@
 (package-install 'adaptive-wrap)
 (package-install 'drag-stuff)
 (package-install 'company)
-(package-install 'company-quickhelp)
+(package-install 'company-box)
 (package-install 'yasnippet)
 (package-install 'markdown-mode)
 (package-install 'magit)

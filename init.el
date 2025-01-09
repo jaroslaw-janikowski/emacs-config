@@ -43,6 +43,7 @@
 (require 'indent-bars)
 (require 'lingva)
 (require 'eglot)
+(require 'company-box)
 
 (defun translate-to-pl ()
   (interactive)
@@ -276,7 +277,6 @@
   (diff-hl-mode)
   (rainbow-mode)
   (subword-mode 1)
-  (company-quickhelp-mode)
   (idle-highlight-mode t)
   (indent-bars-mode))
 
@@ -592,7 +592,6 @@
       compilation-ask-about-save nil
       compilation-scroll-output t
       compilation-always-kill t
-      company-quickhelp-delay 3
       company-transformers '(my-company-sort-completions)
       sgml-quick-keys 'close
       ediff-window-setup-function 'ediff-setup-windows-plain
@@ -791,6 +790,7 @@
 (add-hook 'dape-compile-compile-hooks 'kill-buffer)
 (add-hook 'minibuffer-setup-hook 'my-setup-minibuffer)
 (add-hook 'message-mode-hook 'my/setup-message-mode)
+(add-hook 'company-mode-hook 'company-box-mode)
 
 ;; file extensions
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
