@@ -292,6 +292,9 @@
 				  company-yasnippet))))
 
 (defun my-setup-markdown-mode ()
+  (setq-local company-backends '(company-files
+				 company-dabbrev
+				 company-yasnippet))
   (markdown-toggle-inline-images))
 
 (defun my/setup-elisp-mode()
