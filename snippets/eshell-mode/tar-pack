@@ -2,4 +2,4 @@
 # name: tar-pack
 # key: tar
 # --
-tar cvf ${1:archive-name}.tar.gz ${0:directories}
+tar czvf ${1:archive-name}.tar.gz ${0:directories}
