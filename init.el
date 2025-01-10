@@ -598,11 +598,6 @@
       ediff-split-window-function 'split-window-horizontally
       markdown-header-scaling t
       markdown-display-remote-images t
-      geiser-default-implementation 'guile
-      geiser-scheme-implementation 'guile
-      geiser-active-implementations '(guile)
-      geiser-repl-skip-version-check-p t
-      geiser-debug-show-debug-p t
       restclient-same-buffer-response nil)
 
 (setq-default dired-kill-when-opening-new-dired-buffer t

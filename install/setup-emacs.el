@@ -54,7 +54,6 @@
 (package-install 'gptel)
 (package-install 'emmet-mode)
 (package-install 'consult)
-(package-install 'geiser-guile)
 (package-install 'gnuplot)
 (package-install 'password-generator)
 (package-install 'indent-bars)
