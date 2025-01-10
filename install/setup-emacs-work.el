@@ -21,6 +21,7 @@
 (package-install 'lsp-pascal)
 (package-install 'lsp-mode)
 (package-install 'lsp-ui)
+(package-install 'flymake-ruby)
 
 (lsp-install-server "yamlls")
 (lsp-install-server "xmlls")

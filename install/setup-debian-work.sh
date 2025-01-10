@@ -15,6 +15,10 @@ apt install -y node npm
 # podman setup
 apt install -y podman podman-compose
 
+# ruby, ruby on rails, tools
+apt install -y ruby ruby-dev ruby-bundler ruby-rails
+gem install solargraph
+
 su bps
 podman pull docker.io/php
 podman pull docker.io/mysql

@@ -4,12 +4,14 @@
 (require 'treemacs)
 (require 'docker-compose-mode)
 (require 'lsp-pascal)
+(require 'flymake-ruby)
 
 (defun my-setup-ruby-mode ()
   (setq-local company-backends '(company-files
 				 company-dabbrev-code
 				 company-yasnippet))
-  (eglot-ensure))
+  (eglot-ensure)
+  (flymake-ruby-load))
 
 (defun my-setup-js2-mode ()
   (lsp))
