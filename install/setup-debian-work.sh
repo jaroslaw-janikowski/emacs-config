@@ -10,7 +10,7 @@ apt install -y lazarus-ide lazarus-doc
 apt install -y php phpunit
 
 # node.js
-apt install -y node npm
+apt install -y nodejs npm
 
 # podman setup
 apt install -y podman podman-compose
