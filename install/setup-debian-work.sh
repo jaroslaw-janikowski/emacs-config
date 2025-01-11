@@ -16,10 +16,19 @@ apt install -y nodejs npm
 apt install -y podman podman-compose
 
 # ruby, ruby on rails, tools
-apt install -y ruby ruby-dev ruby-bundler ruby-rails
-gem install solargraph
+apt install -y build-essential rustc libssl-dev libyaml-dev zlib1g-dev libgmp-dev curl
 
-su bps
+su work
+curl https://mise.run | sh
+echo 'eval "$(~/.local/bin/mise activate)"' >> ~/.bashrc
+source ~/.bashrc
+mise use -g ruby@3
+gem install rails
+gem install solargraph
+gem install solargraph-rails
+exit
+
+su work
 podman pull docker.io/php
 podman pull docker.io/mysql
 podman pull docker.io/wordpress
