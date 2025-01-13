@@ -381,6 +381,10 @@
   (when (not (equal major-mode 'makefile-gmake-mode)) ;; makefile has issues with indent-region
     (save-excursion
       (indent-region (point-min) (point-max) nil)))
+
+  (when (equal major-mode 'org-mode)
+    (org-indent-indent-buffer))
+
   (delete-trailing-whitespace))
 
 (defun midnight-commander()
@@ -503,6 +507,7 @@
       org-babel-python-command "python3 -i"
       org-babel-hash-show-time t
       org-startup-indented t
+      org-startup-truncated nil
       org-startup-with-inline-images t
       org-startup-with-latex-preview t
       org-special-ctrl-o nil
