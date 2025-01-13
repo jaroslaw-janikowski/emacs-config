@@ -45,6 +45,18 @@
 (require 'eglot)
 (require 'company-box)
 
+;; Fix for bad formating
+(defun my-org-mode-newline ()
+  (interactive)
+  (org-fill-paragraph)
+  (org-return))
+
+(defun my-org-mode-M-newline ()
+  (interactive)
+  (org-fill-paragraph)
+  (org-meta-return))
+
+
 (defun translate-to-pl ()
   (interactive)
   (let ((lingva-target "pl"))
@@ -721,6 +733,8 @@
 (define-key org-mode-map (kbd "M-<right>") nil)
 (define-key org-mode-map (kbd "M-<up>") nil)
 (define-key org-mode-map (kbd "M-<down>") nil)
+(define-key org-mode-map (kbd "RET") #'my-org-mode-newline)
+(define-key org-mode-map (kbd "M-RET") #'my-org-mode-M-newline)
 (define-key org-mode-map (kbd "C-]") 'org-do-demote)
 (define-key org-mode-map (kbd "C-}") 'org-do-demote-subtree)
 ;; (define-key org-mode-map (kbd "C-[") 'org-do-promote)
