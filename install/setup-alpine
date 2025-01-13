@@ -1,3 +1,3 @@
 #!/bin/ash
 
-apk add emacs-x11-nativecomp build-base findutils git ispell iamerican ipolish
+apk add emacs-x11-nativecomp build-base findutils git aspell aspell-en
