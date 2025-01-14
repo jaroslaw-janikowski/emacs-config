@@ -45,8 +45,8 @@
 (require 'eglot)
 (require 'company-box)
 
-;; Fix for bad formating
 (defun my-org-mode-newline ()
+  "Fix for bad formating"
   (interactive)
   (unless (org-in-src-block-p)
     (org-fill-paragraph))
@@ -58,6 +58,11 @@
     (org-fill-paragraph))
   (org-meta-return))
 
+(defun my-setup-org-mode ()
+  "Automatically set spelling dictionary based on #+language keyword."
+  (let ((lang (car (cdr (car (org-collect-keywords '("language")))))))
+    (unless (null lang)
+      (ispell-change-dictionary lang))))
 
 (defun translate-to-pl ()
   (interactive)
@@ -807,6 +812,7 @@
 (add-hook 'minibuffer-setup-hook 'my-setup-minibuffer)
 (add-hook 'message-mode-hook 'my/setup-message-mode)
 (add-hook 'company-mode-hook 'company-box-mode)
+(add-hook 'org-mode-hook #'my-setup-org-mode)
 
 ;; file extensions
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
