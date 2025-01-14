@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ts-to-mp4
+# key: ts
+# --
+for i in *.ts; do ffmpeg -i "$i" -c copy "${i%.ts}.mp4"; done
