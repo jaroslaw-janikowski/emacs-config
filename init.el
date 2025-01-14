@@ -48,12 +48,14 @@
 ;; Fix for bad formating
 (defun my-org-mode-newline ()
   (interactive)
-  (org-fill-paragraph)
+  (unless (org-in-src-block-p)
+    (org-fill-paragraph))
   (org-return))
 
 (defun my-org-mode-M-newline ()
   (interactive)
-  (org-fill-paragraph)
+  (unless (org-in-src-block-p)
+    (org-fill-paragraph))
   (org-meta-return))
 
 
