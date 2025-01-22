@@ -7,7 +7,13 @@ apt install -y zeal
 apt install -y lazarus-ide lazarus-doc
 
 # php
-apt install -y php phpunit
+apt install -y php phpunit composer
+
+su work
+curl -Lo phpactor.phar https://github.com/phpactor/phpactor/releases/latest/download/phpactor.phar &&
+    chmod a+x phpactor.phar &&
+    mv phpactor.phar ~/.local/bin/phpactor
+exit
 
 # node.js
 apt install -y nodejs npm
