@@ -17,6 +17,7 @@ exit
 
 # node.js
 apt install -y nodejs npm
+npm install -g typescript-language-server typescript
 
 # podman setup
 apt install -y podman podman-compose

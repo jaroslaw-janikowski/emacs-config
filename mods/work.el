@@ -12,7 +12,11 @@
   (eglot-ensure)
   (flymake-ruby-load))
 
-(defun my-setup-js2-mode ()
+(defun my-setup-js-mode ()
+  (setq-local company-backends '(company-files
+				 company-dabbrev-code
+				 company-yasnippet
+				 company-capf))
   (eglot-ensure))
 
 (defun my-setup-typescript-mode ()
@@ -50,7 +54,7 @@
 (global-set-key (kbd "<f8>") 'treemacs)
 
 (add-hook 'docker-compose-mode-hook 'my/setup-docker-compose-mode)
-(add-hook 'js2-mode-hook 'my-setup-js2-mode)
+(add-hook 'js-mode-hook 'my-setup-js-mode)
 (add-hook 'typescript-ts-mode-hook 'my-setup-typescript-mode)
 (add-hook 'css-mode-hook 'my-setup-css-mode)
 (add-hook 'php-ts-mode-hook 'my-setup-php-mode)
@@ -60,7 +64,7 @@
 (add-to-list 'auto-mode-alist '("docker-compose\\.y.?ml$" . docker-compose-mode))
 (add-to-list 'auto-mode-alist '("\\.dockerignore$" . gitignore-mode))
 (add-to-list 'auto-mode-alist '("composer\\.lock" . js-json-mode))
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(pas\\|pp\\|dpr\\)\\'" . opascal-mode))
 (add-to-list 'auto-mode-alist '("\\.lpr$" . opascal-mode)) ;; Lazarus program
 
