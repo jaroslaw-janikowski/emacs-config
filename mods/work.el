@@ -6,17 +6,10 @@
 (require 'flymake-ruby)
 
 (defun my-setup-ruby-mode ()
-  (setq-local company-backends '((company-files
-				  company-dabbrev-code
-				  company-yasnippet)))
   (eglot-ensure)
   (flymake-ruby-load))
 
 (defun my-setup-js-mode ()
-  (setq-local company-backends '((company-files
-				  company-yasnippet
-				  company-dabbrev-code
-				  company-capf)))
   (eglot-ensure))
 
 (defun my-setup-typescript-mode ()
