@@ -58,6 +58,8 @@
 (add-to-list 'auto-mode-alist '("\\.dockerignore$" . gitignore-mode))
 (add-to-list 'auto-mode-alist '("composer\\.lock" . js-json-mode))
 (add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx$" . js-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx$" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(pas\\|pp\\|dpr\\)\\'" . opascal-mode))
 (add-to-list 'auto-mode-alist '("\\.lpr$" . opascal-mode)) ;; Lazarus program
 
