@@ -57,6 +57,7 @@
 (add-to-list 'auto-mode-alist '("docker-compose\\.y.?ml$" . docker-compose-mode))
 (add-to-list 'auto-mode-alist '("\\.dockerignore$" . gitignore-mode))
 (add-to-list 'auto-mode-alist '("composer\\.lock" . js-json-mode))
+(add-to-list 'auto-mode-alist '("\\.php$" . php-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx$" . js-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx$" . js-mode))

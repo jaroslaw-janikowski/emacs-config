@@ -59,3 +59,5 @@
 (package-install 'indent-bars)
 (package-install 'lingva)
 (nerd-icons-install-fonts t)
+
+(treesit-install-language-grammar 'c)

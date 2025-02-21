@@ -622,7 +622,8 @@
       ediff-split-window-function 'split-window-horizontally
       markdown-header-scaling t
       markdown-display-remote-images t
-      restclient-same-buffer-response nil)
+      restclient-same-buffer-response nil
+      treesit-language-source-alist '((c "https://github.com/tree-sitter/tree-sitter-c")))
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
               c-default-style "k&r"
@@ -815,12 +816,13 @@
 (add-hook 'org-mode-hook #'my-setup-org-mode)
 
 ;; file extensions
+(add-to-list 'auto-mode-alist '("\\.c$" . c-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.h$" . c-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.env\\..*\\'" . dotenv-mode))
 (add-to-list 'auto-mode-alist '("\\.service$" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.html$" . mhtml-mode))
 (add-to-list 'auto-mode-alist '("\\.csv$" . csv-mode))
-(add-to-list 'auto-mode-alist '("\\.php$" . php-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.eln$" . hexl-mode))
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (add-to-list 'auto-mode-alist '("\\.nsi$" . nsis-mode))
