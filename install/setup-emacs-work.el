@@ -19,3 +19,6 @@
 (package-install 'js2-mode)
 (package-install 'tide)
 (package-install 'flymake-ruby)
+
+(require 'php-ts-mode)
+(php-ts-mode-install-parsers)
