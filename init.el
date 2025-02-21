@@ -666,6 +666,7 @@
 (helm-mode 1)
 (global-company-mode)
 (yas-global-mode 1)
+(completion-preview-mode)
 (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t)
 							 (python . t)
 							 (dot . t)
