@@ -23,7 +23,6 @@
 (package-install 'idle-highlight-mode)
 (package-install 'org-present)
 (package-install 'visual-fill-column)
-(package-install 'which-key)
 (package-install 'evil-nerd-commenter)
 (package-install 'crux)
 (package-install 'dotenv-mode)
