@@ -622,6 +622,7 @@
       ediff-split-window-function 'split-window-horizontally
       markdown-header-scaling t
       markdown-display-remote-images t
+      markdown-fontify-code-blocks-natively t
       restclient-same-buffer-response nil
       treesit-language-source-alist '((c "https://github.com/tree-sitter/tree-sitter-c")))
 
