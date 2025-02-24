@@ -7,7 +7,7 @@ apt install -y zeal
 apt install -y lazarus-ide lazarus-doc
 
 # php
-apt install -y php phpunit composer
+apt install -y php phpunit composer php-xml php-sqlite3
 
 su work
 curl -Lo phpactor.phar https://github.com/phpactor/phpactor/releases/latest/download/phpactor.phar &&
