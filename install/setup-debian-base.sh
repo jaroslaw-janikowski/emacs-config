@@ -1,3 +1,9 @@
+# aktualizacja
+apt update -y
+apt upgrade -y
+apt autoremove -y
+
+# instalacja narzędzi
 apt install -y sway make xwayland pavucontrol brightnessctl swayidle swaylock qemu-system-x86 grimshot wdisplays p7zip-full xterm clangd nsis gnupg2 gnuplot gnuplot-doc graphviz graphviz-doc unifont silversearcher-ag libtree-sitter-dev gdb clzip
 
 # spelling tools
