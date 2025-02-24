@@ -385,7 +385,7 @@
   (hl-line-mode))
 
 (defun my/on-before-save()
-  (when (not (equal major-mode 'makefile-gmake-mode)) ;; makefile has issues with indent-region
+  (when (not (member major-mode '(artist-mode text-mode fundamental-mode makefile-gmake-mode picture-mode)))
     (save-excursion
       (indent-region (point-min) (point-max) nil)))
 
