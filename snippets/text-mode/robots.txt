@@ -1,6 +1,27 @@
 # -*- mode: snippet -*-
 # name: robots.txt
-# key: robots.txt
+# key: robots
 # --
+User-Agent: Amazonbot
+Disallow: /
+
+User-Agent: ClaudeBot
+Disallow: /
+
+User-Agent: Google-Extended
+Disallow: /
+
+User-Agent: GPTBot
+Disallow: /
+
+User-Agent: PerplexityBot
+Disallow: /
+
+User-Agent: PetalBot
+Disallow: /
+
+User-Agent: uptimerobot
+Disallow: /
+
 User-Agent: *
 Disallow: $0
