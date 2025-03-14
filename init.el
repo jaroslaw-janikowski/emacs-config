@@ -578,6 +578,7 @@
       denote-sort-keywords t
       denote-prompts '(title keywords)
       denote-date-prompt-use-org-read-date t
+      org-default-notes-file (file-name-concat denote-directory "20231002T153206--todo.org")
       yas-indent-line 'auto
       yas-also-auto-indent-first-line t
       smtpmail-debug-info t
@@ -710,6 +711,7 @@
 (global-set-key (kbd "C-d") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-k") 'mc/skip-to-next-like-this)
 (global-set-key (kbd "<f1>") 'embark-act)
+(global-set-key (kbd "<f2>") 'org-capture)
 (global-set-key (kbd "<f5>") #'compile)
 (global-set-key (kbd "<f6>") 'eglot-format)
 (global-set-key (kbd "C-x d") 'project-dired)
