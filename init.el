@@ -45,19 +45,6 @@
 (require 'eglot)
 (require 'company-box)
 
-(defun my-org-mode-newline ()
-  "Fix for bad formating"
-  (interactive)
-  (unless (org-in-src-block-p)
-    (org-fill-paragraph))
-  (org-return))
-
-(defun my-org-mode-M-newline ()
-  (interactive)
-  (unless (org-in-src-block-p)
-    (org-fill-paragraph))
-  (org-meta-return))
-
 (defun my-setup-org-mode ()
   "Automatically set spelling dictionary based on #+language keyword."
   (let ((lang (car (cdr (car (org-collect-keywords '("language")))))))
@@ -389,9 +376,6 @@
     (save-excursion
       (indent-region (point-min) (point-max) nil)))
 
-  (when (equal major-mode 'org-mode)
-    (org-indent-indent-buffer))
-
   (delete-trailing-whitespace))
 
 (defun midnight-commander()
@@ -630,7 +614,6 @@
               c-default-style "k&r"
               c-electric-flag t
 	      comment-column 0
-	      adaptive-wrap-extra-indent 0
 	      display-fill-column-indicator-column 80
 	      comint-scroll-to-bottom-on-input t
 	      comint-scroll-to-bottom-on-output nil
@@ -748,8 +731,6 @@
 (define-key org-mode-map (kbd "M-<right>") nil)
 (define-key org-mode-map (kbd "M-<up>") nil)
 (define-key org-mode-map (kbd "M-<down>") nil)
-(define-key org-mode-map (kbd "RET") #'my-org-mode-newline)
-(define-key org-mode-map (kbd "M-RET") #'my-org-mode-M-newline)
 (define-key org-mode-map (kbd "C-]") 'org-do-demote)
 (define-key org-mode-map (kbd "C-}") 'org-do-demote-subtree)
 ;; (define-key org-mode-map (kbd "C-[") 'org-do-promote)
@@ -780,7 +761,6 @@
 ;; (add-hook 'kill-emacs-hook 'my-kill-emacs)
 
 (add-hook 'org-agenda-finalize-hook #'hl-line-mode)
-(add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
 (add-hook 'nxml-mode-hook 'my-setup-nxml-mode)
 (add-hook 'text-mode-hook 'my/setup-text-mode)
 (add-hook 'prog-mode-hook 'my/setup-prog-mode)

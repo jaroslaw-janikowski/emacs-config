@@ -11,7 +11,6 @@
 (package-initialize)
 
 (package-refresh-contents)
-(package-install 'adaptive-wrap)
 (package-install 'drag-stuff)
 (package-install 'company)
 (package-install 'company-box)
