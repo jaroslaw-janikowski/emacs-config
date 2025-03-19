@@ -56,6 +56,7 @@
 (package-install 'password-generator)
 (package-install 'indent-bars)
 (package-install 'lingva)
+(package-install 'sql-indent)
 (nerd-icons-install-fonts t)
 
 (treesit-install-language-grammar 'c)

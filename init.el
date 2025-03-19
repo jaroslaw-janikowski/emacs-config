@@ -44,6 +44,7 @@
 (require 'lingva)
 (require 'eglot)
 (require 'company-box)
+(require 'sql-indent)
 
 (defun my-setup-org-mode ()
   "Automatically set spelling dictionary based on #+language keyword."
@@ -366,7 +367,8 @@
   (toggle-truncate-lines t))
 
 (defun my/setup-sql-mode()
-  (sql-set-dialect 'postgres))
+  (sql-set-dialect 'postgres)
+  (sql-indent-enable))
 
 (defun my/setup-eww-mode()
   (hl-line-mode))
