@@ -6,6 +6,12 @@ apt install -y zeal
 # lazarus-ide
 apt install -y lazarus-ide lazarus-doc
 
+# nsis
+apt install -y nsis
+
+# python setup
+apt install -y python3-venv python3-pip python3-debugpy python3-pylsp
+
 # php
 apt install -y php phpunit composer php-xml php-sqlite3
 

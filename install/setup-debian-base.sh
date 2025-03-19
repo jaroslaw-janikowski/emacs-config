@@ -4,7 +4,7 @@ apt upgrade -y
 apt autoremove -y
 
 # instalacja narzędzi
-apt install -y sway make xwayland pavucontrol brightnessctl swayidle swaylock qemu-system-x86 grimshot wdisplays p7zip-full xterm clangd nsis gnupg2 gnuplot gnuplot-doc graphviz graphviz-doc unifont silversearcher-ag libtree-sitter-dev gdb clzip libnewt-dev sqlite3 sqlite3-doc
+apt install -y sway make xwayland pavucontrol brightnessctl swayidle swaylock qemu-system-x86 grimshot wdisplays p7zip-full xterm clangd gnupg2 unifont silversearcher-ag gdb clzip sqlite3 sqlite3-doc
 
 # nagrywanie ekranu w Wayland
 apt install -y wf-recorder
@@ -14,10 +14,9 @@ apt install -y aspell aspell-pl aspell-en
 
 # git setup
 apt install -y git git-gui
-su bps
-git config --global pull.rebase true
 
 # sway setup
+su bps
 mkdir ~/.config/sway
 cp /etc/sway/config ~/.config/sway/config
 cat <<EOF>> ~/.config/sway/config
@@ -62,15 +61,6 @@ fi
 EOF
 exit
 
-# mpv
-apt install -y mpv
-su bps
-cat <<EOF>> ~/.config/mpv/mpv.conf
-pause
-ytdl-format=18
-EOF
-exit
-
 # ufw setup
 apt install -y ufw
 systemctl enable ufw
@@ -78,11 +68,9 @@ ufw deny ssh
 ufw deny telnet
 ufw deny vnc
 
-# python setup
-apt install -y python3-venv python3-pip python3-debugpy python3-pylsp
-
 # emacs
 apt build-dep emacs
+apt install -y libtree-sitter-dev libsqlite3-dev
 su bps
 emacs -Q --script ~/.emacs.d/install/setup-emacs.el
 exit
