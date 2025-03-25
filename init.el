@@ -472,7 +472,6 @@
       frame-resize-pixelwise t
       frame-inhibit-implied-resize t
       frame-title-format '("%b")
-      initial-major-mode 'org-mode
       nxml-slash-autocomplete-flag t
       nxml-mode-map (make-keymap)
       custom-file (make-temp-file "emacs-custom-")  ;; brak dopisywania customize
