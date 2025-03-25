@@ -116,6 +116,7 @@
    ;; any other
    ((string-suffix-p ".mp4" url) (mpv-start url))
    ((string-suffix-p ".webm" url) (mpv-start url))
+   ((string-suffix-p ".MPG" url) (mpv-start url))
 
    ;; mastodon.el
    ((string-match-p "https://.*/@.*/[0-9]+" url)
