@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ffmpeg-cut
+# key: ffmpeg
+# --
+ffmpeg -i ${1:input-file} -ss ${2:start-time} -to ${3:end-time} -c:v copy -c:a copy ${4:output-file}$0
