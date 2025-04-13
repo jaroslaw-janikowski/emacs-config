@@ -93,3 +93,23 @@ exit
 # podman pull docker.io/python
 # podman pull docker.io/postgres
 # exit
+
+# Free Pascal Compiler
+apt install -y fpc
+su work
+cd ~/workspace
+git clone --depth 1 https://gitlab.com/freepascal.org/fpc/source freepascal
+cd ./freepascal
+make clean
+make all
+exit
+make install
+
+#  Lazarus IDE
+su work
+cd ~/workspace
+git clone --depth 1 https://gitlab.com/freepascal.org/lazarus/lazarus.git lazarus
+cd ./lazarus
+make
+exit
+make install
