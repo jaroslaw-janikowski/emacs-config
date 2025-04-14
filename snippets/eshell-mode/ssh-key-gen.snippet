@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ssh-key-gen
+# key: ssh
+# --
+ssh-keygen -t ed25519 -f ~/.ssh/${1:keyname} -C "${2:comment}"$0
