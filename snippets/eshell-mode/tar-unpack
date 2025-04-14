@@ -2,4 +2,4 @@
 # name: tar-unpack
 # key: tar
 # --
-tar xvf ${0:archive-name}
+tar xvf ${1:archive-name}$0
