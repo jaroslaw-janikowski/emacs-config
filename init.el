@@ -339,7 +339,13 @@
 				  company-shell-env
 				  company-git))))
 
-(defun my/setup-term-mode())
+(defun my/setup-term-mode()
+  ;; Nie działa ponieważ term-mode jest read only
+  (setq-local company-backends '((company-files
+				  company-yasnippet
+				  company-shell
+				  company-shell-env
+				  company-git))))
 
 (defun my/create-new-term()
   (interactive)
