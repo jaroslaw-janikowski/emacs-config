@@ -6,6 +6,10 @@ apt autoremove -y
 # instalacja narzędzi
 apt install -y sway make xwayland pavucontrol brightnessctl swayidle swaylock qemu-system-x86 grimshot wdisplays p7zip-full stterm clangd gnupg2 unifont silversearcher-ag gdb clzip sqlite3 sqlite3-doc
 
+# suckless terminal
+apt install -y stterm
+update-alternatives --config x-terminal-emulator
+
 # nagrywanie ekranu w Wayland
 apt install -y wf-recorder
 
@@ -20,6 +24,8 @@ su bps
 mkdir ~/.config/sway
 cp /etc/sway/config ~/.config/sway/config
 cat <<EOF>> ~/.config/sway/config
+
+set $term st
 
 exec brightnessctl set 6%
 
