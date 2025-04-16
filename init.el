@@ -381,7 +381,7 @@
   (hl-line-mode))
 
 (defun my/on-before-save()
-  (when (not (member major-mode '(artist-mode text-mode fundamental-mode makefile-gmake-mode picture-mode)))
+  (when (not (member major-mode '(artist-mode text-mode fundamental-mode makefile-gmake-mode picture-mode docker-compose-mode)))
     (save-excursion
       (indent-region (point-min) (point-max) nil)))
 
