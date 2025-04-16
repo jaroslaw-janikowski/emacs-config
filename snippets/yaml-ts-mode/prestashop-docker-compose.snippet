@@ -1,0 +1,55 @@
+# -*- mode: snippet -*-
+# name: prestashop-docker-compose
+# key: prestashop
+# expand-env: ((yas-indent-line 'fixed))
+# --
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: prestashop-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: prestashop
+      MYSQL_USER: prestashop
+      MYSQL_PASSWORD: db_password
+    volumes:
+      - db_data:/var/lib/mysql
+    ports;
+      - "3306:3306"
+    networks:
+      - prestashop-network
+
+app:
+  image: prestashop/prestashop:latest
+  container_name: prestashop-app
+  depends_on:
+    - db
+  environment:
+    DB_SERVER: db
+    DB_NAME: prestashop
+    DB_USER: prestashop
+    DB_PASSWD: db_password
+  ports:
+    - "8000:80"
+  volumes:
+    - prestashop_data:/var/www/html
+    - modules:/var/www/html/modules
+    - themes:/var/www/html/themes
+    - logs:/var/www/html/var/logs
+    - config:/var/www/html/config/
+  networks:
+    - prestashop-network
+
+networks:
+  prestashop-network:
+    driver: bridge
+
+volumes:
+  db_data:
+  prestashop_data:
+  modules:
+  themes:
+  logs:
+  config:
