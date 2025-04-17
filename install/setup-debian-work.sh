@@ -63,6 +63,7 @@ apt install -y php phpunit composer php-xml php-sqlite3
 
 su work
 mkdir -p ~/.local/bin && cd ~/.local/bin &&  wget https://github.com/phpactor/phpactor/releases/latest/download/phpactor.phar && chmod a+x ./phpactor.phar
+mv ./phpactor.phar ./phpactor
 exit
 
 # node.js
