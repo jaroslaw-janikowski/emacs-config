@@ -23,8 +23,8 @@ php:
     context: ./docker/php
     dockerfile: Dockerfile
     args:
-      USER_ID: ${UID:-1000}
-      GROUP_ID: ${GID:-1000}
+      USER_ID: \${UID:-1000}
+      GROUP_ID: \${GID:-1000}
   volumes:
     - ./:/var/www/html:delegated
     - ./docker/php/conf.d:/usr/local/etc/php/conf.d
