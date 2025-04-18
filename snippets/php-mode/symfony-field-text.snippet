@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: symfony-field-text
+# key: text
+# condition: (let ((filename buffer-file-name)) (and (equal (file-name-extension filename) "php") (string-prefix-p "Entity/" (file-name-directory filename))))
+# --
+#[ORM\Column(type: Types::TEXT)]
+private ?string \$${1:name} = null;$0
+
+public function get${1:$$(yas-auto-next (capitalize (yas-field-value 1)))}(): ?string
+{
+return \$this->$1;
+}
+
+public function set${1:$$(yas-auto-next (capitalize (yas-field-value 1)))}(string \$$1): static
+{
+\$this->$1 = $1;
+}
