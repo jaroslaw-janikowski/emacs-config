@@ -44,6 +44,7 @@
 (treemacs-project-follow-mode 1)
 (treemacs-follow-mode 1)
 (editorconfig-mode 1)
+(text-scale-set -1)
 
 (global-set-key (kbd "<f8>") 'treemacs)
 
