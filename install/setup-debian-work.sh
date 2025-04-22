@@ -4,14 +4,13 @@ apt upgrade -y
 apt autoremove -y
 
 # desktop
-apt install -y xorg openbox pcmanfm pavucontrol p7zip-full stterm clangd gnupg2 unifont gdb clzip sqlite3 sqlite3-doc
+apt install -y xorg openbox pcmanfm pavucontrol p7zip-full stterm clangd gnupg2 unifont gdb clzip sqlite3 sqlite3-doc brightnessctl dmenu
 su work
 mkdir -p ~/.config/openbox
 echo 'exec openbox-session' >> ~/.xinitrc
 echo '[ "$(tty)" = "/dev/tty1" ] && exec startx' >> ~/.profile
-
-# to przysłania menu do uruchamiania programów
-# echo 'pcmanfm --desktop &' >> ~/.config/openbox/autostart
+echo 'brightnessctl set 20% &' >> ~/.config/openbox/autostart
+echo 'pcmanfm --desktop &' >> ~/.config/openbox/autostart
 
 exit
 
