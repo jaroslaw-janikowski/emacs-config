@@ -6,7 +6,7 @@ apt autoremove -y
 # desktop
 apt install -y xorg openbox pcmanfm pavucontrol p7zip-full stterm clangd gnupg2 unifont gdb clzip sqlite3 sqlite3-doc
 su work
-mkdir ~/.config/openbox
+mkdir -p ~/.config/openbox
 echo 'exec openbox-session' >> ~/.xinitrc
 echo '[ "$(tty)" = "/dev/tty1" ] && exec startx' >> ~/.profile
 
@@ -32,11 +32,13 @@ apt install -y git git-gui
 # ufw setup
 apt install -y ufw
 systemctl enable ufw
+su -
 ufw deny telnet
 ufw deny vnc
+exit
 
 # emacs
-apt build-dep emacs
+apt build-dep -y emacs
 apt install -y libtree-sitter-dev libsqlite3-dev silversearcher-ag
 su work
 rm -rf ~/.emacs.d
@@ -87,13 +89,13 @@ gem install solargraph
 gem install solargraph-rails
 exit
 
-# su work
-# podman pull docker.io/php
-# podman pull docker.io/mysql
-# podman pull docker.io/wordpress
-# podman pull docker.io/python
-# podman pull docker.io/postgres
-# exit
+su work
+podman pull docker.io/php
+podman pull docker.io/mysql
+podman pull docker.io/wordpress
+podman pull docker.io/python
+podman pull docker.io/postgres
+exit
 
 # Free Pascal Compiler
 apt install -y fpc
