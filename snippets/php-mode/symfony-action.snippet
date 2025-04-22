@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: symfony-action
+# key: symfony
+# --
+#[Route('/${1:URL}')]
+public function ${2:name}(${3:params}): Response
+{$0
+$this->render('${4:templateName}', ${5:params});
+}
