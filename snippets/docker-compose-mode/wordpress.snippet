@@ -1,0 +1,33 @@
+# -*- mode: snippet -*-
+# name: wordpress
+# key: wordpress
+# expand-env: ((yas-indent-line 'fixed))
+# --
+version: '3.9'
+services:
+  db:
+    image: mariadb:latest
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - 3306:3306
+    volumes:
+      - db_data:/var/lib/mysql
+  wordpress:
+    image: wordpress:latest
+    volumes:
+      - $PWD/wp_data:/var/www/html
+    ports:
+      - 8000:80
+    restart: always
+    environment:
+      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_USER=wordpress
+      - WORDPRESS_DB_PASSWORD=wordpress
+      - WORDPRESS_DB_NAME=wordpress
+    depends_on:
+       - db
+volumes:
+  db_data:
+  wp_data:
