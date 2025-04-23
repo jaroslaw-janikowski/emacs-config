@@ -115,3 +115,6 @@ cd ./lazarus
 make
 exit
 make install
+
+# grafika
+apt install -y gimp krita inkscape blender
