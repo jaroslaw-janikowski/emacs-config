@@ -616,6 +616,8 @@
       markdown-header-scaling t
       markdown-display-remote-images t
       markdown-fontify-code-blocks-natively t
+      gptel-model "gemini-2.0-flash"  ;; because it's free
+      gptel-backend (gptel-make-gemini "Gemini" :key (nth 1 (auth-source-user-and-password "generativelanguage.googleapis.com" "notused")) :stream t)
       restclient-same-buffer-response nil
       treesit-language-source-alist '((c "https://github.com/tree-sitter/tree-sitter-c")))
 
@@ -722,6 +724,7 @@
 (global-set-key (kbd "<f2>") 'org-capture)
 (global-set-key (kbd "<f5>") #'compile)
 (global-set-key (kbd "<f6>") 'eglot-format)
+(global-set-key (kbd "<f9>") 'gptel)
 (global-set-key (kbd "C-x d") 'project-dired)
 (global-set-key (kbd "C-x b") 'beframe-switch-buffer)
 (global-set-key (kbd "<f12>") 'denote-open-or-create)
@@ -759,6 +762,7 @@
 (define-key dired-mode-map (kbd "C-n") #'dired-create-empty-file)
 (define-key dired-mode-map (kbd "C-S-n") #'dired-create-directory)
 (define-key dired-mode-map (kbd "<f3>") 'my-dired-view-file)
+(define-key gptel-mode-map (kbd "C-c C-c") 'gptel-send)
 (keymap-set eglot-mode-map "C-c e a" #'eglot-code-actions)
 (keymap-set eglot-mode-map "C-c e r" #'eglot-reconnect)
 (keymap-set eglot-mode-map "C-c e f" #'eglot-code-action-quickfix)
