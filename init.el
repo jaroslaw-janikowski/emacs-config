@@ -616,6 +616,7 @@
       markdown-header-scaling t
       markdown-display-remote-images t
       markdown-fontify-code-blocks-natively t
+      gptel-default-mode 'org-mode
       gptel-model "gemini-2.0-flash"  ;; because it's free
       gptel-backend (gptel-make-gemini "Gemini" :key (nth 1 (auth-source-user-and-password "generativelanguage.googleapis.com" "notused")) :stream t)
       restclient-same-buffer-response nil
