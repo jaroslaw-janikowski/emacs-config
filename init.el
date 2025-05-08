@@ -561,6 +561,8 @@
 			      (display-buffer-reuse-mode-window display-buffer-below-selected) (window-height . fit-window-to-buffer))
 			     ("\\*Help\\*"
 			      (display-buffer-reuse-window display-buffer-same-window))
+			     ("\\*Gemini\\*"
+			      (display-buffer-reuse-window display-buffer-same-window))
 			     ("^\\*eshell\\*$"
 			      (display-buffer-same-window))
 			     ("^\\*Native-compile-Log\\*$"
