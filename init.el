@@ -728,6 +728,7 @@
 (global-set-key (kbd "<f5>") #'compile)
 (global-set-key (kbd "<f6>") 'eglot-format)
 (global-set-key (kbd "<f9>") 'gptel)
+(global-set-key (kbd "<f8>") 'gptel-send)
 (global-set-key (kbd "C-x d") 'project-dired)
 (global-set-key (kbd "C-x b") 'beframe-switch-buffer)
 (global-set-key (kbd "<f12>") 'denote-open-or-create)
