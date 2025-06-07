@@ -45,6 +45,7 @@
 (require 'eglot)
 (require 'company-box)
 (require 'sql-indent)
+(require 'org-drill)
 
 (defun my-setup-org-mode ()
   "Automatically set spelling dictionary based on #+language keyword."
@@ -608,6 +609,7 @@
       gnus-large-newsgroup 200
       gnus-interactive-exit nil
       mpv-default-options '("--ytdl-format=bestvideo[height<=?480]+bestaudio[height<=?480] / worst" "--script-opts=ytdl_hook-ytdl_path=/home/nntpsurfer/.local/bin/yt-dlp" "--pause")
+      org-drill-maximum-items-per-session 30
       compilation-ask-about-save nil
       compilation-scroll-output t
       compilation-always-kill t
