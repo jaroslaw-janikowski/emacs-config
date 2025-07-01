@@ -453,6 +453,7 @@
       tramp-default-remote-shell "/bin/bash"
       tramp-default-method "ssh"
       tramp-verbose 7
+      tramp-copy-size-limit (* 1024 1024)
       kill-do-not-save-duplicates t
       comment-empty-lines t
       comment-fill-column nil
