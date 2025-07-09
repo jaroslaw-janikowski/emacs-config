@@ -20,7 +20,7 @@ apt install -y aspell aspell-pl aspell-en
 apt install -y git git-gui
 
 # sway setup
-su bps
+su - work -- <<EOF
 mkdir ~/.config/sway
 cp /etc/sway/config ~/.config/sway/config
 cat <<EOF>> ~/.config/sway/config
@@ -30,13 +30,13 @@ set $term st
 exec brightnessctl set 6%
 
 input * {
-	  xkb_layout "pl"
+    xkb_layout "pl"
 }
 
 input "2:8:AlpsPS/2_ALPS_GlidePoint" {
-	  dwt enabled
-	  tap enabled
-	  middle_emulation enabled
+    dwt enabled
+    tap enabled
+    middle_emulation enabled
 }
 
 output eDP-1 resolution 1366x768
@@ -60,12 +60,11 @@ cat <<EOF>> ~/.profile
 
 # set only for first logged user
 if [[ "$(tty)" == "/dev/tty1" ]] ; then
-	export PATH="$PATH:~/.local/bin"
-	sway &
+    export PATH="$PATH:~/.local/bin"
+    sway &
 fi
 
 EOF
-exit
 
 # ufw setup
 apt install -y ufw
@@ -77,6 +76,6 @@ ufw deny vnc
 # emacs
 apt build-dep emacs
 apt install -y libtree-sitter-dev libsqlite3-dev
-su bps
+su - work -- <<EOF
 emacs -Q --script ~/.emacs.d/install/setup-emacs.el
-exit
+EOF
