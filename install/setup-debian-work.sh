@@ -118,3 +118,6 @@ cd /home/work/workspace/lazarus && make install
 
 # grafika
 apt install -y gimp krita inkscape blender
+
+# biuro
+apt install -y libreoffice
