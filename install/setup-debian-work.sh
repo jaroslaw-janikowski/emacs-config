@@ -79,6 +79,7 @@ apt install -y build-essential rustc libssl-dev libyaml-dev zlib1g-dev libgmp-de
 su - work -- <<EOF
 cd ~/.local/bin
 wget https://mise.run -O ~/.local/bin/mise
+chmod +x ~/.local/bin/mise
 echo 'eval "$(~/.local/bin/mise activate)"' >> ~/.bashrc
 source ~/.bashrc
 mise use -g ruby@3
