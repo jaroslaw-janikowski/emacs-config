@@ -42,6 +42,7 @@ su - work -- <<EOF
 rm -rf ~/.emacs.d
 rm ~/.emacs
 git clone --depth 1 https://github.com/jaroslaw-janikowski/emacs-config ~/.emacs.d
+sed -i "s/;; (require 'work)/(require 'work)/"
 git clone --depth 1 https://git.savannah.gnu.org/git/emacs.git ~/workspace/emacs
 cd ~/workspace/emacs && make bootstrap
 EOF
@@ -72,6 +73,13 @@ npm install -g typescript-language-server typescript
 
 # podman setup
 apt install -y podman podman-compose
+su - work -- <<EOF
+podman pull docker.io/php
+podman pull docker.io/mysql
+podman pull docker.io/wordpress
+podman pull docker.io/python
+podman pull docker.io/postgres
+EOF
 
 # ruby, ruby on rails, tools
 apt install -y build-essential rustc libssl-dev libyaml-dev zlib1g-dev libgmp-dev curl
@@ -82,18 +90,11 @@ wget https://mise.run -O ~/.local/bin/mise
 chmod +x ~/.local/bin/mise
 echo 'eval "$(~/.local/bin/mise activate)"' >> ~/.bashrc
 source ~/.bashrc
+source ~/.bashrc
 mise use -g ruby@3
 gem install rails
 gem install solargraph
 gem install solargraph-rails
-EOF
-
-su - work -- <<EOF
-podman pull docker.io/php
-podman pull docker.io/mysql
-podman pull docker.io/wordpress
-podman pull docker.io/python
-podman pull docker.io/postgres
 EOF
 
 # Free Pascal Compiler

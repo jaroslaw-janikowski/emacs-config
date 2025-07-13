@@ -23,9 +23,9 @@ apt install -y git git-gui
 su - work -- <<EOF
 mkdir ~/.config/sway
 cp /etc/sway/config ~/.config/sway/config
-cat <<EOF>> ~/.config/sway/config
+cat <<EOF2>> ~/.config/sway/config
 
-set $term st
+set \$term st
 
 exec brightnessctl set 6%
 
@@ -54,6 +54,9 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 3%-
 bindsym Print exec grimshot copy area
 workspace_layout tabbed
 
+EOF2
+
+sed -i "s/position top/position bottom" ~/.config/sway/config
 EOF
 
 cat <<EOF>> ~/.profile
