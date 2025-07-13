@@ -64,8 +64,9 @@ cat <<EOF>> ~/.profile
 # set only for first logged user
 if [[ "$(tty)" == "/dev/tty1" ]] ; then
     export PATH="$PATH:~/.local/bin"
-    sway &
 fi
+
+sway &
 
 EOF
 
