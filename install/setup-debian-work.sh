@@ -124,13 +124,11 @@ apt install -y gimp krita inkscape blender
 apt install -y libreoffice
 
 # lokalne systemy AI
-# TODO: W Debian 12 lepiej jest to uruchamiać jako su -, inaczej
-# useradd nie zostanie odnaleziony
-# TODO: Sprawdź czy skrypt dodaje ollama jako usługę czy może
-# trzeba robić to ręcznie.
+su - -- <<EOF
 curl -fsSL https://ollama.com/install.sh | sh
+EOF
+
 su - work -- <<EOF
-ollama serve
 ollama pull deepseek-r1:7b
 ollama pull qwen2.5-coder
 EOF
