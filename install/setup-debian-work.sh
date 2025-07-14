@@ -116,6 +116,12 @@ cd ./lazarus
 make
 EOF
 cd /home/work/workspace/lazarus && make install
+su - work -- <<EOF
+lazbuild --add-package anchordockingdsgn
+lazbuild --add-package indylaz
+lazbuild --add-package weblaz
+lazbuild --build-ide
+EOF
 
 # grafika
 apt install -y gimp krita inkscape blender
