@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: yt-download
+# key: yt
+# --
+yt-dlp --format="bestvideo[height<=?480]+bestaudio[height<=?480] / worst" ${1:URL}$0
