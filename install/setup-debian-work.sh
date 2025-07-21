@@ -108,9 +108,11 @@ make
 EOF
 cd /home/work/workspace/lazarus && make install
 su - work -- <<EOF
-lazbuild --add-package anchordockingdsgn
-lazbuild --add-package indylaz
-lazbuild --add-package weblaz
+lazbuild --add-package /usr/local/share/lazarus/components/onlinepackagemanager/onlinepackagemanager.lpk
+lazbuild --add-package /usr/local/share/lazarus/components/anchordocking/anchordocking.lpk
+lazbuild --add-package /usr/local/share/lazarus/components/anchordocking/dsgn/anchordockingdsgn.lpk
+lazbuild --add-package /usr/local/share/lazarus/components/dockedformeditor/dockedformeditor.lpk
+lazbuild --add-package /usr/local/share/lazarus/components/weblaz/weblaz.lpk
 lazbuild --build-ide
 EOF
 
