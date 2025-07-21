@@ -20,8 +20,11 @@ apt install -y git git-gui
 # ufw setup
 apt install -y ufw
 systemctl enable ufw
+
+su - -- <<EOF
 ufw deny telnet
 ufw deny vnc
+EOF
 
 # emacs
 apt build-dep -y emacs
@@ -34,7 +37,8 @@ sed -i "s/;; (require 'work)/(require 'work)/" ~/.emacs.d/init.el
 git clone --depth 1 https://git.savannah.gnu.org/git/emacs.git ~/workspace/emacs
 cd ~/workspace/emacs && make bootstrap
 EOF
-cd /home/work/emacs && make install
+cd /home/work/workspace/emacs && make install
+
 su - work -- <<EOF
 emacs -Q --script ~/.emacs.d/install/setup-emacs.el
 emacs -Q --script ~/.emacs.d/install/setup-emacs-work.el
@@ -142,7 +146,7 @@ apt install -y sway make xwayland pavucontrol brightnessctl swayidle swaylock gr
 
 # suckless terminal
 apt install -y stterm
-update-alternatives --config x-terminal-emulator
+update-alternatives --set x-terminal-emulator /usr/bin/st
 
 # nagrywanie ekranu w Wayland
 apt install -y wf-recorder
@@ -156,7 +160,7 @@ mkdir ~/.config/sway
 cp /etc/sway/config ~/.config/sway/config
 cat <<EOF2>> ~/.config/sway/config
 
-set \$term st
+set \\$term st
 
 exec brightnessctl set 6%
 
