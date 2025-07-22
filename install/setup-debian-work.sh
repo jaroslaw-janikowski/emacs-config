@@ -182,6 +182,7 @@ workspace_layout tabbed
 EOF2
 
 sed -i "s/position top/position bottom/" ~/.config/sway/config
+sed -i "s/%I:%M:%S/%H:%M:%S" ~/.config/sway/config
 EOF
 
 cat <<EOF>> ~/.profile
