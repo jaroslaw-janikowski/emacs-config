@@ -3,11 +3,12 @@
 # key: unit
 # --
 unit ${1:name};
+\{$mode objfpc\}\{$H+\}
 
 interface
 
 uses
-
+$0
 type
 
 implementation
