@@ -51,7 +51,7 @@ apt install -y nsis nsis-doc
 apt install -y python3-venv python3-pip python3-debugpy python3-pylsp
 
 # php
-apt install -y php phpunit composer php-xml php-sqlite3
+apt install -y php phpunit composer php-xml php-sqlite3 php-xdebug
 
 su - work -- <<EOF
 mkdir -p ~/.local/bin && cd ~/.local/bin &&  wget https://github.com/phpactor/phpactor/releases/latest/download/phpactor.phar && chmod a+x ./phpactor.phar
