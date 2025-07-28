@@ -136,6 +136,7 @@ EOF
 su - work -- <<EOF
 ollama pull deepseek-r1:7b
 ollama pull qwen2.5-coder
+ollama pull sqlcoder:7b
 EOF
 
 # # desktop
