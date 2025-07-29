@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: try
+# key: try
+# --
+try
+$3
+except
+on E: ${1:ExceptionType} do ${2:expression};
+finally
+$4
+end;$0
