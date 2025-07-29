@@ -141,9 +141,9 @@ EOF
 
 # # desktop
 # # Na końcu aby nie psuć wykonywania skryptów jako user work
-apt install -y fvwm3 pavucontrol p7zip-full stterm clangd gnupg2 unifont gdb clzip sqlite3 sqlite3-doc brightnessctl
+apt install -y fvwm3 xorg pavucontrol p7zip-full stterm clangd gnupg2 unifont gdb clzip sqlite3 sqlite3-doc brightnessctl
 su - work -- <<EOF
-echo 'exec fvwm' >> ~/.xinitrc &&
+echo 'exec fvwm3' >> ~/.xinitrc &&
 echo '[ "$(tty)" = "/dev/tty1" ] && exec startx' >> ~/.profile
 echo 'brightnessctl set 20% &' >> ~/.config/openbox/autostart
 EOF
