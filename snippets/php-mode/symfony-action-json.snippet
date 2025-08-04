@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: symfony-action-json
+# key: symfony
+# --
+#[Route('/${1:URL}', name: '${2:name}', methods: ['${3:GET}'])]
+public function ${4:methodName}(${5:params}): Response
+{
+$json = [
+$0
+];
+return $this->json($json);
+}
