@@ -113,6 +113,7 @@
 
    ;; peertube
    ((string-match-p "https://.*/videos/watch/[[:alnum:]]\\{8\\}-[[:alnum:]]\\{4\\}-[[:alnum:]]\\{4\\}-[[:alnum:]]\\{4\\}-[[:alnum:]]\\{12\\}$" url) (mpv-start url))
+   ((string-match-p "https://makertube.net/w/.*" url) (mpv-start url))
 
    ;; any other
    ((string-suffix-p ".mp4" url) (mpv-start url))
