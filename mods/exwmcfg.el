@@ -14,7 +14,7 @@
 (add-hook 'exwm-randr-screen-change-hook #'my-exwm-update-screen)
 (add-hook 'exwm-update-title-hook #'my-exwm-update-title)
 
-(exwm-enable)
+(exwm-wm-mode)
 (exwm-randr-mode)
 
 (provide 'exwmcfg)
