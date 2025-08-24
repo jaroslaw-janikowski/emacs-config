@@ -7,7 +7,21 @@ apt autoremove -y
 apt install -y sway make xwayland pavucontrol brightnessctl swayidle swaylock qemu-system-x86 grimshot wdisplays p7zip-full stterm clangd gnupg2 unifont silversearcher-ag gdb clzip sqlite3 sqlite3-doc
 
 # suckless terminal
-apt install -y stterm
+# apt install -y stterm
+su - work -- <<EOF
+git clone --depth 1 https://git.suckless.org/scroll /tmp/scroll
+cd /tmp/scroll
+make
+EOF
+cd /tmp/scroll && make install
+su - work -- <<EOF
+git clone --depth 1 https://git.suckless.org/st /tmp/st
+cd /tmp/st
+make config.h
+sed -i "s/char *scroll = NULL;/char *scroll = \"scroll\";/g"
+make
+EOF
+cd /tmp/st && make install
 update-alternatives --config x-terminal-emulator
 
 # nagrywanie ekranu w Wayland
