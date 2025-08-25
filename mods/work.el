@@ -50,7 +50,7 @@
 (editorconfig-mode 1)
 (text-scale-set -1)
 
-(global-set-key (kbd "<f8>") 'treemacs)
+(global-set-key (kbd "<f7>") 'treemacs)
 
 (add-hook 'docker-compose-mode-hook 'my/setup-docker-compose-mode)
 (add-hook 'js-mode-hook 'my-setup-js-mode)
