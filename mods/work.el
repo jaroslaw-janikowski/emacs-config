@@ -20,9 +20,13 @@
   (emmet-mode))
 
 (defun my-setup-php-mode ()
+  (setq-local indent-tabs-mode nil
+	      tab-width 4)
   (eglot-ensure))
 
 (defun my-setup-opascal-mode ()
+  (setq-local indent-tabs-mode nil
+	      tab-width 2)
   (eglot-ensure))
 
 (defun my/setup-docker-compose-mode()
