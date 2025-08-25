@@ -469,6 +469,7 @@
       dired-clean-confirm-killing-deleted-buffers nil
       dired-recursive-copies 'always
       dired-recursive-deletes 'always
+      dired-listing-switches "-alh"
       dired-no-confirm t
       dired-make-directory-clickable t
       dired-mouse-drag-files t
