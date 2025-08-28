@@ -145,7 +145,7 @@ apt install -y fvwm3 xorg pavucontrol p7zip-full stterm clangd gnupg2 unifont gd
 su - work -- <<EOF
 echo 'exec fvwm3' >> ~/.xinitrc &&
 echo '[ "$(tty)" = "/dev/tty1" ] && exec startx' >> ~/.profile
-echo 'brightnessctl set 20% &' >> ~/.config/openbox/autostart
+echo 'brightnessctl set 20% &' > ~/.config/openbox/autostart
 EOF
 
 # Sway desktop
@@ -198,6 +198,6 @@ EOF
 
 # sublime
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | tee /etc/apt/keyrings/sublimehq-pub.asc > /dev/null
-echo -e 'Types: deb\nURIs: https://download.sublimetext.com/\nSuites: apt/stable/\nSigned-By: /etc/apt/keyrings/sublimehq-pub.asc' | tee /etc/apt/sources.list.d/sublime-text.sources
+echo 'Types: deb\nURIs: https://download.sublimetext.com/\nSuites: apt/stable/\nSigned-By: /etc/apt/keyrings/sublimehq-pub.asc' | tee /etc/apt/sources.list.d/sublime-text.sources
 apt -y update
 apt install -y sublime-text sublime-merge
