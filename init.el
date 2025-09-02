@@ -129,7 +129,7 @@
 (defun eww-rewrite-url (url)
   (cond
    ((string-prefix-p "https://www.reddit.com" url)
-    (replace-regexp-in-string "www\\.reddit\\.com" "incogsnoo.com" url))
+    (replace-regexp-in-string "www\\.reddit\\.com" "old.reddit.com" url))
    (t url)))
 
 (defun my-after-init ()
