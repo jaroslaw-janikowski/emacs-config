@@ -604,6 +604,7 @@
       nntp-maximum-request 4  ;; max dla eternal-september
       gnus-always-read-dribble-file nil
       gnus-use-dribble-file nil
+      gnus-use-adaptive-scoring nil
       gnus-save-newsrc-file nil
       gnus-read-newsrc-file nil
       gnus-inhibit-demon t
