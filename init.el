@@ -631,7 +631,7 @@
       treesit-language-source-alist '((c "https://github.com/tree-sitter/tree-sitter-c")))
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
-              c-default-style "k&r"
+              c-default-style '((c . "k&r"))
               c-electric-flag t
 	      comment-column 0
 	      display-fill-column-indicator-column 80
