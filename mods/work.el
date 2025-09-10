@@ -21,7 +21,6 @@
 
 (defun my-setup-php-mode ()
   (setq-local indent-tabs-mode nil
-	      indent-line-function 'indent-relative  ;; fix for weird gnu braces style
 	      tab-width 4)
   (eglot-ensure))
 
