@@ -146,6 +146,7 @@ apt install -y fvwm3 xorg pavucontrol p7zip-full stterm clangd gnupg2 unifont gd
 su - work -- <<EOF
 echo 'exec fvwm3' >> ~/.xinitrc &&
 echo '[ "$(tty)" = "/dev/tty1" ] && exec startx' >> ~/.profile
+mkdir ~/.config/openbox
 echo 'brightnessctl set 20% &' > ~/.config/openbox/autostart
 EOF
 
