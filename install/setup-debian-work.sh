@@ -3,6 +3,48 @@ apt update -y
 apt upgrade -y
 apt autoremove -y
 
+# Sway desktop
+apt install -y sway make xwayland pavucontrol brightnessctl swayidle swaylock grimshot wdisplays p7zip-full clangd gnupg2 unifont silversearcher-ag gdb clzip sqlite3 sqlite3-doc
+
+# nagrywanie ekranu w Wayland
+apt install -y wf-recorder
+
+# spelling tools
+apt install -y aspell aspell-pl aspell-en
+
+# sway setup
+su - work -- <<EOF
+mkdir ~/.config/sway
+cp /etc/sway/config ~/.config/sway/config
+cat <<EOF2>> ~/.config/sway/config
+
+exec brightnessctl set 6%
+
+input * {
+    xkb_layout "pl"
+}
+
+xwayland enable
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86MonBrightnessUp exec brightnessctl set 3%+
+bindsym XF86MonBrightnessDown exec brightnessctl set 3%-
+bindsym Print exec grimshot copy area
+workspace_layout tabbed
+
+EOF2
+
+sed -i "s/position top/position bottom/" ~/.config/sway/config
+sed -i "s/%I:%M:%S/%H:%M:%S" ~/.config/sway/config
+EOF
+
+cat <<EOF>> ~/.profile
+
+sway &
+
+EOF
+
 # przeglądarki internetowe do webdevu
 su - work -- <<EOF
 cd /tmp
@@ -139,64 +181,6 @@ ollama pull deepseek-r1:7b
 ollama pull qwen2.5-coder
 ollama pull sqlcoder:7b
 EOF
-
-# # desktop
-# # Na końcu aby nie psuć wykonywania skryptów jako user work
-apt install -y fvwm3 xorg pavucontrol p7zip-full stterm clangd gnupg2 unifont gdb clzip sqlite3 sqlite3-doc brightnessctl
-su - work -- <<EOF
-echo 'exec fvwm3' >> ~/.xinitrc &&
-echo '[ "$(tty)" = "/dev/tty1" ] && exec startx' >> ~/.profile
-mkdir ~/.config/openbox
-echo 'brightnessctl set 20% &' > ~/.config/openbox/autostart
-EOF
-
-# Sway desktop
-# apt install -y sway make xwayland pavucontrol brightnessctl swayidle swaylock grimshot wdisplays p7zip-full stterm clangd gnupg2 unifont silversearcher-ag gdb clzip sqlite3 sqlite3-doc
-#
-# # suckless terminal
-# apt install -y stterm
-# update-alternatives --set x-terminal-emulator /usr/bin/st
-#
-# # nagrywanie ekranu w Wayland
-# apt install -y wf-recorder
-#
-# # spelling tools
-# apt install -y aspell aspell-pl aspell-en
-#
-# # sway setup
-# su - work -- <<EOF
-# mkdir ~/.config/sway
-# cp /etc/sway/config ~/.config/sway/config
-# cat <<EOF2>> ~/.config/sway/config
-#
-# set \\$term st
-#
-# exec brightnessctl set 6%
-#
-# input * {
-#     xkb_layout "pl"
-# }
-#
-# xwayland enable
-# bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
-# bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
-# bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-# bindsym XF86MonBrightnessUp exec brightnessctl set 3%+
-# bindsym XF86MonBrightnessDown exec brightnessctl set 3%-
-# bindsym Print exec grimshot copy area
-# workspace_layout tabbed
-#
-# EOF2
-#
-# sed -i "s/position top/position bottom/" ~/.config/sway/config
-# sed -i "s/%I:%M:%S/%H:%M:%S" ~/.config/sway/config
-# EOF
-#
-# cat <<EOF>> ~/.profile
-#
-# sway &
-#
-# EOF
 
 # sublime
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | tee /etc/apt/keyrings/sublimehq-pub.asc > /dev/null
