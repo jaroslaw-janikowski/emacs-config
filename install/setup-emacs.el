@@ -60,6 +60,4 @@
 (package-install 'org-drill)
 (nerd-icons-install-fonts t)
 
-(treesit-install-language-grammar 'c)
-
 ;;; setup-emacs.el ends here
