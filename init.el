@@ -291,10 +291,10 @@
   (indent-bars-mode))
 
 (defun my-setup-mhtml-mode ()
-  (setq-local company-backends '(company-html
+  (setq-local company-backends '(company-capf
+				 company-html
 				 company-dabbrev-code
-				 company-yasnippet)
-	      electric-pair-inhibit-predicate (lambda (c) (if (char-equal c ?<) t (,electric-pair-inhibit-predicate c))))
+				 company-yasnippet))
   (emmet-mode))
 
 (defun my/setup-makefile-mode()
