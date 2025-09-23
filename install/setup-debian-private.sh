@@ -7,6 +7,10 @@ cat <<EOF>> ~/.config/mpv/mpv.conf
 pause
 ytdl-format=18
 EOF
+cat <<EOF>> ~/.config/mpv/input.conf
+alt+left ignore
+alt+right ignore
+EOF
 exit
 
 apt install -y fasm

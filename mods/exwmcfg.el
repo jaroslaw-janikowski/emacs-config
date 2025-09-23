@@ -14,6 +14,9 @@
 (add-hook 'exwm-randr-screen-change-hook #'my-exwm-update-screen)
 (add-hook 'exwm-update-title-hook #'my-exwm-update-title)
 
+(exwm-input-set-key (kbd "M-<right>") 'tab-line-switch-to-next-tab)
+(exwm-input-set-key (kbd "M-<left>") 'tab-line-switch-to-prev-tab)
+
 (exwm-wm-mode)
 (exwm-randr-mode)
 
