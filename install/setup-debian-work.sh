@@ -102,8 +102,13 @@ mv ./phpactor.phar ./phpactor
 EOF
 
 # node.js
-apt install -y nodejs npm
+su - work -- <<EOF
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+\. "$HOME/.nvm/nvm.sh"
+nvm install 22
 npm install -g typescript-language-server typescript
+npm install -g @angular/cli
+EOF
 
 # podman setup
 apt install -y podman podman-compose
