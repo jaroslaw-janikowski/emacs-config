@@ -625,6 +625,8 @@
       markdown-header-scaling t
       markdown-display-remote-images t
       markdown-fontify-code-blocks-natively t
+      major-mode-remap-alist '((python-mode . python-ts-mode)
+			       (c-mode . c-ts-mode))
       gptel-default-mode 'org-mode
       gptel-model "gemini-2.0-flash"  ;; because it's free
       gptel-backend (gptel-make-gemini "Gemini" :key (nth 1 (auth-source-user-and-password "generativelanguage.googleapis.com" "notused")) :stream t)
