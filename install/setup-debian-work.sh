@@ -6,6 +6,9 @@ apt autoremove -y
 # Sway desktop
 apt install -y sway make xwayland pavucontrol brightnessctl swayidle swaylock grimshot wdisplays p7zip-full clangd gnupg2 unifont silversearcher-ag gdb clzip sqlite3 sqlite3-doc
 
+# narzędzia
+apt install -y mc
+
 # nagrywanie ekranu w Wayland
 apt install -y wf-recorder
 
