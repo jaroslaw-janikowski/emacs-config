@@ -4,6 +4,7 @@
 (require 'treemacs)
 (require 'docker-compose-mode)
 (require 'flymake-ruby)
+(require 'company-htmx)
 
 (defun my-setup-ruby-mode ()
   (eglot-ensure)
