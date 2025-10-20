@@ -4,7 +4,7 @@ apt upgrade -y
 apt autoremove -y
 
 # Sway desktop
-apt install -y sway make xwayland pavucontrol brightnessctl swayidle swaylock grimshot wdisplays p7zip-full clangd gnupg2 unifont silversearcher-ag gdb clzip sqlite3 sqlite3-doc
+apt install -y sway make xwayland pavucontrol brightnessctl swayidle swaylock grimshot wdisplays p7zip-full clangd gnupg2 unifont silversearcher-ag gdb clzip sqlite3 sqlite3-doc htop
 
 # narzędzia
 apt install -y mc
@@ -39,7 +39,7 @@ workspace_layout tabbed
 EOF2
 
 sed -i "s/position top/position bottom/" ~/.config/sway/config
-sed -i "s/%I:%M:%S/%H:%M:%S" ~/.config/sway/config
+sed -i "s/%I:%M:%S/%H:%M:%S/" ~/.config/sway/config
 EOF
 
 cat <<EOF>> ~/.profile
