@@ -40,6 +40,7 @@ EOF2
 
 sed -i "s/position top/position bottom/" ~/.config/sway/config
 sed -i "s/%I:%M:%S/%H:%M:%S/" ~/.config/sway/config
+sed -i "s/| dmenu | /| dmenu -m 0 | /" ~/.config/sway/config
 EOF
 
 cat <<EOF>> ~/.profile
