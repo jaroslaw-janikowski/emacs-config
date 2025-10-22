@@ -4,7 +4,7 @@ apt upgrade -y
 apt autoremove -y
 
 # Sway desktop
-apt install -y sway make xwayland pavucontrol brightnessctl swayidle swaylock grimshot wdisplays p7zip-full clangd gnupg2 unifont silversearcher-ag gdb clzip sqlite3 sqlite3-doc htop
+apt install -y sway xwayland pavucontrol brightnessctl swayidle swaylock grimshot wdisplays p7zip-full gnupg2 unifont clzip htop
 
 # narzędzia
 apt install -y mc
@@ -50,6 +50,3 @@ sway &
 EOF
 
 apt install -y firefox-esr
-
-# spelling tools
-apt install -y aspell aspell-pl aspell-en

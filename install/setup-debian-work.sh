@@ -1,5 +1,9 @@
 # instalacja pożądanego pulpitu
-source ./debian-desktop-sway.sh
+# source ./debian-desktop-sway.sh
+source ./debian-desktop-openbox.sh
+
+# basic tools
+apt install -y make clangd silversearcher-ag gdb sqlite3 sqlite3-doc
 
 # Google Chrome
 su - work -- <<EOF
