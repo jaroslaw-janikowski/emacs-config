@@ -4,7 +4,7 @@ apt upgrade -y
 apt autoremove -y
 
 # Sway desktop
-apt install -y sway xwayland pavucontrol brightnessctl swayidle swaylock grimshot wdisplays p7zip-full gnupg2 unifont clzip htop
+apt install -y sway xwayland pavucontrol brightnessctl swayidle swaylock grimshot wdisplays p7zip-full gnupg2 unifont clzip htop dmenu
 
 # narzędzia
 apt install -y mc
