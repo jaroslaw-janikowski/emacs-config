@@ -290,6 +290,17 @@
   (idle-highlight-mode t)
   (indent-bars-mode))
 
+(defun frameshot ()
+  (interactive)
+  (let* ((image (x-export-frames nil (or frameshot-format 'png)))
+	 (base-directory (or frameshot-directory (getenv "HOME")))
+	 (file (concat base-directory (format-time-string "/Screenshot-%Y-%m-%d-%T.")
+		       (symbol-name frameshot-format))))
+    (with-temp-file file
+      (insert image))
+    (dired-goto-file (expand-file-name file))
+    (message "Frame shot saved as `%s'" file)))
+
 (defun my-setup-mhtml-mode ()
   (setq-local company-backends '(company-capf
 				 company-html
@@ -631,6 +642,8 @@
       gptel-model "gemini-2.0-flash"  ;; because it's free
       gptel-backend (gptel-make-gemini "Gemini" :key (nth 1 (auth-source-user-and-password "generativelanguage.googleapis.com" "notused")) :stream t)
       restclient-same-buffer-response nil
+      frameshot-directory (my-eww-discover-download-directory)
+      frameshot-format 'png
       treesit-language-source-alist '((c "https://github.com/tree-sitter/tree-sitter-c")))
 
 (setq-default dired-kill-when-opening-new-dired-buffer t
