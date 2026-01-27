@@ -46,6 +46,7 @@
 (require 'company-box)
 (require 'sql-indent)
 (require 'org-drill)
+(require 'company-emoji)
 
 (defun my-setup-org-mode ()
   "Automatically set spelling dictionary based on #+language keyword."
@@ -317,7 +318,8 @@
   (setq-local company-backends '(company-files
 				 company-dabbrev
 				 company-yasnippet))
-  (markdown-toggle-inline-images))
+  (markdown-toggle-inline-images)
+  (company-emoji-init))
 
 (defun my/setup-elisp-mode()
   (setq-local company-backends '((company-capf company-files company-yasnippet company-dabbrev-code))))
