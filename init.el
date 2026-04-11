@@ -314,6 +314,13 @@
 				  company-dabbrev-code
 				  company-yasnippet))))
 
+(defun my-setup-opascal-mode ()
+  (setq-local indent-tabs-mode nil
+	      tab-width 2
+	      compile-command (concat "fpc " (file-name-sans-extension buffer-file-name))
+	      compilation-read-command nil)
+  (eglot-ensure))
+
 (defun my-setup-markdown-mode ()
   (setq-local company-backends '(company-files
 				 company-dabbrev
@@ -631,7 +638,12 @@
       compilation-ask-about-save nil
       compilation-scroll-output t
       compilation-always-kill t
+      compilation-read-command nil
       company-transformers '(my-company-sort-completions)
+      pascal-indent-level 2
+      pascal-case-indent 2
+      opascal-indent-level pascal-indent-level
+      opascal-case-label-indent pascal-case-indent
       sgml-quick-keys 'close
       ediff-window-setup-function 'ediff-setup-windows-plain
       ediff-split-window-function 'split-window-horizontally
@@ -838,6 +850,7 @@
 (add-hook 'message-mode-hook 'my/setup-message-mode)
 (add-hook 'company-mode-hook 'company-box-mode)
 (add-hook 'org-mode-hook #'my-setup-org-mode)
+(add-hook 'opascal-mode-hook #'my-setup-opascal-mode)
 
 ;; file extensions
 (add-to-list 'auto-mode-alist '("\\.c$" . c-ts-mode))
@@ -856,6 +869,9 @@
 (add-to-list 'auto-mode-alist '("CHANGELOG$" . text-mode))
 (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
 (add-to-list 'auto-mode-alist '("\\.svg$" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.pas$" . opascal-mode))
+(add-to-list 'auto-mode-alist '("\\.pp$" . opascal-mode))
+(add-to-list 'auto-mode-alist '("\\.lpr$" . opascal-mode)) ;; Lazarus program
 
 (add-to-list 'dape-configs `(debugpy
 			     modes (python-ts-mode python-mode)
