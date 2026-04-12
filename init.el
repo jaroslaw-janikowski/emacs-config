@@ -470,6 +470,8 @@
       blink-matching-paren t
       remote-file-name-inhibit-delete-by-moving-to-trash t
       remote-file-name-inhibit-auto-save t
+      remote-file-name-inhibit-auto-save-visited t
+      remote-file-name-inhibit-locks t
       tramp-connection-timeout (* 60 10)
       tramp-default-remote-shell "/bin/bash"
       tramp-default-method "ssh"
