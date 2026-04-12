@@ -94,7 +94,7 @@ ufw deny vnc
 
 # emacs
 apt build-dep -y emacs
-apt install -y libtree-sitter-dev libsqlite3-dev
+apt install -y libtree-sitter-dev libsqlite3-dev mailutils
 su - work -- <<EOF
 emacs -Q --script ~/.emacs.d/install/setup-emacs.el
 EOF
