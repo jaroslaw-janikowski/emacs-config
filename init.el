@@ -570,6 +570,7 @@
       message-confirm-send nil
       message-kill-buffer-on-exit t
       message-wide-reply-confirm-recipients t
+      shr-image-animate t
       eww-history-limit 100
       eww-browse-url-new-window-is-tab nil
       eww-search-prefix "https://html.duckduckgo.com/html/?q="
