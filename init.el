@@ -260,7 +260,9 @@
 
 (defun my-setup-nxml-mode ()
   (setq-local company-backends '((company-nxml)))
-  (display-line-numbers-mode))
+  (display-line-numbers-mode)
+  (when (string= (file-name-extension (buffer-file-name)) "svg")
+    (image-toggle-display)))
 
 (defun my/setup-text-mode()
   (setq-local company-backends '((company-dabbrev)))
