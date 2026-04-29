@@ -103,6 +103,23 @@ make all
 EOF
 cd /home/work/workspace/freepascal && make install
 
+# PasBuild
+su - work -- <<EOF
+cd ~/workspace
+git clone --depth=1 https://github.com/graemeg/PasBuild pasbuild
+cd ./pasbuild
+sh ./bootstrap.sh
+EOF
+
+# fpGUI
+apt install -y libx11-dev libxft-dev
+su - work -- <<EOF
+cd ~/workspace
+git clone --depth=1 https://github.com/graemeg/fpgui fpgui
+cd ./fpgui
+pasbuild compile -m fpgui-framework -p unix
+EOF
+
 #  Lazarus IDE
 su - work -- <<EOF
 cd ~/workspace
