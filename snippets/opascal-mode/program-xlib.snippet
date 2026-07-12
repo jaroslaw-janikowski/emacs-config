@@ -1,0 +1,45 @@
+# -*- mode: snippet -*-
+# name: program-xlib
+# key: program
+# --
+program test;
+uses
+x, xlib;
+
+var
+dis: PDisplay;
+win: TWindow;
+event: TXEvent;
+screen: Integer;
+
+begin
+dis := XOpenDisplay(nil);
+if dis = nil then
+begin
+writeln('Cannot open display');
+Halt(1);
+end;
+
+screen := DefaultScreen(dis);
+win := XCreateSimpleWindow(dis, RootWindow(dis, screen), 10, 10, 400, 300, 1, BlackPixel(dis, screen), WhitePixel(dis, screen));
+
+XSelectInput(dis, win, ExposureMask or KeyPressMask);
+XMapWindow(dis, win);
+XFlush(dis);
+
+while True do
+begin
+XNextEvent(dis, @event);
+case event._type of
+Expose:
+begin
+XFillRectangle(dis, win, DefaultGC(dis, screen), 20, 20, 100, 100);
+XDrawString(dis, win, DefaultGC(dis, screen), 30, 50, 'Hello X11!', 10);
+
+end;
+KeyPress: Break;
+end;
+end;
+XDestroyWindow(dis, win);
+XCloseDisplay(dis);
+end.
