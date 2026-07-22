@@ -4,7 +4,10 @@ apt upgrade -y
 apt autoremove -y
 
 # instalacja narzędzi
-apt install -y sway make xwayland pavucontrol brightnessctl swayidle swaylock qemu-system-x86 grimshot wdisplays p7zip-full stterm clangd gnupg2 unifont silversearcher-ag gdb clzip sqlite3 sqlite3-doc htop
+apt install -y sway make xwayland pavucontrol brightnessctl swayidle swaylock qemu-system-x86 grimshot wdisplays p7zip-full stterm clangd unifont silversearcher-ag gdb clzip sqlite3 sqlite3-doc htop
+
+# gnupg
+apt install -y gnupg2 pinentry-gtk2
 
 # suckless terminal
 # apt install -y stterm
