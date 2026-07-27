@@ -57,7 +57,6 @@
 (package-install 'indent-bars)
 (package-install 'lingva)
 (package-install 'sql-indent)
-(package-install 'org-drill)
 (package-install 'company-emoji)
 (nerd-icons-install-fonts t)
 
