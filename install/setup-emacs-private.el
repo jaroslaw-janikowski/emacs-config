@@ -4,3 +4,4 @@
 (package-install 'org-contacts)
 (package-install 'osm)
 (package-install 'mastodon)
+(package-install 'yeetube)
