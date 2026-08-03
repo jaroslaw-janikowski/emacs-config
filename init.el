@@ -460,6 +460,15 @@
       confirm-kill-emacs nil
       confirm-nonexistent-file-or-buffer nil
       completion-ignore-case t
+      completions-format 'one-column
+      completions-max-height 12
+      completions-sort 'historical
+      completion-auto-help t
+      completion-auto-select nil
+      completion-eager-display t
+      completion-eager-update t
+      completion-styles '(basic substring initials flex)
+      minibuffer-visible-completions t
       read-buffer-completion-ignore-case t
       read-file-name-completion-ignore-case t
       enable-recursive-minibuffers t
