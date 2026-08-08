@@ -468,6 +468,7 @@
       completion-eager-display t
       completion-eager-update t
       completion-styles '(basic substring initials flex)
+      speedbar-prefer-window t
       minibuffer-visible-completions t
       read-buffer-completion-ignore-case t
       read-file-name-completion-ignore-case t

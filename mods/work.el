@@ -1,7 +1,6 @@
 ;; -*- lexical-binding: t -*-
 ;;; package --- Summary
 
-(require 'treemacs)
 (require 'docker-compose-mode)
 (require 'flymake-ruby)
 (require 'company-htmx)
@@ -31,20 +30,14 @@
 				  company-files
 				  company-yasnippet))))
 
-(setq treemacs-recenter-after-project-jump 'always
-      treemacs-recenter-after-file-follow 'always
-      treemacs-no-delete-other-windows t
-      treemacs-tag-follow-delay 0.1
-      docker-command "podman"
+(setq docker-command "podman"
       docker-compose-command "podman-compose"
       )
 
-(treemacs-project-follow-mode 1)
-(treemacs-follow-mode 1)
 (editorconfig-mode 1)
 (text-scale-set -1)
 
-(global-set-key (kbd "<f7>") 'treemacs)
+(global-set-key (kbd "<f7>") 'speedbar)
 
 (add-hook 'docker-compose-mode-hook 'my/setup-docker-compose-mode)
 (add-hook 'js-mode-hook 'my-setup-js-mode)

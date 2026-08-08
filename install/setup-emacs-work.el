@@ -12,7 +12,6 @@
 
 (package-install 'docker)
 (package-install 'dockerfile-mode)
-(package-install 'treemacs)
 (package-install 'docker-compose-mode)
 (package-install 'css-eldoc)
 (package-install 'js-doc)
