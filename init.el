@@ -578,6 +578,8 @@
 			  (holiday-fixed 12 25 "Wigilia Bożego Narodzenia")
 			  (holiday-fixed 12 26 "Boże Narodzenie"))
       ispell-choices-buffer "*ispell-top-choices*"
+      ispell-program-name "aspell"
+      ispell-dictionary "polish"
       message-confirm-send nil
       message-kill-buffer-on-exit t
       message-wide-reply-confirm-recipients t
