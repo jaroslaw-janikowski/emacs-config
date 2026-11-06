@@ -649,7 +649,7 @@
       gnus-large-newsgroup 200
       gnus-interactive-exit nil
       mpv-default-options '("--ytdl-format=bestvideo[height<=?480]+bestaudio[height<=?480] / worst" "--script-opts=ytdl_hook-ytdl_path=/home/nntpsurfer/.local/bin/yt-dlp" "--pause")
-      org-capture-templates '(("t" "TODO" entry (file+headline org-default-notes-file "Tasks") "* TODO %?\n %i\n %a"))
+      org-capture-templates '(("t" "TODO" entry (file org-default-notes-file) "* TODO %?\n %i\n %a"))
       compilation-ask-about-save nil
       compilation-scroll-output t
       compilation-always-kill t
